@@ -1,0 +1,13 @@
+name = ECLEDS Taxonomy
+core = 7.x
+package = ECLEDS
+version = 7.x-1.0
+project = ecleds_taxonomy_feature
+dependencies[] = features
+dependencies[] = taxonomy
+features[features_api][] = api:2
+features[taxonomy][] = ecleds_bureau_taxonomy
+features[taxonomy][] = indicator_category
+features[taxonomy][] = nrel_ecleds_milestone_category
+features[taxonomy][] = partners
+features[taxonomy][] = sub_sub_irs

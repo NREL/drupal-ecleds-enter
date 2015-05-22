@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ECLEDS Strongarm feature.
+ */
+
+include_once 'ecleds_strongarm.features.inc';

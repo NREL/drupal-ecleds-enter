@@ -1,0 +1,4 @@
+name = NREL Awesome Menu
+description = Hijack the Menu and Make it awesome with Javascript.
+core = 7.x
+package = Aten

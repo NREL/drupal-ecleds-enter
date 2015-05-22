@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * Implements hook_migrate_api().
+ */
+function ec_leds_migrate_migrate_api() {
+  $api = array(
+    'api' => 2,
+    'migrations' => array(
+      'FundingPillar' => array('class_name' => 'ecLedsMigrateEcledsFieldCollectionFundingPillar'),
+    ),
+  );
+  
+  return $api;
+
+}

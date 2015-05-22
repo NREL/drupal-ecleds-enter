@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ECLEDS Country Entity feature.
+ */
+
+include_once 'ecleds_country_entity_feature.features.inc';

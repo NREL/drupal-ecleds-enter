@@ -1,0 +1,275 @@
+<?php
+/**
+ * Content type class for wowmom content type creation!
+ *
+ * Example:
+ *     new ContentType('eco_env_type')
+ *       ->save();
+ */
+//class ContentType {
+//  function __construct ($type, $name) {
+//    $content_type = array(
+//      'base' => 'node_content',
+//      'description' => '',
+//      'help' => '',
+//      'custom' => 1,
+//      'modified' => 1,
+//      'locked' => 0,
+//      'disabled' => 0,
+//      'is_new' => 1,
+//      'title_label' => '',
+//    );
+//
+//    // $type is the machine name
+//    $options['type'] = $type;
+//
+//    // @todo: auto gen name from machine name
+//    $options['name'] = $name;
+//
+//    $content_type = array_merge($content_type, $options);
+//    $this->content_type = $content_type;
+//
+//    return $this;
+//  }
+//
+//  /**
+//   * Set properties of the content type.
+//   * Example:
+//   *    new ContentType('butts_type')
+//   *       ->set('name', 'butts type')
+//   *       ->set('description', 'type of butts')
+//   *       ->save();
+//   * @param $prop property to set.
+//   * @param $val value to set on property.
+//   */
+//  public function set($prop, $val) {
+//    $this->content_type[$prop] = $val;
+//
+//    return $this;
+//  }
+//
+//  /**
+//   * Save the content type to the database.
+//   */
+//  public function save() {
+//    $content_type = node_type_set_defaults($content_type);
+//    node_type_save($content_type);
+//  }
+//
+//  /**
+//   * Add fields to the content type.
+//   *
+//   * @param $field_instance instance of Field
+//   */
+//  public function add_field() {
+//    // add field instance
+//  }
+//}
+
+/**
+ * Creates content type.
+ */
+function factory_create_content_type($name, $type, $options = array()) {
+
+  $content_type = array(
+    'type' => $type,
+    'name' => $name,
+    'base' => 'node_content',
+    'description' => '',
+    'help' => '',
+    'custom' => 1,
+    'modified' => 1,
+    'locked' => 0,
+    'disabled' => 0,
+    'is_new' => 1,
+    'title_label' => '',
+  );
+
+  $content_type = array_merge($content_type, $options);
+
+  $content_type = node_type_set_defaults($content_type);
+  node_type_save($content_type);
+
+}
+
+function factory_field($field_name, $new_field, $new_instance, $bundle, $entity_type = 'node') {
+
+  $prior_field = field_read_field($field_name, array('include_inactive' => TRUE));
+
+  if (empty($prior_field)) {
+    field_create_field($new_field);
+  }
+
+  $prior_instance = field_read_instance($entity_type, $field_name, $bundle);
+
+  if (empty($prior_instance)) {
+    field_create_instance($new_instance);
+  }
+
+}
+
+function factory_field_settings($field_name, $field_type = 'text') {
+
+	$new_field = array();
+
+	switch ($field_type) {
+
+		case 'text':
+		  $new_field = array(
+		    'field_name' => $field_name,
+		    'type' => 'text',
+		    'module' => 'text',
+		    'cardinality' => 1,
+		    'settings' => array(
+		      'max_length' => '255',
+		    ),
+		  );
+		  break;
+
+  }
+
+  return $new_field;
+}
+
+/**
+ * Creates a field group.
+ */
+function factory_field_group(
+	$label, $group_name, $view_mode, $bundle,
+	$children = array(),
+	$group_settings = array(),
+	$format_settings = array(),
+	$entity_type = 'node'
+) {
+
+	$identifier = implode('|', array($group_name, $entity_type, $bundle, $view_mode));
+
+	$default_format_settings = array(
+		'formatter' => 'open',
+		'instance_settings' => array(
+		  'description' => '',
+		  'show_label' => 0,
+		  'label_element' => 'h3',
+		  'effect' => 'none',
+		  'speed' => 'fast',
+		  'classes' => '',
+		),
+	);
+
+  $format_settings = array_merge($default_format_settings, $format_settings);
+
+	$default_group_settings = array(
+			'identifier' => $identifier,
+			'group_name' => $group_name,
+			'entity_type' => $entity_type,
+			'bundle' => $bundle,
+			'mode' => $view_mode,
+			'parent_name' => '',
+			'table' => 'field_group',
+			'type' => 'Normal',
+			'disabled' => false,
+			'label' => $label,
+			'weight' => '0',
+			'children' => $children,
+			'format_type' => 'div',
+			'format_settings' => $format_settings,
+		);
+
+  $group_settings = array_merge($default_group_settings, $group_settings);
+
+	if (!field_group_exists($group_name, $entity_type, $bundle, $view_mode)) {
+
+		$new_group = (object) $group_settings;
+		field_group_group_save($new_group);
+		$default_field_group = variable_get('default_field_group', array());
+		$default_field_group[$identifier] = FALSE;
+		variable_set('default_field_group', $default_field_group);
+
+	}
+	else {
+
+		$prior_group = field_group_load_field_group($group_name, $entity_type, $bundle, $view_mode);
+		$prior_group->children = $children;
+		$prior_group->format_type = $group_settings['format_type'];
+		$prior_group->weight = $group_settings['weight'];
+		$prior_group->format_settings = $format_settings;
+		field_group_group_save($prior_group);
+
+	}
+
+}
+
+function factory_field_instance($label, $field_name, $bundle, $entity_type, $field_type = 'text', $options = array()) {
+
+	$default_options = array();
+	$widget = array();
+
+	switch ($field_type) {
+
+		case 'text':
+		  $default_options = array(
+		    'description' => '',
+		    'weight' => '19',
+		    'display_label' => 1,
+		    'user_register_form' => FALSE,
+		    'text_processing' => 0,
+		    'required' => FALSE,
+		  );
+			break;
+
+	}
+
+  $options = array_merge($default_options, $options);
+
+	switch ($field_type) {
+
+		case 'text':
+		  $widget = array(
+	      'type' => 'text_textfield',
+	      'module' => 'text',
+	      'active' => 1,
+	      'settings' => array(
+	        'display_label' => $options['display_label'],
+	      ),
+	    );
+			break;
+
+	}
+
+  $new_instance = array(
+    'label' => $label,
+    'field_name' => $field_name,
+    'required' => $options['required'],
+    'bundle' => $bundle,
+    'entity_type' => $entity_type,
+    'description' => $options['description'],
+    'widget' => $widget,
+    'settings' => array(
+      'user_register_form' => '',
+      'text_processing' => '',
+    ),
+  );
+
+  return $new_instance;
+}
+
+function factory_content_type($name, $type, $options = array()) {
+}
+
+function factory_field_collection($field_name, $bundle, $options = array()) {
+  $defaults = array(
+    'field_name' => $field_name,
+    'bundle' => $bundle,
+    'fields' => array(),
+    'entity_type' => 'node',
+  );
+
+  $options = array_merge($defaults, $options);
+
+  $options['fields']['field_name'] = $options['field_name'];
+
+  $field_collection = entity_create('field_collection_item', $options['fields']);
+  $field_collection->setHostEntity($options['entity_type'], $options['bundle']);
+  $field_collection->save();
+
+}

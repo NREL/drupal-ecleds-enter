@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ECLEDS Country LEDS Plans, Institutions Entity feature.
+ */
+
+include_once 'ecleds_country_leds_plans_institution_entity_feature.features.inc';

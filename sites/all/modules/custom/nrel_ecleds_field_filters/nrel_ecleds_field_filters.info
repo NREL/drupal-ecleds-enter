@@ -1,0 +1,4 @@
+name = NREL Field Filters
+description = Filter fields options based on values of other fields.
+core = 7.x
+package = Aten

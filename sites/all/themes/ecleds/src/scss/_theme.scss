@@ -1,0 +1,81 @@
+
+// Edit button.
+.button-add,
+.button-edit {
+  float: right;
+}
+a.button.button-add {
+  margin: 1em 0;
+}
+a.button.button-edit {
+  margin: 0;
+}
+
+//
+
+// Field styles
+.field-label {
+  margin-bottom: 0.2em;
+  font-size: 1.4em;
+}
+
+// Performance Dates
+fieldset[class^="group-performance"] {
+
+  div[class*="month"] +
+  div[class*="year"] {
+    margin-top: 0;
+
+    .field-item:before {
+      content: '/';
+    }
+  }
+}
+
+.node .content {
+  margin-bottom: 2em;
+  padding: 1em;
+
+  // Fix slideToggle jump
+  border: 1px solid transparent;
+  background: $clr-cnt;
+
+  & > .field {
+    margin-bottom: 1.5em;
+  }
+  fieldset {
+    background: $clr-fld;
+  }
+}
+
+.field-collection-container {
+  margin-bottom: 2em;
+  border-bottom: none;
+}
+
+.toggle-icon {
+  margin-right: 5px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+
+  .toggle-open &:before {
+    content: '▾'
+  }
+  .toggle-closed &:before {
+    content: '▸'
+  }
+}
+
+.toggle-open,
+.toggle-closed {
+  margin-bottom: 0;
+  padding: 1em;
+  background: $clr-hdr;
+  border-bottom: 1px solid darken($clr-hdr, 10%);
+}
+
+* + .milestone-group-title{
+  margin-top: 2em;
+}

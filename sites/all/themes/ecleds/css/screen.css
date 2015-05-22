@@ -1,0 +1,89 @@
+@charset "UTF-8";
+body.adminimal-theme.html * {
+  box-sizing: border-box; }
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+@media (min-width: 48em) {
+  fieldset[class^="group-performance"] {
+    float: left;
+    width: 48%; } }
+
+@media (min-width: 48em) {
+  fieldset[class^="group-performance"] + fieldset[class^="group-performance"] {
+    float: right; } }
+
+div[class*="field-fy"] .field-label {
+  width: 50%; }
+
+@media (min-width: 48em) {
+  div[class*="field-fy"] {
+    width: 33%;
+    float: left; }
+    div[class*="field-fy"]:nth-child(3n+3) {
+      float: right; } }
+
+div[class*="impl-mech-gcc-indicator"] div[class*="results-explanation"] {
+  padding-top: 2em;
+  width: 100%;
+  float: none;
+  clear: both; }
+
+.button-add,
+.button-edit {
+  float: right; }
+
+a.button.button-add {
+  margin: 1em 0; }
+
+a.button.button-edit {
+  margin: 0; }
+
+.field-label {
+  margin-bottom: 0.2em;
+  font-size: 1.4em; }
+
+fieldset[class^="group-performance"] div[class*="month"] +
+div[class*="year"] {
+  margin-top: 0; }
+  fieldset[class^="group-performance"] div[class*="month"] +
+div[class*="year"] .field-item:before {
+    content: '/'; }
+
+.node .content {
+  margin-bottom: 2em;
+  padding: 1em;
+  border: 1px solid transparent;
+  background: #fafafa; }
+  .node .content > .field {
+    margin-bottom: 1.5em; }
+  .node .content fieldset {
+    background: #fff; }
+
+.field-collection-container {
+  margin-bottom: 2em;
+  border-bottom: none; }
+
+.toggle-icon {
+  margin-right: 5px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer; }
+  .toggle-open .toggle-icon:before {
+    content: '▾'; }
+  .toggle-closed .toggle-icon:before {
+    content: '▸'; }
+
+.toggle-open,
+.toggle-closed {
+  margin-bottom: 0;
+  padding: 1em;
+  background: #e1e2dc;
+  border-bottom: 1px solid #c9cbc0; }
+
+* + .milestone-group-title {
+  margin-top: 2em; }

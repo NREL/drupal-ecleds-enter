@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ECLEDS Implementing Mechanism feature.
+ */
+
+include_once 'ecleds_implementing_mechanism_feature.features.inc';

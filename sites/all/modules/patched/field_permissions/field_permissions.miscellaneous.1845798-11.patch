@@ -1,0 +1,32 @@
+diff --git a/field_permissions.module b/field_permissions.module
+index bc4d1f5..442cf90 100644
+--- a/field_permissions.module
++++ b/field_permissions.module
+@@ -260,3 +260,27 @@ function _field_permissions_entity_is_owned_by_account($entity, $account) {
+   // account does not own it.
+   return isset($entity->uid) && $entity->uid == $account->uid;
+ }
++
++/**
++ * Implements hook_features_pipe_COMPONENT_alter().
++ *
++ * Add field permissions to features when exporting a field_base.
++ */
++function field_permissions_features_pipe_field_base_alter(&$pipe, $data, $export) {
++  module_load_include('inc', 'field_permissions', 'field_permissions.admin');
++  // Validate if there are field_base components that will be exported for this
++  // feature.
++  if (isset($export['features']['field_base'])) {
++    // Iterate through the exported field_base components for this feature and
++    // add the defined field permissions.
++    foreach ($export['features']['field_base'] as $field_name) {
++      $field = field_info_field($field_name);
++      if (isset($field['field_permissions']['type']) && $field['field_permissions']['type'] == FIELD_PERMISSIONS_CUSTOM) {
++        $perms = field_permissions_list_field_permissions($field, '');
++        foreach ($perms as $perm => $info) {
++          $pipe['user_permission'][] = $perm;
++        }
++      }
++    }
++  }
++}

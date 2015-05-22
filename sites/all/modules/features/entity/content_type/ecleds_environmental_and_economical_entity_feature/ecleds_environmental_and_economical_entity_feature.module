@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ECLEDS Environmental and Economical Entity feature.
+ */
+
+include_once 'ecleds_environmental_and_economical_entity_feature.features.inc';

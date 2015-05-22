@@ -1,0 +1,51 @@
+// Override
+body.adminimal-theme.html * {
+  box-sizing: border-box;
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+// Performance Dates
+fieldset[class^="group-performance"] {
+
+  @include breakpoint($tablet) {
+
+    float: left;
+    width: 48%;
+  }
+
+  & + fieldset[class^="group-performance"] {
+    @include breakpoint($tablet) {
+
+      float: right;
+    }
+  }
+}
+
+div[class*="field-fy"] {
+
+  .field-label {
+    width: 50%;
+  }
+
+  @include breakpoint($tablet) {
+    width: 33%;
+    float: left;
+
+    &:nth-child(3n+3) {
+      float: right;
+    }
+  }
+}
+
+div[class*="impl-mech-gcc-indicator"] {
+
+  div[class*="results-explanation"] {
+    padding-top: 2em;
+    width: 100%;
+    float: none;
+    clear: both;
+  }
+}

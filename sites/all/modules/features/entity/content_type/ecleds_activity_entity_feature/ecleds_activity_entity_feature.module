@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ECLEDS Activity Entity feature.
+ */
+
+include_once 'ecleds_activity_entity_feature.features.inc';

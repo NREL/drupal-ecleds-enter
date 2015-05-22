@@ -1,0 +1,618 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function nrel_ecleds_country_menu() {
+
+	$items = array();
+
+/*
+	$items['node/%node/projects'] = array(
+		'title' => 'Projects',
+		'access callback' => 'nrel_ecleds_country_is_country',
+		'access arguments' => array(1),
+		'weight' => -20,
+		'type' => MENU_DEFAULT_LOCAL_TASK,
+	);
+*/
+
+  $items['node/%node/overview'] = array(
+		'title' => 'Overview',
+		'access callback' => 'nrel_ecleds_country_is_country',
+		'access arguments' => array(1),
+		'page callback' => 'nrel_ecleds_country_environmental',
+		'page arguments' => array(1, 'environmental_and_economic'),
+		'weight' => -18,
+		'type' => MENU_DEFAULT_LOCAL_TASK,
+	);
+
+	$items['node/%node/leds'] = array(
+		'title' => 'Country LEDS Plans',
+		'access callback' => 'nrel_ecleds_country_is_country',
+		'access arguments' => array(1),
+		'page callback' => 'nrel_ecleds_node_view_safe',
+		'page arguments' => array(1, 'leds_plans_institutions'),
+		'weight' => -17,
+		'type' => MENU_LOCAL_TASK,
+	);
+
+	$items['node/%node/baseline'] = array(
+		'title' => 'Baseline Workbook',
+		'access callback' => 'nrel_ecleds_country_is_country',
+		'access arguments' => array(1),
+		'page callback' => 'nrel_ecleds_node_view_safe',
+		'page arguments' => array(1, 'baseline_workbook'),
+		'weight' => -16,
+		'type' => MENU_LOCAL_TASK,
+	);
+
+	$items['node/%node/program'] = array(
+		'title' => 'ECLEDS Prog Plans',
+		'access callback' => 'nrel_ecleds_country_is_country',
+		'access arguments' => array(1),
+		'page callback' => 'nrel_ecleds_node_view_safe',
+		'page arguments' => array(1, 'program_plans'),
+		'weight' => -15,
+		'type' => MENU_LOCAL_TASK,
+	);
+
+	$items['node/%node/progress'] = array(
+		'title' => 'LEDS Progress',
+		'access callback' => 'nrel_ecleds_country_is_country',
+		'access arguments' => array(1),
+		'page callback' => 'nrel_ecleds_node_view_safe',
+		'page arguments' => array(1, 'nrel_ecleds_program_level'),
+		'weight' => -13,
+		'type' => MENU_LOCAL_TASK,
+	);
+
+	$items['node/%node/other'] = array(
+		'title' => 'Other Programs',
+		'access callback' => 'nrel_ecleds_country_is_country',
+		'access arguments' => array(1),
+		'page callback' => 'nrel_ecleds_country_other',
+		'page arguments' => array(1),
+		'weight' => -12,
+		'type' => MENU_LOCAL_TASK,
+	);
+
+	return $items;
+
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ *
+ * @param $data
+ * @param $router_item
+ * @param $root_path
+ */
+function nrel_ecleds_country_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+
+  $tabs = &$data['tabs'][0]['output'];
+
+  // Haystack arrays for hiding tabs
+  $extra_tabs = array(
+    'nrel_ecleds_node_view_safe',
+    'nrel_ecleds_country_other',
+
+  );
+  $node_tabs = array(
+    'node/%/edit',
+    'node/%/display',
+    'node/%/revisions',
+  );
+
+  if (!is_null($tabs)) {
+    foreach ($tabs as $key => $tab) {
+
+      // On country pages...
+      if (isset($router_item['page_arguments'][0]->type) &&
+        $router_item['page_arguments'][0]->type == 'country'
+      ) {
+
+        // Hide the node tabs on the extra pages
+        if (in_array($router_item['page_callback'], $extra_tabs) &&
+          in_array($tab['#link']['path'], $node_tabs)
+        ) {
+          unset($tabs[$key]);
+        }
+
+        // Hide the node tabs on the node view page
+        if ($root_path == 'node/%' &&
+          in_array($tab['#link']['path'], $node_tabs)
+        ) {
+          unset($tabs[$key]);
+        }
+      }
+    }
+  }
+
+  /*
+   * Add related tabs to all country sections using the logic: if there's a
+   * destination and that destination is a country then load the tabs, except on
+   * admin pages like manage display
+   */
+  $params = drupal_get_query_parameters();
+  $destination_array = !empty($params['destination']) ? explode('/', $params['destination']) : NULL;
+  $country_nid = count($destination_array) > 2 && $destination_array[0] == 'node' ? $destination_array[1] : NULL;
+  $country_wrapper = entity_metadata_wrapper('node', $country_nid);
+  if ($country_wrapper->getBundle() == 'country' &&
+    !path_is_admin(current_path())
+  ) {
+    $country_url = drupal_get_path_alias('node/' . $country_nid);
+    nrel_ecleds_breadcrumb($country_wrapper, $country_url);
+    nrel_ecleds_country_tabs($tabs, $country_nid, $country_url);
+    $data['tabs'][0]['count'] += 6;
+    return;
+  }
+
+  // content_type => respective ent ref field on country entity
+  $country_fields = array(
+    'environmental_and_economical' => 'field_environmental_and_economic',
+    'leds_plans_institutions' => 'field_leds_plans_institutions',
+    'baseline_workbook' => 'field_baseline_workbook',
+    'program_plans' => 'field_program_plans',
+    'program_level_progress' => 'field_nrel_ecleds_program_level',
+    'other_usg_leds_related_programs' => 'field_ecleds_other',
+  );
+
+  $current_menu_item = menu_get_item();
+  $current_node = isset($current_menu_item['page_arguments'][0]) ? $current_menu_item['page_arguments'][0] : NULL;
+
+  if (is_object($current_node)) {
+    if (in_array($current_node->type, array_keys($country_fields))) {
+      $query = new EntityFieldQuery();
+      $query->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'country')
+        ->fieldCondition($country_fields[$current_node->type], 'target_id', $current_node->nid);
+      $result = $query->execute();
+
+      $country_nid = reset($result['node'])->nid;
+      $country_wrapper = entity_metadata_wrapper('node', $country_nid);
+      if ($country_wrapper->getBundle() == 'country' &&
+        !path_is_admin(current_path())
+      ) {
+        $country_url = drupal_get_path_alias('node/' . $country_nid);
+        nrel_ecleds_breadcrumb($country_wrapper, $country_url);
+        nrel_ecleds_country_tabs($tabs, $country_nid, $country_url);
+        $data['tabs'][0]['count'] += 6;
+        return;
+      }
+    }
+  }
+}
+
+/**
+ * Add parent entity to breadcrumb under Home.
+ * @param $wrapper
+ * @param $url
+ */
+function nrel_ecleds_breadcrumb($wrapper, $url) {
+  $title = $wrapper->label();
+  $breadcrumb = drupal_get_breadcrumb();
+  array_splice($breadcrumb, 1, 0, l($title, $url));
+  drupal_set_breadcrumb($breadcrumb);
+}
+
+/**
+ * Tabs relating back to country sections
+ *
+ * @param $tabs
+ * @param $country_nid
+ * @param $country_url
+ */
+function nrel_ecleds_country_tabs(&$tabs, $country_nid, $country_url) {
+
+  if (!is_array($tabs)) {
+    $tabs = array();
+  }
+
+  $environmental_tab = array(
+    '#theme' => 'menu_local_task',
+    '#link' => array(
+      'title' => t('Env and Eco'),
+      'href' => $country_url,
+      'localized_options' => array(
+        'attributes' => array(
+          'title' => t('Env and Eco'),
+        ),
+      ),
+    ),
+    '#weight' => -15,
+  );
+
+  $leds_tab = array(
+    '#theme' => 'menu_local_task',
+    '#link' => array(
+      'title' => t('Country LEDS Plans'),
+      'href' => "node/$country_nid/leds",
+      'localized_options' => array(
+        'attributes' => array(
+          'title' => t('Country LEDS Plans'),
+        ),
+      ),
+    ),
+    '#weight' => -14,
+  );
+
+  $baseline_tab = array(
+    '#theme' => 'menu_local_task',
+    '#link' => array(
+      'title' => t('Baseline Workbook'),
+      'href' => "node/$country_nid/baseline",
+      'localized_options' => array(
+        'attributes' => array(
+          'title' => t('Baseline Workbook'),
+        ),
+      ),
+    ),
+    '#weight' => -13,
+  );
+
+  $prog_plans_tab = array(
+    '#theme' => 'menu_local_task',
+    '#link' => array(
+      'title' => t('ECLEDS Prog Plans'),
+      'href' => "node/$country_nid/program",
+      'localized_options' => array(
+        'attributes' => array(
+          'title' => t('ECLEDS Prog Plans'),
+        ),
+      ),
+    ),
+    '#weight' => -12,
+  );
+
+  $progress_tab = array(
+    '#theme' => 'menu_local_task',
+    '#link' => array(
+      'title' => t('LEDS Progress'),
+      'href' => "node/$country_nid/progress",
+      'localized_options' => array(
+        'attributes' => array(
+          'title' => t('LEDS Progress'),
+        ),
+      ),
+    ),
+    '#weight' => -11,
+  );
+
+  $other_programs_tab = array(
+    '#theme' => 'menu_local_task',
+    '#link' => array(
+      'title' => t('Other Programs'),
+      'href' => "node/$country_nid/other",
+      'localized_options' => array(
+        'attributes' => array(
+          'title' => t('Other Programs'),
+        ),
+      ),
+    ),
+    '#weight' => -10,
+  );
+
+  array_push($tabs, $environmental_tab);
+  array_push($tabs, $leds_tab);
+  array_push($tabs, $baseline_tab);
+  array_push($tabs, $prog_plans_tab);
+  array_push($tabs, $progress_tab);
+  array_push($tabs, $other_programs_tab);
+}
+
+/**
+ * Create node view.
+ *
+ * mostly just adds an edit button to a node_view() renderable array
+ *
+ * @param $node node
+ */
+function nrel_ecleds_node_view($node) {
+  $node_view = array();
+  $node_view['edit'] = array(
+    '#weight' => 1,
+    '#type' => 'link',
+    '#title' => t('Edit'),
+    '#href' => 'node/' . $node->nid . '/edit',
+    '#options' => array(
+      'attributes' => array(
+        'class' => array('button', 'button-edit'),
+      ),
+      'query' => drupal_get_destination()
+    ),
+  );
+  $node_view['node'] = node_view($node);
+  $node_view['node']['#weight'] = 2;
+  return $node_view;
+}
+
+/**
+ * Ensures that the node being loaded via an entity reference field exists
+ * and if not then creates it and creates the necessary reference.
+ * @param stdClass  $node         Node to which the referenced node is attached
+ * @param string    $ent_ref_type Entity reference node type
+ * @return stdClass $ent_ref_node The loaded referenced node attached to $node
+ */
+function nrel_ecleds_node_view_safe($node, $ent_ref_type) {
+  drupal_set_title($node->title);
+
+  // Load the entity reference node attached to the country
+  // to make sure it's not null
+  $node_wrapper = entity_metadata_wrapper('node', $node);
+  $ent_ref_field = 'field_' . $ent_ref_type;
+  $ent_ref_node = $node_wrapper->{$ent_ref_field}->value();
+
+  // This prevents nrel_ecleds_node_view() from attempting to load a null
+  // node in the case it doesn't exist or has been deleted.
+  if (!$ent_ref_node) {
+    // If no node exists, create a new node...
+    $new_node = new stdClass();
+    $new_node->type = $ent_ref_type;
+    node_object_prepare($new_node);
+    $new_node = node_submit($new_node);
+    node_save($new_node);
+    // and attach it to the country
+    $node_wrapper->{$ent_ref_field}->set($new_node->nid);
+    $node_wrapper->save();
+    // then send our new node to nrel_ecleds_node_view()
+    $ent_ref_node = $new_node;
+  }
+
+  return nrel_ecleds_node_view($ent_ref_node);
+}
+
+/**
+ * Shows baseline node referenced from country.
+ * @deprecated
+ */
+function nrel_ecleds_country_baseline($node) {
+  return nrel_ecleds_node_view_safe($node, 'baseline_workbook');
+}
+
+/**
+ * Shows environmental node referenced from country.
+ * @deprecated
+ */
+function nrel_ecleds_country_environmental($node) {
+  return nrel_ecleds_node_view_safe($node, 'environmental_and_economic');
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function nrel_ecleds_country_form_alter(&$form, &$form_state, $form_id) {
+  if (isset($form['#node'])) {
+
+    if ($form['#node']->type == 'environmental_and_economical') {
+
+      $query = new EntityFieldQuery();
+      $query
+        ->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'country')
+        ->fieldCondition('field_environmental_and_economic', 'target_id', $form['#node']->nid, '=');
+
+      $result = $query->execute();
+
+      if (isset($result['node'])) {
+        $country_nids = array_keys($result['node']);
+        $country_nodes = entity_load('node', $country_nids);
+        $country_node = array_pop($country_nodes);
+        drupal_set_title('<em>Edit Environmental and Economical</em> for ' . $country_node->title, PASS_THROUGH);
+      }
+
+    }
+
+    if ($form['#node']->type == 'leds_plans_institutions') {
+
+      $query = new EntityFieldQuery();
+      $query
+        ->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'country')
+        ->fieldCondition('field_leds_plans_institutions', 'target_id', $form['#node']->nid, '=');
+
+      $result = $query->execute();
+
+      if (isset($result['node'])) {
+        $country_nids = array_keys($result['node']);
+        $country_nodes = entity_load('node', $country_nids);
+        $country_node = array_pop($country_nodes);
+        drupal_set_title('<em>Edit Country LEDS Plans, Institutions</em> for ' . $country_node->title, PASS_THROUGH);
+      }
+
+    }
+
+    if ($form['#node']->type == 'baseline_workbook') {
+
+      $query = new EntityFieldQuery();
+      $query
+        ->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'country')
+        ->fieldCondition('field_baseline_workbook', 'target_id', $form['#node']->nid, '=');
+
+      $result = $query->execute();
+
+      if (isset($result['node'])) {
+        $country_nids = array_keys($result['node']);
+        $country_nodes = entity_load('node', $country_nids);
+        $country_node = array_pop($country_nodes);
+        drupal_set_title('<em>Edit Baseline Workbook</em> for ' . $country_node->title, PASS_THROUGH);
+      }
+
+    }
+
+    if ($form['#node']->type == 'program_plans') {
+
+      $query = new EntityFieldQuery();
+      $query
+        ->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'country')
+        ->fieldCondition('field_program_plans', 'target_id', $form['#node']->nid, '=');
+
+      $result = $query->execute();
+
+      if (isset($result['node'])) {
+        $country_nids = array_keys($result['node']);
+        $country_nodes = entity_load('node', $country_nids);
+        $country_node = array_pop($country_nodes);
+        drupal_set_title('<em>Edit ECLEDS Program Plans</em> for ' . $country_node->title, PASS_THROUGH);
+      }
+
+    }
+
+
+    if ($form['#node']->type == 'program_level_progress') {
+
+      $query = new EntityFieldQuery();
+      $query
+        ->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'country')
+        ->fieldCondition('field_nrel_ecleds_program_level', 'target_id', $form['#node']->nid, '=');
+
+      $result = $query->execute();
+
+      if (isset($result['node'])) {
+        $country_nids = array_keys($result['node']);
+        $country_nodes = entity_load('node', $country_nids);
+        $country_node = array_pop($country_nodes);
+        drupal_set_title('<em>Edit Program-Level Progress</em> for ' . $country_node->title, PASS_THROUGH);
+      }
+
+    }
+
+/*
+    if ($form['#node']->type == 'operating_unit') {
+
+      $query = new EntityFieldQuery();
+      $query
+        ->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'country')
+        ->fieldCondition('field_operating_unit', 'target_id', $form['#node']->nid, '=');
+
+      $result = $query->execute();
+
+      if (isset($result['node'])) {
+        $country_nids = array_keys($result['node']);
+        $country_nodes = entity_load('node', $country_nids);
+        $country_node = array_pop($country_nodes);
+        drupal_set_title('<em>Edit Operating Unit</em> for ' . $country_node->title, PASS_THROUGH);
+      }
+
+    }
+*/
+
+  }
+
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function nrel_ecleds_country_form_country_node_form_alter(&$form, &$form_state, $form_id) {
+  $form['field_environmental_and_economic']['#access'] = FALSE;
+  $form['field_leds_plans_institutions']['#access'] = FALSE;
+  $form['field_nrel_ecleds_program_level']['#access'] = FALSE;
+  $form['field_baseline_workbook']['#access'] = FALSE;
+  $form['field_program_plans']['#access'] = FALSE;
+  $form['field_ecleds_other']['#access'] = FALSE;
+}
+
+/**
+ * Confirms node is a country.
+ */
+function nrel_ecleds_country_is_country($node) {
+
+	if ($node->type == 'country') {
+		return TRUE;
+	}
+
+	return FALSE;
+
+}
+
+/**
+ * Confirms node is not a country.
+ */
+function nrel_ecleds_country_is_not_country($node) {
+
+	return !nrel_ecleds_country_is_country($node);
+
+}
+
+/**
+ * Shows LEDS node referenced from country.
+ * @deprecated
+ */
+function nrel_ecleds_country_leds($node) {
+  return nrel_ecleds_node_view_safe($node, 'leds_plans_institutions');
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function nrel_ecleds_country_menu_alter(&$items) {
+
+	$items['node/%node/view']['access callback'] = 'nrel_ecleds_country_is_not_country';
+	$items['node/%node/view']['access arguments'] = array(1);
+
+	$items['node/%node']['page callback'] = 'nrel_ecleds_country_node_page_view';
+
+}
+
+
+/**
+ * Calls node_page_view() or nrel_ecleds_country_projects().
+ */
+function nrel_ecleds_country_node_page_view($node) {
+
+	return node_page_view($node);
+
+}
+
+/**
+ * Shows other node referenced from country.
+ */
+function nrel_ecleds_country_other($node) {
+
+  drupal_set_title($node->title);
+
+  $view = views_get_view('nrel_other_tab');
+  $view->init();
+
+  $view->set_display('block_1');
+  $view->set_arguments(array(arg(1)));
+  return @$view->render();
+
+}
+
+/**
+ * Shows program node referenced from country.
+ * @deprecated
+ */
+function nrel_ecleds_country_program($node) {
+  return nrel_ecleds_node_view_safe($node, 'program_plans');
+}
+
+/**
+ * Shows progress node referenced from country.
+ * @deprecated
+ */
+function nrel_ecleds_country_progress($node) {
+  return nrel_ecleds_node_view_safe($node, 'nrel_ecleds_program_level');
+}
+
+
+/**
+ * Lists projects in a country.
+ */
+function nrel_ecleds_country_projects($node) {
+
+  $view = views_get_view('Projects');
+  $view->init();
+  $view->set_display('block_1');
+  $view->set_arguments(array($node->nid));
+  $view->pre_execute();
+  $view->execute();
+  return $view->render();
+
+}

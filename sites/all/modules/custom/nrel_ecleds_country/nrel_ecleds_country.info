@@ -1,0 +1,6 @@
+name = NREL ECLEDS Country
+description = Custom functionality for countries.
+core = 7.x
+package = Aten
+
+dependencies[] = node

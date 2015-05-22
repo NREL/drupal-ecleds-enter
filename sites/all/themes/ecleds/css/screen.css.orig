@@ -1,0 +1,97 @@
+@charset "UTF-8";
+.menu-name-main-menu li {
+  display: inline-block; }
+
+ul .ui-autocomplete {
+  position: absolute; }
+
+#branding {
+  overflow: visible; }
+
+#branding .tabs {
+  overflow: hidden; }
+
+#header div.block {
+  width: auto; }
+
+#header div.block a {
+  color: #fff; }
+
+#header div.block .ui-autocomplete a {
+  color: #000; }
+
+#edit-field-activity-country-und .form-item,
+#edit-field-opearting-unit-country-und .form-item {
+  display: inline-block;
+  width: 30%; }
+
+#edit-field-result-indicator-year-und-0-field-result-indicator-und-form-entity-id {
+  width: 90%; }
+
+#field-impl-mech-gcc-indicator-values .field-type-number-integer {
+  float: left;
+  margin-right: 2em;
+  width: 150px; }
+
+#edit-field-impl-mech-gcc-indicator-und-0-field-fy15-target,
+#edit-field-impl-mech-gcc-indicator-und-0-field-fy14-results-explanation {
+  clear: both; }
+
+#edit-field-completion-month,
+#edit-field-completion-year,
+#edit-field-field-exp-compl-year,
+#edit-field-expected-completion-month,
+#edit-field-impl-mech-perf-start-month,
+#edit-field-impl-mech-perf-start-year,
+#edit-field-impl-mech-perf-end-month,
+#edit-field-impl-mech-perf-end-year {
+  float: left; }
+
+.field-name-field-impl-mech-perf-start-month,
+.field-name-field-impl-mech-perf-start-year,
+.field-name-field-impl-mech-perf-end-month,
+.field-name-field-impl-mech-perf-end-year {
+  display: inline-block; }
+
+.node-type-ecleds-implementing-mechanism #edit-title,
+.page-node-add-ecleds-implementing-mechanism #edit-title,
+#edit_field_implementing_mechanism_und_chosen,
+*[id^='edit-field-proj-impl-mechanism-und-form-title'],
+*[id^='edit-field-proj-impl-mechanism-und-form-entity-id'] {
+  width: 98%; }
+
+.field_collection_item_operations li {
+<<<<<<< HEAD
+  list-style-type: none;
+}
+
+#branding #block-menu-block-1 {
+  width: 350px;
+  text-indent: 1rem;
+}
+=======
+  list-style-type: none; }
+
+a.button {
+  float: right; }
+
+.field-label {
+  font-size: 1.4em; }
+
+* + .field {
+  margin-top: 1.5em; }
+
+.node .content {
+  border: 1px solid transparent; }
+
+.toggle-icon {
+  margin-right: 5px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer; }
+  .toggle-open .toggle-icon:before {
+    content: '▾'; }
+  .toggle-closed .toggle-icon:before {
+    content: '▸'; }
+>>>>>>> SUPNRELEC-69 2,4 Collapse functionality on headings

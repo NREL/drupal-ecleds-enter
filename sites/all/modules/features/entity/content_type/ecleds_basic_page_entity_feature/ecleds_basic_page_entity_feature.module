@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ECLEDS Basic Page Entity feature.
+ */
+
+include_once 'ecleds_basic_page_entity_feature.features.inc';

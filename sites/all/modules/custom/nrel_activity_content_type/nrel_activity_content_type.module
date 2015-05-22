@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * Implements hook_inline_entity_form_table_fields_alter().
+ */
+function nrel_activity_content_type_inline_entity_form_table_fields_alter(&$fields, $context) {
+  // Short circuit if this is not a the field_results field.
+  if ($context['field_name'] !== 'field_results') {
+    return;
+  }
+
+  // Add the body/description field.
+  $fields['body']['label'] = 'Description';
+  $fields['body']['type'] = 'field';
+  $fields['body']['weight'] = 1;
+
+  // Remove the title field.
+  unset($fields['title']);
+}

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ECLEDS Program Plans Entity feature.
+ */
+
+include_once 'ecleds_program_plans_entity_feature.features.inc';
