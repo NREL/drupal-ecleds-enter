@@ -18,6 +18,8 @@ ini_set('url_rewriter.tags',        '');
 $drupal_hash_salt = 'GvklU4cft21_AlPXdwV5kxeDOwHG_gEGaSHijyTCd_8';
 $conf['image_allow_insecure_derivatives'] = TRUE;
 
+$conf['environment_indicator_overwrite'] = TRUE;
+
 // Set up environment specific variables for www_nrel.
 // If www_nrel env isset or php executed through cli (drush).
 if (isset($_SERVER['WWW_NREL']) || PHP_SAPI === 'cli') {
@@ -55,11 +57,15 @@ if (isset($_SERVER['WWW_NREL']) || PHP_SAPI === 'cli') {
       case 'TEST':
         $base_url .= 'ecleds-db-test.nrel.gov';
         $conf['reroute_email_enable'] = 1;
+        $conf['environment_indicator_overwritten_name'] = 'Test';
+        $conf['environment_indicator_overwritten_color'] = '#3254ed';
         break;
 
       case 'PROD':
         $base_url .= 'db.ecleds.org';
         $conf['reroute_email_enable'] = 0;
+        $conf['environment_indicator_overwritten_name'] = 'Production';
+        $conf['environment_indicator_overwritten_color'] = '#0b3d60';
         break;
     }
   }
