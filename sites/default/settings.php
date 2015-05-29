@@ -55,14 +55,14 @@ if (isset($_SERVER['WWW_NREL']) || PHP_SAPI === 'cli') {
 
     switch($_SERVER['WWW_NREL']) {
       case 'TEST':
-        $base_url .= 'ecleds-db-test.nrel.gov';
+        $base_url .= 'ecleds-enter-test.nrel.gov';
         $conf['reroute_email_enable'] = 1;
         $conf['environment_indicator_overwritten_name'] = 'Test';
         $conf['environment_indicator_overwritten_color'] = '#3254ed';
         break;
 
       case 'PROD':
-        $base_url .= 'db.ecleds.org';
+        $base_url .= 'enter.ec-leds.org';
         $conf['reroute_email_enable'] = 0;
         $conf['environment_indicator_overwritten_name'] = 'Production';
         $conf['environment_indicator_overwritten_color'] = '#0b3d60';
