@@ -445,12 +445,50 @@ function nrel_ecleds_operating_unit_implementing_mechanisms($node) {
     ->fieldCondition('field_activity_operating_unit', 'target_id', $node->nid, '=');
   $result = $query->execute();
   $nodes = !empty($result['node']) ? node_load_multiple(array_keys($result['node'])) : array();
+  // sort on im number. some mnodes don't have im numbers, so sort those by
+  // title and list them after the nodes with im numbers.create 2 array - one
+  // containing all the nodes with im numbers and one containing all the nodes
+  // without im numbers. Sort the nodes with im numbers on the number, sort the
+  // nodes without numbers on their titles and then concatenate the arrays.
+  $nodes_without_im = $nodes_with_im = array();
+  foreach ($nodes as $node) {
+    if (empty($node->field_im_number['und'][0]['value'])) {
+      $nodes_without_im[] = $node;
+    } else {
+      $nodes_with_im[] = $node;
+    }
+  }
+  usort($nodes_with_im, "_nrel_ecleds_operating_unit_im_number_cmp");
+  usort($nodes_without_im, "_nrel_ecleds_operating_unit_title_cmp");
+  $nodes = array_merge($nodes_with_im, $nodes_without_im);
   $node_views = !empty($nodes) ? node_view_multiple($nodes, 'full') : array();
   $rendered_nodes = drupal_render($node_views);
 
   return $rendered_nodes . $create_link;
 }
 
+function _nrel_ecleds_operating_unit_im_number_cmp($a, $b) {
+  $cmpa = (!empty($a->field_im_number['und'][0]['value'])) ? $a->field_im_number['und'][0]['value'] : 9999999999;
+  $cmpb = (!empty($b->field_im_number['und'][0]['value'])) ? $b->field_im_number['und'][0]['value'] : 9999999999;
+  return $cmpa - $cmpb;
+}
+
+/*
+ * Do a string comparison of the node_title field on 2 objects.
+ *
+ * @param $a object
+ *   The first object having a field 'node_title'.
+ * @param $b object
+ *   The first object having a field 'node_title'.
+ * @return int
+ *   Returns < 0 if $a->node_title is less than $b->node_title; > 0 if
+ *   $a->node_title is greater than $b->node_title, and 0 if they are equal.
+ */
+function _nrel_ecleds_operating_unit_title_cmp($a, $b) {
+  $cmpa = (!empty($a->title)) ? $a->title : '';
+  $cmpb = (!empty($b->title)) ? $b->title : '';
+  return strcmp($cmpa, $cmpb);
+}
 /**
  * Shows Activities that belong to this Operating Unit.
  *
