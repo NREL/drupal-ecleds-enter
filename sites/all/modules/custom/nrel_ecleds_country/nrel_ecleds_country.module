@@ -371,6 +371,32 @@ function nrel_ecleds_country_baseline($node) {
 }
 
 /**
+ * Get all of the OUs that reference a country.
+ *
+ * @param int $country_nid The node id of the country.
+ *
+ * @return array of links to the OUs that reference the given country.
+ */
+function nrel_ecleds_country_country_ous($country_nid) {
+
+  $query = db_select('node', 'n');
+  $query->leftJoin('field_data_field_opearting_unit_country', 'ouc',
+    '((ouc.revision_id = n.vid) AND (ouc.entity_id = n.nid))'
+  );
+  $query->condition('n.type', 'operating_unit');
+  $query->condition('ouc.field_opearting_unit_country_target_id', $country_nid);
+  $query->fields('n', array('title', 'nid'));
+
+  $results = $query->execute();
+  $ous = array();
+
+  foreach ($results as $result) {
+    $ous[] = l($result->title, 'node/' . $result->nid);
+  }
+  return $ous;
+}
+
+  /**
  * Shows environmental node referenced from country.
  * @deprecated
  */
@@ -567,6 +593,37 @@ function nrel_ecleds_country_node_page_view($node) {
 
 	return node_page_view($node);
 
+}
+
+/*
+ * Implement hook_node_view.
+ */
+function nrel_ecleds_country_node_view($node, $view_mode, $langcode) {
+
+  // If we are viewing a country node in full mode (the country Overview tab)
+  // prepend all of the operating units that reference this country.
+  if (('country' == $node->type) && ('full' == $view_mode)) {
+    $country_ous = nrel_ecleds_country_country_ous($node->nid);
+    $ou_markup = '';
+    if (count($country_ous)) {
+
+      $ou_markup .= '<div class="field field-name-field-opearting-unit-country field-type-entityreference field-label-above">';
+      $ou_markup .= '<div class="field-label">Operating Units:&nbsp;</div>';
+      foreach ($country_ous as $country_ou) {
+        $ou_markup .= '<div class="field-items">';
+        $ou_markup .= '<div class="field-item">';
+        $ou_markup .= $country_ou;
+        $ou_markup .= '</div>';
+        $ou_markup .= '</div>';
+      }
+      $ou_markup .= '</div>';
+    }
+
+    $node->content['ou'] = array(
+      '#markup' => $ou_markup,
+      '#weight' => -10,
+    );
+  }
 }
 
 /**
