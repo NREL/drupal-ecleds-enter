@@ -604,10 +604,9 @@ function nrel_ecleds_country_node_view($node, $view_mode, $langcode) {
   // prepend all of the operating units that reference this country.
   if (('country' == $node->type) && ('full' == $view_mode)) {
     $country_ous = nrel_ecleds_country_country_ous($node->nid);
-    $ou_markup = '';
     if (count($country_ous)) {
 
-      $ou_markup .= '<div class="field field-name-field-opearting-unit-country field-type-entityreference field-label-above">';
+      $ou_markup = '<div class="field field-name-field-opearting-unit-country field-type-entityreference field-label-above">';
       $ou_markup .= '<div class="field-label">Operating Units:&nbsp;</div>';
       foreach ($country_ous as $country_ou) {
         $ou_markup .= '<div class="field-items">';
@@ -617,12 +616,11 @@ function nrel_ecleds_country_node_view($node, $view_mode, $langcode) {
         $ou_markup .= '</div>';
       }
       $ou_markup .= '</div>';
+      $node->content['ou'] = array(
+        '#markup' => $ou_markup,
+        '#weight' => -10,
+      );
     }
-
-    $node->content['ou'] = array(
-      '#markup' => $ou_markup,
-      '#weight' => -10,
-    );
   }
 }
 
