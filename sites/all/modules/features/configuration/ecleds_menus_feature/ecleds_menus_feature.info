@@ -42,7 +42,6 @@ features[menu_links][] = management_features:admin/structure/features
 features[menu_links][] = management_field-collections:admin/structure/field-collections
 features[menu_links][] = management_field-list:admin/reports/fields
 features[menu_links][] = management_file-system:admin/config/media/file-system
-features[menu_links][] = management_google-analytics:admin/config/system/googleanalytics
 features[menu_links][] = management_help:admin/help
 features[menu_links][] = management_image-styles:admin/config/media/image-styles
 features[menu_links][] = management_image-toolkit:admin/config/media/image-toolkit

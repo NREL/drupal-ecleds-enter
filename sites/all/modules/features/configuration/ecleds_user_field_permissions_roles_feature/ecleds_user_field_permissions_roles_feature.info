@@ -15,7 +15,6 @@ dependencies[] = field_collection
 dependencies[] = field_group
 dependencies[] = field_permissions
 dependencies[] = filter
-dependencies[] = googleanalytics
 dependencies[] = image
 dependencies[] = menu
 dependencies[] = module_filter

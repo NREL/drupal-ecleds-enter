@@ -237,15 +237,6 @@ function ecleds_user_field_permissions_roles_feature_user_default_permissions() 
     'module' => 'filter',
   );
 
-  // Exported permission: 'administer google analytics'.
-  $permissions['administer google analytics'] = array(
-    'name' => 'administer google analytics',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'googleanalytics',
-  );
-
   // Exported permission: 'administer image styles'.
   $permissions['administer image styles'] = array(
     'name' => 'administer image styles',
@@ -1312,15 +1303,6 @@ function ecleds_user_field_permissions_roles_feature_user_default_permissions() 
     'module' => 'pathauto',
   );
 
-  // Exported permission: 'opt-in or out of tracking'.
-  $permissions['opt-in or out of tracking'] = array(
-    'name' => 'opt-in or out of tracking',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'googleanalytics',
-  );
-
   // Exported permission: 'rename features'.
   $permissions['rename features'] = array(
     'name' => 'rename features',
@@ -1373,15 +1355,6 @@ function ecleds_user_field_permissions_roles_feature_user_default_permissions() 
       'administrator' => 'administrator',
     ),
     'module' => 'auto_nodetitle',
-  );
-
-  // Exported permission: 'use PHP for tracking visibility'.
-  $permissions['use PHP for tracking visibility'] = array(
-    'name' => 'use PHP for tracking visibility',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'googleanalytics',
   );
 
   // Exported permission: 'use advanced search'.

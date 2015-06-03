@@ -2356,9 +2356,6 @@ function ecleds_strongarm_strongarm() {
     'view_modes' => array(),
     'extra_fields' => array(
       'form' => array(
-        'googleanalytics' => array(
-          'weight' => '3',
-        ),
         'account' => array(
           'weight' => '-10',
         ),
