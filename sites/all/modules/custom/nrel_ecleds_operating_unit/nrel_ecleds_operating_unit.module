@@ -551,6 +551,35 @@ function nrel_ecleds_operating_unit_ppr($node) {
   return $rendered_nodes . $create_link;
 }
 
+function nrel_ecleds_operating_unit_preprocess_node(&$vars, $hook) {
+  if ('ecleds_implementing_mechanism' == $vars['type']) {
+    $perf_start_date = $perf_end_date = '';
+    $perf_start_date_array = array();
+    if (!empty($vars['field_impl_mech_perf_start_month'][0]['value'])) {
+      $perf_start_date_array[] = $vars['field_impl_mech_perf_start_month'][0]['value'];
+    }
+    if (!empty($vars['field_impl_mech_perf_start_year'][0]['value'])) {
+      $perf_start_date_array[] = $vars['field_impl_mech_perf_start_year'][0]['value'];
+    }
+    $perf_end_date_array = array();
+    if (!empty($vars['field_impl_mech_perf_end_month'][0]['value'])) {
+      $perf_end_date_array[] = $vars['field_impl_mech_perf_end_month'][0]['value'];
+    }
+    if (!empty($vars['field_impl_mech_perf_end_year'][0]['value'])) {
+      $perf_end_date_array[] = $vars['field_impl_mech_perf_end_year'][0]['value'];
+    }
+    if (count($perf_start_date_array)) {
+      $perf_start_date = '<span class="title-start-date"><span class="label">' . t('Performance Start Date:&nbsp;') . '</span>' . implode('/', $perf_start_date_array) . '</span>';
+    }
+    if (count($perf_end_date_array)) {
+      $perf_end_date = '<span class="title-end-date"><span class="label">' . t('Performance End Date:&nbsp;') . '</span>' . implode('/', $perf_end_date_array). '</span>';
+    }
+    if (strlen($perf_start_date) || strlen($perf_end_date)) {
+      $vars['title_dates'] = '<div class="title-dates">' . $perf_start_date . $perf_end_date . '</div>';
+    }
+  }
+}
+
 /**
  * Confirms node is an operating_unit and user has access to content.
  *
