@@ -207,6 +207,8 @@ body.adminimal-theme #media-browser-page #fixed-branding {
 .field-name-field-impl-mech-perf-end-month {
   margin-left: 40px;
 }
-.node-ecleds-implementing-mechanism .field-collection-container {
+.node-ecleds-implementing-mechanism .field-collection-container,
+.field-name-field-im-funding-pillar {
   clear: both;
 }
+
