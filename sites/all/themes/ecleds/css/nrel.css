@@ -196,3 +196,17 @@ body.adminimal-theme #media-browser-page #fixed-branding {
 .group-expected-completion-date {
   width: 24em;
 }
+
+.field-name-field-impl-mech-perf-start-month,
+.field-name-field-impl-mech-perf-start-year,
+.field-name-field-impl-mech-perf-end-month,
+.field-name-field-impl-mech-perf-end-year {
+  float:left;
+}
+
+.field-name-field-impl-mech-perf-end-month {
+  margin-left: 40px;
+}
+.node-ecleds-implementing-mechanism .field-collection-container {
+  clear: both;
+}
