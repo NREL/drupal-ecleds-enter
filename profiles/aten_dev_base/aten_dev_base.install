@@ -113,7 +113,7 @@ function aten_dev_base_install_add_html_formats() {
 
 function aten_dev_base_install_add_standard_blocks($default_theme, $admin_theme) {
   // Enable some standard blocks.
-  
+
   $values = array(
     array(
       'module' => 'system',
@@ -323,3 +323,14 @@ function aten_dev_base_install() {
   variable_set('theme_default', 'center');
 
 } // aten_dev_base_install
+
+
+/**
+ * Updates to Aten's stuff after they gave it to Communications.
+ *
+ */
+function aten_dev_base_update_7010() {
+  module_disable(array(
+      'shield',
+  ));
+}
