@@ -1,0 +1,3 @@
+[submodule "sites/all/modules/contrib/doe_stats"]
+	path = sites/all/modules/contrib/doe_stats
+	url = git@git.nrelcloud.org:communications/doe_stats.git
