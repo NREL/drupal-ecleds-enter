@@ -71,7 +71,6 @@ features[menu_links][] = management_respondjs:admin/config/media/respondjs
 features[menu_links][] = management_rss-publishing:admin/config/services/rss-publishing
 features[menu_links][] = management_search-and-metadata:admin/config/search
 features[menu_links][] = management_search-settings:admin/config/search/settings
-features[menu_links][] = management_shield:admin/config/system/shield
 features[menu_links][] = management_shortcuts:admin/config/user-interface/shortcut
 features[menu_links][] = management_site-information:admin/config/system/site-information
 features[menu_links][] = management_status-report:admin/reports/status

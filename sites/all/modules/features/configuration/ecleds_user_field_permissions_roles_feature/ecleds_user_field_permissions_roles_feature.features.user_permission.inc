@@ -327,24 +327,6 @@ function ecleds_user_field_permissions_roles_feature_user_default_permissions() 
     'module' => 'respondjs',
   );
 
-  // Exported permission: 'administer search'.
-  $permissions['administer search'] = array(
-    'name' => 'administer search',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'search',
-  );
-
-  // Exported permission: 'administer shield'.
-  $permissions['administer shield'] = array(
-    'name' => 'administer shield',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'shield',
-  );
-
   // Exported permission: 'administer shortcuts'.
   $permissions['administer shortcuts'] = array(
     'name' => 'administer shortcuts',
