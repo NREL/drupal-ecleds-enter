@@ -164,7 +164,7 @@ function ecleds_environmental_and_economical_entity_feature_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Key Economic Sectors',
+    'label' => 'Key Economic Sectors (2013)',
     'weight' => '2',
     'children' => array(
       0 => 'field_key_eco_sector_agriculture',
@@ -174,12 +174,13 @@ function ecleds_environmental_and_economical_entity_feature_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'Key Economic Sectors (2013)',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-key-economic-sectors field-group-fieldset',
         'required_fields' => 1,
+        'classes' => 'group-key-economic-sectors field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'collapsible',
     ),
   );
   $export['group_key_economic_sectors|node|environmental_and_economical|form'] = $field_group;
