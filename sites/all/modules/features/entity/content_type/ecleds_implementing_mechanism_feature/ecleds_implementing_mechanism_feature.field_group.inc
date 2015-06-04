@@ -21,7 +21,7 @@ function ecleds_implementing_mechanism_feature_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'GCC Results Framework',
-    'weight' => '14',
+    'weight' => '15',
     'children' => array(
       0 => 'field_gcc_intermediate_result',
       1 => 'field_gcc_intermediate_result_2',

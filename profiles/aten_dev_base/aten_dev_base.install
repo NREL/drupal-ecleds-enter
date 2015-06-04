@@ -334,3 +334,34 @@ function aten_dev_base_update_7010() {
       'shield',
   ));
 }
+
+/**
+ * Enable/disable modules.
+ */
+function aten_dev_base_update_7011() {
+  module_disable(array(
+      'googleanalytics',
+      // 'toolbar',
+  ));
+
+  module_enable(array(
+      'doe_stats',
+      // 'admin_menu',
+      'apc_status',
+      'password_policy',
+      'nrel_users',
+      'page_title',
+      // 'admin',
+      'reroute_email',
+    ));
+}
+
+
+/**
+ * Enable new nrel_file feature.
+ */
+function aten_dev_base_update_7012() {
+  module_enable(array(
+      'ecleds_file',
+    ));
+}
