@@ -366,62 +366,6 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-activity-field_activity_operating_unit'
-  $field_instances['node-activity-field_activity_operating_unit'] = array(
-    'bundle' => 'activity',
-    'default_value' => NULL,
-    'default_value_function' => 'entityreference_prepopulate_field_default_value',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_activity_operating_unit',
-    'label' => 'Operating Unit',
-    'required' => 0,
-    'settings' => array(
-      'behaviors' => array(
-        'prepopulate' => array(
-          'action' => 'disable',
-          'action_on_edit' => 1,
-          'fallback' => 'none',
-          'providers' => array(
-            'og_context' => FALSE,
-            'url' => 1,
-          ),
-          'skip_perm' => 'administer nodes',
-          'status' => 1,
-        ),
-      ),
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => '',
-        'label_help_description' => '',
-      ),
-      'type' => 'options_select',
-      'weight' => 0,
-    ),
-  );
-
   // Exported field_instance: 'node-activity-field_area_of_cooperation'
   $field_instances['node-activity-field_area_of_cooperation'] = array(
     'bundle' => 'activity',
@@ -679,7 +623,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_link_to_gcc_results_framew',
     'label' => 'GCC Intermediate Result',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'behaviors' => array(
         'prepopulate' => array(
@@ -745,6 +689,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
       'module' => 'inline_entity_form',
       'settings' => array(
         'fields' => array(),
+        'label_help_description' => '',
         'type_settings' => array(
           'allow_existing' => 0,
           'delete_references' => 0,
@@ -822,7 +767,6 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
   t('Highlight Summary');
   t('Indicator');
   t('Milestones');
-  t('Operating Unit');
   t('Results');
 
   return $field_instances;

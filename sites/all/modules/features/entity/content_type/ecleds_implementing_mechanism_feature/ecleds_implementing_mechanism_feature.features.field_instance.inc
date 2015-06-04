@@ -65,7 +65,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 17,
+        'weight' => 18,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -180,7 +180,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 16,
+        'weight' => 17,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -359,7 +359,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_table_view',
-        'weight' => 13,
+        'weight' => 14,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -445,7 +445,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 10,
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -534,7 +534,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 15,
+        'weight' => 16,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -573,7 +573,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number_unformatted',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -614,7 +614,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number_unformatted',
-        'weight' => 8,
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -737,7 +737,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 11,
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -779,7 +779,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 12,
+        'weight' => 13,
       ),
       'teaser' => array(
         'label' => 'above',

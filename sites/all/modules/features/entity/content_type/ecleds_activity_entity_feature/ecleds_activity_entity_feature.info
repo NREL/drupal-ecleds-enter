@@ -40,7 +40,6 @@ features[field_instance][] = node-activity-field_activity_goal_outcome
 features[field_instance][] = node-activity-field_activity_high_activity
 features[field_instance][] = node-activity-field_activity_highlight_summary
 features[field_instance][] = node-activity-field_activity_indicator
-features[field_instance][] = node-activity-field_activity_operating_unit
 features[field_instance][] = node-activity-field_area_of_cooperation
 features[field_instance][] = node-activity-field_contribution_to_theory
 features[field_instance][] = node-activity-field_does_this_relate_to_theory
