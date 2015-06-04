@@ -242,6 +242,10 @@ body.adminimal-theme #media-browser-page #fixed-branding {
   margin-bottom: 1.5em;
 }
 
+.node-ecleds-implementing-mechanism {
+  position: relative;
+}
+
 .node-ecleds-implementing-mechanism .edit-button {
   position: absolute;
   top: 15px;
