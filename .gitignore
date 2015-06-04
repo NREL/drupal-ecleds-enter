@@ -1,16 +1,13 @@
 #Ignore configuration files that may contain sensitive information.
 sites/*/settings.local.php
 
-#Ignore text files
-*.txt
-
 #Ignore xmlrpc.php (there is no XML-RPC functionality required on this site)
 xmlrpc.php
- 
+
 #Ignore IIS web.config
 web.config
 
-#Ignored install.php 
+#Ignored install.php
 install.php
 
 #Ignore non-core files
