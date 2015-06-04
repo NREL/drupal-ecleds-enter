@@ -1,0 +1,15 @@
+name = ECLEDS File
+description = Pertaining to file entities, media assets, etc.
+core = 7.x
+package = ECLEDS
+version = 7.x-1.0
+project = ecleds_file
+dependencies[] = ctools
+dependencies[] = file
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[variable][] = file_default_scheme
+features[variable][] = file_private_path
+features[variable][] = file_public_path
+project path = sites/all/modules/features/configuration

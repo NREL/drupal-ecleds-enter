@@ -19,3 +19,7 @@ scripts[] = js/script.js
 scripts[] = js/plugins/toggler.js
 
 base theme = adminimal
+
+; Scripts
+scripts[] = 'js/iconomatic/jquery.iconomatic.min.js'
+scripts[] = 'js/iconomatic.js'

@@ -1,0 +1,16 @@
+<?php
+/**
+ * @file
+ * Code for the ECLEDS File feature.
+ */
+
+include_once 'ecleds_file.features.inc';
+
+/**
+ * Implements hook_page_alter().
+ *
+ *  To insert JavaScript to the appropriate scope/region of the page.
+ */
+function ecleds_file_page_alter(&$page) {
+  drupal_add_css('//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css', array('type' => 'external'));
+}

@@ -355,3 +355,13 @@ function aten_dev_base_update_7011() {
       'reroute_email',
     ));
 }
+
+
+/**
+ * Enable new nrel_file feature.
+ */
+function aten_dev_base_update_7012() {
+  module_enable(array(
+      'ecleds_file',
+    ));
+}
