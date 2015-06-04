@@ -291,6 +291,8 @@ function nrel_ecleds_operating_unit_node_view($node, $view_mode, $langcode) {
   );
   if (in_array($node->type, $node_types) && $view_mode == 'full') {
     // Add an edit button to the bottom right of rendered node.
+    $query = drupal_get_destination();
+    $query['toggle'] = 'node-' . $node->nid;
     $node->content['edit'] = array(
       '#weight' => -1,
       '#type' => 'link',
@@ -298,9 +300,9 @@ function nrel_ecleds_operating_unit_node_view($node, $view_mode, $langcode) {
       '#href' => 'node/' . $node->nid . '/edit',
       '#options' => array(
         'attributes' => array(
-          'class' => array('button', 'button-edit'),
+          'class' => array('button', 'button-edit', 'button-test'),
         ),
-        'query' => drupal_get_destination()
+        'query' => $query,
       ),
     );
   }
@@ -430,6 +432,16 @@ function nrel_ecleds_operating_unit_implementing_mechanisms($node) {
 
   drupal_set_title($node->title);
 
+  dsm($_REQUEST);
+  $setting = array(
+    'nrel_ecleds_operating_unit' => array(
+      'toggle' => 'node-' . $node->nid,
+    ),
+  );
+  //drupal_add_js($setting, 'setting');
+  //drupal_add_js('jQuery("#node-3210 h2").addClass("toggle-open");',
+    //array('type' => 'inline', 'group' => JS_THEME, 'weight' => 999)
+  //);
   $options = array(
     'attributes' => array(
       'class' => array('button', 'button-add'),

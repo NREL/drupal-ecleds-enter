@@ -38,7 +38,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     ),
     'entity_type' => 'node',
     'field_name' => 'field_contrib_to_electricity',
-    'label' => 'Contribution to Electricity Generation (%)',
+    'label' => 'Contribution to Electricity Generation (%) in 2012',
     'required' => 0,
     'settings' => array(
       'max' => '',
@@ -145,7 +145,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     ),
     'entity_type' => 'node',
     'field_name' => 'field_env_eco_forested',
-    'label' => '% of total land area',
+    'label' => '% of total land area in 2012',
     'required' => 0,
     'settings' => array(
       'max' => '',
@@ -613,7 +613,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => '%',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -623,7 +623,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
         'label_help_description' => '',
       ),
       'type' => 'number',
-      'weight' => 15,
+      'weight' => 135,
     ),
   );
 
@@ -661,7 +661,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => '%',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -671,7 +671,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
         'label_help_description' => '',
       ),
       'type' => 'number',
-      'weight' => 16,
+      'weight' => 136,
     ),
   );
 
@@ -709,7 +709,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => '%',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -719,7 +719,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
         'label_help_description' => '',
       ),
       'type' => 'number',
-      'weight' => 17,
+      'weight' => 137,
     ),
   );
 
@@ -775,7 +775,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 128,
+      'weight' => 138,
     ),
   );
 
@@ -883,14 +883,14 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('% of total land area');
+  t('% of total land area in 2012');
   t('1st');
   t('20-year (1991-2010)');
   t('2nd');
   t('3rd');
   t('5-year (2006-2010)');
   t('Agriculture');
-  t('Contribution to Electricity Generation (%)');
+  t('Contribution to Electricity Generation (%) in 2012');
   t('GDP Average Annual Growth Rate (2001 – 2010)');
   t('Industry');
   t('Services');
