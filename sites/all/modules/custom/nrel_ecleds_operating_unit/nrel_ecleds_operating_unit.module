@@ -432,7 +432,6 @@ function nrel_ecleds_operating_unit_implementing_mechanisms($node) {
 
   drupal_set_title($node->title);
 
-  dsm($_REQUEST);
   $setting = array(
     'nrel_ecleds_operating_unit' => array(
       'toggle' => 'node-' . $node->nid,
