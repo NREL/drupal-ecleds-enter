@@ -293,7 +293,7 @@ function nrel_ecleds_operating_unit_node_view($node, $view_mode, $langcode) {
     // Add an edit button to the bottom right of rendered node.
     $query = drupal_get_destination();
     $query['toggle'] = 'node-' . $node->nid;
-    $node->content['edit'] = array(
+    /*$node->content['edit'] = array(
       '#weight' => -1,
       '#type' => 'link',
       '#title' => t('Edit'),
@@ -304,7 +304,7 @@ function nrel_ecleds_operating_unit_node_view($node, $view_mode, $langcode) {
         ),
         'query' => $query,
       ),
-    );
+    );*/
   }
 }
 
@@ -588,6 +588,10 @@ function nrel_ecleds_operating_unit_preprocess_node(&$vars, $hook) {
     if (strlen($perf_start_date) || strlen($perf_end_date)) {
       $vars['title_dates'] = '<div class="title-dates">' . $perf_start_date . $perf_end_date . '</div>';
     }
+    // Add an edit button to the bottom right of rendered node.
+    $query = drupal_get_destination();
+    $vars['edit_button'] = '<div class="edit-button">' . l(t('Edit'), 'node/' . $vars['nid'] . '/edit', array('attributes' => array('class' => array('button', 'button-edit'),'query' => $query))) . '</div>';
+
   }
 }
 

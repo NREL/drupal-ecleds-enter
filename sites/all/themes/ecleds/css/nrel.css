@@ -241,3 +241,14 @@ body.adminimal-theme #media-browser-page #fixed-branding {
 #environmental-and-economical-node-form .field {
   margin-bottom: 1.5em;
 }
+
+.node-ecleds-implementing-mechanism .edit-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.node-ecleds-implementing-mechanism .edit-button .button-edit {
+  background-color: #0074BD;
+  color: white;
+}

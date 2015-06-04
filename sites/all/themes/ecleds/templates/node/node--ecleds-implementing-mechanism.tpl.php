@@ -86,7 +86,19 @@
 
   <?php print render($title_prefix); ?>
   <?php if (!$page): ?>
-    <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a><?php if ($title_dates) { print $title_dates; }?></h2>
+    <h2<?php print $title_attributes; ?>>
+      <a href="<?php print $node_url; ?>"><?php print $title; ?></a>
+      <?php
+        if ($title_dates) {
+          print $title_dates;
+        }
+      ?>
+    </h2>
+    <?php
+      if ($edit_button) {
+        print $edit_button;
+      }
+    ?>
   <?php endif; ?>
   <?php print render($title_suffix); ?>
 
