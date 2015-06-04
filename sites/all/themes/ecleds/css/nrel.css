@@ -237,3 +237,7 @@ body.adminimal-theme #media-browser-page #fixed-branding {
 .node-ecleds-implementing-mechanism h2 .title-dates .label {
   font-weight: bold;
 }
+
+#environmental-and-economical-node-form .field {
+  margin-bottom: 1.5em;
+}

@@ -178,7 +178,7 @@ function nrel_ecleds_country_menu_local_tasks_alter(&$data, $router_item, $root_
         nrel_ecleds_breadcrumb($country_wrapper, $country_url);
         nrel_ecleds_country_tabs($tabs, $country_nid, $country_url);
         $data['tabs'][0]['count'] += 6;
-        return;
+    return;
       }
     }
   }
@@ -212,7 +212,7 @@ function nrel_ecleds_country_tabs(&$tabs, $country_nid, $country_url) {
   $environmental_tab = array(
     '#theme' => 'menu_local_task',
     '#link' => array(
-      'title' => t('Env and Eco'),
+      'title' => t('Overview'),
       'href' => $country_url,
       'localized_options' => array(
         'attributes' => array(
@@ -424,7 +424,27 @@ function nrel_ecleds_country_form_alter(&$form, &$form_state, $form_id) {
         $country_nids = array_keys($result['node']);
         $country_nodes = entity_load('node', $country_nids);
         $country_node = array_pop($country_nodes);
-        drupal_set_title('<em>Edit Environmental and Economical</em> for ' . $country_node->title, PASS_THROUGH);
+        drupal_set_title('<em>Edit Overview</em> for ' . $country_node->title, PASS_THROUGH);
+        // Display the OUs for the country that references the Env/Eco node
+        // being edited.
+        $country_ous = nrel_ecleds_country_country_ous($country_node->nid);
+        if (count($country_ous)) {
+
+          $ou_markup = '<div class="field field-name-field-opearting-unit-country field-type-entityreference field-label-above">';
+          $ou_markup .= '<div class="field-label">Operating Units:&nbsp;</div>';
+          foreach ($country_ous as $country_ou) {
+            $ou_markup .= '<div class="field-items">';
+            $ou_markup .= '<div class="field-item">';
+            $ou_markup .= $country_ou;
+            $ou_markup .= '</div>';
+            $ou_markup .= '</div>';
+          }
+          $ou_markup .= '</div>';
+          $form['ou'] = array(
+            '#markup' => $ou_markup,
+            '#weight' => -10,
+          );
+        }
       }
 
     }
