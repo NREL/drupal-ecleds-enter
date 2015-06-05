@@ -24,9 +24,13 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
-    'settings' => array(),
+    'settings' => array(
+      'decimal_separator' => '.',
+      'precision' => 10,
+      'scale' => 2,
+    ),
     'translatable' => 0,
-    'type' => 'number_integer',
+    'type' => 'number_decimal',
   );
 
   // Exported field_base: 'field_econ_growth_source'
@@ -76,9 +80,13 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
-    'settings' => array(),
+    'settings' => array(
+      'decimal_separator' => '.',
+      'precision' => 10,
+      'scale' => 2,
+    ),
     'translatable' => 0,
-    'type' => 'number_integer',
+    'type' => 'number_decimal',
   );
 
   // Exported field_base: 'field_forested_source'
@@ -253,26 +261,20 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ghg_growth_20_year',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
+    'field_permissions' => array(
+      'type' => 0,
     ),
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
+    'foreign keys' => array(),
+    'indexes' => array(),
     'locked' => 0,
-    'module' => 'text',
+    'module' => 'number',
     'settings' => array(
-      'max_length' => 255,
+      'decimal_separator' => '.',
+      'precision' => 10,
+      'scale' => 2,
     ),
     'translatable' => 0,
-    'type' => 'text',
+    'type' => 'number_decimal',
   );
 
   // Exported field_base: 'field_ghg_growth_5_year'
@@ -282,26 +284,20 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ghg_growth_5_year',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
+    'field_permissions' => array(
+      'type' => 0,
     ),
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
+    'foreign keys' => array(),
+    'indexes' => array(),
     'locked' => 0,
-    'module' => 'text',
+    'module' => 'number',
     'settings' => array(
-      'max_length' => 255,
+      'decimal_separator' => '.',
+      'precision' => 10,
+      'scale' => 2,
     ),
     'translatable' => 0,
-    'type' => 'text',
+    'type' => 'number_decimal',
   );
 
   // Exported field_base: 'field_ghg_growth_source'
@@ -341,26 +337,20 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_gpd_avg_annual_01_10',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
+    'field_permissions' => array(
+      'type' => 0,
     ),
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
+    'foreign keys' => array(),
+    'indexes' => array(),
     'locked' => 0,
-    'module' => 'text',
+    'module' => 'number',
     'settings' => array(
-      'max_length' => 255,
+      'decimal_separator' => '.',
+      'precision' => 10,
+      'scale' => 2,
     ),
     'translatable' => 0,
-    'type' => 'text',
+    'type' => 'number_decimal',
   );
 
   // Exported field_base: 'field_key_eco_sector_agriculture'
@@ -377,9 +367,13 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
-    'settings' => array(),
+    'settings' => array(
+      'decimal_separator' => '.',
+      'precision' => 10,
+      'scale' => 2,
+    ),
     'translatable' => 0,
-    'type' => 'number_integer',
+    'type' => 'number_decimal',
   );
 
   // Exported field_base: 'field_key_eco_sector_industry'
@@ -396,28 +390,13 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'number_integer',
-  );
-
-  // Exported field_base: 'field_key_eco_sector_services'
-  $field_bases['field_key_eco_sector_services'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_key_eco_sector_services',
-    'field_permissions' => array(
-      'type' => 0,
+    'settings' => array(
+      'decimal_separator' => '.',
+      'precision' => 10,
+      'scale' => 2,
     ),
-    'foreign keys' => array(),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(),
     'translatable' => 0,
-    'type' => 'number_integer',
+    'type' => 'number_decimal',
   );
 
   // Exported field_base: 'field_key_eco_sector_source'
@@ -481,6 +460,29 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     ),
     'translatable' => 0,
     'type' => 'link_field',
+  );
+
+  // Exported field_base: 'field_services'
+  $field_bases['field_services'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_services',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'decimal_separator' => '.',
+      'precision' => 10,
+      'scale' => 2,
+    ),
+    'translatable' => 0,
+    'type' => 'number_decimal',
   );
 
   // Exported field_base: 'field_upload_download_spreadshee'

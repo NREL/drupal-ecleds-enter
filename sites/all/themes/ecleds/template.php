@@ -44,4 +44,18 @@ function ecleds_preprocess_field(&$vars, $hook) {
         break;
     }
   }
+  // For decimal fields, suppress zeros after the decimal point.
+  $decimal_fields = array(
+    'field_key_eco_sector_agriculture',
+    'field_key_eco_sector_industry',
+    'field_services',
+    'field_gpd_avg_annual_01_10',
+    'field_ghg_growth_20_year',
+    'field_ghg_growth_5_year',
+    'field_env_eco_forested',
+    'field_contrib_to_electricity',
+  );
+  if (in_array($field_name, $decimal_fields)) {
+    $vars['items'][0]['#markup'] = str_replace(".0%", "%", str_replace("0%", "%", $vars['items'][0]['#markup']));
+  }
 }
