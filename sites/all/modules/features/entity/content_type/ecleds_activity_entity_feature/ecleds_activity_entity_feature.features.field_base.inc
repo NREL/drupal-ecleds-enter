@@ -96,7 +96,7 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_activity_goal_outcome',
     'field_permissions' => array(
-      'type' => 1,
+      'type' => 2,
     ),
     'foreign keys' => array(
       'format' => array(
@@ -126,7 +126,7 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_activity_high_activity',
     'field_permissions' => array(
-      'type' => 1,
+      'type' => 2,
     ),
     'foreign keys' => array(),
     'indexes' => array(
@@ -155,7 +155,7 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_activity_highlight_summary',
     'field_permissions' => array(
-      'type' => 1,
+      'type' => 2,
     ),
     'foreign keys' => array(
       'format' => array(
@@ -185,7 +185,7 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_activity_indicator',
     'field_permissions' => array(
-      'type' => 1,
+      'type' => 2,
     ),
     'foreign keys' => array(),
     'indexes' => array(
@@ -211,7 +211,7 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_area_of_cooperation',
     'field_permissions' => array(
-      'type' => 1,
+      'type' => 2,
     ),
     'foreign keys' => array(
       'node' => array(
@@ -256,7 +256,7 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_contribution_to_theory',
     'field_permissions' => array(
-      'type' => 1,
+      'type' => 2,
     ),
     'foreign keys' => array(
       'format' => array(
@@ -286,7 +286,7 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_does_this_relate_to_theory',
     'field_permissions' => array(
-      'type' => 1,
+      'type' => 2,
     ),
     'foreign keys' => array(),
     'indexes' => array(
@@ -315,7 +315,7 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_link_to_dashboard_framewor',
     'field_permissions' => array(
-      'type' => 1,
+      'type' => 2,
     ),
     'foreign keys' => array(
       'node' => array(
@@ -359,7 +359,7 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_link_to_gcc_collaborator',
     'field_permissions' => array(
-      'type' => 1,
+      'type' => 0,
     ),
     'foreign keys' => array(
       'format' => array(
@@ -391,7 +391,7 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_link_to_gcc_results_framew',
     'field_permissions' => array(
-      'type' => 1,
+      'type' => 2,
     ),
     'foreign keys' => array(
       'taxonomy_term_data' => array(
@@ -531,7 +531,7 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_results_milestone',
     'field_permissions' => array(
-      'type' => 1,
+      'type' => 2,
     ),
     'foreign keys' => array(
       'node' => array(

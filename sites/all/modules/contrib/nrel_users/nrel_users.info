@@ -1,0 +1,7 @@
+name = nrel_users
+description = "Users, Roles, etc."
+core = 7.x
+package = NREL
+version = 7.x-1.0
+dependencies[] = secure_permissions
+

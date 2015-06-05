@@ -1,0 +1,6 @@
+[submodule "sites/all/modules/contrib/doe_stats"]
+	path = sites/all/modules/contrib/doe_stats
+	url = git@github.nrel.gov:drupal/doe_stats.git
+[submodule "sites/all/themes/ecleds/js/iconomatic"]
+	path = sites/all/themes/ecleds/js/iconomatic
+	url = git@github.nrel.gov:communications/nrel-iconomatic.git
