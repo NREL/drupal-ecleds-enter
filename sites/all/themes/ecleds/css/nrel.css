@@ -196,3 +196,63 @@ body.adminimal-theme #media-browser-page #fixed-branding {
 .group-expected-completion-date {
   width: 24em;
 }
+
+.field-name-field-impl-mech-perf-start-month,
+.field-name-field-impl-mech-perf-start-year,
+.field-name-field-impl-mech-perf-end-month,
+.field-name-field-impl-mech-perf-end-year, 
+.field-name-field-completion-month,
+.field-name-field-completion-year, 
+.field-name-field-expected-completion-month,
+.field-name-field-field-exp-compl-year {
+  float:left;
+}
+
+.field-name-field-impl-mech-perf-end-month,
+.field-name-field-expected-completion-month,
+.field-name-field-field-exp-compl-year.no-expected-completion-month {
+  margin-left: 40px;
+}
+
+.field-name-field-expected-completion-month.no-completion-date,
+.field-name-field-field-exp-compl-year.no-expected-completion-month.no-completion-date {
+  margin-left: 0px;
+}
+
+.node-ecleds-implementing-mechanism .field-collection-container,
+.field-name-field-im-funding-pillar {
+  clear: both;
+}
+
+.node-ecleds-implementing-mechanism h2 .title-dates {
+  font-size: 0.8em;
+  margin-top:3px;
+  margin-left: 25px;
+}
+
+.node-ecleds-implementing-mechanism h2 .title-dates .title-start-date {
+  margin-right: 40px;
+}
+
+.node-ecleds-implementing-mechanism h2 .title-dates .label {
+  font-weight: bold;
+}
+
+#environmental-and-economical-node-form .field {
+  margin-bottom: 1.5em;
+}
+
+.node-ecleds-implementing-mechanism {
+  position: relative;
+}
+
+.node-ecleds-implementing-mechanism .edit-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.node-ecleds-implementing-mechanism .edit-button .button-edit {
+  background-color: #0074BD;
+  color: white;
+}

@@ -30,14 +30,15 @@ function ecleds_im_funding_pillar_feature_field_default_field_instances() {
     'label' => 'Fiscal Year',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 1,
+      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'size' => 60,
+        'label_help_description' => '',
+        'size' => 8,
       ),
       'type' => 'text_textfield',
       'weight' => 0,

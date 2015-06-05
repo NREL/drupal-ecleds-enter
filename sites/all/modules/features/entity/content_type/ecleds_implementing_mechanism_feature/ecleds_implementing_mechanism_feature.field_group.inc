@@ -21,7 +21,7 @@ function ecleds_implementing_mechanism_feature_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'GCC Results Framework',
-    'weight' => '11',
+    'weight' => '15',
     'children' => array(
       0 => 'field_gcc_intermediate_result',
       1 => 'field_gcc_intermediate_result_2',
@@ -136,11 +136,8 @@ function ecleds_implementing_mechanism_feature_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Performance End Date',
-    'weight' => '6',
-    'children' => array(
-      0 => 'field_impl_mech_perf_end_month',
-      1 => 'field_impl_mech_perf_end_year',
-    ),
+    'weight' => '9',
+    'children' => array(),
     'format_type' => 'fieldset',
     'format_settings' => array(
       'label' => 'Performance End Date',

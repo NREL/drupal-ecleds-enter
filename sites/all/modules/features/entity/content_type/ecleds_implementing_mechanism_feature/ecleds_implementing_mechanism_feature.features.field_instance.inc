@@ -180,7 +180,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 15,
+        'weight' => 17,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -359,7 +359,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_table_view',
-        'weight' => 10,
+        'weight' => 14,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -445,7 +445,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 7,
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -460,13 +460,14 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     'label' => 'IM Alt Name',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 1,
+      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'text',
       'settings' => array(
+        'label_help_description' => '',
         'size' => 60,
       ),
       'type' => 'text_textfield',
@@ -500,7 +501,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     'label' => 'Award Number',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 1,
+      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -533,7 +534,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 14,
+        'weight' => 16,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -568,11 +569,11 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(),
         'type' => 'number_unformatted',
-        'weight' => 12,
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -609,11 +610,11 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(),
         'type' => 'number_unformatted',
-        'weight' => 13,
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -650,11 +651,11 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(),
         'type' => 'number_unformatted',
-        'weight' => 10,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -691,11 +692,11 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(),
         'type' => 'number_unformatted',
-        'weight' => 11,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -736,7 +737,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 8,
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -751,14 +752,15 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     'label' => 'USAID DB Number',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 1,
+      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'size' => 60,
+        'label_help_description' => '',
+        'size' => 12,
       ),
       'type' => 'text_textfield',
       'weight' => 9,
@@ -777,7 +779,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 9,
+        'weight' => 13,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -849,13 +851,14 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     'label' => 'Implementer',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 1,
+      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'text',
       'settings' => array(
+        'label_help_description' => '',
         'size' => 60,
       ),
       'type' => 'text_textfield',

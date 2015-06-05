@@ -157,7 +157,7 @@
               // Check if OU contains this Milestone.
               var milestoneTest = MilestoneData[ou].some(function (apg, i, array) {
                 return ($.trim(apg) === $.trim($option.find('label').text())) ||
-                  ($.trim(apg) === $.trim($option.text().replace('Milestone:', '')));
+                  ($.trim(apg) === $.trim($option.text().replace('Milestone:', '').replace('&amp;', '&')));
               });
 
               // If found, add option.

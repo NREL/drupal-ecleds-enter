@@ -627,27 +627,6 @@ function ecleds_menus_feature_menu_default_menu_links() {
     'customized' => 0,
     'parent_identifier' => 'management_media:admin/config/media',
   );
-  // Exported menu link: management_google-analytics:admin/config/system/googleanalytics
-  $menu_links['management_google-analytics:admin/config/system/googleanalytics'] = array(
-    'menu_name' => 'management',
-    'link_path' => 'admin/config/system/googleanalytics',
-    'router_path' => 'admin/config/system/googleanalytics',
-    'link_title' => 'Google Analytics',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'Configure tracking behavior to get insights into your website traffic and marketing effectiveness.',
-      ),
-      'identifier' => 'management_google-analytics:admin/config/system/googleanalytics',
-    ),
-    'module' => 'system',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 0,
-    'parent_identifier' => 'management_system:admin/config/system',
-  );
   // Exported menu link: management_help:admin/help
   $menu_links['management_help:admin/help'] = array(
     'menu_name' => 'management',
@@ -1223,27 +1202,6 @@ function ecleds_menus_feature_menu_default_menu_links() {
     'weight' => -10,
     'customized' => 0,
     'parent_identifier' => 'management_search-and-metadata:admin/config/search',
-  );
-  // Exported menu link: management_shield:admin/config/system/shield
-  $menu_links['management_shield:admin/config/system/shield'] = array(
-    'menu_name' => 'management',
-    'link_path' => 'admin/config/system/shield',
-    'router_path' => 'admin/config/system/shield',
-    'link_title' => 'Shield',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'Manage the settings of PHP Authentication shield.',
-      ),
-      'identifier' => 'management_shield:admin/config/system/shield',
-    ),
-    'module' => 'system',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 10,
-    'customized' => 0,
-    'parent_identifier' => 'management_system:admin/config/system',
   );
   // Exported menu link: management_shortcuts:admin/config/user-interface/shortcut
   $menu_links['management_shortcuts:admin/config/user-interface/shortcut'] = array(
@@ -2112,7 +2070,6 @@ function ecleds_menus_feature_menu_default_menu_links() {
   t('Field list');
   t('File system');
   t('Frameworks');
-  t('Google Analytics');
   t('Help');
   t('IP address blocking');
   t('Image styles');
@@ -2153,7 +2110,6 @@ function ecleds_menus_feature_menu_default_menu_links() {
   t('Search');
   t('Search and metadata');
   t('Search settings');
-  t('Shield');
   t('Shortcuts');
   t('Site information');
   t('Status report');
