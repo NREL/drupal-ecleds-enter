@@ -55,8 +55,3 @@ Disallow: /?q=user/password/
 Disallow: /?q=user/register/
 Disallow: /?q=user/login/
 Disallow: /?q=user/logout/
-
-
-# Custom added for NREL
-Disallow: /node/
-Disallow: /?q=node/

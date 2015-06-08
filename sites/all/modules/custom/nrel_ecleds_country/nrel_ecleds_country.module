@@ -120,11 +120,11 @@ function nrel_ecleds_country_menu_local_tasks_alter(&$data, $router_item, $root_
         }
 
         // Hide the node tabs on the node view page
-        if ($root_path == 'node/%' &&
+        /*if ($root_path == 'node/%' &&
           in_array($tab['#link']['path'], $node_tabs)
         ) {
           unset($tabs[$key]);
-        }
+        }*/
       }
     }
   }
