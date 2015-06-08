@@ -106,11 +106,11 @@ function nrel_ecleds_operating_unit_menu_local_tasks_alter(&$data, $router_item,
         }
 
         // Hide the node tabs on the node view page
-        if ($root_path == 'node/%' &&
+        /*if ($root_path == 'node/%' &&
           in_array($tab['#link']['path'], $node_tabs)
         ) {
           unset($tabs[$key]);
-        }
+        }*/
 
         // Hide the extra tabs on node pages
 //      if (in_array($root_path, $node_tabs) &&
