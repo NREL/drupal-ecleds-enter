@@ -20,7 +20,6 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -43,7 +42,6 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -76,7 +74,6 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -99,7 +96,6 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -132,7 +128,6 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -165,7 +160,6 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -198,7 +192,6 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -231,7 +224,6 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -264,7 +256,6 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -287,7 +278,6 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -307,7 +297,6 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ghg_growth_source',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -340,7 +329,6 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -363,7 +351,6 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -386,7 +373,6 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -406,7 +392,6 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_key_eco_sector_source',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -439,7 +424,6 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -472,7 +456,6 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -494,14 +477,6 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'field_name' => 'field_upload_download_spreadshee',
     'field_permissions' => array(
       'type' => 0,
-    ),
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
     ),
     'indexes' => array(
       'fid' => array(

@@ -20,7 +20,6 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -39,7 +38,6 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -57,14 +55,6 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'field_name' => 'field_fy14_results_explanation',
     'field_permissions' => array(
       'type' => 0,
-    ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
     ),
     'indexes' => array(
       'format' => array(
@@ -88,7 +78,6 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -107,7 +96,6 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -126,7 +114,6 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -145,7 +132,6 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -163,14 +149,6 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'field_name' => 'field_gcc_standard_indicator',
     'field_permissions' => array(
       'type' => 0,
-    ),
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
     ),
     'indexes' => array(
       'target_id' => array(
@@ -212,7 +190,6 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(
       'revision_id' => array(
         0 => 'revision_id',

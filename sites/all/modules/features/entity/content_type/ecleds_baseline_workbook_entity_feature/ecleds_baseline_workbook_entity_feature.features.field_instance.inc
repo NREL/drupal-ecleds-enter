@@ -10,7 +10,8 @@
 function ecleds_baseline_workbook_entity_feature_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_collection_emissions_sect-field_emission_secter_name'
+  // Exported field_instance:
+  // 'field_collection_item-field_collection_emissions_sect-field_emission_secter_name'
   $field_instances['field_collection_item-field_collection_emissions_sect-field_emission_secter_name'] = array(
     'bundle' => 'field_collection_emissions_sect',
     'default_value' => NULL,
@@ -44,7 +45,8 @@ function ecleds_baseline_workbook_entity_feature_field_default_field_instances()
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_collection_emissions_sect-field_emissions_secter_emissions'
+  // Exported field_instance:
+  // 'field_collection_item-field_collection_emissions_sect-field_emissions_secter_emissions'
   $field_instances['field_collection_item-field_collection_emissions_sect-field_emissions_secter_emissions'] = array(
     'bundle' => 'field_collection_emissions_sect',
     'default_value' => NULL,
@@ -78,7 +80,8 @@ function ecleds_baseline_workbook_entity_feature_field_default_field_instances()
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_collection_summary_relev-field_policy_name'
+  // Exported field_instance:
+  // 'field_collection_item-field_collection_summary_relev-field_policy_name'
   $field_instances['field_collection_item-field_collection_summary_relev-field_policy_name'] = array(
     'bundle' => 'field_collection_summary_relev',
     'default_value' => NULL,
@@ -112,7 +115,8 @@ function ecleds_baseline_workbook_entity_feature_field_default_field_instances()
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_collection_summary_relev-field_summary_of_relevant_policy'
+  // Exported field_instance:
+  // 'field_collection_item-field_collection_summary_relev-field_summary_of_relevant_policy'
   $field_instances['field_collection_item-field_collection_summary_relev-field_summary_of_relevant_policy'] = array(
     'bundle' => 'field_collection_summary_relev',
     'default_value' => NULL,
@@ -146,7 +150,8 @@ function ecleds_baseline_workbook_entity_feature_field_default_field_instances()
     ),
   );
 
-  // Exported field_instance: 'node-baseline_workbook-field_collection_emissions_sect'
+  // Exported field_instance:
+  // 'node-baseline_workbook-field_collection_emissions_sect'
   $field_instances['node-baseline_workbook-field_collection_emissions_sect'] = array(
     'bundle' => 'baseline_workbook',
     'default_value' => NULL,
@@ -189,7 +194,8 @@ function ecleds_baseline_workbook_entity_feature_field_default_field_instances()
     ),
   );
 
-  // Exported field_instance: 'node-baseline_workbook-field_collection_summary_relev'
+  // Exported field_instance:
+  // 'node-baseline_workbook-field_collection_summary_relev'
   $field_instances['node-baseline_workbook-field_collection_summary_relev'] = array(
     'bundle' => 'baseline_workbook',
     'default_value' => NULL,
@@ -232,7 +238,8 @@ function ecleds_baseline_workbook_entity_feature_field_default_field_instances()
     ),
   );
 
-  // Exported field_instance: 'node-baseline_workbook-field_ecleds_reference_material'
+  // Exported field_instance:
+  // 'node-baseline_workbook-field_ecleds_reference_material'
   $field_instances['node-baseline_workbook-field_ecleds_reference_material'] = array(
     'bundle' => 'baseline_workbook',
     'default_value' => NULL,
@@ -271,7 +278,8 @@ function ecleds_baseline_workbook_entity_feature_field_default_field_instances()
     ),
   );
 
-  // Exported field_instance: 'node-baseline_workbook-field_emissions_reduction_target'
+  // Exported field_instance:
+  // 'node-baseline_workbook-field_emissions_reduction_target'
   $field_instances['node-baseline_workbook-field_emissions_reduction_target'] = array(
     'bundle' => 'baseline_workbook',
     'default_value' => NULL,
@@ -311,7 +319,8 @@ function ecleds_baseline_workbook_entity_feature_field_default_field_instances()
     ),
   );
 
-  // Exported field_instance: 'node-baseline_workbook-field_lead_government_agency'
+  // Exported field_instance:
+  // 'node-baseline_workbook-field_lead_government_agency'
   $field_instances['node-baseline_workbook-field_lead_government_agency'] = array(
     'bundle' => 'baseline_workbook',
     'default_value' => NULL,
@@ -351,7 +360,8 @@ function ecleds_baseline_workbook_entity_feature_field_default_field_instances()
     ),
   );
 
-  // Exported field_instance: 'node-baseline_workbook-field_leds_summary_highlights'
+  // Exported field_instance:
+  // 'node-baseline_workbook-field_leds_summary_highlights'
   $field_instances['node-baseline_workbook-field_leds_summary_highlights'] = array(
     'bundle' => 'baseline_workbook',
     'default_value' => NULL,
@@ -391,7 +401,8 @@ function ecleds_baseline_workbook_entity_feature_field_default_field_instances()
     ),
   );
 
-  // Exported field_instance: 'node-baseline_workbook-field_other_agencies_responsible'
+  // Exported field_instance:
+  // 'node-baseline_workbook-field_other_agencies_responsible'
   $field_instances['node-baseline_workbook-field_other_agencies_responsible'] = array(
     'bundle' => 'baseline_workbook',
     'default_value' => NULL,

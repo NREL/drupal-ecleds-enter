@@ -17,7 +17,6 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_date_enacted',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'date',
@@ -47,14 +46,6 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ecleds_coord_body_desc',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -74,14 +65,6 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ecleds_coord_body_name',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -103,14 +86,6 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ecleds_coord_body_source',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -130,7 +105,6 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ecleds_leds_coord_body',
-    'foreign keys' => array(),
     'indexes' => array(
       'revision_id' => array(
         0 => 'revision_id',
@@ -153,14 +127,6 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ecleds_leds_file',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -184,14 +150,6 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ecleds_leds_plan_desc',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -211,14 +169,6 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ecleds_leds_plan_source',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -238,14 +188,6 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_goals_targets',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -265,7 +207,6 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_leds_strategy_plan',
-    'foreign keys' => array(),
     'indexes' => array(
       'revision_id' => array(
         0 => 'revision_id',
@@ -288,14 +229,6 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_title',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',

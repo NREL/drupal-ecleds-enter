@@ -10,7 +10,8 @@
 function ecleds_program_level_progress_entity_feature_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_collection_impacted_year-field_prog_lev_prog_ce'
+  // Exported field_instance:
+  // 'field_collection_item-field_collection_impacted_year-field_prog_lev_prog_ce'
   $field_instances['field_collection_item-field_collection_impacted_year-field_prog_lev_prog_ce'] = array(
     'bundle' => 'field_collection_impacted_year',
     'default_value' => NULL,
@@ -44,7 +45,8 @@ function ecleds_program_level_progress_entity_feature_field_default_field_instan
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_collection_impacted_year-field_prog_lev_prog_clean_energy'
+  // Exported field_instance:
+  // 'field_collection_item-field_collection_impacted_year-field_prog_lev_prog_clean_energy'
   $field_instances['field_collection_item-field_collection_impacted_year-field_prog_lev_prog_clean_energy'] = array(
     'bundle' => 'field_collection_impacted_year',
     'default_value' => NULL,
@@ -78,7 +80,8 @@ function ecleds_program_level_progress_entity_feature_field_default_field_instan
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_collection_impacted_year-field_prog_lev_prog_hect_sus_use'
+  // Exported field_instance:
+  // 'field_collection_item-field_collection_impacted_year-field_prog_lev_prog_hect_sus_use'
   $field_instances['field_collection_item-field_collection_impacted_year-field_prog_lev_prog_hect_sus_use'] = array(
     'bundle' => 'field_collection_impacted_year',
     'default_value' => NULL,
@@ -112,7 +115,8 @@ function ecleds_program_level_progress_entity_feature_field_default_field_instan
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_collection_impacted_year-field_prog_lev_prog_sl'
+  // Exported field_instance:
+  // 'field_collection_item-field_collection_impacted_year-field_prog_lev_prog_sl'
   $field_instances['field_collection_item-field_collection_impacted_year-field_prog_lev_prog_sl'] = array(
     'bundle' => 'field_collection_impacted_year',
     'default_value' => NULL,
@@ -146,7 +150,8 @@ function ecleds_program_level_progress_entity_feature_field_default_field_instan
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_collection_impacted_year-field_prog_lev_prog_year'
+  // Exported field_instance:
+  // 'field_collection_item-field_collection_impacted_year-field_prog_lev_prog_year'
   $field_instances['field_collection_item-field_collection_impacted_year-field_prog_lev_prog_year'] = array(
     'bundle' => 'field_collection_impacted_year',
     'deleted' => 0,
@@ -193,7 +198,8 @@ function ecleds_program_level_progress_entity_feature_field_default_field_instan
     ),
   );
 
-  // Exported field_instance: 'node-program_level_progress-field_collection_impacted_year'
+  // Exported field_instance:
+  // 'node-program_level_progress-field_collection_impacted_year'
   $field_instances['node-program_level_progress-field_collection_impacted_year'] = array(
     'bundle' => 'program_level_progress',
     'default_value' => NULL,
@@ -236,7 +242,8 @@ function ecleds_program_level_progress_entity_feature_field_default_field_instan
     ),
   );
 
-  // Exported field_instance: 'node-program_level_progress-field_ecleds_reference_material'
+  // Exported field_instance:
+  // 'node-program_level_progress-field_ecleds_reference_material'
   $field_instances['node-program_level_progress-field_ecleds_reference_material'] = array(
     'bundle' => 'program_level_progress',
     'default_value' => NULL,
@@ -276,7 +283,8 @@ function ecleds_program_level_progress_entity_feature_field_default_field_instan
     ),
   );
 
-  // Exported field_instance: 'node-program_level_progress-field_prog_lev_prog_baseline_1'
+  // Exported field_instance:
+  // 'node-program_level_progress-field_prog_lev_prog_baseline_1'
   $field_instances['node-program_level_progress-field_prog_lev_prog_baseline_1'] = array(
     'bundle' => 'program_level_progress',
     'default_value' => NULL,
@@ -316,7 +324,8 @@ function ecleds_program_level_progress_entity_feature_field_default_field_instan
     ),
   );
 
-  // Exported field_instance: 'node-program_level_progress-field_prog_lev_prog_challenges'
+  // Exported field_instance:
+  // 'node-program_level_progress-field_prog_lev_prog_challenges'
   $field_instances['node-program_level_progress-field_prog_lev_prog_challenges'] = array(
     'bundle' => 'program_level_progress',
     'default_value' => NULL,
@@ -356,7 +365,8 @@ function ecleds_program_level_progress_entity_feature_field_default_field_instan
     ),
   );
 
-  // Exported field_instance: 'node-program_level_progress-field_prog_lev_prog_status_1'
+  // Exported field_instance:
+  // 'node-program_level_progress-field_prog_lev_prog_status_1'
   $field_instances['node-program_level_progress-field_prog_lev_prog_status_1'] = array(
     'bundle' => 'program_level_progress',
     'default_value' => NULL,
@@ -396,7 +406,8 @@ function ecleds_program_level_progress_entity_feature_field_default_field_instan
     ),
   );
 
-  // Exported field_instance: 'node-program_level_progress-field_prog_lev_prog_target_1'
+  // Exported field_instance:
+  // 'node-program_level_progress-field_prog_lev_prog_target_1'
   $field_instances['node-program_level_progress-field_prog_lev_prog_target_1'] = array(
     'bundle' => 'program_level_progress',
     'default_value' => NULL,

@@ -10,7 +10,8 @@
 function ecleds_program_plans_entity_feature_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_ecleds_prog_plans_awp-field_country_signatory_and_inst'
+  // Exported field_instance:
+  // 'field_collection_item-field_ecleds_prog_plans_awp-field_country_signatory_and_inst'
   $field_instances['field_collection_item-field_ecleds_prog_plans_awp-field_country_signatory_and_inst'] = array(
     'bundle' => 'field_ecleds_prog_plans_awp',
     'default_value' => NULL,
@@ -45,7 +46,8 @@ function ecleds_program_plans_entity_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_ecleds_prog_plans_awp-field_ecleds_prog_plans_awp_desc'
+  // Exported field_instance:
+  // 'field_collection_item-field_ecleds_prog_plans_awp-field_ecleds_prog_plans_awp_desc'
   $field_instances['field_collection_item-field_ecleds_prog_plans_awp-field_ecleds_prog_plans_awp_desc'] = array(
     'bundle' => 'field_ecleds_prog_plans_awp',
     'default_value' => NULL,
@@ -80,7 +82,8 @@ function ecleds_program_plans_entity_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_ecleds_prog_plans_awp-field_ecleds_prog_plans_awp_file'
+  // Exported field_instance:
+  // 'field_collection_item-field_ecleds_prog_plans_awp-field_ecleds_prog_plans_awp_file'
   $field_instances['field_collection_item-field_ecleds_prog_plans_awp-field_ecleds_prog_plans_awp_file'] = array(
     'bundle' => 'field_ecleds_prog_plans_awp',
     'deleted' => 0,
@@ -117,7 +120,8 @@ function ecleds_program_plans_entity_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_ecleds_prog_plans_awp-field_ecleds_prog_plans_awp_name'
+  // Exported field_instance:
+  // 'field_collection_item-field_ecleds_prog_plans_awp-field_ecleds_prog_plans_awp_name'
   $field_instances['field_collection_item-field_ecleds_prog_plans_awp-field_ecleds_prog_plans_awp_name'] = array(
     'bundle' => 'field_ecleds_prog_plans_awp',
     'default_value' => NULL,
@@ -152,7 +156,8 @@ function ecleds_program_plans_entity_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_ecleds_prog_plans_awp-field_end_date'
+  // Exported field_instance:
+  // 'field_collection_item-field_ecleds_prog_plans_awp-field_end_date'
   $field_instances['field_collection_item-field_ecleds_prog_plans_awp-field_end_date'] = array(
     'bundle' => 'field_ecleds_prog_plans_awp',
     'deleted' => 0,
@@ -200,7 +205,8 @@ function ecleds_program_plans_entity_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_ecleds_prog_plans_awp-field_start_date'
+  // Exported field_instance:
+  // 'field_collection_item-field_ecleds_prog_plans_awp-field_start_date'
   $field_instances['field_collection_item-field_ecleds_prog_plans_awp-field_start_date'] = array(
     'bundle' => 'field_ecleds_prog_plans_awp',
     'deleted' => 0,
@@ -248,7 +254,8 @@ function ecleds_program_plans_entity_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_ecleds_prog_plans_awp-field_work_area'
+  // Exported field_instance:
+  // 'field_collection_item-field_ecleds_prog_plans_awp-field_work_area'
   $field_instances['field_collection_item-field_ecleds_prog_plans_awp-field_work_area'] = array(
     'bundle' => 'field_ecleds_prog_plans_awp',
     'default_value_function' => '',
@@ -341,7 +348,8 @@ function ecleds_program_plans_entity_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-program_plans-field_ecleds_reference_material'
+  // Exported field_instance:
+  // 'node-program_plans-field_ecleds_reference_material'
   $field_instances['node-program_plans-field_ecleds_reference_material'] = array(
     'bundle' => 'program_plans',
     'default_value' => NULL,

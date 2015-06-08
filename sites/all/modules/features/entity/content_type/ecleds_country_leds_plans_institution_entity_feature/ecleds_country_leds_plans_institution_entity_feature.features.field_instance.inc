@@ -10,7 +10,8 @@
 function ecleds_country_leds_plans_institution_entity_feature_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_ecleds_leds_coord_body-field_ecleds_coord_body_desc'
+  // Exported field_instance:
+  // 'field_collection_item-field_ecleds_leds_coord_body-field_ecleds_coord_body_desc'
   $field_instances['field_collection_item-field_ecleds_leds_coord_body-field_ecleds_coord_body_desc'] = array(
     'bundle' => 'field_ecleds_leds_coord_body',
     'default_value' => NULL,
@@ -44,7 +45,8 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_ecleds_leds_coord_body-field_ecleds_coord_body_name'
+  // Exported field_instance:
+  // 'field_collection_item-field_ecleds_leds_coord_body-field_ecleds_coord_body_name'
   $field_instances['field_collection_item-field_ecleds_leds_coord_body-field_ecleds_coord_body_name'] = array(
     'bundle' => 'field_ecleds_leds_coord_body',
     'default_value' => NULL,
@@ -78,7 +80,8 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_ecleds_leds_coord_body-field_ecleds_coord_body_source'
+  // Exported field_instance:
+  // 'field_collection_item-field_ecleds_leds_coord_body-field_ecleds_coord_body_source'
   $field_instances['field_collection_item-field_ecleds_leds_coord_body-field_ecleds_coord_body_source'] = array(
     'bundle' => 'field_ecleds_leds_coord_body',
     'default_value' => NULL,
@@ -112,7 +115,8 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_leds_strategy_plan-field_date_enacted'
+  // Exported field_instance:
+  // 'field_collection_item-field_leds_strategy_plan-field_date_enacted'
   $field_instances['field_collection_item-field_leds_strategy_plan-field_date_enacted'] = array(
     'bundle' => 'field_leds_strategy_plan',
     'deleted' => 0,
@@ -160,7 +164,8 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_leds_strategy_plan-field_ecleds_leds_plan_desc'
+  // Exported field_instance:
+  // 'field_collection_item-field_leds_strategy_plan-field_ecleds_leds_plan_desc'
   $field_instances['field_collection_item-field_leds_strategy_plan-field_ecleds_leds_plan_desc'] = array(
     'bundle' => 'field_leds_strategy_plan',
     'default_value' => NULL,
@@ -194,7 +199,8 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_leds_strategy_plan-field_ecleds_leds_plan_source'
+  // Exported field_instance:
+  // 'field_collection_item-field_leds_strategy_plan-field_ecleds_leds_plan_source'
   $field_instances['field_collection_item-field_leds_strategy_plan-field_ecleds_leds_plan_source'] = array(
     'bundle' => 'field_leds_strategy_plan',
     'default_value' => NULL,
@@ -228,7 +234,8 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_leds_strategy_plan-field_goals_targets'
+  // Exported field_instance:
+  // 'field_collection_item-field_leds_strategy_plan-field_goals_targets'
   $field_instances['field_collection_item-field_leds_strategy_plan-field_goals_targets'] = array(
     'bundle' => 'field_leds_strategy_plan',
     'default_value' => NULL,
@@ -262,7 +269,8 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_leds_strategy_plan-field_title'
+  // Exported field_instance:
+  // 'field_collection_item-field_leds_strategy_plan-field_title'
   $field_instances['field_collection_item-field_leds_strategy_plan-field_title'] = array(
     'bundle' => 'field_leds_strategy_plan',
     'default_value' => NULL,
@@ -295,7 +303,8 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     ),
   );
 
-  // Exported field_instance: 'node-leds_plans_institutions-field_ecleds_leds_coord_body'
+  // Exported field_instance:
+  // 'node-leds_plans_institutions-field_ecleds_leds_coord_body'
   $field_instances['node-leds_plans_institutions-field_ecleds_leds_coord_body'] = array(
     'bundle' => 'leds_plans_institutions',
     'default_value' => NULL,
@@ -339,7 +348,8 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     ),
   );
 
-  // Exported field_instance: 'node-leds_plans_institutions-field_ecleds_leds_file'
+  // Exported field_instance:
+  // 'node-leds_plans_institutions-field_ecleds_leds_file'
   $field_instances['node-leds_plans_institutions-field_ecleds_leds_file'] = array(
     'bundle' => 'leds_plans_institutions',
     'deleted' => 0,
@@ -381,7 +391,8 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     ),
   );
 
-  // Exported field_instance: 'node-leds_plans_institutions-field_ecleds_reference_material'
+  // Exported field_instance:
+  // 'node-leds_plans_institutions-field_ecleds_reference_material'
   $field_instances['node-leds_plans_institutions-field_ecleds_reference_material'] = array(
     'bundle' => 'leds_plans_institutions',
     'default_value' => NULL,
@@ -420,7 +431,8 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     ),
   );
 
-  // Exported field_instance: 'node-leds_plans_institutions-field_leds_strategy_plan'
+  // Exported field_instance:
+  // 'node-leds_plans_institutions-field_leds_strategy_plan'
   $field_instances['node-leds_plans_institutions-field_leds_strategy_plan'] = array(
     'bundle' => 'leds_plans_institutions',
     'default_value' => NULL,

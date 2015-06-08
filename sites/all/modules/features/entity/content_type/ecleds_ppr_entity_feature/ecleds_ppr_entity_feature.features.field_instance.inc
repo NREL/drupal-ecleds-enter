@@ -10,7 +10,8 @@
 function ecleds_ppr_entity_feature_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_ppr_key_issue-field_funding_pillar'
+  // Exported field_instance:
+  // 'field_collection_item-field_ppr_key_issue-field_funding_pillar'
   $field_instances['field_collection_item-field_ppr_key_issue-field_funding_pillar'] = array(
     'bundle' => 'field_ppr_key_issue',
     'default_value' => NULL,
@@ -44,7 +45,8 @@ function ecleds_ppr_entity_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_ppr_key_issue-field_key_issue'
+  // Exported field_instance:
+  // 'field_collection_item-field_ppr_key_issue-field_key_issue'
   $field_instances['field_collection_item-field_ppr_key_issue-field_key_issue'] = array(
     'bundle' => 'field_ppr_key_issue',
     'default_value' => NULL,

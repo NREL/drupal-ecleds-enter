@@ -17,14 +17,6 @@ function ecleds_user_field_permissions_roles_feature_field_default_field_bases()
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_nrel_ecleds_full_name',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',

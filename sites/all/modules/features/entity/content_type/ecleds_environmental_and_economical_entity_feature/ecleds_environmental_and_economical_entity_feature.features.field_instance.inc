@@ -10,7 +10,8 @@
 function ecleds_environmental_and_economical_entity_feature_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-environmental_and_economical-field_contrib_to_electricity'
+  // Exported field_instance:
+  // 'node-environmental_and_economical-field_contrib_to_electricity'
   $field_instances['node-environmental_and_economical-field_contrib_to_electricity'] = array(
     'bundle' => 'environmental_and_economical',
     'default_value' => NULL,
@@ -58,7 +59,8 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     ),
   );
 
-  // Exported field_instance: 'node-environmental_and_economical-field_econ_growth_source'
+  // Exported field_instance:
+  // 'node-environmental_and_economical-field_econ_growth_source'
   $field_instances['node-environmental_and_economical-field_econ_growth_source'] = array(
     'bundle' => 'environmental_and_economical',
     'default_value' => NULL,
@@ -117,7 +119,8 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     ),
   );
 
-  // Exported field_instance: 'node-environmental_and_economical-field_env_eco_forested'
+  // Exported field_instance:
+  // 'node-environmental_and_economical-field_env_eco_forested'
   $field_instances['node-environmental_and_economical-field_env_eco_forested'] = array(
     'bundle' => 'environmental_and_economical',
     'default_value' => NULL,
@@ -165,7 +168,8 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     ),
   );
 
-  // Exported field_instance: 'node-environmental_and_economical-field_forested_source'
+  // Exported field_instance:
+  // 'node-environmental_and_economical-field_forested_source'
   $field_instances['node-environmental_and_economical-field_forested_source'] = array(
     'bundle' => 'environmental_and_economical',
     'default_value' => NULL,
@@ -224,7 +228,8 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     ),
   );
 
-  // Exported field_instance: 'node-environmental_and_economical-field_ghg_emitting_sector_1st'
+  // Exported field_instance:
+  // 'node-environmental_and_economical-field_ghg_emitting_sector_1st'
   $field_instances['node-environmental_and_economical-field_ghg_emitting_sector_1st'] = array(
     'bundle' => 'environmental_and_economical',
     'default_value' => NULL,
@@ -264,7 +269,8 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     ),
   );
 
-  // Exported field_instance: 'node-environmental_and_economical-field_ghg_emitting_sector_2nd'
+  // Exported field_instance:
+  // 'node-environmental_and_economical-field_ghg_emitting_sector_2nd'
   $field_instances['node-environmental_and_economical-field_ghg_emitting_sector_2nd'] = array(
     'bundle' => 'environmental_and_economical',
     'default_value' => NULL,
@@ -304,7 +310,8 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     ),
   );
 
-  // Exported field_instance: 'node-environmental_and_economical-field_ghg_emitting_sector_3rd'
+  // Exported field_instance:
+  // 'node-environmental_and_economical-field_ghg_emitting_sector_3rd'
   $field_instances['node-environmental_and_economical-field_ghg_emitting_sector_3rd'] = array(
     'bundle' => 'environmental_and_economical',
     'default_value' => NULL,
@@ -344,7 +351,8 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     ),
   );
 
-  // Exported field_instance: 'node-environmental_and_economical-field_ghg_emitting_sector_source'
+  // Exported field_instance:
+  // 'node-environmental_and_economical-field_ghg_emitting_sector_source'
   $field_instances['node-environmental_and_economical-field_ghg_emitting_sector_source'] = array(
     'bundle' => 'environmental_and_economical',
     'default_value' => NULL,
@@ -403,7 +411,8 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     ),
   );
 
-  // Exported field_instance: 'node-environmental_and_economical-field_ghg_growth_20_year'
+  // Exported field_instance:
+  // 'node-environmental_and_economical-field_ghg_growth_20_year'
   $field_instances['node-environmental_and_economical-field_ghg_growth_20_year'] = array(
     'bundle' => 'environmental_and_economical',
     'default_value' => NULL,
@@ -451,7 +460,8 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     ),
   );
 
-  // Exported field_instance: 'node-environmental_and_economical-field_ghg_growth_5_year'
+  // Exported field_instance:
+  // 'node-environmental_and_economical-field_ghg_growth_5_year'
   $field_instances['node-environmental_and_economical-field_ghg_growth_5_year'] = array(
     'bundle' => 'environmental_and_economical',
     'default_value' => NULL,
@@ -499,7 +509,8 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     ),
   );
 
-  // Exported field_instance: 'node-environmental_and_economical-field_ghg_growth_source'
+  // Exported field_instance:
+  // 'node-environmental_and_economical-field_ghg_growth_source'
   $field_instances['node-environmental_and_economical-field_ghg_growth_source'] = array(
     'bundle' => 'environmental_and_economical',
     'default_value' => NULL,
@@ -555,7 +566,8 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     ),
   );
 
-  // Exported field_instance: 'node-environmental_and_economical-field_gpd_avg_annual_01_10'
+  // Exported field_instance:
+  // 'node-environmental_and_economical-field_gpd_avg_annual_01_10'
   $field_instances['node-environmental_and_economical-field_gpd_avg_annual_01_10'] = array(
     'bundle' => 'environmental_and_economical',
     'default_value' => NULL,
@@ -603,7 +615,8 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     ),
   );
 
-  // Exported field_instance: 'node-environmental_and_economical-field_key_eco_sector_agriculture'
+  // Exported field_instance:
+  // 'node-environmental_and_economical-field_key_eco_sector_agriculture'
   $field_instances['node-environmental_and_economical-field_key_eco_sector_agriculture'] = array(
     'bundle' => 'environmental_and_economical',
     'default_value' => NULL,
@@ -651,7 +664,8 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     ),
   );
 
-  // Exported field_instance: 'node-environmental_and_economical-field_key_eco_sector_industry'
+  // Exported field_instance:
+  // 'node-environmental_and_economical-field_key_eco_sector_industry'
   $field_instances['node-environmental_and_economical-field_key_eco_sector_industry'] = array(
     'bundle' => 'environmental_and_economical',
     'default_value' => NULL,
@@ -699,7 +713,8 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     ),
   );
 
-  // Exported field_instance: 'node-environmental_and_economical-field_key_eco_sector_source'
+  // Exported field_instance:
+  // 'node-environmental_and_economical-field_key_eco_sector_source'
   $field_instances['node-environmental_and_economical-field_key_eco_sector_source'] = array(
     'bundle' => 'environmental_and_economical',
     'default_value' => NULL,
@@ -755,7 +770,8 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     ),
   );
 
-  // Exported field_instance: 'node-environmental_and_economical-field_renewable_energy_source'
+  // Exported field_instance:
+  // 'node-environmental_and_economical-field_renewable_energy_source'
   $field_instances['node-environmental_and_economical-field_renewable_energy_source'] = array(
     'bundle' => 'environmental_and_economical',
     'default_value' => NULL,
@@ -862,7 +878,8 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     ),
   );
 
-  // Exported field_instance: 'node-environmental_and_economical-field_upload_download_spreadshee'
+  // Exported field_instance:
+  // 'node-environmental_and_economical-field_upload_download_spreadshee'
   $field_instances['node-environmental_and_economical-field_upload_download_spreadshee'] = array(
     'bundle' => 'environmental_and_economical',
     'deleted' => 0,

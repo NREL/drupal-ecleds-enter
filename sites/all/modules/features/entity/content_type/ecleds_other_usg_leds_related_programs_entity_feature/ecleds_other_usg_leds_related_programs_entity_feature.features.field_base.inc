@@ -17,7 +17,6 @@ function ecleds_other_usg_leds_related_programs_entity_feature_field_default_fie
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_collection_program',
-    'foreign keys' => array(),
     'indexes' => array(
       'revision_id' => array(
         0 => 'revision_id',
@@ -40,14 +39,6 @@ function ecleds_other_usg_leds_related_programs_entity_feature_field_default_fie
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_program_description_work',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -67,14 +58,6 @@ function ecleds_other_usg_leds_related_programs_entity_feature_field_default_fie
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_program_name',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -96,14 +79,6 @@ function ecleds_other_usg_leds_related_programs_entity_feature_field_default_fie
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_program_sponsoring_org',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',

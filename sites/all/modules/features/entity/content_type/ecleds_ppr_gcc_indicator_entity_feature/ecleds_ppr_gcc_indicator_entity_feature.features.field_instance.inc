@@ -50,7 +50,8 @@ function ecleds_ppr_gcc_indicator_entity_feature_field_default_field_instances()
     ),
   );
 
-  // Exported field_instance: 'node-nrel_ecleds_indicator-field_2013_baseline_disaggregate'
+  // Exported field_instance:
+  // 'node-nrel_ecleds_indicator-field_2013_baseline_disaggregate'
   $field_instances['node-nrel_ecleds_indicator-field_2013_baseline_disaggregate'] = array(
     'bundle' => 'nrel_ecleds_indicator',
     'default_value' => NULL,
@@ -130,7 +131,8 @@ function ecleds_ppr_gcc_indicator_entity_feature_field_default_field_instances()
     ),
   );
 
-  // Exported field_instance: 'node-nrel_ecleds_indicator-field_2013_target_disaggeragate'
+  // Exported field_instance:
+  // 'node-nrel_ecleds_indicator-field_2013_target_disaggeragate'
   $field_instances['node-nrel_ecleds_indicator-field_2013_target_disaggeragate'] = array(
     'bundle' => 'nrel_ecleds_indicator',
     'default_value' => NULL,
@@ -210,7 +212,8 @@ function ecleds_ppr_gcc_indicator_entity_feature_field_default_field_instances()
     ),
   );
 
-  // Exported field_instance: 'node-nrel_ecleds_indicator-field_2014_baseline_disaggragate'
+  // Exported field_instance:
+  // 'node-nrel_ecleds_indicator-field_2014_baseline_disaggragate'
   $field_instances['node-nrel_ecleds_indicator-field_2014_baseline_disaggragate'] = array(
     'bundle' => 'nrel_ecleds_indicator',
     'default_value' => NULL,
@@ -290,7 +293,8 @@ function ecleds_ppr_gcc_indicator_entity_feature_field_default_field_instances()
     ),
   );
 
-  // Exported field_instance: 'node-nrel_ecleds_indicator-field_2014_target_disaggeragate'
+  // Exported field_instance:
+  // 'node-nrel_ecleds_indicator-field_2014_target_disaggeragate'
   $field_instances['node-nrel_ecleds_indicator-field_2014_target_disaggeragate'] = array(
     'bundle' => 'nrel_ecleds_indicator',
     'default_value' => NULL,
@@ -370,7 +374,8 @@ function ecleds_ppr_gcc_indicator_entity_feature_field_default_field_instances()
     ),
   );
 
-  // Exported field_instance: 'node-nrel_ecleds_indicator-field_2015_target_disaggeragate'
+  // Exported field_instance:
+  // 'node-nrel_ecleds_indicator-field_2015_target_disaggeragate'
   $field_instances['node-nrel_ecleds_indicator-field_2015_target_disaggeragate'] = array(
     'bundle' => 'nrel_ecleds_indicator',
     'default_value' => NULL,
@@ -450,7 +455,8 @@ function ecleds_ppr_gcc_indicator_entity_feature_field_default_field_instances()
     ),
   );
 
-  // Exported field_instance: 'node-nrel_ecleds_indicator-field_2016_ttarget_disaggeragate'
+  // Exported field_instance:
+  // 'node-nrel_ecleds_indicator-field_2016_ttarget_disaggeragate'
   $field_instances['node-nrel_ecleds_indicator-field_2016_ttarget_disaggeragate'] = array(
     'bundle' => 'nrel_ecleds_indicator',
     'default_value' => NULL,
@@ -547,7 +553,8 @@ function ecleds_ppr_gcc_indicator_entity_feature_field_default_field_instances()
     ),
   );
 
-  // Exported field_instance: 'node-nrel_ecleds_indicator-field_indicator_2013_baseline'
+  // Exported field_instance:
+  // 'node-nrel_ecleds_indicator-field_indicator_2013_baseline'
   $field_instances['node-nrel_ecleds_indicator-field_indicator_2013_baseline'] = array(
     'bundle' => 'nrel_ecleds_indicator',
     'default_value' => NULL,

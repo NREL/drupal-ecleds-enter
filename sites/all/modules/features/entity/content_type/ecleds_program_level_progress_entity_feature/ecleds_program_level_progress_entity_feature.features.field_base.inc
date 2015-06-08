@@ -17,7 +17,6 @@ function ecleds_program_level_progress_entity_feature_field_default_field_bases(
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_collection_impacted_year',
-    'foreign keys' => array(),
     'indexes' => array(
       'revision_id' => array(
         0 => 'revision_id',
@@ -40,14 +39,6 @@ function ecleds_program_level_progress_entity_feature_field_default_field_bases(
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_prog_lev_prog_baseline_1',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -67,14 +58,6 @@ function ecleds_program_level_progress_entity_feature_field_default_field_bases(
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_prog_lev_prog_ce',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -96,14 +79,6 @@ function ecleds_program_level_progress_entity_feature_field_default_field_bases(
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_prog_lev_prog_challenges',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -123,14 +98,6 @@ function ecleds_program_level_progress_entity_feature_field_default_field_bases(
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_prog_lev_prog_clean_energy',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -152,14 +119,6 @@ function ecleds_program_level_progress_entity_feature_field_default_field_bases(
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_prog_lev_prog_hect_sus_use',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -181,14 +140,6 @@ function ecleds_program_level_progress_entity_feature_field_default_field_bases(
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_prog_lev_prog_sl',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -210,14 +161,6 @@ function ecleds_program_level_progress_entity_feature_field_default_field_bases(
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_prog_lev_prog_status_1',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -237,14 +180,6 @@ function ecleds_program_level_progress_entity_feature_field_default_field_bases(
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_prog_lev_prog_target_1',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -264,7 +199,6 @@ function ecleds_program_level_progress_entity_feature_field_default_field_bases(
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_prog_lev_prog_year',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'date',

@@ -10,7 +10,8 @@
 function ecleds_gcc_standard_indicator_field_collection_feature_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_impl_mech_gcc_indicator-field_fy14_baseline'
+  // Exported field_instance:
+  // 'field_collection_item-field_impl_mech_gcc_indicator-field_fy14_baseline'
   $field_instances['field_collection_item-field_impl_mech_gcc_indicator-field_fy14_baseline'] = array(
     'bundle' => 'field_impl_mech_gcc_indicator',
     'default_value' => NULL,
@@ -50,7 +51,8 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_impl_mech_gcc_indicator-field_fy14_results'
+  // Exported field_instance:
+  // 'field_collection_item-field_impl_mech_gcc_indicator-field_fy14_results'
   $field_instances['field_collection_item-field_impl_mech_gcc_indicator-field_fy14_results'] = array(
     'bundle' => 'field_impl_mech_gcc_indicator',
     'default_value' => NULL,
@@ -90,7 +92,8 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_impl_mech_gcc_indicator-field_fy14_results_explanation'
+  // Exported field_instance:
+  // 'field_collection_item-field_impl_mech_gcc_indicator-field_fy14_results_explanation'
   $field_instances['field_collection_item-field_impl_mech_gcc_indicator-field_fy14_results_explanation'] = array(
     'bundle' => 'field_impl_mech_gcc_indicator',
     'default_value' => NULL,
@@ -125,7 +128,8 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_impl_mech_gcc_indicator-field_fy14_target'
+  // Exported field_instance:
+  // 'field_collection_item-field_impl_mech_gcc_indicator-field_fy14_target'
   $field_instances['field_collection_item-field_impl_mech_gcc_indicator-field_fy14_target'] = array(
     'bundle' => 'field_impl_mech_gcc_indicator',
     'default_value' => NULL,
@@ -165,7 +169,8 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_impl_mech_gcc_indicator-field_fy15_target'
+  // Exported field_instance:
+  // 'field_collection_item-field_impl_mech_gcc_indicator-field_fy15_target'
   $field_instances['field_collection_item-field_impl_mech_gcc_indicator-field_fy15_target'] = array(
     'bundle' => 'field_impl_mech_gcc_indicator',
     'default_value' => NULL,
@@ -205,7 +210,8 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_impl_mech_gcc_indicator-field_fy16_target'
+  // Exported field_instance:
+  // 'field_collection_item-field_impl_mech_gcc_indicator-field_fy16_target'
   $field_instances['field_collection_item-field_impl_mech_gcc_indicator-field_fy16_target'] = array(
     'bundle' => 'field_impl_mech_gcc_indicator',
     'default_value' => NULL,
@@ -245,7 +251,8 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_impl_mech_gcc_indicator-field_fy17_target'
+  // Exported field_instance:
+  // 'field_collection_item-field_impl_mech_gcc_indicator-field_fy17_target'
   $field_instances['field_collection_item-field_impl_mech_gcc_indicator-field_fy17_target'] = array(
     'bundle' => 'field_impl_mech_gcc_indicator',
     'default_value' => NULL,
@@ -285,7 +292,8 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_impl_mech_gcc_indicator-field_gcc_standard_indicator'
+  // Exported field_instance:
+  // 'field_collection_item-field_impl_mech_gcc_indicator-field_gcc_standard_indicator'
   $field_instances['field_collection_item-field_impl_mech_gcc_indicator-field_gcc_standard_indicator'] = array(
     'bundle' => 'field_impl_mech_gcc_indicator',
     'default_value' => NULL,

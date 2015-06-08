@@ -10,7 +10,8 @@
 function ecleds_other_usg_leds_related_programs_entity_feature_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_collection_program-field_program_description_work'
+  // Exported field_instance:
+  // 'field_collection_item-field_collection_program-field_program_description_work'
   $field_instances['field_collection_item-field_collection_program-field_program_description_work'] = array(
     'bundle' => 'field_collection_program',
     'default_value' => NULL,
@@ -43,7 +44,8 @@ function ecleds_other_usg_leds_related_programs_entity_feature_field_default_fie
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_collection_program-field_program_name'
+  // Exported field_instance:
+  // 'field_collection_item-field_collection_program-field_program_name'
   $field_instances['field_collection_item-field_collection_program-field_program_name'] = array(
     'bundle' => 'field_collection_program',
     'default_value' => NULL,
@@ -77,7 +79,8 @@ function ecleds_other_usg_leds_related_programs_entity_feature_field_default_fie
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_collection_program-field_program_sponsoring_org'
+  // Exported field_instance:
+  // 'field_collection_item-field_collection_program-field_program_sponsoring_org'
   $field_instances['field_collection_item-field_collection_program-field_program_sponsoring_org'] = array(
     'bundle' => 'field_collection_program',
     'default_value' => NULL,
@@ -111,7 +114,8 @@ function ecleds_other_usg_leds_related_programs_entity_feature_field_default_fie
     ),
   );
 
-  // Exported field_instance: 'node-other_usg_leds_related_programs-field_collection_program'
+  // Exported field_instance:
+  // 'node-other_usg_leds_related_programs-field_collection_program'
   $field_instances['node-other_usg_leds_related_programs-field_collection_program'] = array(
     'bundle' => 'other_usg_leds_related_programs',
     'default_value' => NULL,
@@ -154,7 +158,8 @@ function ecleds_other_usg_leds_related_programs_entity_feature_field_default_fie
     ),
   );
 
-  // Exported field_instance: 'node-other_usg_leds_related_programs-field_ecleds_reference_material'
+  // Exported field_instance:
+  // 'node-other_usg_leds_related_programs-field_ecleds_reference_material'
   $field_instances['node-other_usg_leds_related_programs-field_ecleds_reference_material'] = array(
     'bundle' => 'other_usg_leds_related_programs',
     'default_value' => NULL,
