@@ -65,7 +65,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 18,
+        'weight' => 16,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -102,7 +102,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         ),
       ),
       'type' => 'inline_entity_form',
-      'weight' => 21,
+      'weight' => 6,
     ),
   );
 
@@ -158,7 +158,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'label_help_description' => '',
       ),
       'type' => 'options_select',
-      'weight' => 0,
+      'weight' => 1,
     ),
   );
 
@@ -180,7 +180,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 17,
+        'weight' => 13,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -203,7 +203,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'label_help_description' => '',
       ),
       'type' => 'field_collection_embed',
-      'weight' => 17,
+      'weight' => 5,
     ),
   );
 
@@ -245,7 +245,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -359,7 +359,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_table_view',
-        'weight' => 14,
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -429,7 +429,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -445,7 +445,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 11,
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -471,7 +471,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 8,
+      'weight' => 9,
     ),
   );
 
@@ -512,7 +512,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -534,7 +534,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 16,
+        'weight' => 15,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -557,7 +557,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'label_help_description' => 'For each IM, please specify how the IM contributes to a GCC standard indicator, as reported in your PPR.',
       ),
       'type' => 'field_collection_embed',
-      'weight' => 16,
+      'weight' => 4,
     ),
   );
 
@@ -573,7 +573,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number_unformatted',
-        'weight' => 8,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -614,7 +614,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number_unformatted',
-        'weight' => 9,
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -737,7 +737,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 12,
+        'weight' => 10,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -763,7 +763,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'size' => 12,
       ),
       'type' => 'text_textfield',
-      'weight' => 9,
+      'weight' => 10,
     ),
   );
 
@@ -779,7 +779,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 13,
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -820,7 +820,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -862,7 +862,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
