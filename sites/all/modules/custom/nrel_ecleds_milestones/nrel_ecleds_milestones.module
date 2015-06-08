@@ -11,6 +11,7 @@ function nrel_ecleds_milestones_form_views_exposed_form_alter(&$form, &$form_sta
   /*
    * Convert field_nrel_ecleds_milestone_cat_target_id exposed filter to a select element
    */
+
   if (isset($form['field_nrel_ecleds_milestone_cat_target_id'])) {
     if (isset($form['field_nrel_ecleds_milestone_cat_target_id']['#size'])) {
       unset($form['field_nrel_ecleds_milestone_cat_target_id']['#size']);

@@ -242,17 +242,24 @@ body.adminimal-theme #media-browser-page #fixed-branding {
   margin-bottom: 1.5em;
 }
 
-.node-ecleds-implementing-mechanism {
+.node-ecleds-implementing-mechanism,
+.node-ppr,
+.node-nrel-ecleds-milestone {
   position: relative;
 }
 
-.node-ecleds-implementing-mechanism .edit-button {
+.node-ecleds-implementing-mechanism .edit-button,
+.node-ppr .edit-button,
+.node-nrel-ecleds-milestone  .edit-button {
   position: absolute;
   top: 15px;
   right: 15px;
 }
 
-.node-ecleds-implementing-mechanism .edit-button .button-edit {
+.node-ecleds-implementing-mechanism .edit-button .button-edit,
+.node-ppr .edit-button .button-edit,
+.node-operating-unit a.button.button-edit,
+.node-nrel-ecleds-milestone .edit-button .button-edit {
   background-color: #0074BD;
   color: white;
 }
