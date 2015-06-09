@@ -78,7 +78,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_activities_ent_ref',
-    'label' => 'Activities',
+    'label' => 'Activities/Actions',
     'required' => 0,
     'settings' => array(
       'behaviors' => array(
@@ -887,7 +887,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Activities');
+  t('Activities/Actions');
   t('Additional Intermediate Result');
   t('Award Number');
   t('Description');
