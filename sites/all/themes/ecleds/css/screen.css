@@ -21,10 +21,9 @@ div[class*="field-fy"] .field-label {
 
 @media (min-width: 48em) {
   div[class*="field-fy"] {
-    width: 33%;
+    width: 16%;
     float: left; }
-    div[class*="field-fy"]:nth-child(3n+3) {
-      float: right; } }
+     }
 
 div[class*="impl-mech-gcc-indicator"] div[class*="results-explanation"] {
   padding-top: 2em;

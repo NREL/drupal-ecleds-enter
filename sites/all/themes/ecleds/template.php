@@ -59,3 +59,23 @@ function ecleds_preprocess_field(&$vars, $hook) {
     $vars['items'][0]['#markup'] = str_replace(".0%", "%", str_replace("0%", "%", $vars['items'][0]['#markup']));
   }
 }
+
+/**
+ * Implements template_preprocess_entity().
+ */
+function ecleds_preprocess_entity(&$vars, $hook) {
+  // For decimal fields in field collection, suppress zeros after the decimal point.
+  $decimal_fields = array(
+    'field_fy14_baseline',
+    'field_fy14_target',
+    'field_fy14_results',
+    'field_fy15_target',
+    'field_fy16_target',
+    'field_fy17_target',
+  );
+  if (isset($vars['elements']['#bundle']) && ('field_impl_mech_gcc_indicator' == $vars['elements']['#bundle']))  {
+    foreach ($decimal_fields as $decimal_field) {
+      $vars['content'][$decimal_field][0]['#markup'] = (float)$vars['content'][$decimal_field][0]['#markup'];;
+    }
+  }
+}

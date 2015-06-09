@@ -23,18 +23,18 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => '',
+          'prefix_suffix' => 1,
+          'scale' => 2,
+          'thousand_separator' => ',',
         ),
-        'type' => 'number_integer',
-        'weight' => 1,
+        'type' => 'number_decimal',
+        'weight' => 8,
       ),
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_fy14_baseline',
     'label' => 'FY14 Baseline',
-    'required' => 0,
+    'required' => FALSE,
     'settings' => array(
       'max' => '',
       'min' => '',
@@ -43,11 +43,10 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 2,
+      'weight' => 1,
     ),
   );
 
@@ -64,12 +63,12 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => '',
+          'prefix_suffix' => 1,
+          'scale' => 2,
+          'thousand_separator' => ',',
         ),
-        'type' => 'number_integer',
-        'weight' => 3,
+        'type' => 'number_decimal',
+        'weight' => 10,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -86,9 +85,11 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'widget' => array(
       'active' => 0,
       'module' => 'number',
-      'settings' => array(),
+      'settings' => array(
+        'label_help_description' => '',
+      ),
       'type' => 'number',
-      'weight' => 4,
+      'weight' => 3,
     ),
   );
 
@@ -101,7 +102,7 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -124,7 +125,7 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 8,
+      'weight' => 7,
     ),
   );
 
@@ -141,12 +142,12 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => '',
+          'prefix_suffix' => 1,
+          'scale' => 2,
+          'thousand_separator' => ',',
         ),
-        'type' => 'number_integer',
-        'weight' => 2,
+        'type' => 'number_decimal',
+        'weight' => 9,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -163,9 +164,11 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'widget' => array(
       'active' => 0,
       'module' => 'number',
-      'settings' => array(),
+      'settings' => array(
+        'label_help_description' => '',
+      ),
       'type' => 'number',
-      'weight' => 3,
+      'weight' => 2,
     ),
   );
 
@@ -182,12 +185,12 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => '',
+          'prefix_suffix' => 1,
+          'scale' => 2,
+          'thousand_separator' => ',',
         ),
-        'type' => 'number_integer',
-        'weight' => 4,
+        'type' => 'number_decimal',
+        'weight' => 11,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -204,9 +207,11 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'widget' => array(
       'active' => 0,
       'module' => 'number',
-      'settings' => array(),
+      'settings' => array(
+        'label_help_description' => '',
+      ),
       'type' => 'number',
-      'weight' => 5,
+      'weight' => 4,
     ),
   );
 
@@ -223,12 +228,12 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => '',
+          'prefix_suffix' => 1,
+          'scale' => 2,
+          'thousand_separator' => ',',
         ),
-        'type' => 'number_integer',
-        'weight' => 5,
+        'type' => 'number_decimal',
+        'weight' => 12,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -245,9 +250,11 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'widget' => array(
       'active' => 0,
       'module' => 'number',
-      'settings' => array(),
+      'settings' => array(
+        'label_help_description' => '',
+      ),
       'type' => 'number',
-      'weight' => 6,
+      'weight' => 5,
     ),
   );
 
@@ -264,12 +271,12 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => '',
+          'prefix_suffix' => 1,
+          'scale' => 2,
+          'thousand_separator' => ',',
         ),
-        'type' => 'number_integer',
-        'weight' => 6,
+        'type' => 'number_decimal',
+        'weight' => 13,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -286,9 +293,11 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'widget' => array(
       'active' => 0,
       'module' => 'number',
-      'settings' => array(),
+      'settings' => array(
+        'label_help_description' => '',
+      ),
       'type' => 'number',
-      'weight' => 7,
+      'weight' => 6,
     ),
   );
 
@@ -331,7 +340,7 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
         'label_help_description' => '',
       ),
       'type' => 'options_select',
-      'weight' => 1,
+      'weight' => 0,
     ),
   );
 
