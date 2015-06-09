@@ -219,17 +219,19 @@ body.adminimal-theme #media-browser-page #fixed-branding {
   clear: both;
 }
 
-.node-ecleds-implementing-mechanism h2 .title-dates {
+.node-ecleds-implementing-mechanism h2 .title-dates,
+.node-nrel-ecleds-milestone h2 .title-dates {
   font-size: 0.8em;
   margin-top:3px;
-  margin-left: 25px;
+  margin-left: 30px;
 }
 
 .node-ecleds-implementing-mechanism h2 .title-dates .title-start-date {
   margin-right: 40px;
 }
 
-.node-ecleds-implementing-mechanism h2 .title-dates .label {
+.node-ecleds-implementing-mechanism h2 .title-dates .label,
+.node-nrel-ecleds-milestone h2 .title-dates .label {
   font-weight: bold;
 }
 

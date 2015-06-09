@@ -408,14 +408,26 @@ function nrel_ecleds_operating_unit_milestones($node) {
   foreach ($nodes as $node) {
     $wrap = entity_metadata_wrapper('node', $node);
     $year = $wrap->field_target_fiscal_year->value();
+    $completion_date = sprintf("%'.02d", $wrap->field_completion_month->value()) . '/' . $wrap->field_completion_year->value();
 
-    $grouped[$year][] = $node;
+    // group by fiscal year and completion date.
+    $grouped[$year][$completion_date][] = $node;
   }
 
   // Render nodes with Year header.
   $rendered = '';
-  foreach($grouped as $year => $node_group) {
-    $node_views = !empty($node_group) ? node_view_multiple($node_group, 'full') : array();
+  $ordered_nodes = array();
+  // Sort on year desc.
+  krsort($grouped);
+  foreach($grouped as $year => $node_groups) {
+    // Sort on completion date desc.
+    krsort($node_groups);
+    foreach ($node_groups as $node_group) {
+      foreach ($node_group as $node) {
+        $ordered_nodes[] = $node;
+      }
+    }
+    $node_views = !empty($ordered_nodes) ? node_view_multiple($ordered_nodes, 'full') : array();
     $rendered .= '<h1 class="milestone-group-title">' . $year . '</h1>';
     $rendered .= drupal_render($node_views);
   }
@@ -572,6 +584,7 @@ function nrel_ecleds_operating_unit_preprocess_node(&$vars, $hook) {
     'ppr',
   );
 
+  // Add performance dates into IM accordion trigger area.
   if ('ecleds_implementing_mechanism' == $vars['type']) {
     $perf_start_date = $perf_end_date = '';
     $perf_start_date_array = array();
@@ -597,8 +610,27 @@ function nrel_ecleds_operating_unit_preprocess_node(&$vars, $hook) {
     if (strlen($perf_start_date) || strlen($perf_end_date)) {
       $vars['title_dates'] = '<div class="title-dates">' . $perf_start_date . $perf_end_date . '</div>';
     }
+  } elseif ('nrel_ecleds_milestone' == $vars['type']) {
+
+
+  // Add completion date into milestones accordion trigger area.
+    $completion_date = '';
+    $completion_date_array = array();
+    if (!empty($vars['field_completion_month'][0]['value'])) {
+      $completion_date_array[] = $vars['field_completion_month'][0]['value'];
+    }
+    if (!empty($vars['field_completion_year'][0]['value'])) {
+      $completion_date_array[] = $vars['field_completion_year'][0]['value'];
+    }
+    if (count($completion_date_array)) {
+      $completion_date = '<span class="title-completion-date"><span class="label">' . t('Completion Date:&nbsp;') . '</span>' . implode('/', $completion_date_array) . '</span>';
+    }
+    if (strlen($completion_date)) {
+      $vars['title_dates'] = '<div class="title-dates">' . $completion_date . '</div>';
+    }
   }
-   if (in_array($vars['type'], $node_types)) {
+
+  if (in_array($vars['type'], $node_types)) {
     // Add an edit button to the bottom right of rendered node.
     $query = drupal_get_destination();
     $vars['edit_button'] = '<div class="edit-button">' . l(t('Edit'), 'node/' . $vars['nid'] . '/edit', array('attributes' => array('class' => array('button', 'button-edit')),'query' => $query)) . '</div>';
