@@ -90,6 +90,8 @@ function nrel_ecleds_country_menu() {
  */
 function nrel_ecleds_country_menu_local_tasks_alter(&$data, $router_item, $root_path) {
 
+  global $user;
+  
   $tabs = &$data['tabs'][0]['output'];
 
   // Haystack arrays for hiding tabs
@@ -104,14 +106,21 @@ function nrel_ecleds_country_menu_local_tasks_alter(&$data, $router_item, $root_
     'node/%/revisions',
   );
 
+  $hide_mission_tabs = array(
+      'node/%/baseline',
+      'node/%/progress',
+      'node/%/other',
+  );
   if (!is_null($tabs)) {
     foreach ($tabs as $key => $tab) {
-
       // On country pages...
       if (isset($router_item['page_arguments'][0]->type) &&
         $router_item['page_arguments'][0]->type == 'country'
       ) {
 
+        if (isset($user->roles[4]) && in_array($tab['#link']['path'], $hide_mission_tabs)) {
+          unset($tabs[$key]);
+        }
         // Hide the node tabs on the extra pages
         if (in_array($router_item['page_callback'], $extra_tabs) &&
           in_array($tab['#link']['path'], $node_tabs)
@@ -561,6 +570,24 @@ function nrel_ecleds_country_form_country_node_form_alter(&$form, &$form_state, 
   $form['field_baseline_workbook']['#access'] = FALSE;
   $form['field_program_plans']['#access'] = FALSE;
   $form['field_ecleds_other']['#access'] = FALSE;
+}
+
+// Implements hook_init()
+function nrel_ecleds_country_init() {
+
+  global $user;
+  $hide_mission_tabs = array(
+    'baseline',
+    'progress',
+    'other',
+  );
+  $current_path = current_path();
+  $path_parts = explode('/', $current_path);
+  if (isset($user->roles[4])) {
+    if (('node' == $path_parts[0]) && is_numeric($path_parts[1]) && (in_array($path_parts[2], $hide_mission_tabs))) {
+      drupal_access_denied();
+    }
+  }
 }
 
 /**
