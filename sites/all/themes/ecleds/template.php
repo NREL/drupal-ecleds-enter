@@ -75,7 +75,9 @@ function ecleds_preprocess_entity(&$vars, $hook) {
   );
   if (isset($vars['elements']['#bundle']) && ('field_impl_mech_gcc_indicator' == $vars['elements']['#bundle']))  {
     foreach ($decimal_fields as $decimal_field) {
-      $vars['content'][$decimal_field][0]['#markup'] = (float)$vars['content'][$decimal_field][0]['#markup'];;
+      if (isset($vars['content'][$decimal_field][0]['#markup'])) {
+        $vars['content'][$decimal_field][0]['#markup'] = (float)$vars['content'][$decimal_field][0]['#markup'];
+      }
     }
   }
 }
