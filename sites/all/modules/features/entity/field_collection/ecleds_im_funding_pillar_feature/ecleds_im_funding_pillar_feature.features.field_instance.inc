@@ -10,7 +10,8 @@
 function ecleds_im_funding_pillar_feature_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_im_funding_pillar-field_fiscal_year'
+  // Exported field_instance:
+  // 'field_collection_item-field_im_funding_pillar-field_fiscal_year'
   $field_instances['field_collection_item-field_im_funding_pillar-field_fiscal_year'] = array(
     'bundle' => 'field_im_funding_pillar',
     'default_value' => NULL,
@@ -45,7 +46,8 @@ function ecleds_im_funding_pillar_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_im_funding_pillar-field_funding_pillar'
+  // Exported field_instance:
+  // 'field_collection_item-field_im_funding_pillar-field_funding_pillar'
   $field_instances['field_collection_item-field_im_funding_pillar-field_funding_pillar'] = array(
     'bundle' => 'field_im_funding_pillar',
     'default_value' => NULL,
@@ -78,7 +80,8 @@ function ecleds_im_funding_pillar_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_im_funding_pillar-field_impl_mech_direct_indirect'
+  // Exported field_instance:
+  // 'field_collection_item-field_im_funding_pillar-field_impl_mech_direct_indirect'
   $field_instances['field_collection_item-field_im_funding_pillar-field_impl_mech_direct_indirect'] = array(
     'bundle' => 'field_im_funding_pillar',
     'default_value' => NULL,

@@ -20,14 +20,6 @@ function ecleds_operating_unit_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -49,14 +41,6 @@ function ecleds_operating_unit_feature_field_default_field_bases() {
     'field_name' => 'field_op_toc_challenges',
     'field_permissions' => array(
       'type' => 0,
-    ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
     ),
     'indexes' => array(
       'format' => array(
@@ -80,14 +64,6 @@ function ecleds_operating_unit_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -107,14 +83,6 @@ function ecleds_operating_unit_feature_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_opearting_unit_country',
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -155,14 +123,6 @@ function ecleds_operating_unit_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 2,
     ),
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -200,14 +160,6 @@ function ecleds_operating_unit_feature_field_default_field_bases() {
     'field_name' => 'field_theory_of_change',
     'field_permissions' => array(
       'type' => 0,
-    ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
     ),
     'indexes' => array(
       'format' => array(

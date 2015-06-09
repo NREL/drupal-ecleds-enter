@@ -10,7 +10,8 @@
 function ecleds_implementing_mechanism_feature_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_apg_milestone-field_apg_milestone_ref'
+  // Exported field_instance:
+  // 'field_collection_item-field_apg_milestone-field_apg_milestone_ref'
   $field_instances['field_collection_item-field_apg_milestone-field_apg_milestone_ref'] = array(
     'bundle' => 'field_apg_milestone',
     'default_value' => NULL,
@@ -51,7 +52,8 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ecleds_implementing_mechanism-field_activities_ent_ref'
+  // Exported field_instance:
+  // 'node-ecleds_implementing_mechanism-field_activities_ent_ref'
   $field_instances['node-ecleds_implementing_mechanism-field_activities_ent_ref'] = array(
     'bundle' => 'ecleds_implementing_mechanism',
     'default_value_function' => '',
@@ -106,7 +108,8 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ecleds_implementing_mechanism-field_activity_operating_unit'
+  // Exported field_instance:
+  // 'node-ecleds_implementing_mechanism-field_activity_operating_unit'
   $field_instances['node-ecleds_implementing_mechanism-field_activity_operating_unit'] = array(
     'bundle' => 'ecleds_implementing_mechanism',
     'default_value' => NULL,
@@ -162,7 +165,8 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ecleds_implementing_mechanism-field_apg_milestone'
+  // Exported field_instance:
+  // 'node-ecleds_implementing_mechanism-field_apg_milestone'
   $field_instances['node-ecleds_implementing_mechanism-field_apg_milestone'] = array(
     'bundle' => 'ecleds_implementing_mechanism',
     'default_value' => NULL,
@@ -207,7 +211,8 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ecleds_implementing_mechanism-field_description'
+  // Exported field_instance:
+  // 'node-ecleds_implementing_mechanism-field_description'
   $field_instances['node-ecleds_implementing_mechanism-field_description'] = array(
     'bundle' => 'ecleds_implementing_mechanism',
     'default_value' => NULL,
@@ -249,7 +254,8 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ecleds_implementing_mechanism-field_gcc_intermediate_result'
+  // Exported field_instance:
+  // 'node-ecleds_implementing_mechanism-field_gcc_intermediate_result'
   $field_instances['node-ecleds_implementing_mechanism-field_gcc_intermediate_result'] = array(
     'bundle' => 'ecleds_implementing_mechanism',
     'default_value' => NULL,
@@ -300,7 +306,8 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ecleds_implementing_mechanism-field_gcc_intermediate_result_2'
+  // Exported field_instance:
+  // 'node-ecleds_implementing_mechanism-field_gcc_intermediate_result_2'
   $field_instances['node-ecleds_implementing_mechanism-field_gcc_intermediate_result_2'] = array(
     'bundle' => 'ecleds_implementing_mechanism',
     'default_value' => NULL,
@@ -340,7 +347,8 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ecleds_implementing_mechanism-field_im_funding_pillar'
+  // Exported field_instance:
+  // 'node-ecleds_implementing_mechanism-field_im_funding_pillar'
   $field_instances['node-ecleds_implementing_mechanism-field_im_funding_pillar'] = array(
     'bundle' => 'ecleds_implementing_mechanism',
     'default_value' => NULL,
@@ -387,7 +395,8 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ecleds_implementing_mechanism-field_im_number'
+  // Exported field_instance:
+  // 'node-ecleds_implementing_mechanism-field_im_number'
   $field_instances['node-ecleds_implementing_mechanism-field_im_number'] = array(
     'bundle' => 'ecleds_implementing_mechanism',
     'default_value' => NULL,
@@ -433,7 +442,8 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ecleds_implementing_mechanism-field_impl_mech_alt_name'
+  // Exported field_instance:
+  // 'node-ecleds_implementing_mechanism-field_impl_mech_alt_name'
   $field_instances['node-ecleds_implementing_mechanism-field_impl_mech_alt_name'] = array(
     'bundle' => 'ecleds_implementing_mechanism',
     'default_value' => NULL,
@@ -475,7 +485,8 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ecleds_implementing_mechanism-field_impl_mech_award_number'
+  // Exported field_instance:
+  // 'node-ecleds_implementing_mechanism-field_impl_mech_award_number'
   $field_instances['node-ecleds_implementing_mechanism-field_impl_mech_award_number'] = array(
     'bundle' => 'ecleds_implementing_mechanism',
     'default_value' => NULL,
@@ -516,7 +527,8 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ecleds_implementing_mechanism-field_impl_mech_gcc_indicator'
+  // Exported field_instance:
+  // 'node-ecleds_implementing_mechanism-field_impl_mech_gcc_indicator'
   $field_instances['node-ecleds_implementing_mechanism-field_impl_mech_gcc_indicator'] = array(
     'bundle' => 'ecleds_implementing_mechanism',
     'default_value' => NULL,
@@ -561,7 +573,8 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ecleds_implementing_mechanism-field_impl_mech_perf_end_month'
+  // Exported field_instance:
+  // 'node-ecleds_implementing_mechanism-field_impl_mech_perf_end_month'
   $field_instances['node-ecleds_implementing_mechanism-field_impl_mech_perf_end_month'] = array(
     'bundle' => 'ecleds_implementing_mechanism',
     'default_value' => NULL,
@@ -602,7 +615,8 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ecleds_implementing_mechanism-field_impl_mech_perf_end_year'
+  // Exported field_instance:
+  // 'node-ecleds_implementing_mechanism-field_impl_mech_perf_end_year'
   $field_instances['node-ecleds_implementing_mechanism-field_impl_mech_perf_end_year'] = array(
     'bundle' => 'ecleds_implementing_mechanism',
     'default_value' => NULL,
@@ -643,7 +657,8 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ecleds_implementing_mechanism-field_impl_mech_perf_start_month'
+  // Exported field_instance:
+  // 'node-ecleds_implementing_mechanism-field_impl_mech_perf_start_month'
   $field_instances['node-ecleds_implementing_mechanism-field_impl_mech_perf_start_month'] = array(
     'bundle' => 'ecleds_implementing_mechanism',
     'default_value' => NULL,
@@ -684,7 +699,8 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ecleds_implementing_mechanism-field_impl_mech_perf_start_year'
+  // Exported field_instance:
+  // 'node-ecleds_implementing_mechanism-field_impl_mech_perf_start_year'
   $field_instances['node-ecleds_implementing_mechanism-field_impl_mech_perf_start_year'] = array(
     'bundle' => 'ecleds_implementing_mechanism',
     'default_value' => NULL,
@@ -725,7 +741,8 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ecleds_implementing_mechanism-field_impl_mech_usaid_db_number'
+  // Exported field_instance:
+  // 'node-ecleds_implementing_mechanism-field_impl_mech_usaid_db_number'
   $field_instances['node-ecleds_implementing_mechanism-field_impl_mech_usaid_db_number'] = array(
     'bundle' => 'ecleds_implementing_mechanism',
     'default_value' => NULL,
@@ -767,7 +784,8 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ecleds_implementing_mechanism-field_impl_mech_website_link'
+  // Exported field_instance:
+  // 'node-ecleds_implementing_mechanism-field_impl_mech_website_link'
   $field_instances['node-ecleds_implementing_mechanism-field_impl_mech_website_link'] = array(
     'bundle' => 'ecleds_implementing_mechanism',
     'default_value' => NULL,
@@ -824,7 +842,8 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ecleds_implementing_mechanism-field_implementer'
+  // Exported field_instance:
+  // 'node-ecleds_implementing_mechanism-field_implementer'
   $field_instances['node-ecleds_implementing_mechanism-field_implementer'] = array(
     'bundle' => 'ecleds_implementing_mechanism',
     'default_value' => NULL,

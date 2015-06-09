@@ -20,14 +20,6 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -68,14 +60,6 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -97,14 +81,6 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'field_name' => 'field_activity_goal_outcome',
     'field_permissions' => array(
       'type' => 2,
-    ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
     ),
     'indexes' => array(
       'format' => array(
@@ -128,7 +104,6 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 2,
     ),
-    'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -157,14 +132,6 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 2,
     ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -187,7 +154,6 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 2,
     ),
-    'foreign keys' => array(),
     'indexes' => array(
       'revision_id' => array(
         0 => 'revision_id',
@@ -212,14 +178,6 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'field_name' => 'field_area_of_cooperation',
     'field_permissions' => array(
       'type' => 2,
-    ),
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
     ),
     'indexes' => array(
       'target_id' => array(
@@ -258,14 +216,6 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 2,
     ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -288,7 +238,6 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 2,
     ),
-    'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -316,14 +265,6 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'field_name' => 'field_link_to_dashboard_framewor',
     'field_permissions' => array(
       'type' => 2,
-    ),
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
     ),
     'indexes' => array(
       'target_id' => array(
@@ -361,14 +302,6 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -392,14 +325,6 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'field_name' => 'field_link_to_gcc_results_framew',
     'field_permissions' => array(
       'type' => 2,
-    ),
-    'foreign keys' => array(
-      'taxonomy_term_data' => array(
-        'columns' => array(
-          'target_id' => 'tid',
-        ),
-        'table' => 'taxonomy_term_data',
-      ),
     ),
     'indexes' => array(
       'target_id' => array(
@@ -438,14 +363,6 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'field_name' => 'field_result_indicator',
     'field_permissions' => array(
       'type' => 0,
-    ),
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
     ),
     'indexes' => array(
       'target_id' => array(
@@ -487,14 +404,6 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 2,
     ),
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -532,14 +441,6 @@ function ecleds_activity_entity_feature_field_default_field_bases() {
     'field_name' => 'field_results_milestone',
     'field_permissions' => array(
       'type' => 2,
-    ),
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
     ),
     'indexes' => array(
       'target_id' => array(

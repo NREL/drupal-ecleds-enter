@@ -20,14 +20,6 @@ function ecleds_im_funding_pillar_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -52,7 +44,6 @@ function ecleds_im_funding_pillar_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -83,7 +74,6 @@ function ecleds_im_funding_pillar_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 2,
     ),
-    'foreign keys' => array(),
     'indexes' => array(
       'revision_id' => array(
         0 => 'revision_id',
@@ -109,7 +99,6 @@ function ecleds_im_funding_pillar_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
         0 => 'value',

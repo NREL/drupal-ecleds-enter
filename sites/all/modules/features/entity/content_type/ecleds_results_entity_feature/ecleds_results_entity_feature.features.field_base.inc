@@ -17,7 +17,6 @@ function ecleds_results_entity_feature_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_completion_ongoing',
-    'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -46,7 +45,6 @@ function ecleds_results_entity_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 2,
     ),
-    'foreign keys' => array(),
     'indexes' => array(
       'revision_id' => array(
         0 => 'revision_id',
@@ -72,14 +70,6 @@ function ecleds_results_entity_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 2,
     ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -99,7 +89,6 @@ function ecleds_results_entity_feature_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_target_month',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -115,7 +104,6 @@ function ecleds_results_entity_feature_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_target_ongoing',
-    'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
         0 => 'value',
@@ -141,7 +129,6 @@ function ecleds_results_entity_feature_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_target_year',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',

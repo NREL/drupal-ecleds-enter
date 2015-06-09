@@ -20,14 +20,6 @@ function ecleds_implementing_mechanism_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
-    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -65,14 +57,6 @@ function ecleds_implementing_mechanism_feature_field_default_field_bases() {
     'field_name' => 'field_activity_operating_unit',
     'field_permissions' => array(
       'type' => 0,
-    ),
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
     ),
     'indexes' => array(
       'target_id' => array(
@@ -114,7 +98,6 @@ function ecleds_implementing_mechanism_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(
       'revision_id' => array(
         0 => 'revision_id',
@@ -139,14 +122,6 @@ function ecleds_implementing_mechanism_feature_field_default_field_bases() {
     'field_name' => 'field_apg_milestone_ref',
     'field_permissions' => array(
       'type' => 0,
-    ),
-    'foreign keys' => array(
-      'node' => array(
-        'columns' => array(
-          'target_id' => 'nid',
-        ),
-        'table' => 'node',
-      ),
     ),
     'indexes' => array(
       'target_id' => array(
@@ -185,14 +160,6 @@ function ecleds_implementing_mechanism_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -214,14 +181,6 @@ function ecleds_implementing_mechanism_feature_field_default_field_bases() {
     'field_name' => 'field_gcc_intermediate_result',
     'field_permissions' => array(
       'type' => 0,
-    ),
-    'foreign keys' => array(
-      'taxonomy_term_data' => array(
-        'columns' => array(
-          'target_id' => 'tid',
-        ),
-        'table' => 'taxonomy_term_data',
-      ),
     ),
     'indexes' => array(
       'target_id' => array(
@@ -260,14 +219,6 @@ function ecleds_implementing_mechanism_feature_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_gcc_intermediate_result_2',
-    'foreign keys' => array(
-      'taxonomy_term_data' => array(
-        'columns' => array(
-          'target_id' => 'tid',
-        ),
-        'table' => 'taxonomy_term_data',
-      ),
-    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -306,7 +257,6 @@ function ecleds_implementing_mechanism_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 2,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -324,14 +274,6 @@ function ecleds_implementing_mechanism_feature_field_default_field_bases() {
     'field_name' => 'field_impl_mech_alt_name',
     'field_permissions' => array(
       'type' => 2,
-    ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
     ),
     'indexes' => array(
       'format' => array(
@@ -357,14 +299,6 @@ function ecleds_implementing_mechanism_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -389,7 +323,6 @@ function ecleds_implementing_mechanism_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -408,7 +341,6 @@ function ecleds_implementing_mechanism_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -427,7 +359,6 @@ function ecleds_implementing_mechanism_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -446,7 +377,6 @@ function ecleds_implementing_mechanism_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -464,14 +394,6 @@ function ecleds_implementing_mechanism_feature_field_default_field_bases() {
     'field_name' => 'field_impl_mech_usaid_db_number',
     'field_permissions' => array(
       'type' => 2,
-    ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
     ),
     'indexes' => array(
       'format' => array(
@@ -497,7 +419,6 @@ function ecleds_implementing_mechanism_feature_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 2,
     ),
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -529,14 +450,6 @@ function ecleds_implementing_mechanism_feature_field_default_field_bases() {
     'field_name' => 'field_implementer',
     'field_permissions' => array(
       'type' => 2,
-    ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
     ),
     'indexes' => array(
       'format' => array(

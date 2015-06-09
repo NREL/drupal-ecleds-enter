@@ -10,7 +10,8 @@
 function ecleds_milestone_entity_feature_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-nrel_ecleds_milestone-field_completion_description'
+  // Exported field_instance:
+  // 'node-nrel_ecleds_milestone-field_completion_description'
   $field_instances['node-nrel_ecleds_milestone-field_completion_description'] = array(
     'bundle' => 'nrel_ecleds_milestone',
     'default_value' => NULL,
@@ -54,7 +55,8 @@ Please upload the document to the folder at the following link.',
     ),
   );
 
-  // Exported field_instance: 'node-nrel_ecleds_milestone-field_completion_month'
+  // Exported field_instance:
+  // 'node-nrel_ecleds_milestone-field_completion_month'
   $field_instances['node-nrel_ecleds_milestone-field_completion_month'] = array(
     'bundle' => 'nrel_ecleds_milestone',
     'default_value' => NULL,
@@ -140,7 +142,8 @@ Please upload the document to the folder at the following link.',
     ),
   );
 
-  // Exported field_instance: 'node-nrel_ecleds_milestone-field_ecleds_milestone_country'
+  // Exported field_instance:
+  // 'node-nrel_ecleds_milestone-field_ecleds_milestone_country'
   $field_instances['node-nrel_ecleds_milestone-field_ecleds_milestone_country'] = array(
     'bundle' => 'nrel_ecleds_milestone',
     'default_value' => NULL,
@@ -188,7 +191,8 @@ Please upload the document to the folder at the following link.',
     ),
   );
 
-  // Exported field_instance: 'node-nrel_ecleds_milestone-field_expected_completion_month'
+  // Exported field_instance:
+  // 'node-nrel_ecleds_milestone-field_expected_completion_month'
   $field_instances['node-nrel_ecleds_milestone-field_expected_completion_month'] = array(
     'bundle' => 'nrel_ecleds_milestone',
     'default_value' => NULL,
@@ -231,7 +235,8 @@ Please upload the document to the folder at the following link.',
     ),
   );
 
-  // Exported field_instance: 'node-nrel_ecleds_milestone-field_field_exp_compl_year'
+  // Exported field_instance:
+  // 'node-nrel_ecleds_milestone-field_field_exp_compl_year'
   $field_instances['node-nrel_ecleds_milestone-field_field_exp_compl_year'] = array(
     'bundle' => 'nrel_ecleds_milestone',
     'default_value' => NULL,
@@ -274,7 +279,8 @@ Please upload the document to the folder at the following link.',
     ),
   );
 
-  // Exported field_instance: 'node-nrel_ecleds_milestone-field_full_milestone_name'
+  // Exported field_instance:
+  // 'node-nrel_ecleds_milestone-field_full_milestone_name'
   $field_instances['node-nrel_ecleds_milestone-field_full_milestone_name'] = array(
     'bundle' => 'nrel_ecleds_milestone',
     'default_value' => NULL,
@@ -314,7 +320,8 @@ Please upload the document to the folder at the following link.',
     ),
   );
 
-  // Exported field_instance: 'node-nrel_ecleds_milestone-field_milestone_completion_doc'
+  // Exported field_instance:
+  // 'node-nrel_ecleds_milestone-field_milestone_completion_doc'
   $field_instances['node-nrel_ecleds_milestone-field_milestone_completion_doc'] = array(
     'bundle' => 'nrel_ecleds_milestone',
     'deleted' => 0,
@@ -357,7 +364,8 @@ Please upload the document to the folder at the following link.',
     ),
   );
 
-  // Exported field_instance: 'node-nrel_ecleds_milestone-field_milestone_description'
+  // Exported field_instance:
+  // 'node-nrel_ecleds_milestone-field_milestone_description'
   $field_instances['node-nrel_ecleds_milestone-field_milestone_description'] = array(
     'bundle' => 'nrel_ecleds_milestone',
     'default_value' => NULL,
@@ -399,7 +407,8 @@ Please upload the document to the folder at the following link.',
     ),
   );
 
-  // Exported field_instance: 'node-nrel_ecleds_milestone-field_milestone_operating_unit'
+  // Exported field_instance:
+  // 'node-nrel_ecleds_milestone-field_milestone_operating_unit'
   $field_instances['node-nrel_ecleds_milestone-field_milestone_operating_unit'] = array(
     'bundle' => 'nrel_ecleds_milestone',
     'default_value' => NULL,
@@ -462,7 +471,8 @@ Please upload the document to the folder at the following link.',
     ),
   );
 
-  // Exported field_instance: 'node-nrel_ecleds_milestone-field_milestone_type_notes'
+  // Exported field_instance:
+  // 'node-nrel_ecleds_milestone-field_milestone_type_notes'
   $field_instances['node-nrel_ecleds_milestone-field_milestone_type_notes'] = array(
     'bundle' => 'nrel_ecleds_milestone',
     'default_value' => NULL,
@@ -546,7 +556,8 @@ Please upload the document to the folder at the following link.',
     ),
   );
 
-  // Exported field_instance: 'node-nrel_ecleds_milestone-field_nrel_ecleds_milestone_ben'
+  // Exported field_instance:
+  // 'node-nrel_ecleds_milestone-field_nrel_ecleds_milestone_ben'
   $field_instances['node-nrel_ecleds_milestone-field_nrel_ecleds_milestone_ben'] = array(
     'bundle' => 'nrel_ecleds_milestone',
     'default_value' => NULL,
@@ -586,7 +597,8 @@ Please upload the document to the folder at the following link.',
     ),
   );
 
-  // Exported field_instance: 'node-nrel_ecleds_milestone-field_nrel_ecleds_milestone_cat'
+  // Exported field_instance:
+  // 'node-nrel_ecleds_milestone-field_nrel_ecleds_milestone_cat'
   $field_instances['node-nrel_ecleds_milestone-field_nrel_ecleds_milestone_cat'] = array(
     'bundle' => 'nrel_ecleds_milestone',
     'default_value' => NULL,
@@ -637,7 +649,8 @@ Please upload the document to the folder at the following link.',
     ),
   );
 
-  // Exported field_instance: 'node-nrel_ecleds_milestone-field_nrel_ecleds_milestone_type'
+  // Exported field_instance:
+  // 'node-nrel_ecleds_milestone-field_nrel_ecleds_milestone_type'
   $field_instances['node-nrel_ecleds_milestone-field_nrel_ecleds_milestone_type'] = array(
     'bundle' => 'nrel_ecleds_milestone',
     'default_value' => NULL,
@@ -717,7 +730,8 @@ Please upload the document to the folder at the following link.',
     ),
   );
 
-  // Exported field_instance: 'node-nrel_ecleds_milestone-field_target_fiscal_year'
+  // Exported field_instance:
+  // 'node-nrel_ecleds_milestone-field_target_fiscal_year'
   $field_instances['node-nrel_ecleds_milestone-field_target_fiscal_year'] = array(
     'bundle' => 'nrel_ecleds_milestone',
     'default_value' => NULL,

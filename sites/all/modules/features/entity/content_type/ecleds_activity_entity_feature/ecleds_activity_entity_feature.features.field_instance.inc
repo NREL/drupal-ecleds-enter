@@ -10,7 +10,8 @@
 function ecleds_activity_entity_feature_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_activity_indicator-field_fiscal_year'
+  // Exported field_instance:
+  // 'field_collection_item-field_activity_indicator-field_fiscal_year'
   $field_instances['field_collection_item-field_activity_indicator-field_fiscal_year'] = array(
     'bundle' => 'field_activity_indicator',
     'default_value' => NULL,
@@ -44,7 +45,8 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_activity_indicator-field_result_indicator'
+  // Exported field_instance:
+  // 'field_collection_item-field_activity_indicator-field_result_indicator'
   $field_instances['field_collection_item-field_activity_indicator-field_result_indicator'] = array(
     'bundle' => 'field_activity_indicator',
     'default_value' => NULL,

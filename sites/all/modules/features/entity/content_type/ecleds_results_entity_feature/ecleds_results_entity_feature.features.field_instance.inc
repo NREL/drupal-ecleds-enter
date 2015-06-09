@@ -10,7 +10,8 @@
 function ecleds_results_entity_feature_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_result_indicator_year-field_fiscal_year'
+  // Exported field_instance:
+  // 'field_collection_item-field_result_indicator_year-field_fiscal_year'
   $field_instances['field_collection_item-field_result_indicator_year-field_fiscal_year'] = array(
     'bundle' => 'field_result_indicator_year',
     'default_value' => NULL,
@@ -45,7 +46,8 @@ function ecleds_results_entity_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_result_indicator_year-field_result_indicator'
+  // Exported field_instance:
+  // 'field_collection_item-field_result_indicator_year-field_result_indicator'
   $field_instances['field_collection_item-field_result_indicator_year-field_result_indicator'] = array(
     'bundle' => 'field_result_indicator_year',
     'default_value_function' => '',
@@ -319,7 +321,8 @@ function ecleds_results_entity_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-ecleds_results-field_result_support_description'
+  // Exported field_instance:
+  // 'node-ecleds_results-field_result_support_description'
   $field_instances['node-ecleds_results-field_result_support_description'] = array(
     'bundle' => 'ecleds_results',
     'default_value' => NULL,
