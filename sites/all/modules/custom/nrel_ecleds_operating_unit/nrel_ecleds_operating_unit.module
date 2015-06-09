@@ -420,8 +420,8 @@ function nrel_ecleds_operating_unit_milestones($node) {
   // Sort on year desc.
   krsort($grouped);
   foreach($grouped as $year => $node_groups) {
-    // Sort on completion date desc.
-    krsort($node_groups);
+    // Sort on completion date asc.
+    ksort($node_groups);
     foreach ($node_groups as $node_group) {
       foreach ($node_group as $node) {
         $ordered_nodes[] = $node;
