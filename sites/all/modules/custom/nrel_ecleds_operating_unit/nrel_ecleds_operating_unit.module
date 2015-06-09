@@ -358,6 +358,8 @@ function nrel_ecleds_operating_unit_form_ecleds_implementing_mechanism_node_form
   $form['field_impl_mech_gcc_indicator'][LANGUAGE_NONE]['add_more']['#value'] = 'Add another GCC Standard Indicator';
   $form['field_apg_milestone'][LANGUAGE_NONE]['add_more']['#value'] = 'Add another Milestone';
   $form['field_activities_ent_ref'][LANGUAGE_NONE]['actions']['ief_add']['#value'] = 'Add new Activity';
+  $form['field_activities_ent_ref'][LANGUAGE_NONE]['form']['actions']['ief_add_save']['#value'] = 'Save Activity';
+  $form['field_activities_ent_ref'][LANGUAGE_NONE]['form']['#title'] = 'Add new Activity';
 }
 
 /**
