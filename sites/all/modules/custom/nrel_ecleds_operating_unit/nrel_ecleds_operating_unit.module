@@ -416,7 +416,7 @@ function nrel_ecleds_operating_unit_milestones($node) {
   $rendered = '';
   foreach($grouped as $year => $node_group) {
     $node_views = !empty($node_group) ? node_view_multiple($node_group, 'full') : array();
-    $rendered .= '<h1 class="milestone-group-title">' . $year . '</div>';
+    $rendered .= '<h1 class="milestone-group-title">' . $year . '</h1>';
     $rendered .= drupal_render($node_views);
   }
 
