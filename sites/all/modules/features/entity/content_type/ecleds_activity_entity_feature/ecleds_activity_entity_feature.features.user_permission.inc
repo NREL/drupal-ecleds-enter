@@ -15,7 +15,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'create field_activity_goal_outcome',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -25,7 +24,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'create field_activity_high_activity',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -35,7 +33,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'create field_activity_highlight_summary',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -54,7 +51,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'create field_area_of_cooperation',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -64,7 +60,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'create field_contribution_to_theory',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -74,7 +69,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'create field_does_this_relate_to_theory',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -84,7 +78,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'create field_link_to_dashboard_framewor',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -94,7 +87,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'create field_link_to_gcc_results_framew',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -104,7 +96,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'create field_results',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -114,7 +105,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'create field_results_milestone',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -124,7 +114,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'edit field_activity_goal_outcome',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -134,7 +123,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'edit field_activity_high_activity',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -144,7 +132,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'edit field_activity_highlight_summary',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -163,7 +150,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'edit field_area_of_cooperation',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -173,7 +159,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'edit field_contribution_to_theory',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -183,7 +168,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'edit field_does_this_relate_to_theory',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -193,7 +177,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'edit field_link_to_dashboard_framewor',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -212,7 +195,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'edit field_results',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -222,7 +204,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'edit field_results_milestone',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -232,7 +213,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'edit own field_activity_goal_outcome',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -242,7 +222,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'edit own field_activity_high_activity',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -252,7 +231,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'edit own field_activity_highlight_summary',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -271,7 +249,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'edit own field_area_of_cooperation',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -281,7 +258,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'edit own field_contribution_to_theory',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -291,7 +267,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'edit own field_does_this_relate_to_theory',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -301,7 +276,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'edit own field_link_to_dashboard_framewor',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -320,7 +294,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'edit own field_results',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -330,7 +303,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'edit own field_results_milestone',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -340,7 +312,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'view field_activity_goal_outcome',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -350,7 +321,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'view field_activity_high_activity',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -360,7 +330,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'view field_activity_highlight_summary',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -379,7 +348,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'view field_area_of_cooperation',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -389,7 +357,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'view field_contribution_to_theory',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -399,7 +366,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'view field_does_this_relate_to_theory',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -409,7 +375,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'view field_link_to_dashboard_framewor',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -428,7 +393,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'view field_results',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -438,7 +402,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'view field_results_milestone',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -448,7 +411,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'view own field_activity_goal_outcome',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -458,7 +420,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'view own field_activity_high_activity',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -468,7 +429,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'view own field_activity_highlight_summary',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -487,7 +447,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'view own field_area_of_cooperation',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -497,7 +456,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'view own field_contribution_to_theory',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -507,7 +465,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'view own field_does_this_relate_to_theory',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -517,7 +474,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'view own field_link_to_dashboard_framewor',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -536,7 +492,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'view own field_results',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
@@ -546,7 +501,6 @@ function ecleds_activity_entity_feature_user_default_permissions() {
     'name' => 'view own field_results_milestone',
     'roles' => array(
       'administrator' => 'administrator',
-      'mission' => 'mission',
     ),
     'module' => 'field_permissions',
   );
