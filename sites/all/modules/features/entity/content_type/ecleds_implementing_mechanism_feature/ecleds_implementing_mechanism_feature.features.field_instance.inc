@@ -68,7 +68,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
           'view_mode' => 'teaser',
         ),
         'type' => 'entityreference_entity_view',
-        'weight' => 16,
+        'weight' => 17,
       ),
       'full' => array(
         'label' => 'above',
@@ -77,7 +77,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 15,
+        'weight' => 16,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -207,7 +207,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 13,
+        'weight' => 14,
       ),
       'full' => array(
         'label' => 'above',
@@ -220,7 +220,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 13,
+        'weight' => 14,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -243,7 +243,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'label_help_description' => '',
       ),
       'type' => 'field_collection_embed',
-      'weight' => 5,
+      'weight' => 22,
     ),
   );
 
@@ -319,7 +319,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 17,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -376,7 +376,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 17,
+        'weight' => 18,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -524,6 +524,58 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'node-ecleds_implementing_mechanism-field_im_supports_toc'
+  $field_instances['node-ecleds_implementing_mechanism-field_im_supports_toc'] = array(
+    'bundle' => 'ecleds_implementing_mechanism',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Please check the box if your answer is "yes".',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 13,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 13,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_im_supports_toc',
+    'label' => 'Does this IM support your Theory of Change?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+        'label_help_description' => '',
+      ),
+      'type' => 'options_onoff',
+      'weight' => 21,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-ecleds_implementing_mechanism-field_impl_mech_alt_name'
   $field_instances['node-ecleds_implementing_mechanism-field_impl_mech_alt_name'] = array(
     'bundle' => 'ecleds_implementing_mechanism',
@@ -641,7 +693,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 15,
+        'weight' => 16,
       ),
       'full' => array(
         'label' => 'above',
@@ -654,7 +706,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 14,
+        'weight' => 15,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1048,6 +1100,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
   t('Additional Intermediate Result');
   t('Award Number');
   t('Description');
+  t('Does this IM support your Theory of Change?');
   t('Funding Pillar');
   t('GCC Standard Indicator');
   t('IM #');
@@ -1057,6 +1110,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
   t('Milestone');
   t('Month');
   t('Operating Unit');
+  t('Please check the box if your answer is "yes".');
   t('USAID DB Number');
   t('Website Link');
   t('When placed within the Global Climate Change Results Framework (GCC RF), please choose which of the following intermediate results best aligns with the goal of the IM.');

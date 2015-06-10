@@ -20,6 +20,15 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'create field_im_supports_toc'.
+  $permissions['create field_im_supports_toc'] = array(
+    'name' => 'create field_im_supports_toc',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'create field_impl_mech_alt_name'.
   $permissions['create field_impl_mech_alt_name'] = array(
     'name' => 'create field_impl_mech_alt_name',
@@ -65,6 +74,15 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
     'name' => 'edit field_im_number',
     'roles' => array(
       'Content Manager' => 'Content Manager',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'edit field_im_supports_toc'.
+  $permissions['edit field_im_supports_toc'] = array(
+    'name' => 'edit field_im_supports_toc',
+    'roles' => array(
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -120,6 +138,15 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'edit own field_im_supports_toc'.
+  $permissions['edit own field_im_supports_toc'] = array(
+    'name' => 'edit own field_im_supports_toc',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'edit own field_impl_mech_alt_name'.
   $permissions['edit own field_impl_mech_alt_name'] = array(
     'name' => 'edit own field_impl_mech_alt_name',
@@ -170,6 +197,15 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'view field_im_supports_toc'.
+  $permissions['view field_im_supports_toc'] = array(
+    'name' => 'view field_im_supports_toc',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'view field_impl_mech_alt_name'.
   $permissions['view field_impl_mech_alt_name'] = array(
     'name' => 'view field_impl_mech_alt_name',
@@ -215,6 +251,15 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
     'name' => 'view own field_im_number',
     'roles' => array(
       'Content Manager' => 'Content Manager',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'view own field_im_supports_toc'.
+  $permissions['view own field_im_supports_toc'] = array(
+    'name' => 'view own field_im_supports_toc',
+    'roles' => array(
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',

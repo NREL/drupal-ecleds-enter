@@ -76,7 +76,7 @@ function ecleds_implementing_mechanism_feature_field_group_info() {
   $field_group->parent_name = 'group_im_contrib_prog_goals';
   $field_group->data = array(
     'label' => 'GCC Results Framework',
-    'weight' => '6',
+    'weight' => '23',
     'children' => array(
       0 => 'field_gcc_intermediate_result',
       1 => 'field_gcc_intermediate_result_2',
@@ -108,7 +108,8 @@ function ecleds_implementing_mechanism_feature_field_group_info() {
     'weight' => '1',
     'children' => array(
       0 => 'field_apg_milestone',
-      1 => 'group_gcc_results_framework',
+      1 => 'field_im_supports_toc',
+      2 => 'group_gcc_results_framework',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
