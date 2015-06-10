@@ -14,7 +14,7 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_activity';
-  $strongarm->value = 'edit-display';
+  $strongarm->value = 'edit-diff';
   $export['additional_settings__active_tab_activity'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -49,7 +49,7 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_ecleds_implementing_mechanism';
-  $strongarm->value = 'edit-submission';
+  $strongarm->value = 'edit-diff';
   $export['additional_settings__active_tab_ecleds_implementing_mechanism'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -126,7 +126,7 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_nrel_ecleds_milestone';
-  $strongarm->value = 'edit-submission';
+  $strongarm->value = 'edit-diff';
   $export['additional_settings__active_tab_nrel_ecleds_milestone'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1427,7 +1427,7 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'diff_view_mode_preview_node_activity';
-  $strongarm->value = 'full';
+  $strongarm->value = '';
   $export['diff_view_mode_preview_node_activity'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1441,7 +1441,7 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'diff_view_mode_preview_node_ecleds_implementing_mechanism';
-  $strongarm->value = 'full';
+  $strongarm->value = '';
   $export['diff_view_mode_preview_node_ecleds_implementing_mechanism'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1462,7 +1462,7 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'diff_view_mode_preview_node_nrel_ecleds_milestone';
-  $strongarm->value = 'full';
+  $strongarm->value = '';
   $export['diff_view_mode_preview_node_nrel_ecleds_milestone'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1483,7 +1483,7 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'drupal_http_request_fails';
-  $strongarm->value = FALSE;
+  $strongarm->value = TRUE;
   $export['drupal_http_request_fails'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1710,7 +1710,7 @@ function ecleds_strongarm_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'rss' => array(
         'custom_settings' => FALSE,
@@ -1854,7 +1854,7 @@ function ecleds_strongarm_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'rss' => array(
         'custom_settings' => FALSE,
@@ -2553,22 +2553,23 @@ function ecleds_strongarm_strongarm() {
     21 => 30,
     22 => 29,
     23 => 28,
-    24 => 26,
-    25 => 24,
-    26 => 23,
-    27 => 21,
-    28 => 20,
-    29 => 15,
-    30 => 14,
-    31 => 13,
-    32 => 12,
-    33 => 11,
-    34 => 7,
-    35 => 6,
-    36 => 5,
-    37 => 3,
-    38 => 2,
-    39 => 1,
+    24 => 27,
+    25 => 26,
+    26 => 24,
+    27 => 23,
+    28 => 21,
+    29 => 20,
+    30 => 15,
+    31 => 14,
+    32 => 13,
+    33 => 12,
+    34 => 11,
+    35 => 7,
+    36 => 6,
+    37 => 5,
+    38 => 3,
+    39 => 2,
+    40 => 1,
   );
   $export['menu_masks'] = $strongarm;
 
