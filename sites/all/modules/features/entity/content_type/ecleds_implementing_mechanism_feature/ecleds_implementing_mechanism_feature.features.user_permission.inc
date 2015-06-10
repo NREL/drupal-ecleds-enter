@@ -14,6 +14,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['create field_im_number'] = array(
     'name' => 'create field_im_number',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -23,6 +24,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['create field_impl_mech_alt_name'] = array(
     'name' => 'create field_impl_mech_alt_name',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -32,6 +34,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['create field_impl_mech_usaid_db_number'] = array(
     'name' => 'create field_impl_mech_usaid_db_number',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -41,6 +44,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['create field_impl_mech_website_link'] = array(
     'name' => 'create field_impl_mech_website_link',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -50,6 +54,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['create field_implementer'] = array(
     'name' => 'create field_implementer',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -59,6 +64,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['edit field_im_number'] = array(
     'name' => 'edit field_im_number',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -68,6 +74,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['edit field_impl_mech_alt_name'] = array(
     'name' => 'edit field_impl_mech_alt_name',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -77,6 +84,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['edit field_impl_mech_usaid_db_number'] = array(
     'name' => 'edit field_impl_mech_usaid_db_number',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -86,6 +94,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['edit field_impl_mech_website_link'] = array(
     'name' => 'edit field_impl_mech_website_link',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -95,6 +104,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['edit field_implementer'] = array(
     'name' => 'edit field_implementer',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -104,6 +114,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['edit own field_im_number'] = array(
     'name' => 'edit own field_im_number',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -113,6 +124,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['edit own field_impl_mech_alt_name'] = array(
     'name' => 'edit own field_impl_mech_alt_name',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -122,6 +134,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['edit own field_impl_mech_usaid_db_number'] = array(
     'name' => 'edit own field_impl_mech_usaid_db_number',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -131,6 +144,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['edit own field_impl_mech_website_link'] = array(
     'name' => 'edit own field_impl_mech_website_link',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -140,6 +154,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['edit own field_implementer'] = array(
     'name' => 'edit own field_implementer',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -149,6 +164,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['view field_im_number'] = array(
     'name' => 'view field_im_number',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -158,6 +174,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['view field_impl_mech_alt_name'] = array(
     'name' => 'view field_impl_mech_alt_name',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -167,6 +184,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['view field_impl_mech_usaid_db_number'] = array(
     'name' => 'view field_impl_mech_usaid_db_number',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -176,6 +194,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['view field_impl_mech_website_link'] = array(
     'name' => 'view field_impl_mech_website_link',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -185,6 +204,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['view field_implementer'] = array(
     'name' => 'view field_implementer',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -194,6 +214,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['view own field_im_number'] = array(
     'name' => 'view own field_im_number',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -203,6 +224,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['view own field_impl_mech_alt_name'] = array(
     'name' => 'view own field_impl_mech_alt_name',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -212,6 +234,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['view own field_impl_mech_usaid_db_number'] = array(
     'name' => 'view own field_impl_mech_usaid_db_number',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -221,6 +244,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['view own field_impl_mech_website_link'] = array(
     'name' => 'view own field_impl_mech_website_link',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -230,6 +254,7 @@ function ecleds_implementing_mechanism_feature_user_default_permissions() {
   $permissions['view own field_implementer'] = array(
     'name' => 'view own field_implementer',
     'roles' => array(
+      'Content Manager' => 'Content Manager',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
