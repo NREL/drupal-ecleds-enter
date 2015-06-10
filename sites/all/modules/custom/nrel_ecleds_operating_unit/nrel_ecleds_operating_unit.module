@@ -470,7 +470,13 @@ function nrel_ecleds_operating_unit_implementing_mechanisms($node) {
     ->entityCondition('bundle', 'ecleds_implementing_mechanism')
     ->fieldCondition('field_activity_operating_unit', 'target_id', $node->nid, '=');
   $result = $query->execute();
-  $nodes = !empty($result['node']) ? node_load_multiple(array_keys($result['node'])) : array();
+
+  $nodes = array();
+  $nids = array_keys($result['node']);
+  foreach ($nids as $nid) {
+    $nodes[] = node_load($nid);
+  }
+
   // sort on im number. some mnodes don't have im numbers, so sort those by
   // title and list them after the nodes with im numbers.create 2 array - one
   // containing all the nodes with im numbers and one containing all the nodes
@@ -487,9 +493,9 @@ function nrel_ecleds_operating_unit_implementing_mechanisms($node) {
   usort($nodes_with_im, "_nrel_ecleds_operating_unit_im_number_cmp");
   usort($nodes_without_im, "_nrel_ecleds_operating_unit_title_cmp");
   $nodes = array_merge($nodes_with_im, $nodes_without_im);
-  //dsm($nodes);
-  $node_views = !empty($nodes) ? node_view_multiple($nodes, 'full') : array();
-  $rendered_nodes = drupal_render($node_views);
+  foreach ($nodes as $node) {
+    $rendered_nodes .= drupal_render(node_view($node));
+  }
 
   return $rendered_nodes . $create_link;
 }
