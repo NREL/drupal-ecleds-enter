@@ -487,6 +487,7 @@ function nrel_ecleds_operating_unit_implementing_mechanisms($node) {
   usort($nodes_with_im, "_nrel_ecleds_operating_unit_im_number_cmp");
   usort($nodes_without_im, "_nrel_ecleds_operating_unit_title_cmp");
   $nodes = array_merge($nodes_with_im, $nodes_without_im);
+  //dsm($nodes);
   $node_views = !empty($nodes) ? node_view_multiple($nodes, 'full') : array();
   $rendered_nodes = drupal_render($node_views);
 
