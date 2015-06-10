@@ -14,7 +14,7 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_activity';
-  $strongarm->value = 'edit-diff';
+  $strongarm->value = 'edit-display';
   $export['additional_settings__active_tab_activity'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -49,7 +49,7 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_ecleds_implementing_mechanism';
-  $strongarm->value = 'edit-diff';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_ecleds_implementing_mechanism'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -126,7 +126,7 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_nrel_ecleds_milestone';
-  $strongarm->value = 'edit-diff';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_nrel_ecleds_milestone'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1434,7 +1434,7 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'diff_view_mode_preview_node_country';
-  $strongarm->value = 'full';
+  $strongarm->value = '';
   $export['diff_view_mode_preview_node_country'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1448,14 +1448,14 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'diff_view_mode_preview_node_ecleds_results';
-  $strongarm->value = 'full';
+  $strongarm->value = '';
   $export['diff_view_mode_preview_node_ecleds_results'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'diff_view_mode_preview_node_nrel_ecleds_indicator';
-  $strongarm->value = 'full';
+  $strongarm->value = '';
   $export['diff_view_mode_preview_node_nrel_ecleds_indicator'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1469,14 +1469,14 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'diff_view_mode_preview_node_other_usg_leds_related_programs';
-  $strongarm->value = 'full';
+  $strongarm->value = '';
   $export['diff_view_mode_preview_node_other_usg_leds_related_programs'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'diff_view_mode_preview_node_work_area';
-  $strongarm->value = 'full';
+  $strongarm->value = '';
   $export['diff_view_mode_preview_node_work_area'] = $strongarm;
 
   $strongarm = new stdClass();
