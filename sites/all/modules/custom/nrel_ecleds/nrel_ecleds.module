@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * Implements hook_init().
+ */
+function nrel_ecleds_init() {
+  // Cyber requested that we add in the X-Frame-Options header. Adding it to the
+  // httpd.conf file breaks the filefield upload functionality. Here we add
+  // X-Frame-Options: Deny to all but the path that handles the filefield .
+  if (FALSE === strpos($path, 'file/ajax/')) {
+    drupal_add_http_header('X-Frame-Options', 'DENY');
+  }
+}
