@@ -1,4 +1,4 @@
-name = NREL ECLEDS
+name = NREL ECLEDS Custom
 description = Custom functionality for the ECLEDS Database.
 core = 7.x
 package = NREL

@@ -3,7 +3,7 @@
 /**
  * Implements hook_init().
  */
-function nrel_ecleds_init() {
+function nrel_ecleds_custom_init() {
   // Cyber requested that we add in the X-Frame-Options header. Adding it to the
   // httpd.conf file breaks the filefield upload functionality. Here we add
   // X-Frame-Options: Deny to all but the path that handles the filefield .
