@@ -53,17 +53,26 @@ div[class*="year"] .field-item:before {
     content: '/'; }
 
 .node .content {
-  margin-bottom: 2em;
-  padding: 1em;
+  margin-bottom: 0.5em;
+  padding: 0.5em 1em 0em 1em;
   border: 1px solid transparent;
   background: #fafafa; }
   .node .content > .field {
-    margin-bottom: 1.5em; }
+    margin-bottom: 1em; }
+.field-collection-container .node .content > .field {
+  margin-bottom: 0em;
+}
+.node .field-collection-container .content {
+  margin-bottom: 0em;
+}
+.node .field-collection-container  .content > .field {
+  margin-bottom: 0em;
+}
   .node .content fieldset {
     background: #fff; }
 
 .field-collection-container {
-  margin-bottom: 2em;
+  margin-bottom: 0em;
   border-bottom: none; }
 
 .toggle-icon {

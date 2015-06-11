@@ -260,3 +260,7 @@ body.adminimal-theme #media-browser-page #fixed-branding {
   background-color: #0074BD;
   color: white;
 }
+
+.field-collection-view {
+  padding: 0em 0 0.3em 0;
+}
