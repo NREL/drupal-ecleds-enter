@@ -216,7 +216,7 @@ class MigrateDestinationComment extends MigrateDestinationEntity {
     }
 
     // Validate field data prior to saving.
-    MigrateDestinationEntity::fieldAttachValidate('comment', $comment);
+    field_attach_validate('comment', $comment);
 
     migrate_instrument_start('comment_save');
     comment_save($comment);
