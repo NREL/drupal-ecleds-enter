@@ -88,7 +88,6 @@ function nrel_users_secure_permissions($role) {
     ),
     'mission' => array(
       'access content',
-      'administer nodes',
       'create activity content',
       'create area_of_cooperation content',
       'create ecleds_implementing_mechanism content',
@@ -364,7 +363,6 @@ function nrel_users_secure_permissions($role) {
     ),
     'E3' => array(
       'access content',
-      'administer nodes',
       'create activity content',
       'create ecleds_implementing_mechanism content',
       'create environmental_and_economical content',
