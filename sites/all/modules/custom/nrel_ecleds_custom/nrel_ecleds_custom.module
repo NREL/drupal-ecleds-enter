@@ -1,3 +1,4 @@
+
 <?php
 
 /**
@@ -10,4 +11,10 @@ function nrel_ecleds_custom_init() {
   if (FALSE === strpos($path, 'file/ajax/')) {
     drupal_add_http_header('X-Frame-Options', 'DENY');
   }
+
+  // Cyber requested stronger caching. This effectively causes browsers to do no
+  // caching after 10 minutes, so if we see a performance hit, this may be the
+  // first thing to look at changing.
+  drupal_add_http_header('Cache-Control', 'no-cache, must-revalidate, pre-check=600, post-check=300, max-age=600, s-maxage=0');
+
 }

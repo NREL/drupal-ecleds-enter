@@ -83,12 +83,22 @@ function normi_admin_form($form, &$form_state) {
 
   }
 
+  if (module_exists('user')) {
+
+    $form['what']['user'] = array(
+      '#type' => 'checkboxes',
+      '#title' => t('Users'),
+      '#options' => array('user' => 'Users'),
+    );
+
+  }
+
   // DATABASE OPTIONS
   // ================
 
-  $form['from'] = array(
+  $form['output'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Migrate Class Options'),
+    '#title' => t('Migrate Output Options'),
     '#collapsible' => FALSE,
     '#collapsed' => FALSE,
   );
@@ -101,20 +111,20 @@ function normi_admin_form($form, &$form_state) {
     }
   }
 
-  $form['from']['db_name'] = array(
+  $form['output']['db_name'] = array(
     '#type' => 'select',
     '#title' => t('Normi Database'),
-    '#description' => t('This database is where the tables will be created
-                         and/or queried.'),
+    '#description' => t('This database is where the tables will be created and/or queried.'),
     '#options' => $db_options,
+    '#default_value' => variable_get('normi_db_name', ''),
   );
 
-  $form['from']['db'] = array(
+  $form['output']['db'] = array(
     '#type' => 'checkbox',
     '#title' => t('Create database tables'),
   );
 
-  $form['from']['overide_tables'] = array(
+  $form['output']['overide_tables'] = array(
     '#type' => 'checkbox',
     '#title' => t('Overide existing tables'),
     '#default_value' => FALSE,
@@ -125,14 +135,19 @@ function normi_admin_form($form, &$form_state) {
     ),
   );
 
-  $form['from']['module'] = array(
+  $form['output']['module'] = array(
     '#type' => 'checkbox',
     '#title' => t('Create and download migrate module'),
   );
 
-  $form['from']['csv'] = array(
+  $form['output']['csv'] = array(
     '#type' => 'checkbox',
     '#title' => t('Create and download CSV files'),
+  );
+
+  $form['output']['sql'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Create and download SQL files'),
   );
 
   $module_states = array(
@@ -141,19 +156,29 @@ function normi_admin_form($form, &$form_state) {
     ),
   );
 
-  $form['from']['module_name'] = array(
+  $default_module_name = variable_get('normi_module_name', '');
+  if (empty($default_module_name)) {
+    $default_module_name = t('@sitename migrate', array('@sitename' => variable_get('site_name')));
+  }
+
+  $form['output']['module_name'] = array(
     '#type' => 'textfield',
     '#title' => t('Module name'),
     '#size' => 60,
-    '#default_value' => t('@sitename migrate', array('@sitename' => variable_get('site_name'))),
+    '#default_value' => $default_module_name,
     '#states' => $module_states,
   );
 
-  $form['from']['module_machine_name'] = array(
+  $default_module_machine_name = variable_get('normi_module_machine_name', '');
+  if (empty($default_module_machine_name)) {
+    $default_module_machine_name = normi_machine_name_from_human_name(variable_get('site_name')) . '_migrate';
+  }
+
+  $form['output']['module_machine_name'] = array(
     '#type' => 'textfield',
     '#title' => t('Module machine name'),
     '#size' => 60,
-    '#default_value' => normi_machine_name_from_human_name(variable_get('site_name')) . '_migrate',
+    '#default_value' => $default_module_machine_name,
     '#states' => $module_states,
   );
 
@@ -173,13 +198,17 @@ function normi_admin_form_submit($form, &$form_state) {
 
   $values =& $form_state['values'];
 
+  variable_set('normi_db_name', $values['db_name']);
+  variable_set('normi_module_name', $values['module_name']);
+  variable_set('normi_module_machine_name', $values['module_machine_name']);
+
   if ($values['db'] == 1) {
     normi_create_db($values);
   }
 
-  if ($values['module'] == 1 || $values['csv'] == 1) {
+  if ($values['module'] == 1 || $values['csv'] == 1 || $values['sql'] == 1) {
 
-    $machine_name =& $values['module_machine_name'];
+    $machine_name = variable_get('normi_module_machine_name', '');
     $filename = $machine_name . '.tar';
 
     drupal_add_http_header('Content-type', 'application/x-tar');
@@ -194,6 +223,10 @@ function normi_admin_form_submit($form, &$form_state) {
       normi_create_csv($values);
     }
 
+    if ($values['sql'] == 1) {
+      normi_create_sql($values);
+    }
+
     print pack('a1024', '');
     exit;
 
@@ -206,7 +239,7 @@ function normi_admin_form_submit($form, &$form_state) {
  */
 function normi_create_csv($values) {
 
-  $machine_name =& $values['module_machine_name'];
+  $machine_name = variable_get('normi_module_machine_name', '');
 
   foreach (array_filter($values['node']) as $content_type => $on) {
     print normi_create_tar($machine_name . '_csv/node_' . $content_type . '.csv', normi_create_csv_node($values, $content_type));
@@ -216,16 +249,21 @@ function normi_create_csv($values) {
     print normi_create_tar($machine_name . '_csv/taxonomy_' . $vocabulary . '.csv', normi_create_csv_taxonomy($values, $vocabulary));
   }
 
+  foreach (array_filter($values['user']) as $user => $on) {
+    print normi_create_tar($machine_name . '_csv/user_' . $user . '.csv', normi_create_csv_user($values, $user));
+  }
+
+
 }
 
 /**
- * Creates .csv file for node export.
+ * Creates .csv file for node import/export.
  */
 function normi_create_csv_node($values, $content_type) {
 
   $fields = field_info_instances('node', $content_type);
   ksort($fields);
-  $data = array('id','title');
+  $data = array('id', 'uid', 'status', 'title');
 
   foreach ($fields as $field) {
     $data[] = $field['field_name'];
@@ -240,13 +278,13 @@ function normi_create_csv_node($values, $content_type) {
 }
 
 /**
- * Creates .csv file for node export.
+ * Creates .csv file for taxonomy import/export.
  */
 function normi_create_csv_taxonomy($values, $vocabulary) {
 
   $fields = field_info_instances('taxonomy_term', $vocabulary);
   ksort($fields);
-  $data = array('id','name','description');
+  $data = array('id', 'name', 'description');
 
   foreach ($fields as $field) {
     $data[] = $field['field_name'];
@@ -259,22 +297,47 @@ function normi_create_csv_taxonomy($values, $vocabulary) {
   return ob_get_clean();
 
 }
+
+/**
+ * Creates .csv file for user import/export.
+ */
+function normi_create_csv_user($values, $user) {
+
+  $fields = field_info_instances('user', $user);
+  ksort($fields);
+  $data = array('id', 'name', 'status', 'created', 'mail', 'init');
+
+  foreach ($fields as $field) {
+    $data[] = $field['field_name'];
+  }
+
+  $output = fopen('php://output', 'w');
+  ob_start();
+  fputcsv($output, $data);
+  fclose($output);
+  return ob_get_clean();
+
+}
+
 
 /**
  * Creates database tables for normalized migration.
  */
 function normi_create_db($values) {
 
-  list($key, $target) = explode(':', $values['db_name']);
+  list($key, $target) = explode(':', variable_get('normi_db_name', ''));
 
   $db = Database::getConnection($target, $key);
 
-  foreach (array_filter($values['node']) as $content_type => $on) {
-    normi_create_db_table_node($db, $content_type, $values);
-  }
+  $types = normi_migration_types();
 
-  foreach (array_filter($values['taxonomy']) as $vocabulary => $on) {
-    normi_create_db_table_taxonomy($db, $vocabulary, $values);
+  foreach ($types as $type => $info) {
+
+    foreach (array_filter($values[$type]) as $bundle => $on) {
+      $function = 'normi_create_db_table_' . $type;
+      $function($db, $bundle, $values);
+    }
+
   }
 
 }
@@ -303,6 +366,16 @@ function normi_create_db_table_node(&$db, $content_type, $values) {
           'length' => 255,
           'not null' => TRUE,
         ),
+        'uid' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+        ),
+        'status' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+        ),
         'title' => array(
           'type' => 'varchar',
           'length' => 255,
@@ -326,7 +399,7 @@ function normi_create_db_table_node(&$db, $content_type, $values) {
 /**
  * Creates a database table for a given content type.
  */
-function normi_create_db_table_taxonomy(&$db, $vocabulary) {
+function normi_create_db_table_taxonomy(&$db, $vocabulary, $values) {
 
   $table_name = 'taxonomy_' . $vocabulary;
 
@@ -373,9 +446,76 @@ function normi_create_db_table_taxonomy(&$db, $vocabulary) {
 }
 
 /**
+ * Creates a database table for a given content type.
+ */
+function normi_create_db_table_user(&$db, $user, $values) {
+
+  $table_name = 'user_' . $user;
+
+  if ($values['overide_tables'] && $db->schema()->tableExists($table_name)) {
+    $db->schema()->dropTable($table_name);
+  }
+
+  if (!$db->schema()->tableExists($table_name)) {
+
+    $fields = field_info_instances('user', $user);
+    ksort($fields);
+
+    $schema = array(
+      'description' => 'normi-generated table for ' . $user,
+      'fields' => array(
+        'id' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+        ),
+        'name' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+        ),
+        'status' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+        ),
+        'created' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+        ),
+        'mail' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+        ),
+        'init' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+        ),
+      ),
+      'unique keys' => array(
+        'id' => array('id'),
+      ),
+    );
+
+    foreach ($fields as $field_name => $field) {
+      $schema['fields'][$field_name] = normi_create_field_schema($field);
+    }
+
+    $db->schema()->createTable($table_name, $schema);
+
+  }
+
+}
+
+/**
  * Creates migrate mapping for a Drupal field.
  */
 function normi_create_field_mapping($field, $values) {
+
+  $machine_name = variable_get('normi_module_machine_name', '');
 
   $mapping = '    $this->addFieldMapping(' . "'" . $field['field_name'] . "', '" . $field['field_name'] . "')";
   $field_info = field_info_field($field['field_name']);
@@ -383,18 +523,19 @@ function normi_create_field_mapping($field, $values) {
 
   if ($field_type === 'taxonomy_term_reference') {
     $vocab = $field_info['settings']['allowed_values'][0]['vocabulary'];
-    $sourceMigrationName = normi_to_camelcase($values['module_machine_name'] . '_' . $vocab);
-    $mapping .= "->sourceMigration('" . $sourceMigrationName . "')";
+    $source_migration_name = normi_to_camelcase($machine_name . '_taxonomy_' . $vocab);
+    $mapping .= "->sourceMigration('" . $source_migration_name . "')";
   }
 
   if ($field_type === 'entityreference') {
     if (isset($field_info['settings']['handler_settings']['target_bundles'])) {
       $bundles = array_keys($field_info['settings']['handler_settings']['target_bundles']);
       $bundle = array_pop($bundles);
+      $target_type = $field_info['settings']['target_type'];
     }
     if (isset($bundle) && !empty($bundle)) {
-      $sourceMigrationName = normi_to_camelcase($values['module_machine_name'] . '_' . $bundle);
-      $mapping .= "->sourceMigration('" . $sourceMigrationName . "')";
+      $source_migration_name = normi_to_camelcase($machine_name . '_' . $target_type . '_' . $bundle);
+      $mapping .= "->sourceMigration('" . $source_migration_name . "')";
     }
     else {
       $mapping = str_replace('    $this->addFieldMapping', '    // $this->addFieldMapping', $mapping);
@@ -456,7 +597,7 @@ function normi_create_field_schema($field) {
  */
 function normi_create_module($values) {
 
-  $machine_name =& $values['module_machine_name'];
+  $machine_name = variable_get('normi_module_machine_name', '');
 
   print normi_create_tar($machine_name . '/' . $machine_name . '.info', normi_create_module_info($values));
   print normi_create_tar($machine_name . '/' . $machine_name . '.module', normi_create_module_module($values));
@@ -469,18 +610,28 @@ function normi_create_module($values) {
     print normi_create_tar($machine_name . '/taxonomy_' . $vocabulary . '.inc', normi_create_module_inc_taxonomy($values, $vocabulary));
   }
 
+  foreach (array_filter($values['user']) as $user => $on) {
+    print normi_create_tar($machine_name . '/user_' . $user . '.inc', normi_create_module_inc_user($values, $user));
+  }
+
 }
 
 /**
  * Creates .inc file for node export.
  */
-function normi_create_module_inc_node($values, $content_type) {
+function normi_create_module_inc_node($values, $content_type, $options = array()) {
 
-  $classname = normi_to_camelcase($values['module_machine_name'] . '_' . $content_type);
-  list($key, $target) = explode(':', $values['db_name']);
+  $classname = normi_to_camelcase(variable_get('normi_module_machine_name', '') . '_node_' . $content_type);
+  list($key, $target) = explode(':', variable_get('normi_db_name', ''));
   $table_name = 'node_' . $content_type;
   $fields = field_info_instances('node', $content_type);
   ksort($fields);
+
+  $options = array_merge(normi_create_module_inc_node_defaults(), $options);
+
+  if (!$options['description']) {
+    $options['description'] = 'Import ' . $content_type . '.';
+  }
 
   $inc_lines = array();
 
@@ -495,15 +646,18 @@ function normi_create_module_inc_node($values, $content_type) {
   $inc_lines[] = '';
   $inc_lines[] = '    parent::__construct();';
   $inc_lines[] = '';
-  $inc_lines[] = '    $query = Database::getConnection(' . "'" . $target . "', '" . $key . "')";
-  $inc_lines[] = "      ->select('" . $table_name . "', 'a')";
-  $inc_lines[] = "      ->fields('a');";
-  $inc_lines[] = '';
-  $inc_lines[] = '    $this->source = new MigrateSourceSQL($query);';
+
+  // add the migration source details
+  if ($options['type'] === 'normi') {
+    $inc_lines[] = '    $query = Database::getConnection(' . "'" . $target . "', '" . $key . "')";
+    $inc_lines[] = "      ->select('" . $table_name . "', 'a')";
+    $inc_lines[] = "      ->fields('a');";
+    $inc_lines[] = '';
+    $inc_lines[] = '    $this->source = new MigrateSourceSQL($query);';
+  }
 
   $inc_lines[] = '    $this->destination = new MigrateDestinationNode(' . "'" . $content_type . "');";
-
-  $inc_lines[] = '    $this->description = t(' . "'Import " . $content_type . ".');";
+  $inc_lines[] = '    $this->description = t(' . '"' . $options['description'] . '"' . ');';
   $inc_lines[] = '';
   $inc_lines[] = '    $this->map = new MigrateSQLMap($this->machineName,';
   $inc_lines[] = '      array(';
@@ -517,6 +671,8 @@ function normi_create_module_inc_node($values, $content_type) {
   $inc_lines[] = '      MigrateDestinationNode::getKeySchema()';
   $inc_lines[] = '    );';
   $inc_lines[] = '';
+  $inc_lines[] = '    $this->addFieldMapping(' . "'uid', 'uid')->sourceMigration('" . normi_to_camelcase(variable_get('normi_module_machine_name', '') . '_user_user') . "');";
+  $inc_lines[] = '    $this->addFieldMapping(' . "'status', 'status');";
   $inc_lines[] = '    $this->addFieldMapping(' . "'title', 'title');";
 
   foreach ($fields as $field_name => $field) {
@@ -534,12 +690,25 @@ function normi_create_module_inc_node($values, $content_type) {
 }
 
 /**
+ * Default options for normi_create_module_inc_node().
+ *
+ * @return array
+ *   An array of default options
+ */
+function normi_create_module_inc_node_defaults() {
+  return array(
+    'description' => NULL,
+    'type' => 'normi',
+  );
+}
+
+/**
  * Creates .inc file for taxonomy export.
  */
 function normi_create_module_inc_taxonomy($values, $vocabulary) {
 
-  $classname = normi_to_camelcase($values['module_machine_name'] . '_' . $vocabulary);
-  list($key, $target) = explode(':', $values['db_name']);
+  $classname = normi_to_camelcase(variable_get('normi_module_machine_name', '') . '_taxonomy_' . $vocabulary);
+  list($key, $target) = explode(':', variable_get('normi_db_name', ''));
   $table_name = 'taxonomy_' . $vocabulary;
   $fields = field_info_instances('taxonomy_term', $vocabulary);
   ksort($fields);
@@ -595,13 +764,77 @@ function normi_create_module_inc_taxonomy($values, $vocabulary) {
 }
 
 /**
+ * Creates .inc file for user export.
+ */
+function normi_create_module_inc_user($values, $user) {
+
+  $classname = normi_to_camelcase(variable_get('normi_module_machine_name', '') . '_user_' . $user);
+  list($key, $target) = explode(':', variable_get('normi_db_name', ''));
+  $table_name = 'user_' . $user;
+  $fields = field_info_instances('user', $user);
+  ksort($fields);
+
+  $inc_lines = array();
+
+  $inc_lines[] = '<?php';
+  $inc_lines[] = '';
+  $inc_lines[] = 'class ' . $classname . ' extends Migration {';
+  $inc_lines[] = '';
+  $inc_lines[] = '  /**';
+  $inc_lines[] = '   * Constructor';
+  $inc_lines[] = '   */';
+  $inc_lines[] = '  public function __construct() {';
+  $inc_lines[] = '';
+  $inc_lines[] = '    parent::__construct();';
+  $inc_lines[] = '';
+  $inc_lines[] = '    $query = Database::getConnection(' . "'" . $target . "', '" . $key . "')";
+  $inc_lines[] = "      ->select('" . $table_name . "', 'a')";
+  $inc_lines[] = "      ->fields('a');";
+  $inc_lines[] = '';
+  $inc_lines[] = '    $this->source = new MigrateSourceSQL($query);';
+  $inc_lines[] = '    $this->destination = new MigrateDestinationUser();';
+  $inc_lines[] = '    $this->description = t(' . "'Import " . $user . ".');";
+  $inc_lines[] = '';
+  $inc_lines[] = '    $this->map = new MigrateSQLMap($this->machineName,';
+  $inc_lines[] = '      array(';
+  $inc_lines[] = "        'id' => array(";
+  $inc_lines[] = "          'type' => 'varchar',";
+  $inc_lines[] = "          'length' => 255,";
+  $inc_lines[] = "          'description' => t('Unique ID'),";
+  $inc_lines[] = "          'alias' => 'a',";
+  $inc_lines[] = '        ),';
+  $inc_lines[] = '      ),';
+  $inc_lines[] = '      MigrateDestinationUser::getKeySchema()';
+  $inc_lines[] = '    );';
+  $inc_lines[] = '';
+  $inc_lines[] = '    $this->addFieldMapping(' . "'name', 'name');";
+  $inc_lines[] = '    $this->addFieldMapping(' . "'status', 'status');";
+  $inc_lines[] = '    $this->addFieldMapping(' . "'created', 'created');";
+  $inc_lines[] = '    $this->addFieldMapping(' . "'mail', 'mail');";
+  $inc_lines[] = '    $this->addFieldMapping(' . "'init', 'init');";
+
+  foreach ($fields as $field_name => $field) {
+    $inc_lines[] = normi_create_field_mapping($field, $values);
+  }
+
+  $inc_lines[] = '';
+  $inc_lines[] = '  }';
+  $inc_lines[] = '';
+  $inc_lines[] = '}';
+  $inc_lines[] = '';
+
+  return implode("\n", $inc_lines);
+
+}
+
+/**
  * Creates .info file for export.
  */
 function normi_create_module_info($values) {
 
   $info_lines = array();
 
-  $info_lines[] = 'name = ' . $values['module_name'];
+  $info_lines[] = 'name = ' . variable_get('normi_module_name', '');
   $info_lines[] = 'description = "Auto-generated normalized migration via normi.module"';
   $info_lines[] = 'package = Migration';
   $info_lines[] = 'core = 7.x';
@@ -617,6 +850,10 @@ function normi_create_module_info($values) {
     $info_lines[] = 'files[] = taxonomy_' .  $vocabulary . '.inc';
   }
 
+  foreach (array_filter($values['user']) as $user => $on) {
+    $info_lines[] = 'files[] = user_' .  $user . '.inc';
+  }
+
   $info_lines[] = '';
 
   return implode("\n", $info_lines);
@@ -628,7 +865,7 @@ function normi_create_module_info($values) {
  */
 function normi_create_module_module($values) {
 
-  $machine_name =& $values['module_machine_name'];
+  $machine_name = variable_get('normi_module_machine_name', '');
 
   $module_lines = array();
 
@@ -649,7 +886,242 @@ function normi_create_module_module($values) {
 }
 
 /**
+ * Creates csv for normalized migration.
+ */
+function normi_create_sql($values) {
+
+  $machine_name = variable_get('normi_module_machine_name', '');
+
+  foreach (array_filter($values['node']) as $content_type => $on) {
+    print normi_create_tar($machine_name . '_sql/to_csv/node_' . $content_type . '.sql', normi_create_sql_to_csv_node($values, $content_type));
+    print normi_create_tar($machine_name . '_sql/to_sql/node_' . $content_type . '.sql', normi_create_sql_to_sql_node($values, $content_type));
+  }
+
+  foreach (array_filter($values['taxonomy']) as $vocabulary => $on) {
+    print normi_create_tar($machine_name . '_sql/to_csv/taxonomy_' . $vocabulary . '.sql', normi_create_sql_to_csv_taxonomy($values, $vocabulary));
+    print normi_create_tar($machine_name . '_sql/to_sql/taxonomy_' . $vocabulary . '.sql', normi_create_sql_to_sql_taxonomy($values, $vocabulary));
+  }
+
+  foreach (array_filter($values['user']) as $user => $on) {
+    print normi_create_tar($machine_name . '_sql/to_csv/user_' . $user . '.sql', normi_create_sql_to_csv_user($values, $user));
+    print normi_create_tar($machine_name . '_sql/to_sql/user_' . $user . '.sql', normi_create_sql_to_sql_user($values, $user));
+  }
+
+
+}
+
+/**
+ * Creates .sql file for node export to CSV.
+ */
+function normi_create_sql_to_csv_node($values, $content_type) {
+
+  $fields = field_info_instances('node', $content_type);
+  ksort($fields);
+  $select = array(
+    "IFNULL(NULL, '') AS id",
+    "IFNULL(NULL, '') AS uid",
+    "IFNULL(NULL, '') AS status",
+    "IFNULL(NULL, '') AS title",
+  );
+
+  foreach ($fields as $field) {
+    $select[] =
+    "IFNULL(NULL, '') AS " . $field['field_name'];
+  }
+
+  $sql_lines = array();
+
+  $sql_lines[] = 'SELECT';
+  $sql_lines[] = '  ' . implode(",\n  ", $select);
+  $sql_lines[] = 'FROM source_table';
+  $sql_lines[] = '';
+  $sql_lines[] = "INTO OUTFILE '/tmp/node_" . $content_type . ".csv'";
+  $sql_lines[] = "FIELDS TERMINATED BY ','";
+  $sql_lines[] = "ENCLOSED BY '\"'";
+  $sql_lines[] = "LINES TERMINATED BY '" . '\r\n' . "';";
+
+  return implode("\n", $sql_lines);
+
+}
+
+/**
+ * Creates .sql file for taxonomy export to CSV.
+ */
+function normi_create_sql_to_csv_taxonomy($values, $vocabulary) {
+
+  $fields = field_info_instances('taxonomy_term', $vocabulary);
+  ksort($fields);
+  $select = array(
+    "IFNULL(NULL, '') AS id",
+    "IFNULL(NULL, '') AS name",
+    "IFNULL(NULL, '') description",
+  );
+
+  foreach ($fields as $field) {
+    $select[] = "IFNULL(NULL, '') AS " . $field['field_name'];
+  }
+
+  $sql_lines = array();
+
+  $sql_lines[] = 'SELECT';
+  $sql_lines[] = '  ' . implode(",\n  ", $select);
+  $sql_lines[] = 'FROM source_table';
+  $sql_lines[] = '';
+  $sql_lines[] = "INTO OUTFILE '/tmp/taxonomy_" . $vocabulary . ".csv'";
+  $sql_lines[] = "FIELDS TERMINATED BY ','";
+  $sql_lines[] = "ENCLOSED BY '\"'";
+  $sql_lines[] = "LINES TERMINATED BY '" . '\r\n' . "';";
+
+  return implode("\n", $sql_lines);
+
+}
+
+/**
+ * Creates .sql file for user export to CSV.
+ */
+function normi_create_sql_to_csv_user($values, $user) {
+
+  $fields = field_info_instances('user', $user);
+  ksort($fields);
+  $select = array(
+    "IFNULL(NULL, '') AS id",
+    "IFNULL(NULL, '') AS name",
+    "IFNULL(NULL, '') AS status",
+    "IFNULL(NULL, '') AS created",
+    "IFNULL(NULL, '') AS mail",
+    "IFNULL(NULL, '') AS init",
+  );
+
+  foreach ($fields as $field) {
+    $select[] = "IFNULL(NULL, '') AS " . $field['field_name'];
+  }
+
+  $sql_lines = array();
+
+  $sql_lines[] = 'SELECT';
+  $sql_lines[] = '  ' . implode(",\n  ", $select);
+  $sql_lines[] = 'FROM source_table';
+  $sql_lines[] = '';
+  $sql_lines[] = "INTO OUTFILE '/tmp/user_" . $user . ".csv'";
+  $sql_lines[] = "FIELDS TERMINATED BY ','";
+  $sql_lines[] = "ENCLOSED BY '\"'";
+  $sql_lines[] = "LINES TERMINATED BY '" . '\r\n' . "';";
+
+  return implode("\n", $sql_lines);
+
+}
+
+/**
+ * Creates .sql file for node export to CSV.
+ */
+function normi_create_sql_to_sql_node($values, $content_type) {
+
+  list($key, $target) = explode(':', variable_get('normi_db_name', ''));
+
+  $fields = field_info_instances('node', $content_type);
+  ksort($fields);
+  $select = array(
+    "IFNULL(NULL, '') AS id",
+    "IFNULL(NULL, '') AS uid",
+    "IFNULL(NULL, '') AS status",
+    "IFNULL(NULL, '') AS title",
+  );
+  $insert = array('id', 'title');
+
+  foreach ($fields as $field) {
+    $select[] = "IFNULL(NULL, '') AS " . $field['field_name'];
+    $insert[] = $field['field_name'];
+  }
+
+  $sql_lines = array();
+
+  $sql_lines[] = 'INSERT INTO ' . $target . '.node_' . $content_type . ' (';
+  $sql_lines[] = '  ' . implode(",\n  ", $insert);
+  $sql_lines[] = ')';
+  $sql_lines[] = '';
+  $sql_lines[] = 'SELECT';
+  $sql_lines[] = '  ' . implode(",\n  ", $select);
+  $sql_lines[] = 'FROM source_table;';
+
+  return implode("\n", $sql_lines);
+
+}
+
+/**
+ * Creates .sql file for taxonomy export to CSV.
+ */
+function normi_create_sql_to_sql_taxonomy($values, $vocabulary) {
+
+  list($key, $target) = explode(':', variable_get('normi_db_name', ''));
+
+  $fields = field_info_instances('taxonomy_term', $vocabulary);
+  ksort($fields);
+  $select = array(
+    "IFNULL(NULL, '') AS id",
+    "IFNULL(NULL, '') AS name",
+    "IFNULL(NULL, '') description",
+  );
+  $insert = array('id', 'name', 'description');
+
+  foreach ($fields as $field) {
+    $select[] = "IFNULL(NULL, '') AS " . $field['field_name'];
+    $insert[] = $field['field_name'];
+  }
+
+  $sql_lines = array();
+
+  $sql_lines[] = 'INSERT INTO ' . $target . '.taxonomy_' . $vocabulary . ' (';
+  $sql_lines[] = '  ' . implode(",\n  ", $insert);
+  $sql_lines[] = ')';
+  $sql_lines[] = '';
+  $sql_lines[] = 'SELECT';
+  $sql_lines[] = '  ' . implode(",\n  ", $select);
+  $sql_lines[] = 'FROM source_table;';
+
+  return implode("\n", $sql_lines);
+
+}
+
+/**
+ * Creates .sql file for node export to CSV.
+ */
+function normi_create_sql_to_sql_user($values, $user) {
+
+  list($key, $target) = explode(':', variable_get('normi_db_name', ''));
+
+  $fields = field_info_instances('user', $user);
+  ksort($fields);
+  $select = array(
+    "IFNULL(NULL, '') AS name",
+    "IFNULL(NULL, '') AS status",
+    "IFNULL(NULL, '') AS created",
+    "IFNULL(NULL, '') AS mail",
+    "IFNULL(NULL, '') AS init"
+  );
+  $insert = array('name', 'status', 'created', 'mail', 'init');
+
+  foreach ($fields as $field) {
+    $select[] = "IFNULL(NULL, '') AS " . $field['field_name'];
+    $insert[] = $field['field_name'];
+  }
+
+  $sql_lines = array();
+
+  $sql_lines[] = 'INSERT INTO ' . $target . '.user_' . $user . ' (';
+  $sql_lines[] = '  ' . implode(",\n  ", $insert);
+  $sql_lines[] = ')';
+  $sql_lines[] = '';
+  $sql_lines[] = 'SELECT';
+  $sql_lines[] = '  ' . implode(",\n  ", $select);
+  $sql_lines[] = 'FROM source_table;';
+
+  return implode("\n", $sql_lines);
+
+}
+
+/**
  * Creates a tar file.
+ * 
  * Directly copied from features_tar_create().
  */
 function normi_create_tar($name, $contents) {
@@ -696,7 +1168,7 @@ function normi_create_tar($name, $contents) {
     $checksum += ord(substr($header, $i, 1));
   }
   $header = substr_replace($header, sprintf("%06o", $checksum)."\0 ", 148, 8);
-  $tar = $bigheader.$header;
+  $tar = $bigheader . $header;
 
   $buffer = str_split($contents, 512);
   foreach ($buffer as $item) {
@@ -708,6 +1180,7 @@ function normi_create_tar($name, $contents) {
 
 /**
  * Creates a machine name from a human name.
+ *
  * Credit: http://buildamodule.com/forum/post/creating-machine-readable-names-from-human-readable
  */
 function normi_machine_name_from_human_name($human_readable) {
@@ -716,8 +1189,27 @@ function normi_machine_name_from_human_name($human_readable) {
 }
 
 /**
+ * Normi migration types
+ */
+function normi_migration_types() {
+
+  return array(
+    'node' => array(
+      'properties' => array('id', 'title'),
+    ),
+    'taxonomy' => array(
+      'properties' => array('id', 'name', 'description'),
+    ),
+    'user' => array(
+      'properties' => array('id', 'name', 'status', 'created', 'mail', 'init'),
+    ),
+  );
+
+}
+
+/**
  * Converts underscore-separated words to camelCase words.
  */
-function normi_to_camelcase($camelCaseThis) {
-  return preg_replace('/_(.?)/e',"strtoupper('$1')", $camelCaseThis);
+function normi_to_camelcase($camel_case_this) {
+  return preg_replace('/_(.?)/e',"strtoupper('$1')", $camel_case_this);
 }
