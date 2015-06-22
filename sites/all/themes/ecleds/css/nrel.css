@@ -264,3 +264,15 @@ body.adminimal-theme #media-browser-page #fixed-branding {
 .field-collection-view {
   padding: 0em 0 0.3em 0;
 }
+
+.view-operating-units.view-display-id-page .views-row-even {
+  background-color: #f3f4ee;
+}
+
+.view-operating-units.view-display-id-page .views-row {
+  padding: 8px 10px;
+}
+
+.view-operating-units.view-display-id-page h3 {
+  margin: 1.75em 0 1em;
+}
