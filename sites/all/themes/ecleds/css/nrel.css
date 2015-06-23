@@ -261,6 +261,14 @@ body.adminimal-theme #media-browser-page #fixed-branding {
   color: white;
 }
 
+.node-ecleds-implementing-mechanism .field-name-field-activities-ent-ref .field-items {
+  margin-left: 1em;
+}
+
+.node-ecleds-implementing-mechanism .field-name-field-activities-ent-ref h3 {
+  margin-top: 1em;
+}
+
 .field-collection-view {
   padding: 0em 0 0.3em 0;
 }
@@ -276,3 +284,11 @@ body.adminimal-theme #media-browser-page #fixed-branding {
 .view-operating-units.view-display-id-page h3 {
   margin: 1.75em 0 1em;
 }
+
+.field-collection-view-final {
+  border-bottom: 1px dotted #D3D7D9;
+}
+
+.node.node-activity .content {
+  border-bottom: 1px solid #D3D7D9;
+ 
