@@ -887,7 +887,10 @@ function ecleds_views_feature_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Milestone Report';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'none';
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    3 => '3',
+  );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -2044,31 +2047,26 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'none';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['grouping'] = array(
-    0 => array(
-      'field' => 'field_operating_unit_bureau',
-      'rendered' => 1,
-      'rendered_strip' => 0,
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
     ),
   );
-  $handler->display->display_options['row_plugin'] = 'fields';
   /* Footer: Global: Result summary */
   $handler->display->display_options['footer']['result']['id'] = 'result';
   $handler->display->display_options['footer']['result']['table'] = 'views';
   $handler->display->display_options['footer']['result']['field'] = 'result';
   $handler->display->display_options['footer']['result']['empty'] = TRUE;
   $handler->display->display_options['footer']['result']['content'] = '@total';
-  /* Field: Content: Bureau */
-  $handler->display->display_options['fields']['field_operating_unit_bureau']['id'] = 'field_operating_unit_bureau';
-  $handler->display->display_options['fields']['field_operating_unit_bureau']['table'] = 'field_data_field_operating_unit_bureau';
-  $handler->display->display_options['fields']['field_operating_unit_bureau']['field'] = 'field_operating_unit_bureau';
-  $handler->display->display_options['fields']['field_operating_unit_bureau']['label'] = '';
-  $handler->display->display_options['fields']['field_operating_unit_bureau']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_operating_unit_bureau']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_operating_unit_bureau']['settings'] = array(
-    'link' => 0,
-  );
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -2080,12 +2078,7 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Sort criterion: Content: Bureau (field_operating_unit_bureau) */
-  $handler->display->display_options['sorts']['field_operating_unit_bureau_target_id']['id'] = 'field_operating_unit_bureau_target_id';
-  $handler->display->display_options['sorts']['field_operating_unit_bureau_target_id']['table'] = 'field_data_field_operating_unit_bureau';
-  $handler->display->display_options['sorts']['field_operating_unit_bureau_target_id']['field'] = 'field_operating_unit_bureau_target_id';
+  $handler->display->display_options['fields']['title']['label'] = 'Operating Unit';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
