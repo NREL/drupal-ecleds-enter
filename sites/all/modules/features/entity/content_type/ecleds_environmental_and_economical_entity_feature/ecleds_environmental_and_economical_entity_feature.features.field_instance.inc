@@ -906,7 +906,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
     'settings' => array(
       'description_field' => 0,
       'file_directory' => '',
-      'file_extensions' => 'csv',
+      'file_extensions' => 'csv xls xlsx',
       'max_filesize' => '',
       'user_register_form' => FALSE,
     ),
