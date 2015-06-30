@@ -1609,7 +1609,7 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'drupal_http_request_fails';
-  $strongarm->value = TRUE;
+  $strongarm->value = FALSE;
   $export['drupal_http_request_fails'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -2575,7 +2575,7 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'maintenance_mode';
-  $strongarm->value = 0;
+  $strongarm->value = '0';
   $export['maintenance_mode'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -2679,23 +2679,22 @@ function ecleds_strongarm_strongarm() {
     21 => 30,
     22 => 29,
     23 => 28,
-    24 => 27,
-    25 => 26,
-    26 => 24,
-    27 => 23,
-    28 => 21,
-    29 => 20,
-    30 => 15,
-    31 => 14,
-    32 => 13,
-    33 => 12,
-    34 => 11,
-    35 => 7,
-    36 => 6,
-    37 => 5,
-    38 => 3,
-    39 => 2,
-    40 => 1,
+    24 => 26,
+    25 => 24,
+    26 => 23,
+    27 => 21,
+    28 => 20,
+    29 => 15,
+    30 => 14,
+    31 => 13,
+    32 => 12,
+    33 => 11,
+    34 => 7,
+    35 => 6,
+    36 => 5,
+    37 => 3,
+    38 => 2,
+    39 => 1,
   );
   $export['menu_masks'] = $strongarm;
 

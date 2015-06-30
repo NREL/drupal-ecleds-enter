@@ -114,9 +114,7 @@ function ecleds_menus_feature_menu_default_menu_links() {
     'router_path' => 'node/%',
     'link_title' => 'Reports',
     'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
+      'attributes' => array(),
       'identifier' => 'main-menu_reports:node/3854',
     ),
     'module' => 'menu',
