@@ -50,6 +50,6 @@ function nrel_users_update_7011() {
 /**
  * Never add user_permissions to features.
  */
-function nrel_users_update_7011() {
+function nrel_users_update_7012() {
   variable_set('features_admin_show_component_user_permission', 0);
 }
