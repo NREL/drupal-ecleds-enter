@@ -216,6 +216,86 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
   );
 
   // Exported field_instance:
+  // 'field_collection_item-field_impl_mech_gcc_indicator-field_fy15_results'
+  $field_instances['field_collection_item-field_impl_mech_gcc_indicator-field_fy15_results'] = array(
+    'bundle' => 'field_impl_mech_gcc_indicator',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => 1,
+          'scale' => 2,
+          'thousand_separator' => ',',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 10,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_fy15_results',
+    'label' => 'FY15 Results',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(
+        'label_help_description' => '',
+      ),
+      'type' => 'number',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_impl_mech_gcc_indicator-field_fy15_results_explanation'
+  $field_instances['field_collection_item-field_impl_mech_gcc_indicator-field_fy15_results_explanation'] = array(
+    'bundle' => 'field_impl_mech_gcc_indicator',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_fy15_results_explanation',
+    'label' => 'FY15 Results Explanation',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'label_help_description' => 'Please provide a 1-3 sentence description of your numerical results (by IM).',
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 7,
+    ),
+  );
+
+
+  // Exported field_instance:
   // 'field_collection_item-field_impl_mech_gcc_indicator-field_fy16_target'
   $field_instances['field_collection_item-field_impl_mech_gcc_indicator-field_fy16_target'] = array(
     'bundle' => 'field_impl_mech_gcc_indicator',
@@ -302,6 +382,49 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
   );
 
   // Exported field_instance:
+  // 'field_collection_item-field_impl_mech_gcc_indicator-field_fy18_target'
+  $field_instances['field_collection_item-field_impl_mech_gcc_indicator-field_fy18_target'] = array(
+    'bundle' => 'field_impl_mech_gcc_indicator',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => 1,
+          'scale' => 2,
+          'thousand_separator' => ',',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 13,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_fy18_target',
+    'label' => 'FY18 Target',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(
+        'label_help_description' => '',
+      ),
+      'type' => 'number',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance:
   // 'field_collection_item-field_impl_mech_gcc_indicator-field_gcc_standard_indicator'
   $field_instances['field_collection_item-field_impl_mech_gcc_indicator-field_gcc_standard_indicator'] = array(
     'bundle' => 'field_impl_mech_gcc_indicator',
@@ -351,8 +474,11 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
   t('FY14 Results Explanation');
   t('FY14 Target');
   t('FY15 Target');
+  t('FY15 Results');
+  t('FY15 Results Explanation');
   t('FY16 Target');
   t('FY17 Target');
+  t('FY18 Target');
   t('Indicator');
 
   return $field_instances;

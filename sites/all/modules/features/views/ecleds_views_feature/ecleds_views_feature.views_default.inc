@@ -709,6 +709,14 @@ function ecleds_views_feature_views_default_views() {
     'thousand_separator' => ',',
     'prefix_suffix' => 1,
   );
+  /* Field: Field collection item: FY15 Results */
+  $handler->display->display_options['fields']['field_fy15_results']['id'] = 'field_fy15_results';
+  $handler->display->display_options['fields']['field_fy15_results']['table'] = 'field_data_field_fy15_results';
+  $handler->display->display_options['fields']['field_fy15_results']['field'] = 'field_fy15_results';
+  $handler->display->display_options['fields']['field_fy15_results']['settings'] = array(
+    'thousand_separator' => ',',
+    'prefix_suffix' => 1,
+  );
   /* Field: Field collection item: FY15 Target */
   $handler->display->display_options['fields']['field_fy15_target']['id'] = 'field_fy15_target';
   $handler->display->display_options['fields']['field_fy15_target']['table'] = 'field_data_field_fy15_target';
@@ -733,10 +741,38 @@ function ecleds_views_feature_views_default_views() {
     'thousand_separator' => ',',
     'prefix_suffix' => 1,
   );
+  /* Field: Field collection item: FY18 Target */
+  $handler->display->display_options['fields']['field_fy18_target']['id'] = 'field_fy18_target';
+  $handler->display->display_options['fields']['field_fy18_target']['table'] = 'field_data_field_fy18_target';
+  $handler->display->display_options['fields']['field_fy18_target']['field'] = 'field_fy18_target';
+  $handler->display->display_options['fields']['field_fy18_target']['settings'] = array(
+    'thousand_separator' => ',',
+    'prefix_suffix' => 1,
+  );
   /* Field: Field collection item: FY14 Results Explanation */
   $handler->display->display_options['fields']['field_fy14_results_explanation']['id'] = 'field_fy14_results_explanation';
   $handler->display->display_options['fields']['field_fy14_results_explanation']['table'] = 'field_data_field_fy14_results_explanation';
   $handler->display->display_options['fields']['field_fy14_results_explanation']['field'] = 'field_fy14_results_explanation';
+  /* Filter criterion: Content: Operating Unit (field_activity_operating_unit) */
+  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['id'] = 'field_activity_operating_unit_target_id';
+  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['table'] = 'field_data_field_activity_operating_unit';
+  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['field'] = 'field_activity_operating_unit_target_id';
+  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['relationship'] = 'field_impl_mech_gcc_indicator_node';
+  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['expose']['operator_id'] = 'field_activity_operating_unit_target_id_op';
+  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['expose']['label'] = 'Operating Unit';
+  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['expose']['operator'] = 'field_activity_operating_unit_target_id_op';
+  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['expose']['identifier'] = 'field_activity_operating_unit_target_id';
+  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  /* Field: Field collection item: FY15 Results Explanation */
+  $handler->display->display_options['fields']['field_fy15_results_explanation']['id'] = 'field_fy15_results_explanation';
+  $handler->display->display_options['fields']['field_fy15_results_explanation']['table'] = 'field_data_field_fy15_results_explanation';
+  $handler->display->display_options['fields']['field_fy15_results_explanation']['field'] = 'field_fy15_results_explanation';
   /* Filter criterion: Content: Operating Unit (field_activity_operating_unit) */
   $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['id'] = 'field_activity_operating_unit_target_id';
   $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['table'] = 'field_data_field_activity_operating_unit';
