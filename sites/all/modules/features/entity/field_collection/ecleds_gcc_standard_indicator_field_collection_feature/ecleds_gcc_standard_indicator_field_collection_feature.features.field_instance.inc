@@ -34,7 +34,7 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_fy14_baseline',
     'label' => 'FY14 Baseline',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
       'max' => '',
       'min' => '',
@@ -43,8 +43,11 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 0,
       'module' => 'number',
-      'settings' => array(),
+      'settings' => array(
+        'label_help_description' => '',
+      ),
       'type' => 'number',
       'weight' => 1,
     ),
@@ -173,49 +176,6 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_impl_mech_gcc_indicator-field_fy15_target'
-  $field_instances['field_collection_item-field_impl_mech_gcc_indicator-field_fy15_target'] = array(
-    'bundle' => 'field_impl_mech_gcc_indicator',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'inline',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => 1,
-          'scale' => 2,
-          'thousand_separator' => ',',
-        ),
-        'type' => 'number_decimal',
-        'weight' => 11,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_fy15_target',
-    'label' => 'FY15 Target',
-    'required' => 0,
-    'settings' => array(
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(
-        'label_help_description' => '',
-      ),
-      'type' => 'number',
-      'weight' => 4,
-    ),
-  );
-
-  // Exported field_instance:
   // 'field_collection_item-field_impl_mech_gcc_indicator-field_fy15_results'
   $field_instances['field_collection_item-field_impl_mech_gcc_indicator-field_fy15_results'] = array(
     'bundle' => 'field_impl_mech_gcc_indicator',
@@ -294,6 +254,48 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     ),
   );
 
+  // Exported field_instance:
+  // 'field_collection_item-field_impl_mech_gcc_indicator-field_fy15_target'
+  $field_instances['field_collection_item-field_impl_mech_gcc_indicator-field_fy15_target'] = array(
+    'bundle' => 'field_impl_mech_gcc_indicator',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => 1,
+          'scale' => 2,
+          'thousand_separator' => ',',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 11,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_fy15_target',
+    'label' => 'FY15 Target',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(
+        'label_help_description' => '',
+      ),
+      'type' => 'number',
+      'weight' => 4,
+    ),
+  );
 
   // Exported field_instance:
   // 'field_collection_item-field_impl_mech_gcc_indicator-field_fy16_target'
@@ -473,9 +475,9 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
   t('FY14 Results');
   t('FY14 Results Explanation');
   t('FY14 Target');
-  t('FY15 Target');
   t('FY15 Results');
   t('FY15 Results Explanation');
+  t('FY15 Target');
   t('FY16 Target');
   t('FY17 Target');
   t('FY18 Target');

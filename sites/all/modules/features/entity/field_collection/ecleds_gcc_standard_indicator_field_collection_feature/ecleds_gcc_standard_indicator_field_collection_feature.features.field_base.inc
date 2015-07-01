@@ -17,6 +17,9 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_fy14_baseline',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -95,28 +98,6 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'type' => 'number_decimal',
   );
 
-  // Exported field_base: 'field_fy15_target'
-  $field_bases['field_fy15_target'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_fy15_target',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(
-      'decimal_separator' => '.',
-      'precision' => 10,
-      'scale' => 2,
-    ),
-    'translatable' => 0,
-    'type' => 'number_decimal',
-  );
-
   // Exported field_base: 'field_fy15_results'
   $field_bases['field_fy15_results'] = array(
     'active' => 1,
@@ -159,6 +140,28 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'settings' => array(),
     'translatable' => 0,
     'type' => 'text_long',
+  );
+
+  // Exported field_base: 'field_fy15_target'
+  $field_bases['field_fy15_target'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_fy15_target',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'decimal_separator' => '.',
+      'precision' => 10,
+      'scale' => 2,
+    ),
+    'translatable' => 0,
+    'type' => 'number_decimal',
   );
 
   // Exported field_base: 'field_fy16_target'
