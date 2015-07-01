@@ -34,3 +34,15 @@ function nrel_users_update_7010() {
   db_query("UPDATE {system} SET weight = 99 WHERE name = 'nrel_users'");
   return TRUE;
 }
+
+/**
+ * Set module weight for pre-1.0 sites.
+ */
+function nrel_users_update_7011() {
+  variable_set('secure_permissions_active', 1);
+  variable_set('secure_permissions_disable_forms', 1);
+  variable_set('secure_permissions_show_permissions_page', 1);
+  variable_set('secure_permissions_show_roles_page', 0);
+  variable_set('secure_permissions_use_default', 0);
+  variable_set('secure_permissions_verbose', 0);
+}
