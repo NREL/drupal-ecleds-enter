@@ -36,7 +36,7 @@ function nrel_users_update_7010() {
 }
 
 /**
- * Set module weight for pre-1.0 sites.
+ * Configure secure_permissions module.
  */
 function nrel_users_update_7011() {
   variable_set('secure_permissions_active', 1);
@@ -45,4 +45,11 @@ function nrel_users_update_7011() {
   variable_set('secure_permissions_show_roles_page', 0);
   variable_set('secure_permissions_use_default', 0);
   variable_set('secure_permissions_verbose', 0);
+}
+
+/**
+ * Never add user_permissions to features.
+ */
+function nrel_users_update_7011() {
+  variable_set('features_admin_show_component_user_permission', 0);
 }
