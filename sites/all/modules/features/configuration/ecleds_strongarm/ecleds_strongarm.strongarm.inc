@@ -3388,126 +3388,126 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_activity';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_activity'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_baseline_workbook';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_baseline_workbook'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_country';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_country'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_ecleds_implementing_mechanism';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_ecleds_implementing_mechanism'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_ecleds_results';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_ecleds_results'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_environmental_and_economical';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_environmental_and_economical'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_indicator';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_indicator'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_leds_plans_institutions';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_leds_plans_institutions'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_nrel_ecleds_indicator';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_nrel_ecleds_indicator'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_nrel_ecleds_milestone';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_nrel_ecleds_milestone'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_operating_unit';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_operating_unit'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_other_usg_leds_related_programs';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_other_usg_leds_related_programs'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_page';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_page'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_ppr';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_ppr'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_program_level_progress';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_program_level_progress'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_program_plans';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_program_plans'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_project';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_project'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_work_area';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_work_area'] = $strongarm;
 
   $strongarm = new stdClass();
