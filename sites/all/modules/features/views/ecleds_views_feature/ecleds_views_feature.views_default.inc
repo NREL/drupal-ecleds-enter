@@ -753,22 +753,6 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fy14_results_explanation']['id'] = 'field_fy14_results_explanation';
   $handler->display->display_options['fields']['field_fy14_results_explanation']['table'] = 'field_data_field_fy14_results_explanation';
   $handler->display->display_options['fields']['field_fy14_results_explanation']['field'] = 'field_fy14_results_explanation';
-  /* Filter criterion: Content: Operating Unit (field_activity_operating_unit) */
-  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['id'] = 'field_activity_operating_unit_target_id';
-  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['table'] = 'field_data_field_activity_operating_unit';
-  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['field'] = 'field_activity_operating_unit_target_id';
-  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['relationship'] = 'field_impl_mech_gcc_indicator_node';
-  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['expose']['operator_id'] = 'field_activity_operating_unit_target_id_op';
-  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['expose']['label'] = 'Operating Unit';
-  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['expose']['operator'] = 'field_activity_operating_unit_target_id_op';
-  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['expose']['identifier'] = 'field_activity_operating_unit_target_id';
-  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-  );
   /* Field: Field collection item: FY15 Results Explanation */
   $handler->display->display_options['fields']['field_fy15_results_explanation']['id'] = 'field_fy15_results_explanation';
   $handler->display->display_options['fields']['field_fy15_results_explanation']['table'] = 'field_data_field_fy15_results_explanation';
@@ -1677,6 +1661,37 @@ function ecleds_views_feature_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['defaults']['footer'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Country';
+  /* Field: Global: View */
+  $handler->display->display_options['fields']['view']['id'] = 'view';
+  $handler->display->display_options['fields']['view']['table'] = 'views';
+  $handler->display->display_options['fields']['view']['field'] = 'view';
+  $handler->display->display_options['fields']['view']['label'] = 'Number of Projects';
+  $handler->display->display_options['fields']['view']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['view']['view'] = 'nrel_ecleds_country_list';
+  $handler->display->display_options['fields']['view']['display'] = 'block_1';
+  $handler->display->display_options['fields']['view']['arguments'] = '[!nid]';
+  /* Field: Global: View */
+  $handler->display->display_options['fields']['view_1']['id'] = 'view_1';
+  $handler->display->display_options['fields']['view_1']['table'] = 'views';
+  $handler->display->display_options['fields']['view_1']['field'] = 'view';
+  $handler->display->display_options['fields']['view_1']['label'] = 'Number of Activities';
+  $handler->display->display_options['fields']['view_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['view_1']['view'] = 'nrel_ecleds_country_list';
+  $handler->display->display_options['fields']['view_1']['display'] = 'block_2';
+  $handler->display->display_options['fields']['view_1']['arguments'] = '[!nid]';
   $handler->display->display_options['path'] = 'countries';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Countries';
