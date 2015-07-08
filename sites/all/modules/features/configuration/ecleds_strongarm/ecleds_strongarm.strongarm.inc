@@ -14,7 +14,7 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_activity';
-  $strongarm->value = 'edit-display';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_activity'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -28,14 +28,14 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_baseline_workbook';
-  $strongarm->value = 'edit-workflow';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_baseline_workbook'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_country';
-  $strongarm->value = 'edit-diff';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_country'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -56,7 +56,7 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_ecleds_results';
-  $strongarm->value = 'edit-auto-nodetitle';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_ecleds_results'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -70,7 +70,7 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_environmental_and_economical';
-  $strongarm->value = 'edit-workflow';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_environmental_and_economical'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -84,14 +84,14 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_indicator';
-  $strongarm->value = 'edit-menu';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_indicator'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_leds_plans_institutions';
-  $strongarm->value = 'edit-auto-nodetitle';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_leds_plans_institutions'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -119,7 +119,7 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_nrel_ecleds_indicator';
-  $strongarm->value = 'edit-auto-nodetitle';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_nrel_ecleds_indicator'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -133,42 +133,42 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_operating_unit';
-  $strongarm->value = 'edit-display';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_operating_unit'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_other_usg_leds_related_programs';
-  $strongarm->value = 'edit-auto-nodetitle';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_other_usg_leds_related_programs'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_page';
-  $strongarm->value = 'edit-workflow';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_page'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_ppr';
-  $strongarm->value = 'edit-menu';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_ppr'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_program_level_progress';
-  $strongarm->value = 'edit-workflow';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_program_level_progress'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_program_plans';
-  $strongarm->value = 'edit-auto-nodetitle';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_program_plans'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -2575,7 +2575,7 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'maintenance_mode';
-  $strongarm->value = '0';
+  $strongarm->value = 0;
   $export['maintenance_mode'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -4001,7 +4001,7 @@ function ecleds_strongarm_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_frontpage';
-  $strongarm->value = 'operating-units';
+  $strongarm->value = 'node/4616';
   $export['site_frontpage'] = $strongarm;
 
   $strongarm = new stdClass();
