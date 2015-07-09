@@ -76,12 +76,13 @@ function nrel_users_secure_permissions_roles() {
  *   An array defining all the permissions for the site.
  */
 function nrel_users_secure_permissions($role) {
-  $permissions = array(
+ $permissions = array(
     'anonymous user' => array(
       'access comments',
     ),
     'authenticated user' => array(
       'access comments',
+      'access toolbar',
       'post comments',
       'skip comment approval',
     ),
@@ -161,7 +162,6 @@ function nrel_users_secure_permissions($role) {
       'access environment indicator overwritten_environment',
       'access private fields',
       'access site in maintenance mode',
-      'access toolbar',
       'access user profiles',
       'administer content types',
       'administer menu',
