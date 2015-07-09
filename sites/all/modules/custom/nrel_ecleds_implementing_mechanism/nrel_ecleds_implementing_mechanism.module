@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * Provide a form-specific alteration instead of the global hook_form_alter().
+ *
+ * Modules can implement hook_form_FORM_ID_alter() to modify a specific form,
+ * rather than implementing hook_form_alter() and checking the form ID, or
+ * using long switch statements to alter multiple forms.
+ *
+ * Form alter hooks are called in the following order: hook_form_alter(),
+ * hook_form_BASE_FORM_ID_alter(), hook_form_FORM_ID_alter(). See
+ * hook_form_alter() for more details.
+ *
+ * @param $form
+ *   Nested array of form elements that comprise the form.
+ * @param $form_state
+ *   A keyed array containing the current state of the form. The arguments
+ *   that drupal_get_form() was originally called with are available in the
+ *   array $form_state['build_info']['args'].
+ *
+ * @see hook_form_alter()
+ * @see hook_form_BASE_FORM_ID_alter()
+ * @see drupal_prepare_form()
+ */
+function nrel_ecleds_implementing_mechanism_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
+  if ($entity_form['#bundle'] == 'activity') {
+    $entity_form['status']['#title'] = t('Highlight Activity');
+  }
+}
