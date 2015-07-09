@@ -996,6 +996,10 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_status']['table'] = 'field_data_field_status';
   $handler->display->display_options['fields']['field_status']['field'] = 'field_status';
   $handler->display->display_options['fields']['field_status']['label'] = 'Status';
+  /* Field: Content: USAID/Washington Notes */
+  $handler->display->display_options['fields']['field_milestone_type_notes']['id'] = 'field_milestone_type_notes';
+  $handler->display->display_options['fields']['field_milestone_type_notes']['table'] = 'field_data_field_milestone_type_notes';
+  $handler->display->display_options['fields']['field_milestone_type_notes']['field'] = 'field_milestone_type_notes';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
