@@ -311,6 +311,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
+        'label_help_description' => '',
         'rows' => 3,
       ),
       'type' => 'text_textarea',
@@ -799,8 +800,8 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'title_field',
-    'label' => 'Short Milestone Name',
-    'required' => 0,
+    'label' => 'Milestone Name',
+    'required' => 1,
     'settings' => array(
       'hide_label' => array(
         'entity' => 0,
@@ -830,11 +831,11 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
   t('Full Milestone Name');
   t('Milestone Category');
   t('Milestone Description');
+  t('Milestone Name');
   t('Milestone Status');
   t('Milestone Status Description');
   t('Month');
   t('Operating Unit');
-  t('Short Milestone Name');
   t('Target Fiscal Year');
   t('Type');
   t('USAID/Washington Notes');

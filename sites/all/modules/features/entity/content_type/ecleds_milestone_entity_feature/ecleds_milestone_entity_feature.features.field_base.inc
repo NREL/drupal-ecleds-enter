@@ -147,7 +147,7 @@ function ecleds_milestone_entity_feature_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_full_milestone_name',
     'field_permissions' => array(
-      'type' => 0,
+      'type' => 2,
     ),
     'indexes' => array(
       'format' => array(

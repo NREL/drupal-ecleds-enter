@@ -27,7 +27,7 @@ function ecleds_menus_feature_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 1,
+    'weight' => -46,
     'customized' => 1,
   );
   // Exported menu link: main-menu_bulk-export:export
@@ -47,7 +47,7 @@ function ecleds_menus_feature_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 5,
+    'weight' => -43,
     'customized' => 1,
   );
   // Exported menu link: main-menu_countries:countries
@@ -64,8 +64,8 @@ function ecleds_menus_feature_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
-    'customized' => 0,
+    'weight' => -49,
+    'customized' => 1,
   );
   // Exported menu link: main-menu_frameworks:frameworks
   $menu_links['main-menu_frameworks:frameworks'] = array(
@@ -84,7 +84,7 @@ function ecleds_menus_feature_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 4,
+    'weight' => -44,
     'customized' => 1,
   );
   // Exported menu link: main-menu_milestones:milestones
@@ -104,7 +104,7 @@ function ecleds_menus_feature_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 2,
+    'weight' => -45,
     'customized' => 1,
   );
   // Exported menu link: main-menu_reports:node/3854
@@ -114,9 +114,7 @@ function ecleds_menus_feature_menu_default_menu_links() {
     'router_path' => 'node/%',
     'link_title' => 'Reports',
     'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
+      'attributes' => array(),
       'identifier' => 'main-menu_reports:node/3854',
     ),
     'module' => 'menu',
@@ -124,7 +122,7 @@ function ecleds_menus_feature_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 0,
+    'weight' => -47,
     'customized' => 1,
   );
   // Exported menu link: management_account-settings:admin/config/people/accounts
@@ -2030,6 +2028,7 @@ function ecleds_menus_feature_menu_default_menu_links() {
     'weight' => -10,
     'customized' => 0,
   );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Account settings');
@@ -2131,7 +2130,6 @@ function ecleds_menus_feature_menu_default_menu_links() {
   t('Web services');
   t('Workflow');
   t('Wysiwyg profiles');
-
 
   return $menu_links;
 }
