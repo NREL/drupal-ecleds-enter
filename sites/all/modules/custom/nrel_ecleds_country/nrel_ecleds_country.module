@@ -91,7 +91,7 @@ function nrel_ecleds_country_menu() {
 function nrel_ecleds_country_menu_local_tasks_alter(&$data, $router_item, $root_path) {
 
   global $user;
-  
+
   $tabs = &$data['tabs'][0]['output'];
 
   // Haystack arrays for hiding tabs
@@ -115,8 +115,9 @@ function nrel_ecleds_country_menu_local_tasks_alter(&$data, $router_item, $root_
     foreach ($tabs as $key => $tab) {
       // On country pages...
       if (isset($router_item['page_arguments'][0]->type) &&
-        $router_item['page_arguments'][0]->type == 'country'
-      ) {
+        ($router_item['page_arguments'][0]->type == 'country' ||
+          $router_item['page_arguments'][0]->type ==
+          'environmental_and_economical')) {
 
         if (isset($user->roles[4]) && in_array($tab['#link']['path'], $hide_mission_tabs)) {
           unset($tabs[$key]);
@@ -147,47 +148,48 @@ function nrel_ecleds_country_menu_local_tasks_alter(&$data, $router_item, $root_
   $destination_array = !empty($params['destination']) ? explode('/', $params['destination']) : NULL;
   $country_nid = count($destination_array) > 2 && $destination_array[0] == 'node' ? $destination_array[1] : NULL;
   $country_wrapper = entity_metadata_wrapper('node', $country_nid);
-  if ($country_wrapper->getBundle() == 'country' &&
+  if (($country_wrapper->getBundle() == 'country'
+    || $country_wrapper->getBundle() == 'environmental_and_economical') &&
     !path_is_admin(current_path())
   ) {
     $country_url = drupal_get_path_alias('node/' . $country_nid);
     nrel_ecleds_breadcrumb($country_wrapper, $country_url);
     nrel_ecleds_country_tabs($tabs, $country_nid, $country_url);
     $data['tabs'][0]['count'] += 6;
-    return;
   }
+  else {
+    // content_type => respective ent ref field on country entity
+    $country_fields = array(
+      'environmental_and_economical' => 'field_environmental_and_economic',
+      'leds_plans_institutions' => 'field_leds_plans_institutions',
+      'baseline_workbook' => 'field_baseline_workbook',
+      'program_plans' => 'field_program_plans',
+      'program_level_progress' => 'field_nrel_ecleds_program_level',
+      'other_usg_leds_related_programs' => 'field_ecleds_other',
+    );
 
-  // content_type => respective ent ref field on country entity
-  $country_fields = array(
-    'environmental_and_economical' => 'field_environmental_and_economic',
-    'leds_plans_institutions' => 'field_leds_plans_institutions',
-    'baseline_workbook' => 'field_baseline_workbook',
-    'program_plans' => 'field_program_plans',
-    'program_level_progress' => 'field_nrel_ecleds_program_level',
-    'other_usg_leds_related_programs' => 'field_ecleds_other',
-  );
+    $current_menu_item = menu_get_item();
+    $current_node = isset($current_menu_item['page_arguments'][0]) ? $current_menu_item['page_arguments'][0] : NULL;
 
-  $current_menu_item = menu_get_item();
-  $current_node = isset($current_menu_item['page_arguments'][0]) ? $current_menu_item['page_arguments'][0] : NULL;
+    if (is_object($current_node)) {
 
-  if (is_object($current_node)) {
-    if (in_array($current_node->type, array_keys($country_fields))) {
-      $query = new EntityFieldQuery();
-      $query->entityCondition('entity_type', 'node')
-        ->entityCondition('bundle', 'country')
-        ->fieldCondition($country_fields[$current_node->type], 'target_id', $current_node->nid);
-      $result = $query->execute();
+       if (in_array($current_node->type, array_keys($country_fields))) {
+         $query = new EntityFieldQuery();
+         $query->entityCondition('entity_type', 'node')
+           ->entityCondition('bundle', 'country')
+           ->fieldCondition($country_fields[$current_node->type], 'target_id', $current_node->nid);
+         $result = $query->execute();
 
-      $country_nid = reset($result['node'])->nid;
-      $country_wrapper = entity_metadata_wrapper('node', $country_nid);
-      if ($country_wrapper->getBundle() == 'country' &&
-        !path_is_admin(current_path())
-      ) {
-        $country_url = drupal_get_path_alias('node/' . $country_nid);
-        nrel_ecleds_breadcrumb($country_wrapper, $country_url);
-        nrel_ecleds_country_tabs($tabs, $country_nid, $country_url);
-        $data['tabs'][0]['count'] += 6;
-    return;
+         $country_nid = reset($result['node'])->nid;
+        $country_wrapper = entity_metadata_wrapper('node', $country_nid);
+        if ($country_wrapper->getBundle() == 'country' &&
+          !path_is_admin(current_path())
+        ) {
+          $country_url = drupal_get_path_alias('node/' . $country_nid);
+          nrel_ecleds_breadcrumb($country_wrapper, $country_url);
+          // nrel_ecleds_country_tabs($tabs, $country_nid, $country_url);
+          $data['tabs'][0]['count'] += 6;
+        }
       }
     }
   }
@@ -595,7 +597,8 @@ function nrel_ecleds_country_init() {
  */
 function nrel_ecleds_country_is_country($node) {
 
-	if ($node->type == 'country') {
+	if ($node->type == 'country' ||
+    $node->type == 'environmental_and_economical') {
 		return TRUE;
 	}
 
