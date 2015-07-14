@@ -401,7 +401,7 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
           'thousand_separator' => ',',
         ),
         'type' => 'number_decimal',
-        'weight' => 13,
+        'weight' => 14,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -422,7 +422,7 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
         'label_help_description' => '',
       ),
       'type' => 'number',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
