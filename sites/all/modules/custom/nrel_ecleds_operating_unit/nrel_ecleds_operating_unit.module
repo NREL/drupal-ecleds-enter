@@ -305,7 +305,6 @@ function nrel_ecleds_operating_unit_node_view($node, $view_mode, $langcode) {
         'query' => $query,
       ),
     );
-    
   }
 }
 
@@ -413,27 +412,20 @@ function nrel_ecleds_operating_unit_milestones($node) {
     $completion_date = sprintf("%'.02d", $wrap->field_completion_month->value()) . '/' . $wrap->field_completion_year->value();
 
     // group by fiscal year and completion date.
-    $grouped[$year][$completion_date][] = $node;
+    $grouped[$year][] = $node;
   }
-
   // Render nodes with Year header.
   $rendered = '';
   $ordered_nodes = array();
   // Sort on year desc.
+  // krsort — Sort an array by key in reverse order
   krsort($grouped);
-  foreach($grouped as $year => $node_groups) {
-    // Sort on completion date asc.
-    ksort($node_groups);
-    foreach ($node_groups as $node_group) {
-      foreach ($node_group as $node) {
-        $ordered_nodes[] = $node;
-      }
-    }
-    $node_views = !empty($ordered_nodes) ? node_view_multiple($ordered_nodes, 'full') : array();
+
+  foreach($grouped as $year => $node_group) {
     $rendered .= '<h1 class="milestone-group-title">' . $year . '</h1>';
+    $node_views = !empty($node_group) ? node_view_multiple($node_group, 'full') : array();
     $rendered .= drupal_render($node_views);
   }
-
   return $rendered . $create_link;
 }
 
