@@ -287,10 +287,16 @@ function nrel_ecleds_country_tabs(&$tabs, $country_nid, $country_url) {
 
   array_push($tabs, $environmental_tab);
   array_push($tabs, $leds_tab);
-  array_push($tabs, $baseline_tab);
+  global $user;
+
+  if (!isset($user->roles[4])) {
+    array_push($tabs, $baseline_tab);
+  }
   array_push($tabs, $prog_plans_tab);
-  array_push($tabs, $progress_tab);
-  array_push($tabs, $other_programs_tab);
+  if (!isset($user->roles[4])) {
+    array_push($tabs, $progress_tab);
+    array_push($tabs, $other_programs_tab);
+  }
 }
 
 /**
