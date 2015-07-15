@@ -7,16 +7,6 @@ function nrel_ecleds_country_menu() {
 
 	$items = array();
 
-/*
-	$items['node/%node/projects'] = array(
-		'title' => 'Projects',
-		'access callback' => 'nrel_ecleds_country_is_country',
-		'access arguments' => array(1),
-		'weight' => -20,
-		'type' => MENU_DEFAULT_LOCAL_TASK,
-	);
-*/
-
   $items['node/%node/overview'] = array(
 		'title' => 'Overview',
 		'access callback' => 'nrel_ecleds_country_is_country',
@@ -91,7 +81,7 @@ function nrel_ecleds_country_menu() {
 function nrel_ecleds_country_menu_local_tasks_alter(&$data, $router_item, $root_path) {
 
   global $user;
-  
+
   $tabs = &$data['tabs'][0]['output'];
 
   // Haystack arrays for hiding tabs
@@ -127,13 +117,6 @@ function nrel_ecleds_country_menu_local_tasks_alter(&$data, $router_item, $root_
         ) {
           unset($tabs[$key]);
         }
-
-        // Hide the node tabs on the node view page
-        /*if ($root_path == 'node/%' &&
-          in_array($tab['#link']['path'], $node_tabs)
-        ) {
-          unset($tabs[$key]);
-        }*/
       }
     }
   }
@@ -534,28 +517,6 @@ function nrel_ecleds_country_form_alter(&$form, &$form_state, $form_id) {
       }
 
     }
-
-/*
-    if ($form['#node']->type == 'operating_unit') {
-
-      $query = new EntityFieldQuery();
-      $query
-        ->entityCondition('entity_type', 'node')
-        ->entityCondition('bundle', 'country')
-        ->fieldCondition('field_operating_unit', 'target_id', $form['#node']->nid, '=');
-
-      $result = $query->execute();
-
-      if (isset($result['node'])) {
-        $country_nids = array_keys($result['node']);
-        $country_nodes = entity_load('node', $country_nids);
-        $country_node = array_pop($country_nodes);
-        drupal_set_title('<em>Edit Operating Unit</em> for ' . $country_node->title, PASS_THROUGH);
-      }
-
-    }
-*/
-
   }
 
 }
