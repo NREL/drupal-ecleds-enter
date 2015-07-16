@@ -475,10 +475,17 @@ div.vertical-tabs ul li.selected a:focus strong {
  * Page layout.
  */
 #page {
-  padding: 20px 40px;
   background: #fff;
   position: relative;
   color: #333;
+}
+
+#page.branding-overlay {
+  padding: 130px 40px;
+}
+
+#page.no-overlay {
+  padding: 20px 40px;
 }
 
 #secondary-links ul.links li {
@@ -927,7 +934,7 @@ html.js .toggle-enable.disabled div {
 }
 
 html.js .toggle-enable div {
-  border-radius: 0 !important;  
+  border-radius: 0 !important;
   background: #fff;
 }
 
@@ -2667,7 +2674,7 @@ body.adminimal-theme .views-display-top ul#views-display-menu-tabs li a.active {
   color: #0073BC;
 }
 
-body.adminimal-theme .views-display-top ul#views-display-menu-tabs li a:hover, 
+body.adminimal-theme .views-display-top ul#views-display-menu-tabs li a:hover,
 body.adminimal-theme .views-display-top ul#views-display-menu-tabs li a:focus {
 	color: #FFF;
 	background-color: #0074BD;

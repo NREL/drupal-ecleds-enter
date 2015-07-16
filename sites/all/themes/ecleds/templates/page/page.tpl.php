@@ -5,6 +5,12 @@
 */
 ?>
 
+<?php
+
+global $user;
+
+// An anonymous user has a user id of zero.
+if ($user->uid > 0) : ?>
 <div class=top-fixed-area">
   <div id="fixed-branding">
 
@@ -28,6 +34,8 @@
 
   </div>
 </div>
+
+<?php else: ?>
 <div id="branding" class="clearfix">
 	<?php print $breadcrumb; ?>
 
@@ -49,8 +57,13 @@
 
 
 </div>
+<?php endif ?>
 
-<div id="page">
+<?php if ($user->uid > 0) : ?>
+  <div id="page" class="branding-overlay">
+<?php else: ?>
+    <div id="page" class="no-overlay">
+<?php endif ?>
 	<?php if ($secondary_local_tasks): ?>
 		<div class="tabs-secondary clearfix"><ul class="tabs secondary"><?php print render($secondary_local_tasks); ?></ul></div>
 	<?php endif; ?>

@@ -85,6 +85,11 @@ ul .ui-autocomplete {
     list-style-type: none;
 }
 
+#toolbar.toolbar.overlay-displace-top.clearfix.toolbar-processed .toolbar-menu a.toggle.toolbar-toggle-processed.toggle-active {
+  display: none;
+}
+
+
 #branding #block-menu-block-1,
 #fixed-branding #block-menu-block-1{
     width: 350px;
@@ -164,6 +169,7 @@ body.adminimal-theme #media-browser-page #fixed-branding {
   position: fixed;
   top: 0;
   z-index: 99;
+  padding-bottom: 100px;
   /*background-color:#fff;*/
 }
 
@@ -195,9 +201,9 @@ body.adminimal-theme #media-browser-page #fixed-branding {
 .field-name-field-impl-mech-perf-start-month,
 .field-name-field-impl-mech-perf-start-year,
 .field-name-field-impl-mech-perf-end-month,
-.field-name-field-impl-mech-perf-end-year, 
+.field-name-field-impl-mech-perf-end-year,
 .field-name-field-completion-month,
-.field-name-field-completion-year, 
+.field-name-field-completion-year,
 .field-name-field-expected-completion-month,
 .field-name-field-field-exp-compl-year {
   float:left;
@@ -291,4 +297,3 @@ body.adminimal-theme #media-browser-page #fixed-branding {
 
 .node.node-activity .content {
   border-bottom: 1px solid #D3D7D9;
- 
