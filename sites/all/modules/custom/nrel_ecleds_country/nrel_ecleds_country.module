@@ -38,7 +38,7 @@ function nrel_ecleds_country_menu() {
 	);
 
 	$items['node/%node/program'] = array(
-		'title' => 'ECLEDS Prog Plans',
+		'title' => 'ECLEDS Program Plans',
 		'access callback' => 'nrel_ecleds_country_is_country',
 		'access arguments' => array(1),
 		'page callback' => 'nrel_ecleds_node_view_safe',
@@ -246,11 +246,11 @@ function nrel_ecleds_country_tabs(&$tabs, $country_nid, $country_url) {
   $prog_plans_tab = array(
     '#theme' => 'menu_local_task',
     '#link' => array(
-      'title' => t('ECLEDS Prog Plans'),
+      'title' => t('ECLEDS Program Plans'),
       'href' => "node/$country_nid/program",
       'localized_options' => array(
         'attributes' => array(
-          'title' => t('ECLEDS Prog Plans'),
+          'title' => t('ECLEDS Program Plans'),
         ),
       ),
     ),
