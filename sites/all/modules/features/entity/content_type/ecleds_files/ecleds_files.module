@@ -1,0 +1,35 @@
+<?php
+/**
+ * @file
+ * Code for the Files feature.
+ */
+
+include_once('ecleds_files.features.inc');
+
+
+/**
+ * Implements hook_page_alter().
+ */
+function ecleds_files_page_alter(&$page) {
+  // Add slider css
+  drupal_add_css(drupal_get_path('module', 'ecleds_files') . '/css/files.css');
+}
+
+/**
+ * Implements hook_theme_registry_alter().
+ *
+ * Let Drupal know that we've got bean-slider.tpl.php in our module directory.
+ */
+function ecleds_files_theme_registry_alter(&$theme_registry) {
+  $module_path = drupal_get_path('module', 'ecleds_files');
+  $theme_registry_copy = $theme_registry;
+  _theme_process_registry($theme_registry_copy, 'phptemplate', 'theme_engine', 'node', $module_path);
+  $theme_registry += array_diff_key($theme_registry_copy, $theme_registry);
+  $hooks = array('node');
+  foreach ($hooks as $h) {
+	  if (isset($theme_registry[$h]['theme paths'])) {
+	    $first_element = array_shift($theme_registry[$h]['theme paths']);
+	    array_unshift($theme_registry[$h]['theme paths'], array_shift($theme_registry[$h]['theme paths']), $module_path);
+  	}
+  }
+}
