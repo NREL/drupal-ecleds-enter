@@ -89,7 +89,6 @@ ul .ui-autocomplete {
   display: none;
 }
 
-
 #branding #block-menu-block-1,
 #fixed-branding #block-menu-block-1{
     width: 350px;
@@ -103,10 +102,8 @@ ul .ui-autocomplete {
   overflow: hidden;
   padding: 10px 20px 0 20px;/* LTR */
   background-color: #333;
-  margin: 4.4em auto auto;
   width: 100%;
   position: fixed;
-  top: 0;
   z-index: 99;
 }
 
