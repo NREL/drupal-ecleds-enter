@@ -101,21 +101,29 @@ function nrel_ecleds_country_menu_local_tasks_alter(&$data, $router_item, $root_
       'node/%/progress',
       'node/%/other',
   );
+  $country_tabs = array(
+    'country',
+    'baseline_workbook',
+    'leds_plans_institutions',
+    'program_plans',
+    'environmental_and_economical',
+    'other_usg_leds_related_programs',
+    'program_level_progress');
   if (!is_null($tabs)) {
     foreach ($tabs as $key => $tab) {
       // On country pages...
-      if (isset($router_item['page_arguments'][0]->type) &&
-        $router_item['page_arguments'][0]->type == 'country'
-      ) {
-
-        if (isset($user->roles[4]) && in_array($tab['#link']['path'], $hide_mission_tabs)) {
-          unset($tabs[$key]);
-        }
-        // Hide the node tabs on the extra pages
-        if (in_array($router_item['page_callback'], $extra_tabs) &&
-          in_array($tab['#link']['path'], $node_tabs)
-        ) {
-          unset($tabs[$key]);
+      foreach ($country_tabs as $type) {
+        if (isset($router_item['page_arguments'][0]->type) &&
+          $router_item['page_arguments'][0]->type == $type) {
+          if (isset($user->roles[4]) && in_array($tab['#link']['path'], $hide_mission_tabs)) {
+            unset($tabs[$key]);
+          }
+          // Hide the node tabs on the extra pages.
+          if (in_array($router_item['page_callback'], $extra_tabs) &&
+            in_array($tab['#link']['path'], $node_tabs)
+          ) {
+            unset($tabs[$key]);
+          }
         }
       }
     }
@@ -130,16 +138,17 @@ function nrel_ecleds_country_menu_local_tasks_alter(&$data, $router_item, $root_
   $destination_array = !empty($params['destination']) ? explode('/', $params['destination']) : NULL;
   $country_nid = count($destination_array) > 2 && $destination_array[0] == 'node' ? $destination_array[1] : NULL;
   $country_wrapper = entity_metadata_wrapper('node', $country_nid);
-  if ($country_wrapper->getBundle() == 'country' &&
-    !path_is_admin(current_path())
-  ) {
-    $country_url = drupal_get_path_alias('node/' . $country_nid);
-    nrel_ecleds_breadcrumb($country_wrapper, $country_url);
-    nrel_ecleds_country_tabs($tabs, $country_nid, $country_url);
-    $data['tabs'][0]['count'] += 6;
-    return;
+  foreach ($country_tabs as $type) {
+    if ($country_wrapper->getBundle() == $type &&
+      !path_is_admin(current_path())
+    ) {
+      $country_url = drupal_get_path_alias('node/' . $country_nid);
+      nrel_ecleds_breadcrumb($country_wrapper, $country_url);
+      nrel_ecleds_country_tabs($tabs, $country_nid, $country_url);
+      $data['tabs'][0]['count'] += 6;
+      return;
+    }
   }
-
   // content_type => respective ent ref field on country entity
   $country_fields = array(
     'environmental_and_economical' => 'field_environmental_and_economic',
@@ -163,14 +172,16 @@ function nrel_ecleds_country_menu_local_tasks_alter(&$data, $router_item, $root_
 
       $country_nid = reset($result['node'])->nid;
       $country_wrapper = entity_metadata_wrapper('node', $country_nid);
-      if ($country_wrapper->getBundle() == 'country' &&
-        !path_is_admin(current_path())
-      ) {
-        $country_url = drupal_get_path_alias('node/' . $country_nid);
-        nrel_ecleds_breadcrumb($country_wrapper, $country_url);
-        nrel_ecleds_country_tabs($tabs, $country_nid, $country_url);
-        $data['tabs'][0]['count'] += 6;
-    return;
+      foreach ($country_tabs as $type) {
+        if ($country_wrapper->getBundle() == $type &&
+          !path_is_admin(current_path())
+        ) {
+          $country_url = drupal_get_path_alias('node/' . $country_nid);
+          nrel_ecleds_breadcrumb($country_wrapper, $country_url);
+          nrel_ecleds_country_tabs($tabs, $country_nid, $country_url);
+          $data['tabs'][0]['count'] += 6;
+          return;
+        }
       }
     }
   }
@@ -561,11 +572,19 @@ function nrel_ecleds_country_init() {
  * Confirms node is a country.
  */
 function nrel_ecleds_country_is_country($node) {
-
-	if ($node->type == 'country') {
-		return TRUE;
-	}
-
+  $country_tabs = array(
+    'country',
+    'baseline_workbook',
+    'leds_plans_institutions',
+    'program_plans',
+    'environmental_and_economical',
+    'other_usg_leds_related_programs',
+    'program_level_progress');
+  foreach ($country_tabs as $type) {
+    if ($node->type == $type) {
+      return TRUE;
+    }
+  }
 	return FALSE;
 
 }
