@@ -16,31 +16,23 @@
 </head>
 
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
-  <div id="skip-link">
-    <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
-  </div>
-    <div id="page" class="<?php print $classes; ?>">
+  <div id="page" class="<?php print $classes; ?>">
 
-     <div id="main">
+   <div id="main">
 
-          <div id="main-content" class="clearfix l--constrained">
+        <div id="main-content" class="clearfix l--constrained">
 
-            <div id="content">
+          <div id="content">
 
-              <h1>
-                We're sorry!
-              </h1>
-              <p><img style="float:left; width:50px; padding-right:10px;" alt="danger sign" src="sites/all/themes/ecleds/img/site-unavailable.png" /><strong>The Clean Energy Solutions Center website is currently unavailable. Please try again shortly.</strong>
+            <h1>
+              We're sorry!
+            </h1>
+            <p><img style="float:left; width:50px; padding-right:10px;" alt="danger sign" src="sites/all/themes/ecleds/img/site-unavailable.png" /><strong>The Clean Energy Solutions Center website is currently unavailable. Please try again shortly.</strong>
 
-            </div>
-
-        </div>
-
-        <div id="footer">
-          <div class="l--constrained clearfix">
-              <?php print $footer; ?>
           </div>
-        </div>
-    </div>
+
+      </div>
+
+  </div>
 </body>
 </html>
