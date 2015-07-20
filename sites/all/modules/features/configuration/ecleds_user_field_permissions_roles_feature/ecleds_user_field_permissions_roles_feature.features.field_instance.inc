@@ -30,13 +30,14 @@ function ecleds_user_field_permissions_roles_feature_field_default_field_instanc
     'label' => 'Full Name',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 1,
+      'text_processing' => 0,
       'user_register_form' => 0,
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'text',
       'settings' => array(
+        'label_help_description' => '',
         'size' => 60,
       ),
       'type' => 'text_textfield',
