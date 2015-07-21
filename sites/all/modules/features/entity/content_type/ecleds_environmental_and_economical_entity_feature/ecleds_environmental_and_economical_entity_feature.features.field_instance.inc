@@ -28,7 +28,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
           'thousand_separator' => ',',
         ),
         'type' => 'number_decimal',
-        'weight' => 14,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -72,7 +72,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 9,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -137,7 +137,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
           'thousand_separator' => ',',
         ),
         'type' => 'number_decimal',
-        'weight' => 17,
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -181,7 +181,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 13,
+        'weight' => 10,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -241,7 +241,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 3,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -282,7 +282,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 4,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -323,7 +323,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 5,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -364,7 +364,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 6,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -429,7 +429,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
           'thousand_separator' => ',',
         ),
         'type' => 'number_decimal',
-        'weight' => 10,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -478,7 +478,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
           'thousand_separator' => ',',
         ),
         'type' => 'number_decimal',
-        'weight' => 11,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -522,7 +522,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 12,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -584,7 +584,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
           'thousand_separator' => ',',
         ),
         'type' => 'number_decimal',
-        'weight' => 8,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -633,7 +633,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
           'thousand_separator' => ',',
         ),
         'type' => 'number_decimal',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -682,7 +682,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
           'thousand_separator' => ',',
         ),
         'type' => 'number_decimal',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -726,7 +726,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 7,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -783,7 +783,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 15,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -847,7 +847,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
           'thousand_separator' => ',',
         ),
         'type' => 'number_decimal',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -890,7 +890,7 @@ function ecleds_environmental_and_economical_entity_feature_field_default_field_
         'module' => 'file',
         'settings' => array(),
         'type' => 'file_default',
-        'weight' => 16,
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',

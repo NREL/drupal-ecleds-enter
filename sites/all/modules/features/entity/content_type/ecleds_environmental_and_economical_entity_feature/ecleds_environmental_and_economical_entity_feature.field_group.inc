@@ -40,6 +40,33 @@ function ecleds_environmental_and_economical_entity_feature_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_forested_area|node|environmental_and_economical|default';
+  $field_group->group_name = 'group_forested_area';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'environmental_and_economical';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Forested Area',
+    'weight' => '4',
+    'children' => array(
+      0 => 'field_forested_source',
+      1 => 'field_env_eco_forested',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-forested-area field-group-fieldset',
+      ),
+    ),
+  );
+  $export['group_forested_area|node|environmental_and_economical|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_forested_area|node|environmental_and_economical|form';
   $field_group->group_name = 'group_forested_area';
   $field_group->entity_type = 'node';
@@ -64,6 +91,34 @@ function ecleds_environmental_and_economical_entity_feature_field_group_info() {
     ),
   );
   $export['group_forested_area|node|environmental_and_economical|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_ghg_growth|node|environmental_and_economical|default';
+  $field_group->group_name = 'group_ghg_growth';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'environmental_and_economical';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'GHG Growth (%)',
+    'weight' => '3',
+    'children' => array(
+      0 => 'field_ghg_growth_source',
+      1 => 'field_ghg_growth_20_year',
+      2 => 'field_ghg_growth_5_year',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-ghg-growth field-group-fieldset',
+      ),
+    ),
+  );
+  $export['group_ghg_growth|node|environmental_and_economical|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -93,6 +148,33 @@ function ecleds_environmental_and_economical_entity_feature_field_group_info() {
     ),
   );
   $export['group_ghg_growth|node|environmental_and_economical|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_growth|node|environmental_and_economical|default';
+  $field_group->group_name = 'group_growth';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'environmental_and_economical';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Economic Growth',
+    'weight' => '2',
+    'children' => array(
+      0 => 'field_econ_growth_source',
+      1 => 'field_gpd_avg_annual_01_10',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-growth field-group-fieldset',
+      ),
+    ),
+  );
+  $export['group_growth|node|environmental_and_economical|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -157,6 +239,35 @@ function ecleds_environmental_and_economical_entity_feature_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_key_economic_sectors|node|environmental_and_economical|default';
+  $field_group->group_name = 'group_key_economic_sectors';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'environmental_and_economical';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Key Economic Sectors (2013)',
+    'weight' => '0',
+    'children' => array(
+      0 => 'field_key_eco_sector_source',
+      1 => 'field_key_eco_sector_agriculture',
+      2 => 'field_key_eco_sector_industry',
+      3 => 'field_services',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-key-economic-sectors field-group-fieldset',
+      ),
+    ),
+  );
+  $export['group_key_economic_sectors|node|environmental_and_economical|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_key_economic_sectors|node|environmental_and_economical|form';
   $field_group->group_name = 'group_key_economic_sectors';
   $field_group->entity_type = 'node';
@@ -215,6 +326,33 @@ function ecleds_environmental_and_economical_entity_feature_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_renewable_energy|node|environmental_and_economical|default';
+  $field_group->group_name = 'group_renewable_energy';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'environmental_and_economical';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Renewable Energy',
+    'weight' => '5',
+    'children' => array(
+      0 => 'field_renewable_energy_source',
+      1 => 'field_contrib_to_electricity',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-renewable-energy field-group-fieldset',
+      ),
+    ),
+  );
+  $export['group_renewable_energy|node|environmental_and_economical|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_renewable_energy|node|environmental_and_economical|form';
   $field_group->group_name = 'group_renewable_energy';
   $field_group->entity_type = 'node';
@@ -267,6 +405,35 @@ function ecleds_environmental_and_economical_entity_feature_field_group_info() {
     ),
   );
   $export['group_tabs|node|environmental_and_economical|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_top_3_ghg_economic_sectors|node|environmental_and_economical|default';
+  $field_group->group_name = 'group_top_3_ghg_economic_sectors';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'environmental_and_economical';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Top 3 GHG Emitting Economic Sectors in 2010',
+    'weight' => '1',
+    'children' => array(
+      0 => 'field_ghg_emitting_sector_1st',
+      1 => 'field_ghg_emitting_sector_2nd',
+      2 => 'field_ghg_emitting_sector_3rd',
+      3 => 'field_ghg_emitting_sector_source',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-top-3-ghg-economic-sectors field-group-fieldset',
+      ),
+    ),
+  );
+  $export['group_top_3_ghg_economic_sectors|node|environmental_and_economical|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
