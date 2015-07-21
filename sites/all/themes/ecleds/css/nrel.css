@@ -296,6 +296,10 @@ body.adminimal-theme #media-browser-page #fixed-branding {
   border-bottom: 1px solid #D3D7D9;
 }
 
+#views-exposed-form-indicator-report-page #edit-nid-wrapper {
+  display: none;
+}
+
 /* At client request hide the "show row weights" on draggable tables */
 .tabledrag-toggle-weight-wrapper {
   display: none;
