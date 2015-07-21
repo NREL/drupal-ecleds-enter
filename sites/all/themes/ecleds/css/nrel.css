@@ -294,3 +294,15 @@ body.adminimal-theme #media-browser-page #fixed-branding {
 
 .node.node-activity .content {
   border-bottom: 1px solid #D3D7D9;
+}
+
+/* At client request hide the "show row weights" on draggable tables */
+.tabledrag-toggle-weight-wrapper {
+  display: none;
+}
+
+/* Drag handles were not fully displayed at, for example, node/3210/edit (activities and GCC tabs) */
+a.tabledrag-handle .handle {
+  background-position: 0px 5px;
+  height: 20px;
+}

@@ -4,16 +4,28 @@
  * Implements hook_inline_entity_form_table_fields_alter().
  */
 function nrel_activity_content_type_inline_entity_form_table_fields_alter(&$fields, $context) {
-  // Short circuit if this is not a the field_results field.
-  if ($context['field_name'] !== 'field_results') {
-    return;
+  if ($context['field_name'] == 'field_activities_ent_ref') {
+    // This is the case where an activity is being referenced from the edit
+    // form of another node. Remove the status field and replace it with the
+    // hightlight activity field.
+    unset($fields['status']);
+    $fields['field_activity_high_activity'] = array(
+      'label'  => t('Highlight Activity?'),
+      'type'   => 'field',
+      'weight' => 50,
+    );
+  } else {
+    // Short circuit if this is not a the field_results field.
+    if ($context['field_name'] !== 'field_results') {
+      return;
+    }
+
+    // Add the body/description field.
+    $fields['body']['label'] = 'Description';
+    $fields['body']['type'] = 'field';
+    $fields['body']['weight'] = 1;
+
+    // Remove the title field.
+    unset($fields['title']);
   }
-
-  // Add the body/description field.
-  $fields['body']['label'] = 'Description';
-  $fields['body']['type'] = 'field';
-  $fields['body']['weight'] = 1;
-
-  // Remove the title field.
-  unset($fields['title']);
 }
