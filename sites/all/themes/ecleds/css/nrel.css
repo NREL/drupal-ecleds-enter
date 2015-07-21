@@ -310,3 +310,17 @@ a.tabledrag-handle .handle {
   background-position: 0px 5px;
   height: 20px;
 }
+
+#ecleds-implementing-mechanism-node-form #edit-field-im-countries .form-type-checkbox {
+  float: left;
+  width: 31%;
+  padding-right: 2%;
+}
+
+#ecleds-implementing-mechanism-node-form #edit-field-im-countries .form-type-checkbox:last-child {
+  margin-bottom: 1em;
+}
+
+#ecleds-implementing-mechanism-node-form #edit-field-im-number {
+  clear: both;
+}

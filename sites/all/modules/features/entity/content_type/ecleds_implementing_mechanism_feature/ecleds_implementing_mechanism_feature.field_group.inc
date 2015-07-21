@@ -48,7 +48,7 @@ function ecleds_implementing_mechanism_feature_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'GCC Results Framework',
-    'weight' => '15',
+    'weight' => '16',
     'children' => array(
       0 => 'field_gcc_intermediate_result',
       1 => 'field_gcc_intermediate_result_2',
@@ -172,9 +172,10 @@ function ecleds_implementing_mechanism_feature_field_group_info() {
       6 => 'field_im_number',
       7 => 'field_im_funding_pillar',
       8 => 'field_impl_mech_award_number',
-      9 => 'title',
-      10 => 'group_impl_mech_perf_end_date',
-      11 => 'group_impl_mech_perf_start_date',
+      9 => 'field_im_countries',
+      10 => 'title',
+      11 => 'group_impl_mech_perf_end_date',
+      12 => 'group_impl_mech_perf_start_date',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -199,7 +200,7 @@ function ecleds_implementing_mechanism_feature_field_group_info() {
   $field_group->parent_name = 'group_im_overview';
   $field_group->data = array(
     'label' => 'Performance End Date',
-    'weight' => '8',
+    'weight' => '9',
     'children' => array(
       0 => 'field_impl_mech_perf_end_month',
       1 => 'field_impl_mech_perf_end_year',
@@ -228,7 +229,7 @@ function ecleds_implementing_mechanism_feature_field_group_info() {
   $field_group->parent_name = 'group_im_overview';
   $field_group->data = array(
     'label' => 'Performance Start Date',
-    'weight' => '7',
+    'weight' => '8',
     'children' => array(
       0 => 'field_impl_mech_perf_start_month',
       1 => 'field_impl_mech_perf_start_year',
