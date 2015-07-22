@@ -48,6 +48,38 @@ function nrel_ecleds_milestones_form_views_exposed_form_alter(&$form, &$form_sta
 }
 
 /**
+ * Implements hook_node_access().
+ *
+ * Checks for edit access to milestones based on the Cleared? field.
+ */
+function nrel_ecleds_milestones_node_access($node, $op, $account) {
+  if ($node->type == 'nrel_ecleds_milestone' && $op == 'update') {
+    // User is editing a milestone. Deny access if they are trying to edit a
+    // milestone that has 'the 'Yes' selected for the 'Cleared?' field and
+    // doesn't have premission to edit cleared milestones.
+    $lang = $node->language;
+    if ((1 == $node->field_milestone_cleared[$lang][0]['value']) && !user_access('edit cleared milestones')) {
+      return NODE_ACCESS_DENY;
+    }
+  }
+  return NODE_ACCESS_IGNORE;
+}
+
+/**
+ * Implements hook_permission().
+ *
+ * Defines a new permission called 'edit cleared milestones'.
+ */
+function nrel_ecleds_milestones_permission() {
+  return array(
+    'edit cleared milestones' => array(
+      'title' => t('Edit cleared milestones'),
+      'description' => t('Allows users to edit milestones that have the \'Yes\' option selected on the \'Cleared\' field.'),
+    ),
+  );
+}
+
+/**
  * Queries taxonomy term data to obtain appropriate references and returns as
  * array for select options.
  *

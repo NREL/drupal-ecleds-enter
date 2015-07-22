@@ -632,9 +632,13 @@ function nrel_ecleds_operating_unit_preprocess_node(&$vars, $hook) {
   }
 
   if (in_array($vars['type'], $node_types)) {
-    // Add an edit button to the bottom right of rendered node.
-    $query = drupal_get_destination();
-    $vars['edit_button'] = '<div class="edit-button">' . l(t('Edit'), 'node/' . $vars['nid'] . '/edit', array('attributes' => array('class' => array('button', 'button-edit')),'query' => $query)) . '</div>';
+    // For all nodes that aren't milestones and for milestones that are not
+    // cleared or the user has a role that can edit cleared milestones, add an
+    // edit button to the rendered node.
+    if (('nrel_ecleds_milestone' != $vars['type']) || (empty($vars['field_milestone_cleared'][0]['value']) || user_access('edit cleared milestones'))) {
+      $query = drupal_get_destination();
+      $vars['edit_button'] = '<div class="edit-button">' . l(t('Edit'), 'node/' . $vars['nid'] . '/edit', array('attributes' => array('class' => array('button', 'button-edit')),'query' => $query)) . '</div>';
+    }
   }
 }
 

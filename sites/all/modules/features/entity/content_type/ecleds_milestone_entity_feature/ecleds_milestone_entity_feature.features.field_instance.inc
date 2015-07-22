@@ -320,6 +320,50 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'node-nrel_ecleds_milestone-field_milestone_cleared'
+  $field_instances['node-nrel_ecleds_milestone-field_milestone_cleared'] = array(
+    'bundle' => 'nrel_ecleds_milestone',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 20,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_milestone_cleared',
+    'label' => 'Cleared?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'label_help_description' => 'Checking \'Yes\' means that the Milestone will no longer be editable by Mission users.',
+      ),
+      'type' => 'options_buttons',
+      'weight' => 19,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-nrel_ecleds_milestone-field_milestone_completion_doc'
   $field_instances['node-nrel_ecleds_milestone-field_milestone_completion_doc'] = array(
     'bundle' => 'nrel_ecleds_milestone',
@@ -825,6 +869,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Benchmark');
+  t('Cleared?');
   t('Completion Evidence/Documentation ');
   t('Country');
   t('Evidence/Documents Supporting Milestone Completion');
