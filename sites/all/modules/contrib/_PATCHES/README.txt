@@ -1,2 +1,3 @@
 2015/06/04 DKH Aten apllied field_permissions.miscellaneous.1845798-11.patch before develery to communications.
 2015/06/04 DKH auto_nodetitle.1719948-3.patch before develery to communications.
+2015/07/22 SML applied wysiwyg-ckeditor-row-height-507696-120 to WYSWIYG 7.x-2.2 to make the CKEditor respect the number of rows set in field configurations (this is a patch produced by SML but inspired by the patch at https://www.drupal.org/node/507696#comment-8809645

@@ -40,6 +40,10 @@ Drupal.wysiwyg.editor.attach.ckeditor = function(context, params, settings) {
 
   var $drupalToolbar = $('#toolbar', Drupal.overlayChild ? window.parent.document : document);
 
+  if (!settings.height) {
+    settings.height = $('#' + params.field).height();
+  }
+  
   settings.on = {
     instanceReady: function(ev) {
       var editor = ev.editor;
