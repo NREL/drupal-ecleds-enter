@@ -95,6 +95,9 @@
       ?>
     </h2>
     <?php
+      if ($cleared) {
+        print $cleared;
+      }
       if ($edit_button) {
         print $edit_button;
       }

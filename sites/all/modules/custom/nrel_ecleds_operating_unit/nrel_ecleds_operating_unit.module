@@ -632,12 +632,22 @@ function nrel_ecleds_operating_unit_preprocess_node(&$vars, $hook) {
   }
 
   if (in_array($vars['type'], $node_types)) {
-    // For all nodes that aren't milestones and for milestones that are not
-    // cleared or the user has a role that can edit cleared milestones, add an
-    // edit button to the rendered node.
-    if (('nrel_ecleds_milestone' != $vars['type']) || (empty($vars['field_milestone_cleared'][0]['value']) || user_access('edit cleared milestones'))) {
-      $query = drupal_get_destination();
-      $vars['edit_button'] = '<div class="edit-button">' . l(t('Edit'), 'node/' . $vars['nid'] . '/edit', array('attributes' => array('class' => array('button', 'button-edit')),'query' => $query)) . '</div>';
+    // Set up an edit button.
+    $query = drupal_get_destination();
+    $vars['edit_button'] = '<div class="edit-button">' . l(t('Edit'), 'node/' . $vars['nid'] . '/edit', array('attributes' => array('class' => array('button', 'button-edit')),'query' => $query)) . '</div>';
+    if ('nrel_ecleds_milestone' == $vars['type']) {
+      // For milestones that are cleared, denote that. For users who have a role
+      // that can edit cleared milestones, change the edit button to an edit
+      // link. For users who have a role that can't edit cleared milestones,
+      // don't show an edit button or an edit link.
+      if (!empty($vars['field_milestone_cleared'][0]['value'])) {
+        $vars['cleared'] = '<div class="cleared">' . t('Cleared') . '</div>';
+        if (user_access('edit cleared milestones')) {
+          $vars['edit_button'] = '<div class="edit-link">' . l(t('Edit'), 'node/' . $vars['nid'] . '/edit', array('attributes' => array('class' => array('link', 'link-edit')),'query' => $query)) . '</div>';
+        } else {
+          unset($vars['edit_button']);
+        }
+      }
     }
   }
 }

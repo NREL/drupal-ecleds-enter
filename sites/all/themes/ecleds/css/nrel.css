@@ -251,10 +251,17 @@ body.adminimal-theme #media-browser-page #fixed-branding {
 
 .node-ecleds-implementing-mechanism .edit-button,
 .node-ppr .edit-button,
-.node-nrel-ecleds-milestone  .edit-button {
+.node-nrel-ecleds-milestone .edit-button,
+.node-nrel-ecleds-milestone .edit-link,
+.node-nrel-ecleds-milestone .cleared {
   position: absolute;
-  top: 15px;
+  top: 18px;
   right: 15px;
+}
+
+.node-nrel-ecleds-milestone .edit-link {
+  top: 37px;
+  right: 28px;
 }
 
 .node-ecleds-implementing-mechanism .edit-button .button-edit,
