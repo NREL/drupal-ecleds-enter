@@ -225,6 +225,7 @@ function ecleds_results_entity_feature_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(
         'display_label' => 1,
+        'label_help_description' => '',
       ),
       'type' => 'options_onoff',
       'weight' => 11,
@@ -492,6 +493,7 @@ function ecleds_results_entity_feature_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(
         'display_label' => 1,
+        'label_help_description' => '',
       ),
       'type' => 'options_onoff',
       'weight' => 14,
