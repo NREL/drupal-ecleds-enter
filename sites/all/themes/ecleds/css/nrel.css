@@ -219,7 +219,8 @@ body.adminimal-theme #media-browser-page #fixed-branding {
 
 .node-ecleds-implementing-mechanism .field-collection-container,
 .field-name-field-im-funding-pillar,
-.field-name-field-milestone-cleared {
+.field-name-field-milestone-cleared,
+.field-name-field-im-supports-toc {
   clear: both;
 }
 
