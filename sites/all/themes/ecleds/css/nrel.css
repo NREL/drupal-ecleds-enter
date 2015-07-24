@@ -1,3 +1,13 @@
+#page,
+#toolbar,
+.top-fixed-area {
+  min-width: 1100px;
+}
+
+#page.branding-overlay {
+  padding: 20px 20px !important;
+}
+
 .menu-name-main-menu li {
     display: inline-block;
 }
@@ -103,8 +113,8 @@ ul .ui-autocomplete {
   padding: 10px 20px 0 20px;/* LTR */
   background-color: #333;
   width: 100%;
-  position: fixed;
   z-index: 99;
+  position: relative;
 }
 
 #fixed-branding div.breadcrumb {
@@ -150,7 +160,23 @@ ul .ui-autocomplete {
   font-weight: 300;
   line-height: 38px;
   margin: 0;
-  padding: 0 0 12px;
+  padding: 0 0 24px;
+  width: 67%;
+}
+
+#fixed-branding #header {
+  width: 32%;
+  float: right;
+}
+
+div.add-or-remove-shortcuts {
+  position: absolute;
+  bottom: 46px;
+  left: 8px;
+}
+
+.no-primary div.add-or-remove-shortcuts {
+  bottom: 7px;
 }
 
 body.adminimal-theme #media-browser-page #fixed-branding {
@@ -160,13 +186,7 @@ body.adminimal-theme #media-browser-page #fixed-branding {
 }
 
 .top-fixed-area {
-  width: 1000%;
-  height: 60px;
-  margin: auto;
-  position: fixed;
-  top: 0;
   z-index: 99;
-  padding-bottom: 100px;
   /*background-color:#fff;*/
 }
 
