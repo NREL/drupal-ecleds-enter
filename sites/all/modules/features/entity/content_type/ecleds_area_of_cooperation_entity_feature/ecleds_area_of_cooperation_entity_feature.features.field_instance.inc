@@ -48,7 +48,8 @@ function ecleds_area_of_cooperation_entity_feature_field_default_field_instances
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'rows' => 20,
+        'label_help_description' => '',
+        'rows' => 5,
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',

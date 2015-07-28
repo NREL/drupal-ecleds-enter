@@ -14,7 +14,7 @@ function ecleds_files_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'attachment_links_selection_file';
-  $strongarm->value = '514';
+  $strongarm->value = '513';
   $export['attachment_links_selection_file'] = $strongarm;
 
   $strongarm = new stdClass();
