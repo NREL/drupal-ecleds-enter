@@ -822,6 +822,243 @@ function ecleds_views_feature_views_default_views() {
   $export['indicator_report'] = $view;
 
   $view = new view();
+  $view->name = 'indicator_values';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'field_collection_item';
+  $view->human_name = 'Indicator Values';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Indicator Report';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'table';
+  /* Relationship: Field collection item: Entity with the GCC Standard Indicator (field_impl_mech_gcc_indicator) */
+  $handler->display->display_options['relationships']['field_impl_mech_gcc_indicator_node']['id'] = 'field_impl_mech_gcc_indicator_node';
+  $handler->display->display_options['relationships']['field_impl_mech_gcc_indicator_node']['table'] = 'field_collection_item';
+  $handler->display->display_options['relationships']['field_impl_mech_gcc_indicator_node']['field'] = 'field_impl_mech_gcc_indicator_node';
+  $handler->display->display_options['relationships']['field_impl_mech_gcc_indicator_node']['label'] = 'Implementing Mechanism';
+  $handler->display->display_options['relationships']['field_impl_mech_gcc_indicator_node']['required'] = TRUE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_gcc_standard_indicator_target_id']['id'] = 'field_gcc_standard_indicator_target_id';
+  $handler->display->display_options['relationships']['field_gcc_standard_indicator_target_id']['table'] = 'field_data_field_gcc_standard_indicator';
+  $handler->display->display_options['relationships']['field_gcc_standard_indicator_target_id']['field'] = 'field_gcc_standard_indicator_target_id';
+  $handler->display->display_options['relationships']['field_gcc_standard_indicator_target_id']['label'] = 'Indicator';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['relationship'] = 'field_impl_mech_gcc_indicator_node';
+  /* Field: Content revision: Nid */
+  $handler->display->display_options['fields']['nid_1']['id'] = 'nid_1';
+  $handler->display->display_options['fields']['nid_1']['table'] = 'node_revision';
+  $handler->display->display_options['fields']['nid_1']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid_1']['relationship'] = 'field_impl_mech_gcc_indicator_node';
+  $handler->display->display_options['fields']['nid_1']['label'] = 'Revision id';
+  $handler->display->display_options['fields']['nid_1']['element_label_colon'] = FALSE;
+  /* Field: Field collection item Revisions: Field collection item ID */
+  $handler->display->display_options['fields']['item_id']['id'] = 'item_id';
+  $handler->display->display_options['fields']['item_id']['table'] = 'field_collection_item_revision';
+  $handler->display->display_options['fields']['item_id']['field'] = 'item_id';
+  $handler->display->display_options['fields']['item_id']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['item_id']['separator'] = '';
+  /* Field: Field collection item Revisions: Revision_id */
+  $handler->display->display_options['fields']['revision_id']['id'] = 'revision_id';
+  $handler->display->display_options['fields']['revision_id']['table'] = 'field_collection_item_revision';
+  $handler->display->display_options['fields']['revision_id']['field'] = 'revision_id';
+  $handler->display->display_options['fields']['revision_id']['label'] = 'FC revision id';
+  $handler->display->display_options['fields']['revision_id']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['revision_id']['separator'] = '';
+  /* Field: Field collection item: FY14 Baseline */
+  $handler->display->display_options['fields']['field_fy14_baseline']['id'] = 'field_fy14_baseline';
+  $handler->display->display_options['fields']['field_fy14_baseline']['table'] = 'field_data_field_fy14_baseline';
+  $handler->display->display_options['fields']['field_fy14_baseline']['field'] = 'field_fy14_baseline';
+  $handler->display->display_options['fields']['field_fy14_baseline']['empty'] = '0.0';
+  $handler->display->display_options['fields']['field_fy14_baseline']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_fy14_baseline']['settings'] = array(
+    'thousand_separator' => '',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Field collection item: FY14 Target */
+  $handler->display->display_options['fields']['field_fy14_target']['id'] = 'field_fy14_target';
+  $handler->display->display_options['fields']['field_fy14_target']['table'] = 'field_data_field_fy14_target';
+  $handler->display->display_options['fields']['field_fy14_target']['field'] = 'field_fy14_target';
+  $handler->display->display_options['fields']['field_fy14_target']['empty'] = '0.0';
+  $handler->display->display_options['fields']['field_fy14_target']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_fy14_target']['settings'] = array(
+    'thousand_separator' => '',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Field collection item: FY14 Results */
+  $handler->display->display_options['fields']['field_fy14_results']['id'] = 'field_fy14_results';
+  $handler->display->display_options['fields']['field_fy14_results']['table'] = 'field_data_field_fy14_results';
+  $handler->display->display_options['fields']['field_fy14_results']['field'] = 'field_fy14_results';
+  $handler->display->display_options['fields']['field_fy14_results']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_fy14_results']['empty'] = '0.0';
+  $handler->display->display_options['fields']['field_fy14_results']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_fy14_results']['settings'] = array(
+    'thousand_separator' => '',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 0,
+  );
+  /* Field: Field collection item: FY15 Target */
+  $handler->display->display_options['fields']['field_fy15_target']['id'] = 'field_fy15_target';
+  $handler->display->display_options['fields']['field_fy15_target']['table'] = 'field_data_field_fy15_target';
+  $handler->display->display_options['fields']['field_fy15_target']['field'] = 'field_fy15_target';
+  $handler->display->display_options['fields']['field_fy15_target']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_fy15_target']['empty'] = '0.0';
+  $handler->display->display_options['fields']['field_fy15_target']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_fy15_target']['settings'] = array(
+    'thousand_separator' => '',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 0,
+  );
+  /* Field: Field collection item: FY15 Results */
+  $handler->display->display_options['fields']['field_fy15_results']['id'] = 'field_fy15_results';
+  $handler->display->display_options['fields']['field_fy15_results']['table'] = 'field_data_field_fy15_results';
+  $handler->display->display_options['fields']['field_fy15_results']['field'] = 'field_fy15_results';
+  $handler->display->display_options['fields']['field_fy15_results']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_fy15_results']['empty'] = '0.0';
+  $handler->display->display_options['fields']['field_fy15_results']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_fy15_results']['settings'] = array(
+    'thousand_separator' => '',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 0,
+  );
+  /* Field: Field collection item: FY16 Target */
+  $handler->display->display_options['fields']['field_fy16_target']['id'] = 'field_fy16_target';
+  $handler->display->display_options['fields']['field_fy16_target']['table'] = 'field_data_field_fy16_target';
+  $handler->display->display_options['fields']['field_fy16_target']['field'] = 'field_fy16_target';
+  $handler->display->display_options['fields']['field_fy16_target']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_fy16_target']['empty'] = '0.0';
+  $handler->display->display_options['fields']['field_fy16_target']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_fy16_target']['settings'] = array(
+    'thousand_separator' => '',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 0,
+  );
+  /* Field: Field collection item: FY17 Target */
+  $handler->display->display_options['fields']['field_fy17_target']['id'] = 'field_fy17_target';
+  $handler->display->display_options['fields']['field_fy17_target']['table'] = 'field_data_field_fy17_target';
+  $handler->display->display_options['fields']['field_fy17_target']['field'] = 'field_fy17_target';
+  $handler->display->display_options['fields']['field_fy17_target']['empty'] = '0.0';
+  $handler->display->display_options['fields']['field_fy17_target']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_fy17_target']['settings'] = array(
+    'thousand_separator' => '',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 0,
+  );
+  /* Field: Field collection item: FY18 Target */
+  $handler->display->display_options['fields']['field_fy18_target']['id'] = 'field_fy18_target';
+  $handler->display->display_options['fields']['field_fy18_target']['table'] = 'field_data_field_fy18_target';
+  $handler->display->display_options['fields']['field_fy18_target']['field'] = 'field_fy18_target';
+  $handler->display->display_options['fields']['field_fy18_target']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_fy18_target']['empty'] = '0.0';
+  $handler->display->display_options['fields']['field_fy18_target']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_fy18_target']['settings'] = array(
+    'thousand_separator' => '',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 0,
+  );
+  /* Field: Field collection item: FY14 Results Explanation */
+  $handler->display->display_options['fields']['field_fy14_results_explanation']['id'] = 'field_fy14_results_explanation';
+  $handler->display->display_options['fields']['field_fy14_results_explanation']['table'] = 'field_data_field_fy14_results_explanation';
+  $handler->display->display_options['fields']['field_fy14_results_explanation']['field'] = 'field_fy14_results_explanation';
+  $handler->display->display_options['fields']['field_fy14_results_explanation']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_fy14_results_explanation']['empty'] = 'NULL';
+  $handler->display->display_options['fields']['field_fy14_results_explanation']['hide_alter_empty'] = FALSE;
+  /* Field: Field collection item: FY15 Results Explanation */
+  $handler->display->display_options['fields']['field_fy15_results_explanation']['id'] = 'field_fy15_results_explanation';
+  $handler->display->display_options['fields']['field_fy15_results_explanation']['table'] = 'field_data_field_fy15_results_explanation';
+  $handler->display->display_options['fields']['field_fy15_results_explanation']['field'] = 'field_fy15_results_explanation';
+  $handler->display->display_options['fields']['field_fy15_results_explanation']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_fy15_results_explanation']['empty'] = 'NULL';
+  $handler->display->display_options['fields']['field_fy15_results_explanation']['hide_alter_empty'] = FALSE;
+  /* Filter criterion: Content: Operating Unit (field_activity_operating_unit) */
+  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['id'] = 'field_activity_operating_unit_target_id';
+  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['table'] = 'field_data_field_activity_operating_unit';
+  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['field'] = 'field_activity_operating_unit_target_id';
+  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['relationship'] = 'field_impl_mech_gcc_indicator_node';
+  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['expose']['operator_id'] = 'field_activity_operating_unit_target_id_op';
+  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['expose']['label'] = 'Operating Unit';
+  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['expose']['operator'] = 'field_activity_operating_unit_target_id_op';
+  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['expose']['identifier'] = 'field_activity_operating_unit_target_id';
+  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  /* Filter criterion: Content: Nid */
+  $handler->display->display_options['filters']['nid']['id'] = 'nid';
+  $handler->display->display_options['filters']['nid']['table'] = 'node';
+  $handler->display->display_options['filters']['nid']['field'] = 'nid';
+  $handler->display->display_options['filters']['nid']['relationship'] = 'field_impl_mech_gcc_indicator_node';
+  $handler->display->display_options['filters']['nid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['nid']['expose']['operator_id'] = 'nid_op';
+  $handler->display->display_options['filters']['nid']['expose']['label'] = 'Implementing Mechanism';
+  $handler->display->display_options['filters']['nid']['expose']['operator'] = 'nid_op';
+  $handler->display->display_options['filters']['nid']['expose']['identifier'] = 'nid';
+  $handler->display->display_options['filters']['nid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  /* Filter criterion: Content: Nid */
+  $handler->display->display_options['filters']['nid_1']['id'] = 'nid_1';
+  $handler->display->display_options['filters']['nid_1']['table'] = 'node';
+  $handler->display->display_options['filters']['nid_1']['field'] = 'nid';
+  $handler->display->display_options['filters']['nid_1']['relationship'] = 'field_gcc_standard_indicator_target_id';
+  $handler->display->display_options['filters']['nid_1']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['nid_1']['expose']['operator_id'] = 'nid_1_op';
+  $handler->display->display_options['filters']['nid_1']['expose']['label'] = 'Indicator';
+  $handler->display->display_options['filters']['nid_1']['expose']['operator'] = 'nid_1_op';
+  $handler->display->display_options['filters']['nid_1']['expose']['identifier'] = 'nid_1';
+  $handler->display->display_options['filters']['nid_1']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'reports/indicator-data';
+
+  /* Display: Data export */
+  $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
+  $handler->display->display_options['path'] = 'reports/indicator-data/indicator_export.csv';
+  $handler->display->display_options['displays'] = array(
+    'page' => 'page',
+    'default' => 0,
+  );
+  $export['indicator_values'] = $view;
+
+  $view = new view();
   $view->name = 'indicators';
   $view->description = '';
   $view->tag = 'default';

@@ -24,55 +24,85 @@ function nrel_ecleds_custom_add_gcc_inds() {
   // Load the controller class file.
   module_load_include('inc', 'entity', 'includes/entity.controller');
 
-  $gcc_inds_data = array(
-    0 => '3115,"942,849.00","1,885,698.00","1,130,377.00",1.23,"1,192,886.00","1,451,258.00",5.23,',
+  $gcc_inds_data_array = array(
+    array(3115,3115,1056,1861,0,942849,1885698,1130377,0,1192886,1451258,0,NULL,NULL,),
+    array(3115,3115,1057,1862,942849,1885698,1130377,1192886,0,1451258,0,0,NULL,NULL,),
+    array(3115,3115,1058,1863,0,5,0,10,0,12,15,0,NULL,NULL,),
+    array(3115,3115,1059,1864,0,0,24,0,0,0,0,0,NULL,NULL,),
+    array(3115,3115,1060,1865,0,2,0,4,0,4,4,0,NULL,NULL,),
+    array(3115,3115,1061,1866,0,0,1,0,0,0,0,0,NULL,NULL,),
   );
-  foreach ($gcc_inds_data as $gcc_ind_data) {
-    $gcc_ind_parts = explode(',', $gcc_ind_data);
-    if (!empty($gcc_ind_parts[0]) && is_numeric($gcc_ind_parts[0])) {
-      $raw_node = node_load($gcc_ind_parts[0]);
-      if ($raw_node) {
+  $gcc_ind_data_by_nid_fcid = array();
+  foreach ($gcc_inds_data_array as $gcc_ind_data_array) {
+    $gcc_ind_data_by_nid_fcid[$gcc_ind_data_array[0]][$gcc_ind_data_array[2]][] = array(
+      $gcc_ind_data_array[4],
+      $gcc_ind_data_array[5],
+      $gcc_ind_data_array[6],
+      $gcc_ind_data_array[7],
+      $gcc_ind_data_array[8],
+      $gcc_ind_data_array[9],
+      $gcc_ind_data_array[10],
+      $gcc_ind_data_array[11],
+    );
+  }
+  dsm($gcc_ind_data_by_nid_fcid);
+  foreach ($gcc_ind_data_by_nid_fcid as $nid => $gcc_ind_data_by_fcid) {
+    $raw_node = node_load($nid);
+    if ($raw_node) {
+      // Wrap it with Entity API
+      $node = entity_metadata_wrapper('node', $raw_node);
+      $raw_collection = $node->field_impl_mech_gcc_indicator->value();
+      foreach ($node->field_impl_mech_gcc_indicator->value() as $field_im_gcc_ind_value) {
         // Wrap it with Entity API
-        $node = entity_metadata_wrapper('node', $raw_node);
-        //$raw_collection = $node->field_impl_mech_gcc_indicator->value();
-        foreach ($node->field_impl_mech_gcc_indicator->value() as $field_im_gcc_ind_value) {
-          // Wrap it with Entity API
-          $im_gcc_ind_wrapper = entity_metadata_wrapper('field_collection_item', $field_im_gcc_ind_value);
-          $im_gcc_ind_wrapper->field_fy14_baseline->set(10);
-          dsm($im_gcc_ind_wrapper->value());
-       }
-        // Wrap it with Entity API
-        //$collection = entity_metadata_wrapper('field_collection_item', $raw_collection);
-        //dsm($collection);
-        //$field = $collection->field_gcc_standard_indicator->value();
-        //dsm($field);
-        // Setup the values in the structure expected by the field_collection entity.
-        /*foreach ($gcc_ind_parts as $index => $gcc_ind_part) {
-          $gcc_ind_part = trim($gcc_ind_part);
-          if (!empty($gcc_ind_part)) {
-            switch ($index) {
-              case 1 :
-                $collection->field_fy14_baseline = $gcc_ind_part[$index];
-                break;
-              default:
-                break;
+        $im_gcc_ind_wrapper = entity_metadata_wrapper('field_collection_item', $field_im_gcc_ind_value);
+        dsm($field_im_gcc_ind_value);
+        /*dsm($im_gcc_ind_wrapper->field_fy14_baseline->value());
+        $im_gcc_ind_wrapper->field_fy14_baseline->set(10);
+        dsm($field_im_gcc_ind_value);
+        dsm($im_gcc_ind_wrapper->field_fy14_baseline->value());*/
+        $fcid = $im_gcc_ind_wrapper->item_id->value();
+        dsm($fcid);
+        if (isset($gcc_ind_data_by_fcid[$fcid])) {
+          // Setup the values in the structure expected by the field_collection entity.
+          dsm($gcc_ind_data_by_fcid);
+          foreach ($gcc_ind_data_by_fcid[$fcid] as $index => $gcc_ind_data) {
+            if (isset($gcc_ind_data)) {
+              switch ($index) {
+                case 0 :
+                  $im_gcc_ind_wrapper->field_fy14_baseline->set($gcc_ind_data);
+                  break;
+                case 1 :
+                  $im_gcc_ind_wrapper->field_fy14_target->set($gcc_ind_data);
+                  break;
+                case 2 :
+                  $im_gcc_ind_wrapper->field_fy14_results->set($gcc_ind_data);
+                  break;
+                case 3 :
+                  $im_gcc_ind_wrapper->field_fy15_target->set($gcc_ind_data);
+                  break;
+                case 4 :
+                  $im_gcc_ind_wrapper->field_fy15_results->set($gcc_ind_data);
+                  break;
+                case 5 :
+                  $im_gcc_ind_wrapper->field_fy16_target->set($gcc_ind_data);
+                  break;
+                case 6 :
+                  $im_gcc_ind_wrapper->field_fy17_target->set($gcc_ind_data);
+                  break;
+                case 7 :
+                  $im_gcc_ind_wrapper->field_fy18_target->set($gcc_ind_data);
+                  break;
+                default:
+                  break;
+              }
             }
           }
-        }*/
-        //$entity = entity_create('field_collection_item', $values);
-
-        // Attach the field_collection entity to the IM node. This has to
-        // happen separately so that it actually works -- you can't just specify
-        // this via the $values array.
-        //$entity->setHostEntity('node', $node);
-
-        // Save the entity. Since it's attached to the right IM node, this
-        // will both create the field_collection entity and update the IM
-        // node to point to the new gcc indicator record.
-        // Save the changes to the entity
-        //$collection->save();
-        //dsm($node);
+          // Save the changes to the entity
+          $im_gcc_ind_wrapper->save();
+        }
       }
     }
+    $raw_node = node_load($nid);
+    dsm($raw_node);
   }
 }

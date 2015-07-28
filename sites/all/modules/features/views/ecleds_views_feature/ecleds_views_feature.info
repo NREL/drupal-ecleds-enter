@@ -17,6 +17,7 @@ features[views_view][] = entity_reference_milestones
 features[views_view][] = fy13_ppr_gcc_indicators_sf
 features[views_view][] = implementing_mechanisms
 features[views_view][] = indicator_report
+features[views_view][] = indicator_values
 features[views_view][] = indicators
 features[views_view][] = milestone_report
 features[views_view][] = milestones_sf
