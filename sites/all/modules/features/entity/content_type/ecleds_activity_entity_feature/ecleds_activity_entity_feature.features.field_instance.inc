@@ -157,7 +157,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'label_help_description' => '',
       ),
       'type' => 'options_buttons',
-      'weight' => 4,
+      'weight' => 3,
     ),
   );
 
@@ -207,7 +207,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 3,
+      'weight' => 2,
     ),
   );
 
@@ -256,7 +256,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 5,
+      'weight' => 4,
     ),
   );
 
@@ -308,7 +308,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'label_help_description' => '',
       ),
       'type' => 'options_onoff',
-      'weight' => 14,
+      'weight' => 1,
     ),
   );
 
@@ -357,7 +357,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 15,
+      'weight' => 13,
     ),
   );
 
@@ -415,7 +415,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'label_help_description' => '',
       ),
       'type' => 'field_collection_embed',
-      'weight' => 8,
+      'weight' => 7,
     ),
   );
 
@@ -475,7 +475,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'label_help_description' => '',
       ),
       'type' => 'options_select',
-      'weight' => 11,
+      'weight' => 10,
     ),
   );
 
@@ -524,7 +524,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 13,
+      'weight' => 12,
     ),
   );
 
@@ -576,7 +576,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'label_help_description' => '',
       ),
       'type' => 'options_onoff',
-      'weight' => 12,
+      'weight' => 11,
     ),
   );
 
@@ -636,7 +636,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'label_help_description' => '',
       ),
       'type' => 'options_select',
-      'weight' => 10,
+      'weight' => 9,
     ),
   );
 
@@ -685,7 +685,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 6,
+      'weight' => 5,
     ),
   );
 
@@ -746,7 +746,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'label_help_description' => '',
       ),
       'type' => 'options_select',
-      'weight' => 7,
+      'weight' => 6,
     ),
   );
 
@@ -869,7 +869,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'label_help_description' => '',
       ),
       'type' => 'options_buttons',
-      'weight' => 9,
+      'weight' => 8,
     ),
   );
 

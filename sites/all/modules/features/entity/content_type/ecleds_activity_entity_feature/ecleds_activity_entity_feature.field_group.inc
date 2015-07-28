@@ -21,7 +21,7 @@ function ecleds_activity_entity_feature_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Results',
-    'weight' => '17',
+    'weight' => '15',
     'children' => array(
       0 => 'field_results',
     ),
