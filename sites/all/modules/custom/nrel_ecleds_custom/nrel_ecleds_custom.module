@@ -16,3 +16,63 @@ function nrel_ecleds_custom_init() {
   drupal_add_http_header('Cache-Control', 'no-cache, must-revalidate, pre-check=600, post-check=300, max-age=600, s-maxage=0');
 
 }
+
+/**
+ *
+ */
+function nrel_ecleds_custom_add_gcc_inds() {
+  // Load the controller class file.
+  module_load_include('inc', 'entity', 'includes/entity.controller');
+
+  $gcc_inds_data = array(
+    0 => '3115,"942,849.00","1,885,698.00","1,130,377.00",1.23,"1,192,886.00","1,451,258.00",5.23,',
+  );
+  foreach ($gcc_inds_data as $gcc_ind_data) {
+    $gcc_ind_parts = explode(',', $gcc_ind_data);
+    if (!empty($gcc_ind_parts[0]) && is_numeric($gcc_ind_parts[0])) {
+      $raw_node = node_load($gcc_ind_parts[0]);
+      if ($raw_node) {
+        // Wrap it with Entity API
+        $node = entity_metadata_wrapper('node', $raw_node);
+        //$raw_collection = $node->field_impl_mech_gcc_indicator->value();
+        foreach ($node->field_impl_mech_gcc_indicator->value() as $field_im_gcc_ind_value) {
+          // Wrap it with Entity API
+          $im_gcc_ind_wrapper = entity_metadata_wrapper('field_collection_item', $field_im_gcc_ind_value);
+          $im_gcc_ind_wrapper->field_fy14_baseline->set(10);
+          dsm($im_gcc_ind_wrapper->value());
+       }
+        // Wrap it with Entity API
+        //$collection = entity_metadata_wrapper('field_collection_item', $raw_collection);
+        //dsm($collection);
+        //$field = $collection->field_gcc_standard_indicator->value();
+        //dsm($field);
+        // Setup the values in the structure expected by the field_collection entity.
+        /*foreach ($gcc_ind_parts as $index => $gcc_ind_part) {
+          $gcc_ind_part = trim($gcc_ind_part);
+          if (!empty($gcc_ind_part)) {
+            switch ($index) {
+              case 1 :
+                $collection->field_fy14_baseline = $gcc_ind_part[$index];
+                break;
+              default:
+                break;
+            }
+          }
+        }*/
+        //$entity = entity_create('field_collection_item', $values);
+
+        // Attach the field_collection entity to the IM node. This has to
+        // happen separately so that it actually works -- you can't just specify
+        // this via the $values array.
+        //$entity->setHostEntity('node', $node);
+
+        // Save the entity. Since it's attached to the right IM node, this
+        // will both create the field_collection entity and update the IM
+        // node to point to the new gcc indicator record.
+        // Save the changes to the entity
+        //$collection->save();
+        //dsm($node);
+      }
+    }
+  }
+}
