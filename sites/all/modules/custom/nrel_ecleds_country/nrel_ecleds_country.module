@@ -115,7 +115,7 @@ function nrel_ecleds_country_menu_local_tasks_alter(&$data, $router_item, $root_
       foreach ($country_tabs as $type) {
         if (isset($router_item['page_arguments'][0]->type) &&
           $router_item['page_arguments'][0]->type == $type) {
-          if (isset($user->roles[4]) && in_array($tab['#link']['path'], $hide_mission_tabs)) {
+          if (isset($user->roles[11]) && in_array($tab['#link']['path'], $hide_mission_tabs)) {
             unset($tabs[$key]);
           }
           // Hide the node tabs on the extra pages.
@@ -264,11 +264,11 @@ function nrel_ecleds_country_tabs(&$tabs, $country_nid, $country_url) {
   array_push($tabs, $leds_tab);
   global $user;
 
-  if (!isset($user->roles[4])) {
+  if (!isset($user->roles[11])) {
     array_push($tabs, $baseline_tab);
   }
   array_push($tabs, $prog_plans_tab);
-  if (!isset($user->roles[4])) {
+  if (!isset($user->roles[11])) {
     array_push($tabs, $progress_tab);
     array_push($tabs, $other_programs_tab);
   }
@@ -525,7 +525,7 @@ function nrel_ecleds_country_init() {
   );
   $current_path = current_path();
   $path_parts = explode('/', $current_path);
-  if (isset($user->roles[4])) {
+  if (isset($user->roles[11])) {
     if (('node' == $path_parts[0]) && is_numeric($path_parts[1]) && (in_array($path_parts[2], $hide_mission_tabs))) {
       drupal_access_denied();
     }
