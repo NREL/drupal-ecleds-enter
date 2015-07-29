@@ -18,9 +18,13 @@ function nrel_ecleds_custom_init() {
 }
 
 /**
+ * Script for updating the decimal values in the enlarged gcc standard indicator
+ * fields.
  *
+ * This script is not called directly. The intended use is to run it on the
+ * devel 'run PHP' page.
  */
-function nrel_ecleds_custom_add_gcc_inds() {
+function _nrel_ecleds_custom_add_gcc_inds() {
   // Let the script run to completion.
   ini_set('max_execution_time', 0);
   // Load the controller class file.
