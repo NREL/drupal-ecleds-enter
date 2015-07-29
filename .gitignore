@@ -20,6 +20,7 @@ sites/*/private
 # Ignore development modules
 sites/*/modules/contrib/coder
 sites/*/modules/contrib/devel_themer
+sites/*/modules/contrib/devel
 sites/*/modules/contrib/masquerade
 sites/*/modules/contrib/schema
 sites/*/modules/contrib/styleguide

@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the custon ECLEDS Enter module.
+ */
+
+/**
+ * Update GCC Standard Indicator decimal fields.
+ */
+function nrel_ecleds_custom_update_7000() {
+  _nrel_ecleds_custom_add_gcc_inds();
+}
