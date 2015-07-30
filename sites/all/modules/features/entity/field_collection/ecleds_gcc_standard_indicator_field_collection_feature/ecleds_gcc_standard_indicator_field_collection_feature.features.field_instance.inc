@@ -188,8 +188,8 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
+          'prefix_suffix' => 1,
+          'scale' => 4,
           'thousand_separator' => ' ',
         ),
         'type' => 'number_decimal',
@@ -396,8 +396,8 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
+          'prefix_suffix' => 1,
+          'scale' => 4,
           'thousand_separator' => ' ',
         ),
         'type' => 'number_decimal',
