@@ -106,7 +106,7 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'entity_types' => array(),
     'field_name' => 'field_fy15_results',
     'field_permissions' => array(
-      'type' => 0,
+      'type' => 2,
     ),
     'indexes' => array(),
     'locked' => 0,
@@ -128,7 +128,7 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'entity_types' => array(),
     'field_name' => 'field_fy15_results_explanation',
     'field_permissions' => array(
-      'type' => 0,
+      'type' => 2,
     ),
     'indexes' => array(
       'format' => array(
@@ -172,7 +172,7 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'entity_types' => array(),
     'field_name' => 'field_fy16_target',
     'field_permissions' => array(
-      'type' => 0,
+      'type' => 2,
     ),
     'indexes' => array(),
     'locked' => 0,
@@ -194,7 +194,7 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'entity_types' => array(),
     'field_name' => 'field_fy17_target',
     'field_permissions' => array(
-      'type' => 0,
+      'type' => 2,
     ),
     'indexes' => array(),
     'locked' => 0,
@@ -216,7 +216,7 @@ function ecleds_gcc_standard_indicator_field_collection_feature_field_default_fi
     'entity_types' => array(),
     'field_name' => 'field_fy18_target',
     'field_permissions' => array(
-      'type' => 0,
+      'type' => 2,
     ),
     'indexes' => array(),
     'locked' => 0,
