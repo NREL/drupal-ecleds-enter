@@ -13,6 +13,81 @@ function ecleds_feeds_feature_feeds_importer_default() {
   $feeds_importer = new stdClass();
   $feeds_importer->disabled = FALSE; /* Edit this to true to make a default feeds_importer disabled initially */
   $feeds_importer->api_version = 1;
+  $feeds_importer->id = 'ecleds_users';
+  $feeds_importer->config = array(
+    'name' => 'ECLEDS Users',
+    'description' => '',
+    'fetcher' => array(
+      'plugin_key' => 'FeedsFileFetcher',
+      'config' => array(
+        'direct' => FALSE,
+        'allowed_extensions' => 'txt csv tsv xml opml',
+        'directory' => 'private://feeds',
+        'allowed_schemes' => array(
+          0 => 'public',
+          1 => 'private',
+        ),
+      ),
+    ),
+    'parser' => array(
+      'plugin_key' => 'FeedsCSVParser',
+      'config' => array(
+        'delimiter' => ',',
+        'no_headers' => 0,
+      ),
+    ),
+    'processor' => array(
+      'plugin_key' => 'FeedsUserProcessor',
+      'config' => array(
+        'bundle' => 'user',
+        'roles' => array(
+          11 => '11',
+          3 => 0,
+          10 => 0,
+          12 => 0,
+        ),
+        'update_existing' => '2',
+        'status' => '1',
+        'mappings' => array(
+          0 => array(
+            'source' => 'mail',
+            'target' => 'mail',
+            'unique' => 1,
+          ),
+          1 => array(
+            'source' => 'mail',
+            'target' => 'name',
+            'unique' => 1,
+          ),
+          2 => array(
+            'source' => 'name',
+            'target' => 'field_nrel_ecleds_full_name',
+            'unique' => FALSE,
+          ),
+          3 => array(
+            'source' => 'password',
+            'target' => 'pass',
+            'unique' => FALSE,
+          ),
+        ),
+        'defuse_mail' => 0,
+        'update_non_existent' => 'skip',
+        'input_format' => 'plain_text',
+        'skip_hash_check' => 0,
+      ),
+    ),
+    'content_type' => '',
+    'update' => 0,
+    'import_period' => '-1',
+    'expire_period' => 3600,
+    'import_on_create' => 1,
+    'process_in_background' => FALSE,
+  );
+  $export['ecleds_users'] = $feeds_importer;
+
+  $feeds_importer = new stdClass();
+  $feeds_importer->disabled = FALSE; /* Edit this to true to make a default feeds_importer disabled initially */
+  $feeds_importer->api_version = 1;
   $feeds_importer->id = 'milestones';
   $feeds_importer->config = array(
     'name' => 'Milestones',
