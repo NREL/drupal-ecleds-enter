@@ -21,7 +21,7 @@ function ecleds_country_entity_feature_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -56,6 +56,59 @@ function ecleds_country_entity_feature_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-country-field_country_bureau'
+  $field_instances['node-country-field_country_bureau'] = array(
+    'bundle' => 'country',
+    'default_value' => NULL,
+    'default_value_function' => '',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_country_bureau',
+    'label' => 'Bureau',
+    'required' => 0,
+    'settings' => array(
+      'behaviors' => array(
+        'prepopulate' => array(
+          'status' => 0,
+        ),
+        'taxonomy-index' => array(
+          'status' => TRUE,
+        ),
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference',
+      'settings' => array(
+        'label_help_description' => '',
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete_tags',
+      'weight' => 2,
+    ),
+  );
+
   // Exported field_instance: 'node-country-field_ecleds_other'
   $field_instances['node-country-field_ecleds_other'] = array(
     'bundle' => 'country',
@@ -67,7 +120,7 @@ function ecleds_country_entity_feature_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -118,7 +171,7 @@ function ecleds_country_entity_feature_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -160,7 +213,7 @@ function ecleds_country_entity_feature_field_default_field_instances() {
           'view_mode' => 'default',
         ),
         'type' => 'entityreference_entity_view',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -206,7 +259,7 @@ function ecleds_country_entity_feature_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -252,7 +305,7 @@ function ecleds_country_entity_feature_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -298,7 +351,7 @@ function ecleds_country_entity_feature_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -336,6 +389,7 @@ function ecleds_country_entity_feature_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Baseline Workbook');
+  t('Bureau');
   t('Environmental And Economical');
   t('LEDS Plans, Institutions');
   t('Other USG LEDS-related Programs');

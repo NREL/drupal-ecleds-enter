@@ -188,7 +188,7 @@ function ecleds_country_entity_feature_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => '',
-    'weight' => '2',
+    'weight' => '3',
     'children' => array(
       0 => 'group_baseline',
       1 => 'group_leds',

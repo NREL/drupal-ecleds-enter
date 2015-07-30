@@ -1901,8 +1901,31 @@ function ecleds_views_feature_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_country_bureau',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Bureau */
+  $handler->display->display_options['fields']['field_country_bureau']['id'] = 'field_country_bureau';
+  $handler->display->display_options['fields']['field_country_bureau']['table'] = 'field_data_field_country_bureau';
+  $handler->display->display_options['fields']['field_country_bureau']['field'] = 'field_country_bureau';
+  $handler->display->display_options['fields']['field_country_bureau']['label'] = '';
+  $handler->display->display_options['fields']['field_country_bureau']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_country_bureau']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_country_bureau']['settings'] = array(
+    'link' => 0,
+  );
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -1914,7 +1937,8 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = 'Country';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Field: Global: View */
   $handler->display->display_options['fields']['view']['id'] = 'view';
   $handler->display->display_options['fields']['view']['table'] = 'views';
@@ -1933,6 +1957,15 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['fields']['view_1']['view'] = 'nrel_ecleds_country_list';
   $handler->display->display_options['fields']['view_1']['display'] = 'block_2';
   $handler->display->display_options['fields']['view_1']['arguments'] = '[!nid]';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Bureau (field_country_bureau) */
+  $handler->display->display_options['sorts']['field_country_bureau_target_id']['id'] = 'field_country_bureau_target_id';
+  $handler->display->display_options['sorts']['field_country_bureau_target_id']['table'] = 'field_data_field_country_bureau';
+  $handler->display->display_options['sorts']['field_country_bureau_target_id']['field'] = 'field_country_bureau_target_id';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
   $handler->display->display_options['path'] = 'countries';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Countries';

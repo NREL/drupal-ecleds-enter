@@ -45,6 +45,44 @@ function ecleds_country_entity_feature_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
+  // Exported field_base: 'field_country_bureau'
+  $field_bases['field_country_bureau'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_country_bureau',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'entityreference',
+    'settings' => array(
+      'handler' => 'base',
+      'handler_settings' => array(
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+        'sort' => array(
+          'type' => 'none',
+        ),
+        'target_bundles' => array(
+          'ecleds_bureau_taxonomy' => 'ecleds_bureau_taxonomy',
+        ),
+      ),
+      'target_type' => 'taxonomy_term',
+    ),
+    'translatable' => 0,
+    'type' => 'entityreference',
+  );
+
   // Exported field_base: 'field_ecleds_other'
   $field_bases['field_ecleds_other'] = array(
     'active' => 1,
