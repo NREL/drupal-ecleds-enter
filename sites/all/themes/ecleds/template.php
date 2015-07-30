@@ -70,13 +70,15 @@ function ecleds_preprocess_entity(&$vars, $hook) {
     'field_fy14_target',
     'field_fy14_results',
     'field_fy15_target',
+    'field_fy15_results',
     'field_fy16_target',
     'field_fy17_target',
+    'field_fy18_target',
   );
   if (isset($vars['elements']['#bundle']) && ('field_impl_mech_gcc_indicator' == $vars['elements']['#bundle']))  {
     foreach ($decimal_fields as $decimal_field) {
       if (isset($vars['content'][$decimal_field][0]['#markup'])) {
-        $vars['content'][$decimal_field][0]['#markup'] = (float)$vars['content'][$decimal_field][0]['#markup'];
+        //$vars['content'][$decimal_field][0]['#markup'] = (float)$vars['content'][$decimal_field][0]['#markup'];
       }
     }
   }
