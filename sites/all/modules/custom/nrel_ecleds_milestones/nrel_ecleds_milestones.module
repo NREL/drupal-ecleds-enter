@@ -41,6 +41,10 @@ function nrel_ecleds_milestones_form_views_exposed_form_alter(&$form, &$form_sta
       unset($form['field_milestone_operating_unit_target_id']['#size']);
     }
     $form['field_milestone_operating_unit_target_id']['#type'] = 'select';
+    $attributes = !empty($form['field_milestone_operating_unit_target_id']['#attributes']) ? $form['field_milestone_operating_unit_target_id']['#attributes'] : array();
+    $form['field_milestone_operating_unit_target_id']['#attributes'] = array(
+      'data-placeholder' => t('Select one or more OUs'),
+    ) + $attributes;
     $form['field_milestone_operating_unit_target_id']['#options'] =
       _field_nrel_ecleds_milestone_operating_unit_options();
   }
