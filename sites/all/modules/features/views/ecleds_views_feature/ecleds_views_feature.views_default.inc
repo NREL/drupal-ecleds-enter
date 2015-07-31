@@ -649,6 +649,124 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '100';
   $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'field_activity_operating_unit' => 'field_activity_operating_unit',
+    'title' => 'title',
+    'field_impl_mech_award_number' => 'field_impl_mech_award_number',
+    'field_gcc_standard_indicator' => 'field_gcc_standard_indicator',
+    'field_fy14_baseline' => 'field_fy14_baseline',
+    'field_fy14_target' => 'field_fy14_target',
+    'field_fy14_results' => 'field_fy14_results',
+    'field_fy15_results' => 'field_fy15_results',
+    'field_fy15_target' => 'field_fy15_target',
+    'field_fy16_target' => 'field_fy16_target',
+    'field_fy17_target' => 'field_fy17_target',
+    'field_fy18_target' => 'field_fy18_target',
+    'field_fy14_results_explanation' => 'field_fy14_results_explanation',
+    'field_fy15_results_explanation' => 'field_fy15_results_explanation',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'field_activity_operating_unit' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_impl_mech_award_number' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_gcc_standard_indicator' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_fy14_baseline' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_fy14_target' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_fy14_results' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_fy15_results' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_fy15_target' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_fy16_target' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_fy17_target' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_fy18_target' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_fy14_results_explanation' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_fy15_results_explanation' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['sticky'] = TRUE;
   /* Relationship: Field collection item: Entity with the GCC Standard Indicator (field_impl_mech_gcc_indicator) */
   $handler->display->display_options['relationships']['field_impl_mech_gcc_indicator_node']['id'] = 'field_impl_mech_gcc_indicator_node';
   $handler->display->display_options['relationships']['field_impl_mech_gcc_indicator_node']['table'] = 'field_collection_item';
@@ -1156,6 +1274,108 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '100';
   $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+    'field_target_fiscal_year' => 'field_target_fiscal_year',
+    'field_milestone_operating_unit' => 'field_milestone_operating_unit',
+    'field_ecleds_milestone_country' => 'field_ecleds_milestone_country',
+    'field_completion_month' => 'field_completion_month',
+    'field_completion_year' => 'field_completion_year',
+    'field_milestone_description' => 'field_milestone_description',
+    'field_nrel_ecleds_milestone_cat' => 'field_nrel_ecleds_milestone_cat',
+    'field_nrel_ecleds_milestone_type' => 'field_nrel_ecleds_milestone_type',
+    'field_nrel_ecleds_milestone_ben' => 'field_nrel_ecleds_milestone_ben',
+    'field_status' => 'field_status',
+    'field_milestone_type_notes' => 'field_milestone_type_notes',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_target_fiscal_year' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_milestone_operating_unit' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_ecleds_milestone_country' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_completion_month' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_completion_year' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_milestone_description' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_nrel_ecleds_milestone_cat' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_nrel_ecleds_milestone_type' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_nrel_ecleds_milestone_ben' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_status' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_milestone_type_notes' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['sticky'] = TRUE;
   /* Relationship: Entity Reference: Referencing entity */
   $handler->display->display_options['relationships']['reverse_field_results_milestone_node']['id'] = 'reverse_field_results_milestone_node';
   $handler->display->display_options['relationships']['reverse_field_results_milestone_node']['table'] = 'node';
