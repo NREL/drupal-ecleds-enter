@@ -45,7 +45,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'label_help_description' => 'Please provide an explanation of the document that validates the milestone\'s completion and upload the documentation (e.g., legislative registry, press article). preferably one document per milestone.',
+        'label_help_description' => 'Please provide an explanation of the document that validates the milestone\'s completion (e.g., legislative registry, press article), preferably one document per milestone.',
         'rows' => 5,
       ),
       'type' => 'text_textarea',
