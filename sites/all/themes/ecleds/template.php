@@ -85,16 +85,20 @@ function ecleds_preprocess_entity(&$vars, $hook) {
 }
 
 /**
- * Override or insert variables into the field template.
+ * Pre-process views.
  */
 function ecleds_preprocess_views_view(&$vars) {
   $view = $vars['view'];
   switch ($view->name) {
     case 'milestone_report':
     case 'indicator_report':
+      // Retheme the feed icon for the milestone and indictor reports.
       if ('page' == $view->current_display) {
+        // Get the path of the data export.
         $csv_path = $view->display['views_data_export_1']->handler->options['path'];
-        $vars['feed_icon'] = l('Export CSV File', $csv_path);
+        // Retheme the feed icon as a link with text - remember to preserve the
+        // page display query.
+        $vars['feed_icon'] = l('Export CSV File', $csv_path, array('query' => $_REQUEST));
       }
       break;
     default:
