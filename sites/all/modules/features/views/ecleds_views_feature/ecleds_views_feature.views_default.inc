@@ -645,6 +645,7 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '100';
   $handler->display->display_options['style_plugin'] = 'table';
@@ -767,11 +768,14 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['expose']['label'] = 'Operating Unit';
   $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['expose']['operator'] = 'field_activity_operating_unit_target_id_op';
   $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['expose']['identifier'] = 'field_activity_operating_unit_target_id';
+  $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['expose']['multiple'] = TRUE;
   $handler->display->display_options['filters']['field_activity_operating_unit_target_id']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
-    4 => 0,
+    10 => 0,
+    11 => 0,
+    12 => 0,
   );
   /* Filter criterion: Content: Nid */
   $handler->display->display_options['filters']['nid']['id'] = 'nid';
