@@ -6,6 +6,30 @@
  */
 
 /**
+ * Implements template_preprocess_entity().
+ */
+function ecleds_preprocess_entity(&$vars, $hook) {
+  // For decimal fields in field collection, suppress zeros after the decimal point.
+  $decimal_fields = array(
+    'field_fy14_baseline',
+    'field_fy14_target',
+    'field_fy14_results',
+    'field_fy15_target',
+    'field_fy15_results',
+    'field_fy16_target',
+    'field_fy17_target',
+    'field_fy18_target',
+  );
+  if (isset($vars['elements']['#bundle']) && ('field_impl_mech_gcc_indicator' == $vars['elements']['#bundle']))  {
+    foreach ($decimal_fields as $decimal_field) {
+      if (isset($vars['content'][$decimal_field][0]['#markup'])) {
+        $vars['content'][$decimal_field][0]['#markup'] = rtrim(rtrim($vars['content'][$decimal_field][0]['#markup'], '0'), '.');
+      }
+    }
+  }
+}
+
+/**
  * Override or insert variables into the field template.
  */
 function ecleds_preprocess_field(&$vars, $hook) {
@@ -61,26 +85,12 @@ function ecleds_preprocess_field(&$vars, $hook) {
 }
 
 /**
- * Implements template_preprocess_entity().
+ * Processes variables for node.tpl.php
  */
-function ecleds_preprocess_entity(&$vars, $hook) {
-  // For decimal fields in field collection, suppress zeros after the decimal point.
-  $decimal_fields = array(
-    'field_fy14_baseline',
-    'field_fy14_target',
-    'field_fy14_results',
-    'field_fy15_target',
-    'field_fy15_results',
-    'field_fy16_target',
-    'field_fy17_target',
-    'field_fy18_target',
-  );
-  if (isset($vars['elements']['#bundle']) && ('field_impl_mech_gcc_indicator' == $vars['elements']['#bundle']))  {
-    foreach ($decimal_fields as $decimal_field) {
-      if (isset($vars['content'][$decimal_field][0]['#markup'])) {
-        $vars['content'][$decimal_field][0]['#markup'] = rtrim(rtrim($vars['content'][$decimal_field][0]['#markup'], '0'), '.');
-      }
-    }
+function ecleds_preprocess_node(&$variables) {
+  if (!empty($variables['submitted'])) {
+    $variables['submitted'] = '<em><strong>' . t('Author:') .  '</strong>' . ' ' . $variables['name'];
+    $variables['submitted'] .= ', <strong>' . t('Date revised:') . '</strong>' . ' ' . format_date($variables['changed'], 'short') . '</em>';
   }
 }
 
