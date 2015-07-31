@@ -328,8 +328,22 @@ body.adminimal-theme #media-browser-page #fixed-branding {
   border-bottom: 1px solid #D3D7D9;
 }
 
+/* Reports */
 #views-exposed-form-indicator-report-page #edit-nid-wrapper {
   display: none;
+}
+
+.view-milestone-report table th,
+.view-milestone-report table td,
+.view-indicator-report table th,
+.view-indicator-report table td {
+    font-size: 14px;
+    padding: 5px 2px;
+}
+
+.view-milestone-report table th,
+.view-indicator-report table th {
+    font-weight: 700;
 }
 
 /* At client request hide the "show row weights" on draggable tables */
