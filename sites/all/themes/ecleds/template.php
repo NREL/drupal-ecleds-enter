@@ -83,3 +83,21 @@ function ecleds_preprocess_entity(&$vars, $hook) {
     }
   }
 }
+
+/**
+ * Override or insert variables into the field template.
+ */
+function ecleds_preprocess_views_view(&$vars) {
+  $view = $vars['view'];
+  switch ($view->name) {
+    case 'milestone_report':
+    case 'indicator_report':
+      if ('page' == $view->current_display) {
+        $csv_path = $view->display['views_data_export_1']->handler->options['path'];
+        $vars['feed_icon'] = l('Export CSV File', $csv_path);
+      }
+      break;
+    default:
+      break;
+  }
+}
