@@ -11,3 +11,10 @@
 function nrel_ecleds_custom_update_7000() {
   _nrel_ecleds_custom_add_gcc_inds();
 }
+
+/**
+ * Enable Beans module.
+ */
+function nrel_ecleds_custom_update_7001() {
+  module_enable('bean_admin_ui');
+}

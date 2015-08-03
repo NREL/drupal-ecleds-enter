@@ -52,6 +52,105 @@ function ecleds_contexts_feature_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'country_ecleds_program_plans_description';
+  $context->description = '';
+  $context->tag = 'Section descriptions';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'node/*/program' => 'node/*/program',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'bean-country-ec-leds-program-plans-se' => array(
+          'module' => 'bean',
+          'delta' => 'country-ec-leds-program-plans-se',
+          'region' => 'content_before',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Section descriptions');
+  $export['country_ecleds_program_plans_description'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'country_leds_plans_description';
+  $context->description = '';
+  $context->tag = 'Section descriptions';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'node/*/leds' => 'node/*/leds',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'bean-country-leds-plans-section-descr' => array(
+          'module' => 'bean',
+          'delta' => 'country-leds-plans-section-descr',
+          'region' => 'content_before',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Section descriptions');
+  $export['country_leds_plans_description'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'country_overview_description';
+  $context->description = '';
+  $context->tag = 'Section descriptions';
+  $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'country' => 'country',
+      ),
+      'options' => array(
+        'node_form' => '0',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'bean-country-overview-section-descrip' => array(
+          'module' => 'bean',
+          'delta' => 'country-overview-section-descrip',
+          'region' => 'content_before',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Section descriptions');
+  $export['country_overview_description'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'front_page';
   $context->description = '';
   $context->tag = 'path';
@@ -101,6 +200,94 @@ function ecleds_contexts_feature_context_default_contexts() {
   // Included for use with string extractors like potx.
   t('global');
   $export['global'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'ou_im_description';
+  $context->description = '';
+  $context->tag = 'Section descriptions';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'node/*/operating-unit/implementing-mechanisms' => 'node/*/operating-unit/implementing-mechanisms',
+      ),
+    ),
+  );
+  $context->reactions = array();
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Section descriptions');
+  $export['ou_im_description'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'ou_milestone_description';
+  $context->description = '';
+  $context->tag = 'Section descriptions';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'node/*/operating-unit/milestones' => 'node/*/operating-unit/milestones',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'bean-ou-milestone-section-description' => array(
+          'module' => 'bean',
+          'delta' => 'ou-milestone-section-description',
+          'region' => 'content_before',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Section descriptions');
+  $export['ou_milestone_description'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'ou_overview_description';
+  $context->description = '';
+  $context->tag = 'Section descriptions';
+  $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'operating_unit' => 'operating_unit',
+      ),
+      'options' => array(
+        'node_form' => '0',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'bean-ou-overview-section-description' => array(
+          'module' => 'bean',
+          'delta' => 'ou-overview-section-description',
+          'region' => 'content_before',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Section descriptions');
+  $export['ou_overview_description'] = $context;
 
   return $export;
 }
