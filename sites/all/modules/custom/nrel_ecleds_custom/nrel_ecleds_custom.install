@@ -16,5 +16,5 @@ function nrel_ecleds_custom_update_7000() {
  * Enable Beans module.
  */
 function nrel_ecleds_custom_update_7001() {
-  module_enable('bean_admin_ui');
+  module_enable(array('bean_admin_ui'));
 }
