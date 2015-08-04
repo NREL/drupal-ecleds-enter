@@ -412,3 +412,7 @@ a.tabledrag-handle .handle {
 #ecleds-implementing-mechanism-node-form #edit-field-im-number {
   clear: both;
 }
+
+#indicator-node-form #edit-title {
+  width: 100%;
+}
