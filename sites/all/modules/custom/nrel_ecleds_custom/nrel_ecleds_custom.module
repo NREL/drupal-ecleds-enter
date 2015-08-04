@@ -230,3 +230,37 @@ function _nrel_ecleds_custom_add_gcc_inds() {
     }
   }
 }
+
+/**
+ * Get the section description beans for a given section.
+ */
+function _nrel_ecleds_get_section_description_beans($section_tid) {
+  $section_description_beans = '';
+  // Bail out if no tid or a non-numeric tid was passed in.
+  if (empty($section_tid) || !is_numeric($section_tid)) {
+    return $section_description_beans;
+  }
+
+  // Get the bean ids and  delta of all beans with the given section tid.
+  $query = db_select('field_data_field_section', 's');
+  $query->innerJoin('bean', 'b', 's.entity_id = b.bid');
+  //$query->innerJoin('field', 'u', 'u.uid = n.uid');
+  $results =
+    $query->fields('s', array('entity_id'))
+      ->fields('b', array('delta'))
+      ->condition('s.entity_type', 'bean')
+      ->condition('s.bundle', 'section_description')
+      ->condition('s.field_section_tid', $section_tid)
+      ->execute();
+  // Get the rendered description field of all of the beans. There is no
+  // ordering implemented here based on the fact that there will most likely
+  // only be one bean per section. Adding ordering would be a @todo if this
+  // changes.
+  foreach ($results as $result) {
+    $section_description_bean = bean_view(bean_load($result->entity_id));
+    $section_description_beans .= $section_description_bean['bean'][$result->delta]['field_section_description'][0]['#markup'];
+  }
+
+  return $section_description_beans;
+}
+
