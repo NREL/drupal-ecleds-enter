@@ -151,6 +151,70 @@ function ecleds_contexts_feature_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'expand_collapse_ims';
+  $context->description = '';
+  $context->tag = 'Expand/Collapse';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'node/*/operating-unit/implementing-mechanisms' => 'node/*/operating-unit/implementing-mechanisms',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'bean-expand-collapse-ims' => array(
+          'module' => 'bean',
+          'delta' => 'expand-collapse-ims',
+          'region' => 'content_before',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Expand/Collapse');
+  $export['expand_collapse_ims'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'expand_collapse_milestones';
+  $context->description = '';
+  $context->tag = 'Expand/Collapse';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'node/*/operating-unit/milestones' => 'node/*/operating-unit/milestones',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'bean-expand-all-milestones' => array(
+          'module' => 'bean',
+          'delta' => 'expand-all-milestones',
+          'region' => 'content_before',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Expand/Collapse');
+  $export['expand_collapse_milestones'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'front_page';
   $context->description = '';
   $context->tag = 'path';
