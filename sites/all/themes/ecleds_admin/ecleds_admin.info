@@ -1,0 +1,7 @@
+name = ECLEDS Database Administration Theme
+description = Customizations to the Seven theme for ECLEDS Database Admin pages.
+core = 7.x
+engine = phptemplate
+base theme = seven
+
+stylesheets[screen][] = css/site.css
