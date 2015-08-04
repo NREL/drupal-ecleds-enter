@@ -750,28 +750,30 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'field_collection',
+        'module' => 'field_collection_table',
         'settings' => array(
           'add' => '',
           'delete' => '',
           'description' => 1,
           'edit' => '',
+          'empty' => 1,
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
+        'type' => 'field_collection_table_view',
         'weight' => 17,
       ),
       'full' => array(
         'label' => 'above',
-        'module' => 'field_collection',
+        'module' => 'field_collection_table',
         'settings' => array(
           'add' => '',
           'delete' => '',
           'description' => 1,
           'edit' => '',
+          'empty' => TRUE,
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
+        'type' => 'field_collection_table_view',
         'weight' => 16,
       ),
       'teaser' => array(

@@ -216,8 +216,8 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
     'label' => 'Month',
     'required' => 0,
     'settings' => array(
-      'max' => '',
-      'min' => '',
+      'max' => 12,
+      'min' => 1,
       'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
