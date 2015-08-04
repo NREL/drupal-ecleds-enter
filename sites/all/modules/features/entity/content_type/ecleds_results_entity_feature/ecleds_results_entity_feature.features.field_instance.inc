@@ -32,13 +32,14 @@ function ecleds_results_entity_feature_field_default_field_instances() {
     'label' => 'Submission Fiscal Year',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 1,
+      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'text',
       'settings' => array(
+        'label_help_description' => '',
         'size' => 60,
       ),
       'type' => 'text_textfield',
