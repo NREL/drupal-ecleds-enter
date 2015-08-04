@@ -448,6 +448,9 @@ function nrel_ecleds_operating_unit_milestones($node) {
     $node_views = !empty($node_group) ? node_view_multiple($node_group, 'full') : array();
     $rendered .= drupal_render($node_views);
   }
+  if (strlen($rendered)) {
+    drupal_add_js(drupal_get_path('theme', 'ecleds') . '/js/toggle.js');
+  }
   return $rendered . $create_link;
 }
 
@@ -511,6 +514,9 @@ function nrel_ecleds_operating_unit_implementing_mechanisms($node) {
     $rendered_nodes .= drupal_render(node_view($node));
   }
 
+  if (strlen($rendered_nodes)) {
+    drupal_add_js(drupal_get_path('theme', 'ecleds') . '/js/toggle.js');
+  }
   return $rendered_nodes . $create_link;
 }
 
