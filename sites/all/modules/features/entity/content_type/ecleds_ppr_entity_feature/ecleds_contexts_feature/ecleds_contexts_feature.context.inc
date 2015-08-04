@@ -214,7 +214,18 @@ function ecleds_contexts_feature_context_default_contexts() {
       ),
     ),
   );
-  $context->reactions = array();
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'bean-ou-im-section-description' => array(
+          'module' => 'bean',
+          'delta' => 'ou-im-section-description',
+          'region' => 'content_before',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
   $context->condition_mode = 0;
 
   // Translatables
