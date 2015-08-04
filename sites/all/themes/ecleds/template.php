@@ -115,3 +115,14 @@ function ecleds_preprocess_views_view(&$vars) {
       break;
   }
 }
+
+// Implements hook_theme().
+function ecleds_theme(){
+  return array(
+    'node_form' => array(
+      'arguments' => array('form' => NULL),
+      'template' => 'templates/node/node-form',
+      'render element' => 'form',
+    ),
+  );
+}
