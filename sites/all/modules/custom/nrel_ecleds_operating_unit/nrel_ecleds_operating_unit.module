@@ -325,6 +325,28 @@ function nrel_ecleds_operating_unit_form_activity_node_form_alter(&$form, &$form
 }
 
 /**
+ * Implements hook_form_alter().
+ */
+function nrel_ecleds_operating_unit_form_alter(&$form, &$form_state, $form_id) {
+
+  // Copy the name of the current user into the author field for OUs, IMs and
+  // Milestones.
+  if (isset($form['#node'])) {
+    global $user;
+    $types_with_author = array(
+      'operating_unit',
+      'ecleds_implementing_mechanism',
+      'nrel_ecleds_milestone',
+    );
+    if (in_array($form['#node']->type, $types_with_author)) {
+      $form['author']['name']['#default_value'] = $user->name;
+    }
+
+  }
+
+}
+
+/**
  * Custom submit callback for Save and Add New Activity submit button
  *
  * @param $form
