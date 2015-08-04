@@ -654,8 +654,12 @@ function nrel_ecleds_operating_unit_preprocess_node(&$vars, $hook) {
   }
 
   if (in_array($vars['type'], $node_types)) {
-    // Set up an edit button.
+    // Set up an edit button. Include a destination unless the node is an IM,
+    // because we want to go to the IM view page after saving an IM.
     $query = drupal_get_destination();
+    if ('ecleds_implementing_mechanism' == $vars['type']) {
+      $query = array();
+    }
     $vars['edit_button'] = '<div class="edit-button">' . l(t('Edit'), 'node/' . $vars['nid'] . '/edit', array('attributes' => array('class' => array('button', 'button-edit')),'query' => $query)) . '</div>';
     if ('nrel_ecleds_milestone' == $vars['type']) {
       // For milestones that are cleared, denote that. For users who have a role
