@@ -2143,6 +2143,16 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Entity: Rendered entity */
+  $handler->display->display_options['header']['entity']['id'] = 'entity';
+  $handler->display->display_options['header']['entity']['table'] = 'entity__global';
+  $handler->display->display_options['header']['entity']['field'] = 'entity';
+  $handler->display->display_options['header']['entity']['label'] = 'Countries Section Description';
+  $handler->display->display_options['header']['entity']['entity_type'] = 'bean';
+  $handler->display->display_options['header']['entity']['entity_id'] = 'countries-section-description';
+  $handler->display->display_options['header']['entity']['view_mode'] = 'default';
+  $handler->display->display_options['header']['entity']['bypass_access'] = 0;
   $handler->display->display_options['defaults']['footer'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Bureau */
@@ -2607,6 +2617,15 @@ function ecleds_views_feature_views_default_views() {
     ),
   );
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Header: Entity: Rendered entity */
+  $handler->display->display_options['header']['entity']['id'] = 'entity';
+  $handler->display->display_options['header']['entity']['table'] = 'entity__global';
+  $handler->display->display_options['header']['entity']['field'] = 'entity';
+  $handler->display->display_options['header']['entity']['label'] = 'OUs Section Description';
+  $handler->display->display_options['header']['entity']['entity_type'] = 'bean';
+  $handler->display->display_options['header']['entity']['entity_id'] = 'ous-section-description';
+  $handler->display->display_options['header']['entity']['view_mode'] = 'default';
+  $handler->display->display_options['header']['entity']['bypass_access'] = 0;
   /* Footer: Global: Result summary */
   $handler->display->display_options['footer']['result']['id'] = 'result';
   $handler->display->display_options['footer']['result']['table'] = 'views';

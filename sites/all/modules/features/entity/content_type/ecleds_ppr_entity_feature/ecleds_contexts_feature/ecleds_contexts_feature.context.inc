@@ -364,5 +364,37 @@ function ecleds_contexts_feature_context_default_contexts() {
   t('Section descriptions');
   $export['ou_overview_description'] = $context;
 
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'reports_section_description';
+  $context->description = '';
+  $context->tag = 'Section descriptions';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'reports' => 'reports',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'bean-reports-section-description' => array(
+          'module' => 'bean',
+          'delta' => 'reports-section-description',
+          'region' => 'content_before',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Section descriptions');
+  $export['reports_section_description'] = $context;
+
   return $export;
 }
