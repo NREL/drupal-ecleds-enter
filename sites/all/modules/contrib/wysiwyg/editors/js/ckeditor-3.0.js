@@ -41,8 +41,17 @@ Drupal.wysiwyg.editor.attach.ckeditor = function(context, params, settings) {
   var $drupalToolbar = $('#toolbar', Drupal.overlayChild ? window.parent.document : document);
 
   if (!settings.height) {
-    settings.height = $('#' + params.field).height();
+    var element = $('#' + params.field)[0];
+    if ((element.tagName.toLowerCase() == 'input') && (element.type.toLowerCase() == 'text')) {
+      settings.height = 90;
+    } else {
+      settings.height = $('#' + params.field).height();
+    }
   }
+  if (!settings.height) {
+    settings.height = 90;
+  }
+  console.log(settings.height);
   
   settings.on = {
     instanceReady: function(ev) {
