@@ -437,7 +437,6 @@ function nrel_users_secure_permissions($role) {
       'access site in maintenance mode',
       'access user profiles',
       'administer beans',
-      'administer content types',
       'administer menu',
       'administer nodes',
       'administer users',
