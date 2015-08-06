@@ -422,6 +422,7 @@ function nrel_users_secure_permissions($role) {
       'view own field_result_indicator_year',
       'view own field_result_support_description',
       'view own title_field',
+      'view revisions',
       'view title_field',
     ),
     'NREL' => array(
