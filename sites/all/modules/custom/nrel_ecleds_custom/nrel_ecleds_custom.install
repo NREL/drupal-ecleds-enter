@@ -18,3 +18,11 @@ function nrel_ecleds_custom_update_7000() {
 function nrel_ecleds_custom_update_7001() {
   module_enable(array('bean_admin_ui'));
 }
+
+/**
+ * Enable ECLEDS Panels Feature, Page Manager, Panels, View Content Panes, Views
+ * Flipped Tables modules.
+ */
+function nrel_ecleds_custom_update_7002() {
+  module_enable(array('ecleds_panels_feature', 'page_manager', 'panels', 'views_content', 'views_flipped_table'));
+}

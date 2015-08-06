@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ECLEDS Panels Feature feature.
+ */
+
+include_once 'ecleds_panels_feature.features.inc';
