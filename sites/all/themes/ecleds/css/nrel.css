@@ -310,16 +310,19 @@ body.adminimal-theme #media-browser-page #fixed-branding {
   padding: 0em 0 0.3em 0;
 }
 
+.view-dashboard-report.view-id-dashboard_report .views-row-even,
 .view-nrel-ecleds-country-list.view-display-id-page .views-row-even,
 .view-operating-units.view-display-id-page .views-row-even {
   background-color: #f3f4ee;
 }
 
+.view-dashboard-report.view-id-dashboard_report .views-row,
 .view-nrel-ecleds-country-list.view-display-id-page .views-row,
 .view-operating-units.view-display-id-page .views-row {
   padding: 8px 10px;
 }
 
+.view-dashboard-report.view-id-dashboard_report h3,
 .view-nrel-ecleds-country-list.view-display-id-page h3,
 .view-operating-units.view-display-id-page h3 {
   margin: 1.75em 0 1em;
@@ -416,3 +419,15 @@ a.tabledrag-handle .handle {
 #indicator-node-form #edit-title {
   width: 100%;
 }
+/*
+#dashboard-report .env-eco table.views-table {
+  width: 500px;
+}
+
+#dashboard-report .env-eco table.views-table th.views-field {
+  width: 60%;
+}
+
+#dashboard-report .env-eco table.views-table td.views-field {
+  width: 40%;
+}*/

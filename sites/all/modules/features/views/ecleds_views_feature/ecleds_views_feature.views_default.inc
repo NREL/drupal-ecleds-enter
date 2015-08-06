@@ -161,6 +161,1338 @@ function ecleds_views_feature_views_default_views() {
   $export['country_name_on_edit_screen'] = $view;
 
   $view = new view();
+  $view->name = 'dashboard_report';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Dashboard Report';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'field_leds_plans_institutions_target_id';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'summary';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
+    'operating_unit' => 'operating_unit',
+  );
+  $handler->display->display_options['arguments']['nid']['validate']['fail'] = 'access denied';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+
+  /* Display: OU Dashboard Reports Page */
+  $handler = $view->new_display('page', 'OU Dashboard Reports Page', 'ou_dashboard_reports_page');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'OU Dashboard Reports';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_operating_unit_bureau',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Bureau */
+  $handler->display->display_options['fields']['field_operating_unit_bureau']['id'] = 'field_operating_unit_bureau';
+  $handler->display->display_options['fields']['field_operating_unit_bureau']['table'] = 'field_data_field_operating_unit_bureau';
+  $handler->display->display_options['fields']['field_operating_unit_bureau']['field'] = 'field_operating_unit_bureau';
+  $handler->display->display_options['fields']['field_operating_unit_bureau']['label'] = '';
+  $handler->display->display_options['fields']['field_operating_unit_bureau']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_operating_unit_bureau']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_operating_unit_bureau']['settings'] = array(
+    'link' => 0,
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['text'] = '<a href="/reports/dashboard/[nid]">[title]</a>';
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Bureau (field_operating_unit_bureau) */
+  $handler->display->display_options['sorts']['field_operating_unit_bureau_target_id']['id'] = 'field_operating_unit_bureau_target_id';
+  $handler->display->display_options['sorts']['field_operating_unit_bureau_target_id']['table'] = 'field_data_field_operating_unit_bureau';
+  $handler->display->display_options['sorts']['field_operating_unit_bureau_target_id']['field'] = 'field_operating_unit_bureau_target_id';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'operating_unit' => 'operating_unit',
+  );
+  $handler->display->display_options['path'] = 'reports/dashboard';
+
+  /* Display: Operating Unit content pane */
+  $handler = $view->new_display('panel_pane', 'Operating Unit content pane', 'dashboard_report_ou_pane');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Operating Unit';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Theory of Change */
+  $handler->display->display_options['fields']['field_theory_of_change']['id'] = 'field_theory_of_change';
+  $handler->display->display_options['fields']['field_theory_of_change']['table'] = 'field_data_field_theory_of_change';
+  $handler->display->display_options['fields']['field_theory_of_change']['field'] = 'field_theory_of_change';
+  $handler->display->display_options['fields']['field_theory_of_change']['element_label_type'] = 'h3';
+  $handler->display->display_options['fields']['field_theory_of_change']['element_label_colon'] = FALSE;
+  /* Field: Content: Activities Supporting Theory of Change */
+  $handler->display->display_options['fields']['field_op_unit_toc_activities']['id'] = 'field_op_unit_toc_activities';
+  $handler->display->display_options['fields']['field_op_unit_toc_activities']['table'] = 'field_data_field_op_unit_toc_activities';
+  $handler->display->display_options['fields']['field_op_unit_toc_activities']['field'] = 'field_op_unit_toc_activities';
+  $handler->display->display_options['fields']['field_op_unit_toc_activities']['element_label_type'] = 'h3';
+  $handler->display->display_options['fields']['field_op_unit_toc_activities']['element_label_colon'] = FALSE;
+  /* Field: Content: Challenges to Achieving GHG Mitigation Goals */
+  $handler->display->display_options['fields']['field_op_toc_challenges']['id'] = 'field_op_toc_challenges';
+  $handler->display->display_options['fields']['field_op_toc_challenges']['table'] = 'field_data_field_op_toc_challenges';
+  $handler->display->display_options['fields']['field_op_toc_challenges']['field'] = 'field_op_toc_challenges';
+  $handler->display->display_options['fields']['field_op_toc_challenges']['element_label_type'] = 'h3';
+  $handler->display->display_options['fields']['field_op_toc_challenges']['element_label_colon'] = FALSE;
+  /* Field: Content: Assistance Needed to Overcome Challenges */
+  $handler->display->display_options['fields']['field_op_toc_assistance']['id'] = 'field_op_toc_assistance';
+  $handler->display->display_options['fields']['field_op_toc_assistance']['table'] = 'field_data_field_op_toc_assistance';
+  $handler->display->display_options['fields']['field_op_toc_assistance']['field'] = 'field_op_toc_assistance';
+  $handler->display->display_options['fields']['field_op_toc_assistance']['element_label_type'] = 'h3';
+  $handler->display->display_options['fields']['field_op_toc_assistance']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'operating_unit' => 'operating_unit',
+  );
+  $handler->display->display_options['pane_category']['name'] = 'Dashboard panes';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['argument_input'] = array(
+    'nid' => array(
+      'type' => 'panel',
+      'context' => 'entity:file.basename',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Nid',
+    ),
+  );
+
+  /* Display: OU Progress content pane */
+  $handler = $view->new_display('panel_pane', 'OU Progress content pane', 'dashboard_report_ou_progress_pane');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'OU Progress';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+    'field_im_number' => 'field_im_number',
+    'field_nrel_ecleds_milestone_cat' => 'field_nrel_ecleds_milestone_cat',
+    'field_notes_on_status' => 'field_notes_on_status',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_im_number' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_nrel_ecleds_milestone_cat' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_notes_on_status' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_milestone_operating_unit_target_id']['id'] = 'field_milestone_operating_unit_target_id';
+  $handler->display->display_options['relationships']['field_milestone_operating_unit_target_id']['table'] = 'field_data_field_milestone_operating_unit';
+  $handler->display->display_options['relationships']['field_milestone_operating_unit_target_id']['field'] = 'field_milestone_operating_unit_target_id';
+  $handler->display->display_options['relationships']['field_milestone_operating_unit_target_id']['label'] = 'operating_unit';
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_apg_milestone_ref_field_collection_item']['id'] = 'reverse_field_apg_milestone_ref_field_collection_item';
+  $handler->display->display_options['relationships']['reverse_field_apg_milestone_ref_field_collection_item']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_apg_milestone_ref_field_collection_item']['field'] = 'reverse_field_apg_milestone_ref_field_collection_item';
+  $handler->display->display_options['relationships']['reverse_field_apg_milestone_ref_field_collection_item']['label'] = 'field_apg_milestone_ref';
+  /* Relationship: Field collection item: Entity with the Milestone (field_apg_milestone) */
+  $handler->display->display_options['relationships']['field_apg_milestone_node']['id'] = 'field_apg_milestone_node';
+  $handler->display->display_options['relationships']['field_apg_milestone_node']['table'] = 'field_collection_item';
+  $handler->display->display_options['relationships']['field_apg_milestone_node']['field'] = 'field_apg_milestone_node';
+  $handler->display->display_options['relationships']['field_apg_milestone_node']['relationship'] = 'reverse_field_apg_milestone_ref_field_collection_item';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Milestone Category */
+  $handler->display->display_options['fields']['field_nrel_ecleds_milestone_cat']['id'] = 'field_nrel_ecleds_milestone_cat';
+  $handler->display->display_options['fields']['field_nrel_ecleds_milestone_cat']['table'] = 'field_data_field_nrel_ecleds_milestone_cat';
+  $handler->display->display_options['fields']['field_nrel_ecleds_milestone_cat']['field'] = 'field_nrel_ecleds_milestone_cat';
+  $handler->display->display_options['fields']['field_nrel_ecleds_milestone_cat']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_nrel_ecleds_milestone_cat']['settings'] = array(
+    'link' => 0,
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'APG Milestones';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Milestone Status Description */
+  $handler->display->display_options['fields']['field_notes_on_status']['id'] = 'field_notes_on_status';
+  $handler->display->display_options['fields']['field_notes_on_status']['table'] = 'field_data_field_notes_on_status';
+  $handler->display->display_options['fields']['field_notes_on_status']['field'] = 'field_notes_on_status';
+  $handler->display->display_options['fields']['field_notes_on_status']['element_label_colon'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_apg_milestone_node';
+  $handler->display->display_options['fields']['title_1']['label'] = 'IM Number and Name';
+  $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title_1']['link_to_node'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'field_milestone_operating_unit_target_id';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'summary';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
+    'operating_unit' => 'operating_unit',
+  );
+  $handler->display->display_options['arguments']['nid']['validate']['fail'] = 'access denied';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'nrel_ecleds_milestone' => 'nrel_ecleds_milestone',
+  );
+  /* Filter criterion: Content: Type (field_nrel_ecleds_milestone_type) */
+  $handler->display->display_options['filters']['field_nrel_ecleds_milestone_type_value']['id'] = 'field_nrel_ecleds_milestone_type_value';
+  $handler->display->display_options['filters']['field_nrel_ecleds_milestone_type_value']['table'] = 'field_data_field_nrel_ecleds_milestone_type';
+  $handler->display->display_options['filters']['field_nrel_ecleds_milestone_type_value']['field'] = 'field_nrel_ecleds_milestone_type_value';
+  $handler->display->display_options['filters']['field_nrel_ecleds_milestone_type_value']['value'] = array(
+    'APG' => 'APG',
+  );
+  $handler->display->display_options['pane_category']['name'] = 'Dashboard panes';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['allow']['use_pager'] = 0;
+  $handler->display->display_options['allow']['items_per_page'] = 0;
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['path_override'] = 0;
+  $handler->display->display_options['allow']['title_override'] = 0;
+  $handler->display->display_options['allow']['exposed_form'] = 0;
+  $handler->display->display_options['allow']['fields_override'] = 0;
+  $handler->display->display_options['argument_input'] = array(
+    'nid' => array(
+      'type' => 'panel',
+      'context' => 'entity:file.basename',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Nid',
+    ),
+  );
+
+  /* Display: Country Context pane */
+  $handler = $view->new_display('panel_pane', 'Country Context pane', 'dashboard_report_country_context_pane');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Country Context';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'title',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+    'field_title' => 'field_title',
+    'field_date_enacted' => 'field_date_enacted',
+    'field_ecleds_leds_plan_desc' => 'field_ecleds_leds_plan_desc',
+    'field_goals_targets' => 'field_goals_targets',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_date_enacted' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_ecleds_leds_plan_desc' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_goals_targets' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_leds_plans_institutions_target_id']['id'] = 'field_leds_plans_institutions_target_id';
+  $handler->display->display_options['relationships']['field_leds_plans_institutions_target_id']['table'] = 'field_data_field_leds_plans_institutions';
+  $handler->display->display_options['relationships']['field_leds_plans_institutions_target_id']['field'] = 'field_leds_plans_institutions_target_id';
+  $handler->display->display_options['relationships']['field_leds_plans_institutions_target_id']['label'] = 'leds_plans';
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['id'] = 'reverse_field_opearting_unit_country_node';
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['field'] = 'reverse_field_opearting_unit_country_node';
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['label'] = 'country';
+  /* Relationship: Content: LEDS Plan (field_leds_strategy_plan) */
+  $handler->display->display_options['relationships']['field_leds_strategy_plan_value']['id'] = 'field_leds_strategy_plan_value';
+  $handler->display->display_options['relationships']['field_leds_strategy_plan_value']['table'] = 'field_data_field_leds_strategy_plan';
+  $handler->display->display_options['relationships']['field_leds_strategy_plan_value']['field'] = 'field_leds_strategy_plan_value';
+  $handler->display->display_options['relationships']['field_leds_strategy_plan_value']['relationship'] = 'field_leds_plans_institutions_target_id';
+  $handler->display->display_options['relationships']['field_leds_strategy_plan_value']['label'] = 'leds_strategy_plan';
+  $handler->display->display_options['relationships']['field_leds_strategy_plan_value']['delta'] = '-1';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Country';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Field collection item: Title */
+  $handler->display->display_options['fields']['field_title']['id'] = 'field_title';
+  $handler->display->display_options['fields']['field_title']['table'] = 'field_data_field_title';
+  $handler->display->display_options['fields']['field_title']['field'] = 'field_title';
+  $handler->display->display_options['fields']['field_title']['relationship'] = 'field_leds_strategy_plan_value';
+  $handler->display->display_options['fields']['field_title']['element_label_colon'] = FALSE;
+  /* Field: Field collection item: Date Enacted */
+  $handler->display->display_options['fields']['field_date_enacted']['id'] = 'field_date_enacted';
+  $handler->display->display_options['fields']['field_date_enacted']['table'] = 'field_data_field_date_enacted';
+  $handler->display->display_options['fields']['field_date_enacted']['field'] = 'field_date_enacted';
+  $handler->display->display_options['fields']['field_date_enacted']['relationship'] = 'field_leds_strategy_plan_value';
+  $handler->display->display_options['fields']['field_date_enacted']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_date_enacted']['settings'] = array(
+    'format_type' => 'long',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Field collection item: Description */
+  $handler->display->display_options['fields']['field_ecleds_leds_plan_desc']['id'] = 'field_ecleds_leds_plan_desc';
+  $handler->display->display_options['fields']['field_ecleds_leds_plan_desc']['table'] = 'field_data_field_ecleds_leds_plan_desc';
+  $handler->display->display_options['fields']['field_ecleds_leds_plan_desc']['field'] = 'field_ecleds_leds_plan_desc';
+  $handler->display->display_options['fields']['field_ecleds_leds_plan_desc']['relationship'] = 'field_leds_strategy_plan_value';
+  $handler->display->display_options['fields']['field_ecleds_leds_plan_desc']['element_label_colon'] = FALSE;
+  /* Field: Field collection item: Goals/Targets */
+  $handler->display->display_options['fields']['field_goals_targets']['id'] = 'field_goals_targets';
+  $handler->display->display_options['fields']['field_goals_targets']['table'] = 'field_data_field_goals_targets';
+  $handler->display->display_options['fields']['field_goals_targets']['field'] = 'field_goals_targets';
+  $handler->display->display_options['fields']['field_goals_targets']['relationship'] = 'field_leds_strategy_plan_value';
+  $handler->display->display_options['fields']['field_goals_targets']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  /* Sort criterion: Field collection item: Title (field_title) */
+  $handler->display->display_options['sorts']['field_title_value']['id'] = 'field_title_value';
+  $handler->display->display_options['sorts']['field_title_value']['table'] = 'field_data_field_title';
+  $handler->display->display_options['sorts']['field_title_value']['field'] = 'field_title_value';
+  $handler->display->display_options['sorts']['field_title_value']['relationship'] = 'field_leds_strategy_plan_value';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_opearting_unit_country_node';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'summary';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
+    'operating_unit' => 'operating_unit',
+  );
+  $handler->display->display_options['arguments']['nid']['validate']['fail'] = 'access denied';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['relationship'] = 'field_leds_plans_institutions_target_id';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'leds_plans_institutions' => 'leds_plans_institutions',
+  );
+  $handler->display->display_options['pane_category']['name'] = 'Dashboard panes';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['argument_input'] = array(
+    'nid' => array(
+      'type' => 'panel',
+      'context' => 'entity:file.basename',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Nid',
+    ),
+  );
+
+  /* Display: Env/Eco - GHG */
+  $handler = $view->new_display('panel_pane', 'Env/Eco - GHG', 'dashboard_report_env_eco_ghg_pane');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'env-eco';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'flipped';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+    'field_ghg_growth_20_year' => 'field_ghg_growth_20_year',
+    'field_ghg_growth_5_year' => 'field_ghg_growth_5_year',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_ghg_growth_20_year' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_ghg_growth_5_year' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['caption'] = 'GHG Growth (%)';
+  $handler->display->display_options['style_options']['flipped_table_header_first_field'] = 1;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<h2>Environmental and Economic Data</h2>
+<h3>GHG Growth (%)</h3>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['id'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['table'] = 'field_data_field_environmental_and_economic';
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['field'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['label'] = 'environmental_economic';
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['id'] = 'reverse_field_opearting_unit_country_node';
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['field'] = 'reverse_field_opearting_unit_country_node';
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['label'] = 'country';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: 20-year (1991-2010) */
+  $handler->display->display_options['fields']['field_ghg_growth_20_year']['id'] = 'field_ghg_growth_20_year';
+  $handler->display->display_options['fields']['field_ghg_growth_20_year']['table'] = 'field_data_field_ghg_growth_20_year';
+  $handler->display->display_options['fields']['field_ghg_growth_20_year']['field'] = 'field_ghg_growth_20_year';
+  $handler->display->display_options['fields']['field_ghg_growth_20_year']['relationship'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['fields']['field_ghg_growth_20_year']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_ghg_growth_20_year']['settings'] = array(
+    'thousand_separator' => ' ',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: 5-year (2006-2010) */
+  $handler->display->display_options['fields']['field_ghg_growth_5_year']['id'] = 'field_ghg_growth_5_year';
+  $handler->display->display_options['fields']['field_ghg_growth_5_year']['table'] = 'field_data_field_ghg_growth_5_year';
+  $handler->display->display_options['fields']['field_ghg_growth_5_year']['field'] = 'field_ghg_growth_5_year';
+  $handler->display->display_options['fields']['field_ghg_growth_5_year']['relationship'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['fields']['field_ghg_growth_5_year']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_ghg_growth_5_year']['settings'] = array(
+    'thousand_separator' => ' ',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_opearting_unit_country_node';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'summary';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
+    'operating_unit' => 'operating_unit',
+  );
+  $handler->display->display_options['arguments']['nid']['validate']['fail'] = 'access denied';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'country' => 'country',
+  );
+  $handler->display->display_options['pane_category']['name'] = 'Dashboard panes';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['argument_input'] = array(
+    'nid' => array(
+      'type' => 'panel',
+      'context' => 'entity:file.basename',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Nid',
+    ),
+  );
+
+  /* Display: Env/Eco - Key Economic Sectors */
+  $handler = $view->new_display('panel_pane', 'Env/Eco - Key Economic Sectors', 'dashboard_report_key_eco_sectors_pane');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'env-eco';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'flipped';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+    'field_key_eco_sector_agriculture' => 'field_key_eco_sector_agriculture',
+    'field_key_eco_sector_industry' => 'field_key_eco_sector_industry',
+    'field_services' => 'field_services',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_key_eco_sector_agriculture' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_key_eco_sector_industry' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_services' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['flipped_table_header_first_field'] = 1;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<h3>Key Economic Sectors (2013)</h3>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['id'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['table'] = 'field_data_field_environmental_and_economic';
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['field'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['label'] = 'environmental_economic';
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['id'] = 'reverse_field_opearting_unit_country_node';
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['field'] = 'reverse_field_opearting_unit_country_node';
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['label'] = 'country';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Agriculture */
+  $handler->display->display_options['fields']['field_key_eco_sector_agriculture']['id'] = 'field_key_eco_sector_agriculture';
+  $handler->display->display_options['fields']['field_key_eco_sector_agriculture']['table'] = 'field_data_field_key_eco_sector_agriculture';
+  $handler->display->display_options['fields']['field_key_eco_sector_agriculture']['field'] = 'field_key_eco_sector_agriculture';
+  $handler->display->display_options['fields']['field_key_eco_sector_agriculture']['relationship'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['fields']['field_key_eco_sector_agriculture']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_key_eco_sector_agriculture']['element_label_type'] = 'span';
+  $handler->display->display_options['fields']['field_key_eco_sector_agriculture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_key_eco_sector_agriculture']['settings'] = array(
+    'thousand_separator' => ' ',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Industry */
+  $handler->display->display_options['fields']['field_key_eco_sector_industry']['id'] = 'field_key_eco_sector_industry';
+  $handler->display->display_options['fields']['field_key_eco_sector_industry']['table'] = 'field_data_field_key_eco_sector_industry';
+  $handler->display->display_options['fields']['field_key_eco_sector_industry']['field'] = 'field_key_eco_sector_industry';
+  $handler->display->display_options['fields']['field_key_eco_sector_industry']['relationship'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['fields']['field_key_eco_sector_industry']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_key_eco_sector_industry']['element_label_type'] = 'span';
+  $handler->display->display_options['fields']['field_key_eco_sector_industry']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_key_eco_sector_industry']['settings'] = array(
+    'thousand_separator' => ' ',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Services */
+  $handler->display->display_options['fields']['field_services']['id'] = 'field_services';
+  $handler->display->display_options['fields']['field_services']['table'] = 'field_data_field_services';
+  $handler->display->display_options['fields']['field_services']['field'] = 'field_services';
+  $handler->display->display_options['fields']['field_services']['relationship'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['fields']['field_services']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_services']['element_label_type'] = 'span';
+  $handler->display->display_options['fields']['field_services']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_services']['settings'] = array(
+    'thousand_separator' => ' ',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_opearting_unit_country_node';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'summary';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
+    'operating_unit' => 'operating_unit',
+  );
+  $handler->display->display_options['arguments']['nid']['validate']['fail'] = 'access denied';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'country' => 'country',
+  );
+  $handler->display->display_options['pane_category']['name'] = 'Dashboard panes';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['argument_input'] = array(
+    'nid' => array(
+      'type' => 'panel',
+      'context' => 'entity:file.basename',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Nid',
+    ),
+  );
+
+  /* Display: Env/Eco - Top 3 GHG Emitting Economic Sectors */
+  $handler = $view->new_display('panel_pane', 'Env/Eco - Top 3 GHG Emitting Economic Sectors', 'dashboard_report_top3_ghg_emitting_sectors_pane');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'env-eco';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'flipped';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+    'field_ghg_emitting_sector_1st' => 'field_ghg_emitting_sector_1st',
+    'field_ghg_emitting_sector_2nd' => 'field_ghg_emitting_sector_2nd',
+    'field_ghg_emitting_sector_3rd' => 'field_ghg_emitting_sector_3rd',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_ghg_emitting_sector_1st' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_ghg_emitting_sector_2nd' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_ghg_emitting_sector_3rd' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['flipped_table_header_first_field'] = 1;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<h3>Top 3 GHG Emitting Economic Sectors in 2010</h3>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['id'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['table'] = 'field_data_field_environmental_and_economic';
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['field'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['label'] = 'environmental_economic';
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['id'] = 'reverse_field_opearting_unit_country_node';
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['field'] = 'reverse_field_opearting_unit_country_node';
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['label'] = 'country';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: 1st */
+  $handler->display->display_options['fields']['field_ghg_emitting_sector_1st']['id'] = 'field_ghg_emitting_sector_1st';
+  $handler->display->display_options['fields']['field_ghg_emitting_sector_1st']['table'] = 'field_data_field_ghg_emitting_sector_1st';
+  $handler->display->display_options['fields']['field_ghg_emitting_sector_1st']['field'] = 'field_ghg_emitting_sector_1st';
+  $handler->display->display_options['fields']['field_ghg_emitting_sector_1st']['relationship'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['fields']['field_ghg_emitting_sector_1st']['element_label_colon'] = FALSE;
+  /* Field: Content: 2nd */
+  $handler->display->display_options['fields']['field_ghg_emitting_sector_2nd']['id'] = 'field_ghg_emitting_sector_2nd';
+  $handler->display->display_options['fields']['field_ghg_emitting_sector_2nd']['table'] = 'field_data_field_ghg_emitting_sector_2nd';
+  $handler->display->display_options['fields']['field_ghg_emitting_sector_2nd']['field'] = 'field_ghg_emitting_sector_2nd';
+  $handler->display->display_options['fields']['field_ghg_emitting_sector_2nd']['relationship'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['fields']['field_ghg_emitting_sector_2nd']['element_label_colon'] = FALSE;
+  /* Field: Content: 3rd */
+  $handler->display->display_options['fields']['field_ghg_emitting_sector_3rd']['id'] = 'field_ghg_emitting_sector_3rd';
+  $handler->display->display_options['fields']['field_ghg_emitting_sector_3rd']['table'] = 'field_data_field_ghg_emitting_sector_3rd';
+  $handler->display->display_options['fields']['field_ghg_emitting_sector_3rd']['field'] = 'field_ghg_emitting_sector_3rd';
+  $handler->display->display_options['fields']['field_ghg_emitting_sector_3rd']['relationship'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['fields']['field_ghg_emitting_sector_3rd']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_opearting_unit_country_node';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'summary';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
+    'operating_unit' => 'operating_unit',
+  );
+  $handler->display->display_options['arguments']['nid']['validate']['fail'] = 'access denied';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'country' => 'country',
+  );
+  $handler->display->display_options['pane_category']['name'] = 'Dashboard panes';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['argument_input'] = array(
+    'nid' => array(
+      'type' => 'panel',
+      'context' => 'entity:file.basename',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Nid',
+    ),
+  );
+
+  /* Display: Env/Eco -  Economic Growth */
+  $handler = $view->new_display('panel_pane', 'Env/Eco -  Economic Growth', 'dashboard_report_econ_growth_pane');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'env-eco';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'flipped';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+    'field_gpd_avg_annual_01_10' => 'field_gpd_avg_annual_01_10',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_gpd_avg_annual_01_10' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['flipped_table_header_first_field'] = 1;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<h3>Economic Growth</h3>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['id'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['table'] = 'field_data_field_environmental_and_economic';
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['field'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['label'] = 'environmental_economic';
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['id'] = 'reverse_field_opearting_unit_country_node';
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['field'] = 'reverse_field_opearting_unit_country_node';
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['label'] = 'country';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: GDP Average Annual Growth Rate (2001 – 2010) */
+  $handler->display->display_options['fields']['field_gpd_avg_annual_01_10']['id'] = 'field_gpd_avg_annual_01_10';
+  $handler->display->display_options['fields']['field_gpd_avg_annual_01_10']['table'] = 'field_data_field_gpd_avg_annual_01_10';
+  $handler->display->display_options['fields']['field_gpd_avg_annual_01_10']['field'] = 'field_gpd_avg_annual_01_10';
+  $handler->display->display_options['fields']['field_gpd_avg_annual_01_10']['relationship'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['fields']['field_gpd_avg_annual_01_10']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_gpd_avg_annual_01_10']['empty'] = 'N/A';
+  $handler->display->display_options['fields']['field_gpd_avg_annual_01_10']['settings'] = array(
+    'thousand_separator' => ',',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_opearting_unit_country_node';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'summary';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
+    'operating_unit' => 'operating_unit',
+  );
+  $handler->display->display_options['arguments']['nid']['validate']['fail'] = 'access denied';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'country' => 'country',
+  );
+  $handler->display->display_options['pane_category']['name'] = 'Dashboard panes';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['argument_input'] = array(
+    'nid' => array(
+      'type' => 'panel',
+      'context' => 'entity:file.basename',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Nid',
+    ),
+  );
+
+  /* Display: Env/Eco -  Forested Area */
+  $handler = $view->new_display('panel_pane', 'Env/Eco -  Forested Area', 'dashboard_report_forested_area_pane');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'env-eco';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'flipped';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+    'field_env_eco_forested' => 'field_env_eco_forested',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_env_eco_forested' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['flipped_table_header_first_field'] = 1;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<h3>Forested Area</h3>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['id'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['table'] = 'field_data_field_environmental_and_economic';
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['field'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['label'] = 'environmental_economic';
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['id'] = 'reverse_field_opearting_unit_country_node';
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['field'] = 'reverse_field_opearting_unit_country_node';
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['label'] = 'country';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: % of total land area in 2012 */
+  $handler->display->display_options['fields']['field_env_eco_forested']['id'] = 'field_env_eco_forested';
+  $handler->display->display_options['fields']['field_env_eco_forested']['table'] = 'field_data_field_env_eco_forested';
+  $handler->display->display_options['fields']['field_env_eco_forested']['field'] = 'field_env_eco_forested';
+  $handler->display->display_options['fields']['field_env_eco_forested']['relationship'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['fields']['field_env_eco_forested']['empty'] = 'N/A';
+  $handler->display->display_options['fields']['field_env_eco_forested']['settings'] = array(
+    'thousand_separator' => ',',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_opearting_unit_country_node';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'summary';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
+    'operating_unit' => 'operating_unit',
+  );
+  $handler->display->display_options['arguments']['nid']['validate']['fail'] = 'access denied';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'country' => 'country',
+  );
+  $handler->display->display_options['pane_category']['name'] = 'Dashboard panes';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['argument_input'] = array(
+    'nid' => array(
+      'type' => 'panel',
+      'context' => 'entity:file.basename',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Nid',
+    ),
+  );
+
+  /* Display: Env/Eco -  Renewable Energy */
+  $handler = $view->new_display('panel_pane', 'Env/Eco -  Renewable Energy', 'dashboard_report_renewable_energy_pane');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'env-eco';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'flipped';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+    'field_env_eco_forested' => 'field_env_eco_forested',
+    'field_contrib_to_electricity' => 'field_contrib_to_electricity',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_env_eco_forested' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_contrib_to_electricity' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['flipped_table_header_first_field'] = 1;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<h3>Renewable Energy</h3>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['id'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['table'] = 'field_data_field_environmental_and_economic';
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['field'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['relationships']['field_environmental_and_economic_target_id']['label'] = 'environmental_economic';
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['id'] = 'reverse_field_opearting_unit_country_node';
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['field'] = 'reverse_field_opearting_unit_country_node';
+  $handler->display->display_options['relationships']['reverse_field_opearting_unit_country_node']['label'] = 'country';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: % of total land area in 2012 */
+  $handler->display->display_options['fields']['field_env_eco_forested']['id'] = 'field_env_eco_forested';
+  $handler->display->display_options['fields']['field_env_eco_forested']['table'] = 'field_data_field_env_eco_forested';
+  $handler->display->display_options['fields']['field_env_eco_forested']['field'] = 'field_env_eco_forested';
+  $handler->display->display_options['fields']['field_env_eco_forested']['relationship'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['fields']['field_env_eco_forested']['empty'] = 'N/A';
+  $handler->display->display_options['fields']['field_env_eco_forested']['settings'] = array(
+    'thousand_separator' => ',',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Contribution to Electricity Generation (%) in 2012 */
+  $handler->display->display_options['fields']['field_contrib_to_electricity']['id'] = 'field_contrib_to_electricity';
+  $handler->display->display_options['fields']['field_contrib_to_electricity']['table'] = 'field_data_field_contrib_to_electricity';
+  $handler->display->display_options['fields']['field_contrib_to_electricity']['field'] = 'field_contrib_to_electricity';
+  $handler->display->display_options['fields']['field_contrib_to_electricity']['relationship'] = 'field_environmental_and_economic_target_id';
+  $handler->display->display_options['fields']['field_contrib_to_electricity']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_contrib_to_electricity']['empty'] = 'N/A';
+  $handler->display->display_options['fields']['field_contrib_to_electricity']['settings'] = array(
+    'thousand_separator' => ',',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_opearting_unit_country_node';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'summary';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
+    'operating_unit' => 'operating_unit',
+  );
+  $handler->display->display_options['arguments']['nid']['validate']['fail'] = 'access denied';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'country' => 'country',
+  );
+  $handler->display->display_options['pane_category']['name'] = 'Dashboard panes';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['argument_input'] = array(
+    'nid' => array(
+      'type' => 'panel',
+      'context' => 'entity:file.basename',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Nid',
+    ),
+  );
+  $export['dashboard_report'] = $view;
+
+  $view = new view();
   $view->name = 'ecleds_areas_of_cooperation_reference';
   $view->description = '';
   $view->tag = 'default';
