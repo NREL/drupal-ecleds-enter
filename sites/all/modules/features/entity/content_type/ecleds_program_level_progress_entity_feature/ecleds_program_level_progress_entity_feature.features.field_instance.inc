@@ -19,7 +19,7 @@ function ecleds_program_level_progress_entity_feature_field_default_field_instan
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -54,7 +54,7 @@ function ecleds_program_level_progress_entity_feature_field_default_field_instan
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -89,7 +89,7 @@ function ecleds_program_level_progress_entity_feature_field_default_field_instan
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -124,7 +124,7 @@ function ecleds_program_level_progress_entity_feature_field_default_field_instan
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -158,7 +158,7 @@ function ecleds_program_level_progress_entity_feature_field_default_field_instan
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'date',
         'settings' => array(
           'format_type' => 'long',
