@@ -19,7 +19,7 @@ function ecleds_ppr_entity_feature_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
@@ -87,7 +87,7 @@ function ecleds_ppr_entity_feature_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -113,8 +113,8 @@ function ecleds_ppr_entity_feature_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'label_help_description' => '',
-        'size' => 60,
+        'label_help_description' => 'FY####',
+        'size' => 6,
       ),
       'type' => 'text_textfield',
       'weight' => 2,
@@ -230,7 +230,7 @@ function ecleds_ppr_entity_feature_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'entityreference',
         'settings' => array(
           'link' => FALSE,

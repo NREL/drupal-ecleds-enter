@@ -18,7 +18,7 @@ function ecleds_ppr_gcc_indicator_entity_feature_field_default_field_instances()
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -59,7 +59,7 @@ function ecleds_ppr_gcc_indicator_entity_feature_field_default_field_instances()
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -99,7 +99,7 @@ function ecleds_ppr_gcc_indicator_entity_feature_field_default_field_instances()
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -140,7 +140,7 @@ function ecleds_ppr_gcc_indicator_entity_feature_field_default_field_instances()
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -180,7 +180,7 @@ function ecleds_ppr_gcc_indicator_entity_feature_field_default_field_instances()
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -221,7 +221,7 @@ function ecleds_ppr_gcc_indicator_entity_feature_field_default_field_instances()
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -261,7 +261,7 @@ function ecleds_ppr_gcc_indicator_entity_feature_field_default_field_instances()
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -302,7 +302,7 @@ function ecleds_ppr_gcc_indicator_entity_feature_field_default_field_instances()
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -342,7 +342,7 @@ function ecleds_ppr_gcc_indicator_entity_feature_field_default_field_instances()
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -383,7 +383,7 @@ function ecleds_ppr_gcc_indicator_entity_feature_field_default_field_instances()
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -423,7 +423,7 @@ function ecleds_ppr_gcc_indicator_entity_feature_field_default_field_instances()
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -464,7 +464,7 @@ function ecleds_ppr_gcc_indicator_entity_feature_field_default_field_instances()
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -505,7 +505,7 @@ function ecleds_ppr_gcc_indicator_entity_feature_field_default_field_instances()
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'entityreference',
         'settings' => array(
           'link' => FALSE,
@@ -562,7 +562,7 @@ function ecleds_ppr_gcc_indicator_entity_feature_field_default_field_instances()
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
