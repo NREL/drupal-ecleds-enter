@@ -78,12 +78,20 @@ function nrel_ecleds_operating_unit_menu_local_tasks_alter(&$data, $router_item,
     'node/%/revisions',
   );
 
+  $path_types = array(
+    '' => 'operating_unit',
+    'milestones' => 'nrel_ecleds_milestone',
+    'implementing-mechanisms' => 'ecleds_implementing_mechanism',
+    'ppr' => 'ppr',
+  );
+
+
   if (!is_null($tabs)) {
     foreach ($tabs as $key => $tab) {
 
       // Hide PPR tab for Mission users.
       if ($tab['#link']['page_callback'] == 'nrel_ecleds_operating_unit_ppr' &&
-        in_array('mission', $user->roles)
+        in_array('Mission/E3 General User', $user->roles)
       ) {
         unset($tabs[$key]);
       }
@@ -96,6 +104,22 @@ function nrel_ecleds_operating_unit_menu_local_tasks_alter(&$data, $router_item,
         // Instead of "View", this alters tab to read "Operating Unit".
         if ($tab['#link']['path'] == 'node/%/view') {
           $tabs[$key]['#link']['title'] = 'Overview';
+        }
+
+        // Don't show the revisions tab if the user is not able to edit
+        // content of the type of the node being viewed.
+        if ('node/%/revisions' == $tab['#link']['path']) {
+          $path_parts = explode('/', $root_path);
+          if (!empty($path_parts[2]) && ('edit' == $path_parts[2])) {
+            $current_type = $router_item['page_arguments'][0]->type;
+          } else {
+            $indicator = isset($path_parts[3]) ? $path_parts[3] : '';
+            $current_type = $path_types[$indicator];
+          }
+          if (!user_access('edit any ' . $current_type . ' content', $user)) {
+            unset($tabs[$key]);
+            break;
+          }
         }
 
         // Hide the node tabs on the extra pages
@@ -248,7 +272,7 @@ function _nrel_ecleds_operating_unit_tabs(&$data, $operating_unit_nid, $operatin
 //    ),
 //  );
 
-  if (!in_array('mission', $user->roles)) {
+  if (!in_array('Mission/E3 General User', $user->roles)) {
     $ppr_tab = array(
       '#theme' => 'menu_local_task',
       '#link' => array(
