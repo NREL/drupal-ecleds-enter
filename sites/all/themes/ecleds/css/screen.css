@@ -66,7 +66,10 @@ div[class*="year"] .field-item:before {
   margin-bottom: 0em;
 }
 .node .field-collection-container  .content > .field {
-  margin-bottom: 0em;
+  margin-bottom: 0.3em;
+}
+.node .field-collection-container  .content > .field-label-inline p {
+  margin-bottom: 0px;
 }
   .node .content fieldset {
     background: #fff; }
