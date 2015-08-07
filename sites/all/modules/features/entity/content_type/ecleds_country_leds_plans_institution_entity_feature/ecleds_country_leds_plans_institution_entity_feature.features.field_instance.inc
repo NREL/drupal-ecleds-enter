@@ -123,7 +123,7 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'date',
         'settings' => array(
           'format_type' => 'long',
@@ -278,7 +278,7 @@ function ecleds_country_leds_plans_institution_entity_feature_field_default_fiel
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
