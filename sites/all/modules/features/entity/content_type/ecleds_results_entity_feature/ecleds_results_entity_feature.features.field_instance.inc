@@ -19,7 +19,7 @@ function ecleds_results_entity_feature_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -39,8 +39,8 @@ function ecleds_results_entity_feature_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'label_help_description' => '',
-        'size' => 60,
+        'label_help_description' => 'Please enter the fiscal year as FY####',
+        'size' => 6,
       ),
       'type' => 'text_textfield',
       'weight' => 2,
@@ -53,7 +53,7 @@ function ecleds_results_entity_feature_field_default_field_instances() {
     'bundle' => 'field_result_indicator_year',
     'default_value_function' => '',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Please enter the fiscal year as FY####',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -83,8 +83,10 @@ function ecleds_results_entity_feature_field_default_field_instances() {
       'module' => 'inline_entity_form',
       'settings' => array(
         'fields' => array(),
+        'label_help_description' => '',
         'type_settings' => array(
           'allow_existing' => 1,
+          'allow_new' => 1,
           'delete_references' => 0,
           'label_plural' => 'Indicators',
           'label_singular' => 'Indicator',
@@ -152,7 +154,7 @@ function ecleds_results_entity_feature_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -202,7 +204,7 @@ function ecleds_results_entity_feature_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
@@ -242,7 +244,7 @@ function ecleds_results_entity_feature_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -274,7 +276,9 @@ function ecleds_results_entity_feature_field_default_field_instances() {
     'widget' => array(
       'active' => 0,
       'module' => 'number',
-      'settings' => array(),
+      'settings' => array(
+        'label_help_description' => '####',
+      ),
       'type' => 'number',
       'weight' => 9,
     ),
@@ -420,7 +424,7 @@ function ecleds_results_entity_feature_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -470,7 +474,7 @@ function ecleds_results_entity_feature_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
@@ -510,7 +514,7 @@ function ecleds_results_entity_feature_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -542,7 +546,9 @@ function ecleds_results_entity_feature_field_default_field_instances() {
     'widget' => array(
       'active' => 0,
       'module' => 'number',
-      'settings' => array(),
+      'settings' => array(
+        'label_help_description' => '####',
+      ),
       'type' => 'number',
       'weight' => 12,
     ),
@@ -555,6 +561,7 @@ function ecleds_results_entity_feature_field_default_field_instances() {
   t('Milestones');
   t('Month');
   t('Ongoing?');
+  t('Please enter the fiscal year as FY####');
   t('Submission Fiscal Year');
   t('Support Description');
   t('Year');

@@ -431,3 +431,9 @@ a.tabledrag-handle .handle {
 #dashboard-report .env-eco table.views-table td.views-field {
   width: 40%;
 }*/
+
+#dashboard-report table caption {
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic;
+}

@@ -53,7 +53,7 @@ function ecleds_other_usg_leds_related_programs_entity_feature_field_default_fie
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -88,7 +88,7 @@ function ecleds_other_usg_leds_related_programs_entity_feature_field_default_fie
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',

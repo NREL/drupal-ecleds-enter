@@ -16,10 +16,10 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
     'bundle' => 'field_activity_indicator',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Please enter the fiscal year as FY####',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -31,14 +31,15 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
     'label' => 'Fiscal Year',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 1,
+      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'size' => 60,
+        'label_help_description' => 'Please enter the fiscal year as FY####',
+        'size' => 6,
       ),
       'type' => 'text_textfield',
       'weight' => 2,
@@ -157,7 +158,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'label_help_description' => '',
       ),
       'type' => 'options_buttons',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -256,7 +257,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -272,14 +273,14 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
         'weight' => 0,
       ),
       'full' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
@@ -357,7 +358,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 13,
+      'weight' => 14,
     ),
   );
 
@@ -415,7 +416,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'label_help_description' => '',
       ),
       'type' => 'field_collection_embed',
-      'weight' => 7,
+      'weight' => 8,
     ),
   );
 
@@ -475,7 +476,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'label_help_description' => '',
       ),
       'type' => 'options_select',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -524,7 +525,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 12,
+      'weight' => 13,
     ),
   );
 
@@ -540,14 +541,14 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
         'weight' => 11,
       ),
       'full' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
@@ -576,7 +577,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'label_help_description' => '',
       ),
       'type' => 'options_onoff',
-      'weight' => 11,
+      'weight' => 12,
     ),
   );
 
@@ -636,7 +637,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'label_help_description' => '',
       ),
       'type' => 'options_select',
-      'weight' => 9,
+      'weight' => 10,
     ),
   );
 
@@ -648,14 +649,14 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 5,
       ),
       'full' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -685,7 +686,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -698,7 +699,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'entityreference',
         'settings' => array(
           'link' => FALSE,
@@ -707,7 +708,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'weight' => 6,
       ),
       'full' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'entityreference',
         'settings' => array(
           'link' => FALSE,
@@ -746,7 +747,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'label_help_description' => '',
       ),
       'type' => 'options_select',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -869,7 +870,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
         'label_help_description' => '',
       ),
       'type' => 'options_buttons',
-      'weight' => 8,
+      'weight' => 9,
     ),
   );
 
@@ -889,6 +890,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
   t('Highlight Summary');
   t('Indicator');
   t('Milestones');
+  t('Please enter the fiscal year as FY####');
   t('Results');
 
   return $field_instances;

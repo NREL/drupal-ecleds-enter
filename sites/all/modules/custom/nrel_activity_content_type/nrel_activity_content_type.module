@@ -1,5 +1,21 @@
 <?php
 
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * @param $form
+ * @param $form_state
+ * @param $form_id
+ */
+function  nrel_activity_content_type_form_alter(&$form, &$form_state, $form_id) {
+  if ('ecleds_implementing_mechanism_node_form' == $form_id) {
+    $lang = $form['field_activities_ent_ref']['#language'];
+    $form['field_activities_ent_ref'][$lang]['#title'] = t('Activities/Actions (optional)');
+  }
+}
+
+
 /**
  * Implements hook_inline_entity_form_table_fields_alter().
  */

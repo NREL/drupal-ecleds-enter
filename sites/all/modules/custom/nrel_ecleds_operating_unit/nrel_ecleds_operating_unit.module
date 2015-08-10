@@ -78,12 +78,20 @@ function nrel_ecleds_operating_unit_menu_local_tasks_alter(&$data, $router_item,
     'node/%/revisions',
   );
 
+  $path_types = array(
+    '' => 'operating_unit',
+    'milestones' => 'nrel_ecleds_milestone',
+    'implementing-mechanisms' => 'ecleds_implementing_mechanism',
+    'ppr' => 'ppr',
+  );
+
+
   if (!is_null($tabs)) {
     foreach ($tabs as $key => $tab) {
 
       // Hide PPR tab for Mission users.
       if ($tab['#link']['page_callback'] == 'nrel_ecleds_operating_unit_ppr' &&
-        in_array('mission', $user->roles)
+        in_array('Mission/E3 General User', $user->roles)
       ) {
         unset($tabs[$key]);
       }
@@ -96,6 +104,22 @@ function nrel_ecleds_operating_unit_menu_local_tasks_alter(&$data, $router_item,
         // Instead of "View", this alters tab to read "Operating Unit".
         if ($tab['#link']['path'] == 'node/%/view') {
           $tabs[$key]['#link']['title'] = 'Overview';
+        }
+
+        // Don't show the revisions tab if the user is not able to edit
+        // content of the type of the node being viewed.
+        if ('node/%/revisions' == $tab['#link']['path']) {
+          $path_parts = explode('/', $root_path);
+          if (!empty($path_parts[2]) && ('edit' == $path_parts[2])) {
+            $current_type = $router_item['page_arguments'][0]->type;
+          } else {
+            $indicator = isset($path_parts[3]) ? $path_parts[3] : '';
+            $current_type = $path_types[$indicator];
+          }
+          if (!user_access('edit any ' . $current_type . ' content', $user)) {
+            unset($tabs[$key]);
+            break;
+          }
         }
 
         // Hide the node tabs on the extra pages
@@ -248,7 +272,7 @@ function _nrel_ecleds_operating_unit_tabs(&$data, $operating_unit_nid, $operatin
 //    ),
 //  );
 
-  if (!in_array('mission', $user->roles)) {
+  if (!in_array('Mission/E3 General User', $user->roles)) {
     $ppr_tab = array(
       '#theme' => 'menu_local_task',
       '#link' => array(
@@ -423,7 +447,13 @@ function nrel_ecleds_operating_unit_milestones($node) {
     ->fieldCondition('field_milestone_operating_unit', 'target_id', $node->nid, '=')
     ->fieldOrderBy('field_target_fiscal_year', 'value', 'DESC');
   $result = $query->execute();
-  $nodes = !empty($result['node']) ? node_load_multiple(array_keys($result['node'])) : array();
+
+  $nodes = array();
+  $nids = array_keys($result['node']);
+  foreach ($nids as $nid) {
+    $nodes[] = node_load($nid);
+  }
+
 
   // Group nodes by Year.
   $grouped = array();
@@ -445,9 +475,11 @@ function nrel_ecleds_operating_unit_milestones($node) {
 
   foreach($grouped as $year => $node_group) {
     $rendered .= '<h1 class="milestone-group-title">' . $year . '</h1>';
-    $node_views = !empty($node_group) ? node_view_multiple($node_group, 'full') : array();
-    $rendered .= drupal_render($node_views);
+    foreach ($node_group as $node) {
+      $rendered .= drupal_render(node_view($node));
+    }
   }
+
   if (strlen($rendered)) {
     drupal_add_js(drupal_get_path('theme', 'ecleds') . '/js/toggle.js');
   }
@@ -672,7 +704,8 @@ function nrel_ecleds_operating_unit_preprocess_node(&$vars, $hook) {
       // that can edit cleared milestones, change the edit button to an edit
       // link. For users who have a role that can't edit cleared milestones,
       // don't show an edit button or an edit link.
-      if (!empty($vars['field_milestone_cleared'][0]['value'])) {
+      $lang = $vars['language'];
+      if (!empty($vars['field_milestone_cleared'][$lang][0]['value'])) {
         $vars['cleared'] = '<div class="cleared">' . t('Cleared') . '</div>';
         if (user_access('edit cleared milestones')) {
           $vars['edit_button'] = '<div class="edit-link">' . l(t('Edit'), 'node/' . $vars['nid'] . '/edit', array('attributes' => array('class' => array('link', 'link-edit')),'query' => $query)) . '</div>';
