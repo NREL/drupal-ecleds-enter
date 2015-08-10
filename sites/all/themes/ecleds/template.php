@@ -116,6 +116,34 @@ function ecleds_preprocess_views_view(&$vars) {
   }
 }
 
+function ecleds_preprocess_views_flipped_table(&$vars) {
+  $view = $vars['view'];
+  switch ($view->name) {
+    case 'dashboard_report':
+      $env_eco_panes = array(
+        'dashboard_report_env_eco_ghg_pane',
+        'dashboard_report_key_eco_sectors_pane',
+        'dashboard_report_top3_ghg_emitting_sectors_pane',
+        'dashboard_report_econ_growth_pane',
+        'dashboard_report_forested_area_pane',
+        'dashboard_report_renewable_energy_pane',
+      );
+      // Remove the first row of the env/eco tables (which display the
+      // countries) for OUs where there is only one country referencing the OU.
+      if (in_array($view->current_display, $env_eco_panes)) {
+        if (1 == count($view->result)) {
+          $vars['view']->style_plugin->options['flipped_table_header_first_field'] = FALSE;
+          unset($vars['first_row_header']);
+          unset($vars['rows'][0]['title']);
+          unset($vars['rows_flipped']['title']);
+        }
+      }
+      break;
+    default:
+      break;
+  }
+}
+
 // Implements hook_theme().
 function ecleds_theme(){
   return array(
