@@ -16,7 +16,7 @@ function ecleds_im_funding_pillar_feature_field_default_field_instances() {
     'bundle' => 'field_im_funding_pillar',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Please enter the fiscal year as FY####',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -119,6 +119,7 @@ function ecleds_im_funding_pillar_feature_field_default_field_instances() {
   t('Direct/Indirect');
   t('Fiscal Year');
   t('Funding Pillar');
+  t('Please enter the fiscal year as FY####');
 
   return $field_instances;
 }

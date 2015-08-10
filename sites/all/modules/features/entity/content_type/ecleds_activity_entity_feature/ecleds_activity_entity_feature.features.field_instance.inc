@@ -16,7 +16,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
     'bundle' => 'field_activity_indicator',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Please enter the fiscal year as FY####',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -31,14 +31,15 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
     'label' => 'Fiscal Year',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 1,
+      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'size' => 60,
+        'label_help_description' => 'Please enter the fiscal year as FY####',
+        'size' => 6,
       ),
       'type' => 'text_textfield',
       'weight' => 2,
@@ -889,6 +890,7 @@ function ecleds_activity_entity_feature_field_default_field_instances() {
   t('Highlight Summary');
   t('Indicator');
   t('Milestones');
+  t('Please enter the fiscal year as FY####');
   t('Results');
 
   return $field_instances;

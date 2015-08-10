@@ -113,7 +113,7 @@ function ecleds_ppr_entity_feature_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'label_help_description' => 'FY####',
+        'label_help_description' => 'Please enter the fiscal year as FY####',
         'size' => 6,
       ),
       'type' => 'text_textfield',

@@ -522,7 +522,7 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
       'active' => 1,
       'module' => 'field_collection_table',
       'settings' => array(
-        'label_help_description' => '',
+        'label_help_description' => 'Please enter the fiscal year field as FY####',
         'nodragging' => 0,
       ),
       'type' => 'field_collection_table',
