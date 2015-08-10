@@ -24,6 +24,6 @@
  */
 function nrel_ecleds_implementing_mechanism_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
   if ($entity_form['#bundle'] == 'activity') {
-    $entity_form['status']['#title'] = t('Highlight Activity');
+    // $entity_form['status']['#title'] = t('Highlight Activity');
   }
 }
