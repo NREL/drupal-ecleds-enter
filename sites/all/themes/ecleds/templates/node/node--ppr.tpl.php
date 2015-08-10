@@ -87,7 +87,7 @@
   <?php print render($title_prefix); ?>
   <?php if (!$page): ?>
     <h2<?php print $title_attributes; ?>>
-      <a href="<?php print $node_url; ?>"><?php print $title; ?></a>
+      <?php print $title; ?>
       <?php
         if ($title_dates) {
           print $title_dates;
