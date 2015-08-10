@@ -2795,6 +2795,11 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_milestone_type_notes']['id'] = 'field_milestone_type_notes';
   $handler->display->display_options['fields']['field_milestone_type_notes']['table'] = 'field_data_field_milestone_type_notes';
   $handler->display->display_options['fields']['field_milestone_type_notes']['field'] = 'field_milestone_type_notes';
+  /* Field: Content: Cleared? */
+  $handler->display->display_options['fields']['field_milestone_cleared']['id'] = 'field_milestone_cleared';
+  $handler->display->display_options['fields']['field_milestone_cleared']['table'] = 'field_data_field_milestone_cleared';
+  $handler->display->display_options['fields']['field_milestone_cleared']['field'] = 'field_milestone_cleared';
+  $handler->display->display_options['fields']['field_milestone_cleared']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
