@@ -437,3 +437,21 @@ a.tabledrag-handle .handle {
   font-weight: bold;
   font-style: italic;
 }
+
+ul.primary {
+    border-bottom: 1px solid #444 !important;
+}
+
+ul.primary li {
+  border-left: 1px solid #888 !important;
+  margin-left: -1px !important;
+}
+
+ul.primary li:last-child {
+  border-right: 1px solid #888 !important;
+}
+
+ul.primary li.active {
+  border: 1px solid #444 !important;
+  border-bottom-width: 0px !important;
+}
