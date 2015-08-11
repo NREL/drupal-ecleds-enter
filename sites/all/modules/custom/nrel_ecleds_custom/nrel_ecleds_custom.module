@@ -18,6 +18,22 @@ function nrel_ecleds_custom_init() {
 }
 
 /**
+ * Implements hook_menu_local_tasks_alter().
+ *
+ * @param $data
+ * @param $router_item
+ * @param $root_path
+ */
+function nrel_ecleds_custom_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  // If we're on a page, we don't want any tabs to be displayed to users who do
+  // not have create page permissions.
+  if (isset($router_item['page_arguments'][0]->type) && ('page' == $router_item['page_arguments'][0]->type) && !user_access('create page content')) {
+    $data = array();
+    return;
+  }
+}
+
+/**
  * Script for updating the decimal values in the enlarged gcc standard indicator
  * fields.
  */
