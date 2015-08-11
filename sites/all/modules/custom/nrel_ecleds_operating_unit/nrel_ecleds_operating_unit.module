@@ -348,6 +348,72 @@ function nrel_ecleds_operating_unit_form_activity_node_form_alter(&$form, &$form
   );
 }
 
+function nrel_ecleds_operating_unit_node_validate($node, $form, &$form_state) {
+  if ('activity' == $node->type) {
+    $lang = $node->language;
+    foreach($form_state['values']['field_activity_indicator'][$lang] as $index => $field_indicator) {
+      // skip loop if key is add_more
+      if ($index === 'add_more') {
+        continue;
+      }
+      $fiscal_year_string = $field_indicator['field_fiscal_year'][$lang][0]['value'];
+      if ((6 != strlen($fiscal_year_string)) || ('FY' !== substr($fiscal_year_string, 0, 2))) {
+        form_set_error('field_activity_indicator][' . $lang . '][' . $index . '][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+      } else {
+        $fiscal_year = substr($fiscal_year_string, 2, 4);
+        if (!is_numeric($fiscal_year) || (4 != strlen(trim($fiscal_year)))) {
+          form_set_error('field_activity_indicator][' . $lang . '][' . $index . '][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+        }
+      }
+    }
+  } else if ('ppr' == $node->type) {
+    $lang = $node->language;
+    $fiscal_year_string = $form_state['values']['field_fiscal_year'][$lang][0]['value'];
+    if ((6 != strlen($fiscal_year_string)) || ('FY' !== substr($fiscal_year_string, 0, 2))) {
+      form_set_error('field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+    } else {
+      $fiscal_year = substr($fiscal_year_string, 2, 4);
+      if (!is_numeric($fiscal_year) || (4 != strlen(trim($fiscal_year)))) {
+        form_set_error('field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+      }
+    }
+  } else if ('ecleds_results' == $node->type) {
+    $lang = $node->language;
+    foreach($form_state['values']['field_result_indicator_year'][$lang] as $index => $field_indicator) {
+      // skip loop if key is add_more
+      if ($index === 'add_more') {
+        continue;
+      }
+      $fiscal_year_string = $field_indicator['field_fiscal_year'][$lang][0]['value'];
+      if ((6 != strlen($fiscal_year_string)) || ('FY' !== substr($fiscal_year_string, 0, 2))) {
+        form_set_error('field_result_indicator_year][' . $lang . '][' . $index . '][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+      } else {
+        $fiscal_year = substr($fiscal_year_string, 2, 4);
+        if (!is_numeric($fiscal_year) || (4 != strlen(trim($fiscal_year)))) {
+          form_set_error('field_result_indicator_year][' . $lang . '][' . $index . '][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+        }
+      }
+    }
+  } else if ('ecleds_implementing_mechanism' == $node->type) {
+    $lang = $node->language;
+    foreach($form_state['values']['field_im_funding_pillar'][$lang] as $index => $field_indicator) {
+      // skip loop if key is add_more
+      if ($index === 'add_more') {
+        continue;
+      }
+      $fiscal_year_string = $field_indicator['field_fiscal_year'][$lang][0]['value'];
+      if ((6 != strlen($fiscal_year_string)) || ('FY' !== substr($fiscal_year_string, 0, 2))) {
+        form_set_error('field_im_funding_pillar][' . $lang . '][' . $index . '][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+      } else {
+        $fiscal_year = substr($fiscal_year_string, 2, 4);
+        if (!is_numeric($fiscal_year) || (4 != strlen(trim($fiscal_year)))) {
+          form_set_error('field_im_funding_pillar][' . $lang . '][' . $index . '][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+        }
+      }
+    }
+  }
+}
+
 /**
  * Implements hook_form_alter().
  */

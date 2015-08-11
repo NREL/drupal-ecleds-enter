@@ -1,29 +1,38 @@
 <?php
 
 /**
- * Provide a form-specific alteration instead of the global hook_form_alter().
+ * Perform alterations before an entity form is included in the IEF widget.
  *
- * Modules can implement hook_form_FORM_ID_alter() to modify a specific form,
- * rather than implementing hook_form_alter() and checking the form ID, or
- * using long switch statements to alter multiple forms.
- *
- * Form alter hooks are called in the following order: hook_form_alter(),
- * hook_form_BASE_FORM_ID_alter(), hook_form_FORM_ID_alter(). See
- * hook_form_alter() for more details.
- *
- * @param $form
- *   Nested array of form elements that comprise the form.
+ * @param $entity_form
+ *   Nested array of form elements that comprise the entity form.
  * @param $form_state
- *   A keyed array containing the current state of the form. The arguments
- *   that drupal_get_form() was originally called with are available in the
- *   array $form_state['build_info']['args'].
- *
- * @see hook_form_alter()
- * @see hook_form_BASE_FORM_ID_alter()
- * @see drupal_prepare_form()
+ *   The form state of the parent form.
  */
 function nrel_ecleds_implementing_mechanism_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
   if ($entity_form['#bundle'] == 'activity') {
-    // $entity_form['status']['#title'] = t('Highlight Activity');
+    $entity_form['#element_validate'][] = '_nrel_ecleds_implementing_activity_inline_form_validate';
+  } elseif ($entity_form['#bundle'] == 'ecleds_results') {
+    //dsm($entity_form);
+    //dsm($form_state);
   }
+}
+
+function _nrel_ecleds_implementing_activity_inline_form_validate($entity_form, &$form_state) {
+    $lang = $form_state['values']['language'];
+    //dsm($form_state);
+    foreach($form_state['values']['field_activities_ent_ref'][$lang]['form']['field_activity_indicator'][$lang] as $index => $field_indicator) {
+      // skip loop if key is add_more
+      if ($index === 'add_more') {
+        continue;
+      }
+      $fiscal_year_string = $field_indicator['field_fiscal_year'][$lang][0]['value'];
+      if ((6 != strlen($fiscal_year_string)) || ('FY' !== substr($fiscal_year_string, 0, 2))) {
+        form_set_error('field_activities_ent_ref][' . $lang . '][form][field_activity_indicator][' . $lang . '][' . $index .'][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+      } else {
+        $fiscal_year = substr($fiscal_year_string, 2, 4);
+        if (!is_numeric($fiscal_year) || (4 != strlen(trim($fiscal_year)))) {
+          form_set_error('field_activities_ent_ref][' . $lang . '][' . $index . '][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+        }
+      }
+    }
 }
