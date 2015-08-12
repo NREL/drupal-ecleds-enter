@@ -1,3 +1,15 @@
+input,
+textarea,
+select,
+input.form-autocomplete,
+input.form-text,
+input.form-file,
+textarea.form-textarea,
+select.form-select,
+div.chosen-container {
+  border: 1px solid #999;
+}
+
 .submitted {
   text-align: right;
   margin-bottom: 1em;

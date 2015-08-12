@@ -4,6 +4,16 @@
  * @file
  * This file contains the main theme functions hooks and overrides.
  */
+/**
+ * Implements hook_css_alter().
+ */
+function ecleds_css_alter(&$css) {
+  // For some reason the adminimal reset styles were being placed after the
+  // ecleds styles even though the group/weights seemed correct. Hack the group
+  // to correct the order.
+  $css['sites/all/themes/ecleds/css/nrel.css']['group'] = 101;
+  $css['sites/all/themes/ecleds/css/screen.css']['group'] = 101;
+}
 
 /**
  * Implements template_preprocess_entity().
