@@ -9,30 +9,130 @@
  *   The form state of the parent form.
  */
 function nrel_ecleds_implementing_mechanism_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
+  // Add a custom validation function for IEFs on activities.
   if ($entity_form['#bundle'] == 'activity') {
     $entity_form['#element_validate'][] = '_nrel_ecleds_implementing_activity_inline_form_validate';
-  } elseif ($entity_form['#bundle'] == 'ecleds_results') {
-    //dsm($entity_form);
-    //dsm($form_state);
-  }
+  } 
 }
 
+/**
+ * Perform custom validation on IEFs on an activity.
+ *
+ * @param $entity_form
+ *   Nested array of form elements that comprise the entity form.
+ * @param $form_state
+ *   The form state of the parent form.
+ */
 function _nrel_ecleds_implementing_activity_inline_form_validate($entity_form, &$form_state) {
-    $lang = $form_state['values']['language'];
-    //dsm($form_state);
-    foreach($form_state['values']['field_activities_ent_ref'][$lang]['form']['field_activity_indicator'][$lang] as $index => $field_indicator) {
-      // skip loop if key is add_more
-      if ($index === 'add_more') {
+  // Hang on to your hat - this is gonna get tricky! We're going to validate the
+  // fiscal year that appears on both activities and results. Results are
+  // referenced within activities, so there are quite a few
+  // scenarios to consider - whether the user is adding or editing an activity,
+  // whether the user is adding or editing a result and all the combinations of
+  // each. Each scenario results in the fiscal year appearing in a different
+  // place within the form_state['values'] structure. If the field is on an
+  // existing activity/result then it's somewhere under an 'entities' entry. If
+  // the field is on a new activity/result then it's somewhere under a 'form'
+  // entry. I'd rather have recursively gone it the data structure to find all
+  //  occurences of 'fiscal_year' but it was really difficult to maintain the
+  //  element path of each occurence, so I resorted to the brute force method.
+  //  OK, after we get the language, let's deal with each scenario in turn...
+  $lang = $form_state['values']['language'];
+
+  // This is the case where the user is adding an activity.
+  foreach($form_state['values']['field_activities_ent_ref'][$lang]['form']['field_activity_indicator'][$lang] as $index => $field_indicator) {
+    // Skip loop if key is add_more.
+    if ($index === 'add_more') {
+      continue;
+    }
+    $fiscal_year_string = $field_indicator['field_fiscal_year'][$lang][0]['value'];
+    if ((6 != strlen($fiscal_year_string)) || ('FY' !== substr($fiscal_year_string, 0, 2))) {
+      form_set_error('field_activities_ent_ref][' . $lang . '][form][field_activity_indicator][' . $lang . '][' . $index .'][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+    } else {
+      $fiscal_year = substr($fiscal_year_string, 2, 4);
+      if (!is_numeric($fiscal_year) || (4 != strlen(trim($fiscal_year)))) {
+        form_set_error('field_activities_ent_ref][' . $lang . '][' . $index . '][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+      }
+    }
+  }
+
+  // This is the case where the user is adding a result to a new
+  // activity.
+  foreach($form_state['values']['field_activities_ent_ref'][$lang]['form']['field_results'][$lang]['form']['field_result_indicator_year'][$lang] as $form_index => $field_indicator) {
+    // Skip loop if key is add_more.
+    if ($form_index === 'add_more') {
+      continue;
+    }
+    $fiscal_year_string = $field_indicator['field_fiscal_year'][$lang][0]['value'];
+    if ((6 != strlen($fiscal_year_string)) || ('FY' !== substr($fiscal_year_string, 0, 2))) {
+      form_set_error('field_activities_ent_ref][' . $lang . '][form][field_results][' . $lang . '][form][field_result_indicator_year][' . $lang . '][' . $form_index .'][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+    } else {
+      $fiscal_year = substr($fiscal_year_string, 2, 4);
+      if (!is_numeric($fiscal_year) || (4 != strlen(trim($fiscal_year)))) {
+        form_set_error('field_activities_ent_ref][' . $lang . '][form][field_results][' . $lang . '][form][field_result_indicator_year][' . $lang . '][' . $form_index .'][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+      }
+    }
+  }
+
+  // This is the case where the user is editing a result on a new
+  // activity (i.e. user has clicked 'Add Activity', then created and saved a
+  // result on that new activity. Now the user has gone back in to edit the
+  // result without having dsaved the activity.
+  foreach($form_state['values']['field_activities_ent_ref'][$lang]['form']['field_results'][$lang]['entities'] as $entity_index => $entity) {
+    foreach ($entity['form']['field_result_indicator_year'][$lang] as $form_index => $field_indicator) {
+      // Skip loop if key is add_more.
+      if ($form_index === 'add_more') {
         continue;
       }
       $fiscal_year_string = $field_indicator['field_fiscal_year'][$lang][0]['value'];
       if ((6 != strlen($fiscal_year_string)) || ('FY' !== substr($fiscal_year_string, 0, 2))) {
-        form_set_error('field_activities_ent_ref][' . $lang . '][form][field_activity_indicator][' . $lang . '][' . $index .'][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+        form_set_error('field_activities_ent_ref][' . $lang . '][form][field_results][' . $lang . '][entities][' . $entity_index . '][form][field_result_indicator_year][' . $lang . '][' . $form_index .'][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
       } else {
         $fiscal_year = substr($fiscal_year_string, 2, 4);
         if (!is_numeric($fiscal_year) || (4 != strlen(trim($fiscal_year)))) {
-          form_set_error('field_activities_ent_ref][' . $lang . '][' . $index . '][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+          form_set_error('field_activities_ent_ref][' . $lang . '][form][field_results][' . $lang . '][entities][' . $entity_index . '][form][field_result_indicator_year][' . $lang . '][' . $form_index .'][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
         }
       }
     }
+  }
+
+  // This is the case where the user is editing an existing activity.
+  foreach($form_state['values']['field_activities_ent_ref'][$lang]['entities'] as $entity_index => $entity) {
+    foreach ($entity['form']['field_activity_indicator'][$lang] as $form_index => $field_indicator) {
+      // Skip loop if key is add_more.
+      if ($form_index === 'add_more') {
+        continue;
+      }
+      $fiscal_year_string = $field_indicator['field_fiscal_year'][$lang][0]['value'];
+      if ((6 != strlen($fiscal_year_string)) || ('FY' !== substr($fiscal_year_string, 0, 2))) {
+        form_set_error('field_activities_ent_ref][' . $lang . '][entities][' . $entity_index . '][form][field_activity_indicator][' . $lang . '][' . $form_index .'][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+      } else {
+        $fiscal_year = substr($fiscal_year_string, 2, 4);
+        if (!is_numeric($fiscal_year) || (4 != strlen(trim($fiscal_year)))) {
+          form_set_error('field_activities_ent_ref][' . $lang . '][entities][' . $entity_index . '][form][field_activity_indicator][' . $lang . '][' . $form_index .'][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+        }
+      }
+    }
+  }
+
+  // This is the case where the user is editing a result on an existing
+  // activity OR the case where the user is adding a result to  an existing
+  // activity.
+  foreach($form_state['values']['field_activities_ent_ref'][$lang]['entities'] as $entity_index => $entity) {
+    foreach ($entity['form']['field_results'][$lang]['form']['field_result_indicator_year'][$lang] as $form_index => $field_indicator) {
+      // Skip loop if key is add_more.
+      if ($form_index === 'add_more') {
+        continue;
+      }
+      $fiscal_year_string = $field_indicator['field_fiscal_year'][$lang][0]['value'];
+      if ((6 != strlen($fiscal_year_string)) || ('FY' !== substr($fiscal_year_string, 0, 2))) {
+        form_set_error('field_activities_ent_ref][' . $lang . '][entities][' . $entity_index . '][form][field_results][' . $lang . '][form][field_result_indicator_year][' . $lang . '][' . $form_index .'][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+      } else {
+        $fiscal_year = substr($fiscal_year_string, 2, 4);
+        if (!is_numeric($fiscal_year) || (4 != strlen(trim($fiscal_year)))) {
+          form_set_error('field_activities_ent_ref][' . $lang . '][entities][' . $entity_index . '][form][field_results][' . $lang . '][form][field_result_indicator_year][' . $lang . '][' . $form_index .'][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+        }
+      }
+    }
+  }
 }
