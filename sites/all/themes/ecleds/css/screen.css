@@ -83,11 +83,19 @@ div[class*="year"] .field-item:before {
   display: inline-block;
   width: 20px;
   height: 20px;
-  cursor: pointer; }
-  .toggle-open .toggle-icon:before {
-    content: '▾'; }
-  .toggle-closed .toggle-icon:before {
-    content: '▸'; }
+  font-size: 30px;
+  cursor: pointer;
+  position: relative;
+  top: 5px;
+}
+
+.toggle-open .toggle-icon:before {
+  content: '▾';
+}
+
+.toggle-closed .toggle-icon:before {
+  content: '▸';
+}
 
 .toggle-open,
 .toggle-closed {

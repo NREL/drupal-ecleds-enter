@@ -10,6 +10,15 @@ div.chosen-container {
   border: 1px solid #999;
 }
 
+html.js fieldset.collapsible .fieldset-legend {
+  background-image: url(../img/menu-expanded.png);
+  padding-left: 25px;
+}
+
+html.js fieldset.collapsed .fieldset-legend {
+  background-image: url(../img/menu-collapsed.png);
+}
+
 .submitted {
   text-align: right;
   margin-bottom: 1em;
