@@ -82,7 +82,6 @@ function nrel_users_secure_permissions($role) {
     ),
     'authenticated user' => array(
       'access comments',
-      'access toolbar',
       'post comments',
       'skip comment approval',
       'view field_fy14_baseline',
@@ -113,6 +112,7 @@ function nrel_users_secure_permissions($role) {
       'access environment indicator',
       'access environment indicator default_environment',
       'access environment indicator overwritten_environment',
+      'access toolbar',
       'access user profiles',
       'administer beans',
       'administer nodes',
@@ -375,6 +375,7 @@ function nrel_users_secure_permissions($role) {
     ),
     'Mission/E3 General User' => array(
       'access content',
+      'access toolbar',
       'create activity content',
       'create ecleds_implementing_mechanism content',
       'create field_activity_high_activity',
@@ -452,6 +453,7 @@ function nrel_users_secure_permissions($role) {
       'access environment indicator overwritten_environment',
       'access private fields',
       'access site in maintenance mode',
+      'access toolbar',
       'access user profiles',
       'administer beans',
       'administer menu',
