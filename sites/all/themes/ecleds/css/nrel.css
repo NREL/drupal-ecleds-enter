@@ -433,7 +433,8 @@ a.tabledrag-handle .handle {
   margin-bottom: 1em;
 }
 
-#ecleds-implementing-mechanism-node-form #edit-field-im-number {
+#ecleds-implementing-mechanism-node-form #edit-field-im-number,
+#ecleds-implementing-mechanism-node-form #edit-field-impl-mech-award-number {
   clear: both;
 }
 
