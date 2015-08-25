@@ -252,15 +252,20 @@ body.adminimal-theme #media-browser-page #fixed-branding {
   float:left;
 }
 
-.field-name-field-impl-mech-perf-end-month,
-.field-name-field-expected-completion-month,
-.field-name-field-field-exp-compl-year.no-expected-completion-month {
+.node .field-name-field-impl-mech-perf-end-month,
+.node .field-name-field-expected-completion-month,
+.node .field-name-field-field-exp-compl-year.no-expected-completion-month {
   margin-left: 40px;
 }
 
-.field-name-field-expected-completion-month.no-completion-date,
-.field-name-field-field-exp-compl-year.no-expected-completion-month.no-completion-date {
+.node .field-name-field-expected-completion-month.no-completion-date,
+.node .field-name-field-field-exp-compl-year.no-expected-completion-month.no-completion-date {
   margin-left: 0px;
+}
+
+.vertical-tabs-pane .fieldset-wrapper div.field-name-field-impl-mech-perf-end-month,
+.vertical-tabs-pane .fieldset-wrapper div.field-name-field-impl-mech-perf-start-month {
+  padding-top: 0px;
 }
 
 .node-ecleds-implementing-mechanism .field-collection-container,
