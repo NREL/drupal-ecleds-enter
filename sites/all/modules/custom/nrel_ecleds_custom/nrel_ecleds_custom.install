@@ -26,3 +26,11 @@ function nrel_ecleds_custom_update_7001() {
 function nrel_ecleds_custom_update_7002() {
   module_enable(array('ecleds_panels_feature', 'page_manager', 'panels', 'views_content', 'views_flipped_table'));
 }
+
+/**
+ * Enable Role Delegation module.
+ */
+function nrel_ecleds_custom_update_7003() {
+  module_enable(array('role_delegation'));
+}
+
