@@ -1,12 +1,12 @@
 diff --git a/sites/all/modules/contrib/wysiwyg/editors/js/ckeditor-3.0.js b/sites/all/modules/contrib/wysiwyg/editors/js/ckeditor-3.0.js
-index f288928..cd1d726 100644
+index 36e0d8c..653dd9f 100644
 --- a/sites/all/modules/contrib/wysiwyg/editors/js/ckeditor-3.0.js
 +++ b/sites/all/modules/contrib/wysiwyg/editors/js/ckeditor-3.0.js
-@@ -40,6 +40,19 @@ Drupal.wysiwyg.editor.attach.ckeditor = function(context, params, settings) {
- 
-   var $drupalToolbar = $('#toolbar', Drupal.overlayChild ? window.parent.document : document);
- 
-+  if (!settings.height) {
+@@ -45,8 +45,17 @@ Drupal.wysiwyg.editor.attach.ckeditor = function(context, params, settings) {
+
+   var $drupalToolbars = $('#toolbar, #admin-menu', Drupal.overlayChild ? window.parent.document : document);
+   if (!settings.height) {
+-    settings.height = $('#' + params.field).height();
 +    var element = $('#' + params.field)[0];
 +    if ((element.tagName.toLowerCase() == 'input') && (element.type.toLowerCase() == 'text')) {
 +      settings.height = 90;
@@ -16,9 +16,8 @@ index f288928..cd1d726 100644
 +  }
 +  if (!settings.height) {
 +    settings.height = 90;
-+  }
-+  console.log(settings.height);
-+  
+   }
++
    settings.on = {
      instanceReady: function(ev) {
        var editor = ev.editor;
