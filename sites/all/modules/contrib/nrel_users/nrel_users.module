@@ -120,6 +120,7 @@ function nrel_users_secure_permissions($role) {
       'assign E3 Content Manager role',
       'assign Mission/E3 General User role',
       'assign NREL role',
+      'bypass node access',
       'change own username',
       'create activity content',
       'create any section_description bean',
