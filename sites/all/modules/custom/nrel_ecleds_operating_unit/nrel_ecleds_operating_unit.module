@@ -557,7 +557,7 @@ function nrel_ecleds_operating_unit_milestones($node) {
   if (strlen($rendered)) {
     drupal_add_js(drupal_get_path('theme', 'ecleds') . '/js/toggle.js');
   }
-  return $rendered . $create_link;
+  return $create_link . $rendered . $create_link;
 }
 
 /**
