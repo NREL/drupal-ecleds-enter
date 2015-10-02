@@ -2791,7 +2791,7 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_status']['table'] = 'field_data_field_status';
   $handler->display->display_options['fields']['field_status']['field'] = 'field_status';
   $handler->display->display_options['fields']['field_status']['label'] = 'Status';
-  /* Field: Content: USAID/Washington Notes */
+  /* Field: Content: Notes */
   $handler->display->display_options['fields']['field_milestone_type_notes']['id'] = 'field_milestone_type_notes';
   $handler->display->display_options['fields']['field_milestone_type_notes']['table'] = 'field_data_field_milestone_type_notes';
   $handler->display->display_options['fields']['field_milestone_type_notes']['field'] = 'field_milestone_type_notes';
@@ -2964,6 +2964,14 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
+  $handler->display->display_options['style_options']['provide_file'] = 0;
+  $handler->display->display_options['style_options']['parent_sort'] = 0;
+  $handler->display->display_options['style_options']['quote'] = 1;
+  $handler->display->display_options['style_options']['trim'] = 0;
+  $handler->display->display_options['style_options']['replace_newlines'] = 0;
+  $handler->display->display_options['style_options']['header'] = 1;
+  $handler->display->display_options['style_options']['keep_html'] = 0;
+  $handler->display->display_options['style_options']['encoding'] = 'windows-1252';
   $handler->display->display_options['path'] = 'reports/milestone/milestone_export.csv';
   $handler->display->display_options['displays'] = array(
     'page' => 'page',
@@ -3022,7 +3030,7 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_nrel_ecleds_milestone_type']['id'] = 'field_nrel_ecleds_milestone_type';
   $handler->display->display_options['fields']['field_nrel_ecleds_milestone_type']['table'] = 'field_data_field_nrel_ecleds_milestone_type';
   $handler->display->display_options['fields']['field_nrel_ecleds_milestone_type']['field'] = 'field_nrel_ecleds_milestone_type';
-  /* Field: Content: USAID/Washington Notes */
+  /* Field: Content: Notes */
   $handler->display->display_options['fields']['field_milestone_type_notes']['id'] = 'field_milestone_type_notes';
   $handler->display->display_options['fields']['field_milestone_type_notes']['table'] = 'field_data_field_milestone_type_notes';
   $handler->display->display_options['fields']['field_milestone_type_notes']['field'] = 'field_milestone_type_notes';
