@@ -496,3 +496,8 @@ ul.primary li.active {
   right: 0px;
   top: -80px;
 }
+
+.page-operating-units fieldset,
+.page-countries fieldset {
+  border-top: 1px solid #ddd;
+}
