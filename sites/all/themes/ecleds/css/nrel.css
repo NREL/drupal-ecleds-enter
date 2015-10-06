@@ -348,6 +348,11 @@ body.adminimal-theme #media-browser-page #fixed-branding {
   padding: 8px 10px;
 }
 
+.view-nrel-ecleds-country-list.view-display-id-page .views-row:hover,
+.view-operating-units.view-display-id-page .views-row:hover {
+    background: #ffffbf none repeat scroll 0 0;
+}
+
 .view-dashboard-report.view-id-dashboard_report h3,
 .view-nrel-ecleds-country-list.view-display-id-page h3,
 .view-operating-units.view-display-id-page h3 {
