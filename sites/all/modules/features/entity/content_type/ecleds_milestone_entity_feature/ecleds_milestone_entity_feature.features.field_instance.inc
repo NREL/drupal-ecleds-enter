@@ -23,7 +23,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 9,
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -49,7 +49,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 13,
+      'weight' => 12,
     ),
   );
 
@@ -66,7 +66,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number_unformatted',
-        'weight' => 11,
+        'weight' => 10,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -109,7 +109,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number_unformatted',
-        'weight' => 12,
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -199,7 +199,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number_unformatted',
-        'weight' => 13,
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -243,7 +243,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number_unformatted',
-        'weight' => 14,
+        'weight' => 13,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -355,7 +355,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
         'label_help_description' => 'Checking \'Yes\' means that the Milestone will no longer be editable by Mission users.',
       ),
       'type' => 'options_buttons',
-      'weight' => 19,
+      'weight' => 17,
     ),
   );
 
@@ -371,7 +371,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
         'module' => 'file',
         'settings' => array(),
         'type' => 'file_default',
-        'weight' => 10,
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -399,7 +399,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 14,
+      'weight' => 13,
     ),
   );
 
@@ -520,7 +520,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 14,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -546,7 +546,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 7,
+      'weight' => 16,
     ),
   );
 
@@ -562,7 +562,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 8,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -588,7 +588,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 12,
+      'weight' => 11,
     ),
   );
 
@@ -605,7 +605,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 5,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -629,7 +629,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 9,
+      'weight' => 8,
     ),
   );
 
@@ -649,7 +649,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 6,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -681,7 +681,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 10,
+      'weight' => 9,
     ),
   );
 
@@ -698,7 +698,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 4,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -722,7 +722,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 8,
+      'weight' => 7,
     ),
   );
 
@@ -738,7 +738,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 7,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -762,7 +762,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
         'label_help_description' => '',
       ),
       'type' => 'options_select',
-      'weight' => 11,
+      'weight' => 10,
     ),
   );
 
