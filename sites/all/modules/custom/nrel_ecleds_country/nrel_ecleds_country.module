@@ -275,12 +275,25 @@ function nrel_ecleds_country_menu_local_tasks_alter(&$data, $router_item, $root_
 }
 
 /**
- * Add parent entity to breadcrumb under Home.
+ * Add parent entity to breadcrumb under Home using a wrapper on an existing
+ * node.
  * @param $wrapper
  * @param $url
  */
 function nrel_ecleds_breadcrumb($wrapper, $url) {
   $title = $wrapper->label();
+  $breadcrumb = drupal_get_breadcrumb();
+  array_splice($breadcrumb, 1, 0, l($title, $url));
+  drupal_set_breadcrumb($breadcrumb);
+}
+
+/**
+ * Add parent entity to breadcrumb under Home using an existing node.
+ * @param $node
+ * @param $url
+ */
+function nrel_ecleds_breadcrumb_node($node, $url) {
+  $title = $node->title;
   $breadcrumb = drupal_get_breadcrumb();
   array_splice($breadcrumb, 1, 0, l($title, $url));
   drupal_set_breadcrumb($breadcrumb);
