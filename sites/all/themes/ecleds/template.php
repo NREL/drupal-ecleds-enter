@@ -94,6 +94,13 @@ function ecleds_preprocess_field(&$vars, $hook) {
   }
 }
 
+function ecleds_preprocess_html(&$variables) {
+  if (!$variables['logged_in']) {
+    $variables['head_title'] = t('Welcome to the EC-LEDS database | EC LEDS');
+    $variables['head_title_array']['title'] = t('Welcome to the EC-LEDS database');
+  }
+}
+
 /**
  * Processes variables for node.tpl.php
  */
@@ -101,6 +108,12 @@ function ecleds_preprocess_node(&$variables) {
   if (!empty($variables['submitted'])) {
     $variables['submitted'] = '<em><strong>' . t('Author:') .  '</strong>' . ' ' . $variables['name'];
     $variables['submitted'] .= ', <strong>' . t('Date revised:') . '</strong>' . ' ' . format_date($variables['changed'], 'short') . '</em>';
+  }
+}
+
+function ecleds_preprocess_page(&$variables) {
+  if (!$variables['logged_in']) {
+    $variables['title'] = t('WELCOME TO THE EC-LEDS DATABASE!!');
   }
 }
 

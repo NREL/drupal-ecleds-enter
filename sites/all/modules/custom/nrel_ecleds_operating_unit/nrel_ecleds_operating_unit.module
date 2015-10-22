@@ -357,24 +357,28 @@ function nrel_ecleds_operating_unit_node_validate($node, $form, &$form_state) {
         continue;
       }
       $fiscal_year_string = $field_indicator['field_fiscal_year'][$lang][0]['value'];
-      if ((6 != strlen($fiscal_year_string)) || ('FY' !== substr($fiscal_year_string, 0, 2))) {
-        form_set_error('field_activity_indicator][' . $lang . '][' . $index . '][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
-      } else {
-        $fiscal_year = substr($fiscal_year_string, 2, 4);
-        if (!is_numeric($fiscal_year) || (4 != strlen(trim($fiscal_year)))) {
+      if (0 != strlen($fiscal_year_string)) {
+        if ((6 != strlen($fiscal_year_string)) || ('FY' !== substr($fiscal_year_string, 0, 2))) {
           form_set_error('field_activity_indicator][' . $lang . '][' . $index . '][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+        } else {
+          $fiscal_year = substr($fiscal_year_string, 2, 4);
+          if (!is_numeric($fiscal_year) || (4 != strlen(trim($fiscal_year)))) {
+            form_set_error('field_activity_indicator][' . $lang . '][' . $index . '][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+          }
         }
       }
     }
   } else if ('ppr' == $node->type) {
     $lang = $node->language;
     $fiscal_year_string = $form_state['values']['field_fiscal_year'][$lang][0]['value'];
-    if ((6 != strlen($fiscal_year_string)) || ('FY' !== substr($fiscal_year_string, 0, 2))) {
-      form_set_error('field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
-    } else {
-      $fiscal_year = substr($fiscal_year_string, 2, 4);
-      if (!is_numeric($fiscal_year) || (4 != strlen(trim($fiscal_year)))) {
+    if (0 != strlen($fiscal_year_string)) {
+      if ((6 != strlen($fiscal_year_string)) || ('FY' !== substr($fiscal_year_string, 0, 2))) {
         form_set_error('field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+      } else {
+        $fiscal_year = substr($fiscal_year_string, 2, 4);
+        if (!is_numeric($fiscal_year) || (4 != strlen(trim($fiscal_year)))) {
+          form_set_error('field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+        }
       }
     }
   } else if ('ecleds_results' == $node->type) {
@@ -385,12 +389,14 @@ function nrel_ecleds_operating_unit_node_validate($node, $form, &$form_state) {
         continue;
       }
       $fiscal_year_string = $field_indicator['field_fiscal_year'][$lang][0]['value'];
-      if ((6 != strlen($fiscal_year_string)) || ('FY' !== substr($fiscal_year_string, 0, 2))) {
-        form_set_error('field_result_indicator_year][' . $lang . '][' . $index . '][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
-      } else {
-        $fiscal_year = substr($fiscal_year_string, 2, 4);
-        if (!is_numeric($fiscal_year) || (4 != strlen(trim($fiscal_year)))) {
+      if (0 != strlen($fiscal_year_string)) {
+        if ((6 != strlen($fiscal_year_string)) || ('FY' !== substr($fiscal_year_string, 0, 2))) {
           form_set_error('field_result_indicator_year][' . $lang . '][' . $index . '][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+        } else {
+          $fiscal_year = substr($fiscal_year_string, 2, 4);
+          if (!is_numeric($fiscal_year) || (4 != strlen(trim($fiscal_year)))) {
+            form_set_error('field_result_indicator_year][' . $lang . '][' . $index . '][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+          }
         }
       }
     }
@@ -402,12 +408,14 @@ function nrel_ecleds_operating_unit_node_validate($node, $form, &$form_state) {
         continue;
       }
       $fiscal_year_string = $field_indicator['field_fiscal_year'][$lang][0]['value'];
-      if ((6 != strlen($fiscal_year_string)) || ('FY' !== substr($fiscal_year_string, 0, 2))) {
-        form_set_error('field_im_funding_pillar][' . $lang . '][' . $index . '][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
-      } else {
-        $fiscal_year = substr($fiscal_year_string, 2, 4);
-        if (!is_numeric($fiscal_year) || (4 != strlen(trim($fiscal_year)))) {
+      if (0 != strlen($fiscal_year_string)) {
+        if ((6 != strlen($fiscal_year_string)) || ('FY' !== substr($fiscal_year_string, 0, 2))) {
           form_set_error('field_im_funding_pillar][' . $lang . '][' . $index . '][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+        } else {
+          $fiscal_year = substr($fiscal_year_string, 2, 4);
+          if (!is_numeric($fiscal_year) || (4 != strlen(trim($fiscal_year)))) {
+            form_set_error('field_im_funding_pillar][' . $lang . '][' . $index . '][field_fiscal_year', t('The fiscal year must be in the form "FY####".'));
+          }
         }
       }
     }
@@ -549,7 +557,7 @@ function nrel_ecleds_operating_unit_milestones($node) {
   if (strlen($rendered)) {
     drupal_add_js(drupal_get_path('theme', 'ecleds') . '/js/toggle.js');
   }
-  return $rendered . $create_link;
+  return $create_link . $rendered . $create_link;
 }
 
 /**

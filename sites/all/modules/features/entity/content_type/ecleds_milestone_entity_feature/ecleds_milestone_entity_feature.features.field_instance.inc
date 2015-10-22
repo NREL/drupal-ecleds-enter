@@ -532,7 +532,7 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_milestone_type_notes',
-    'label' => 'USAID/Washington Notes',
+    'label' => 'Notes',
     'required' => 0,
     'settings' => array(
       'text_processing' => 1,
@@ -873,10 +873,10 @@ function ecleds_milestone_entity_feature_field_default_field_instances() {
   t('Milestone Status');
   t('Milestone Status Description');
   t('Month');
+  t('Notes');
   t('Operating Unit');
   t('Target Fiscal Year');
   t('Type');
-  t('USAID/Washington Notes');
   t('Year');
 
   return $field_instances;

@@ -844,7 +844,9 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     'widget' => array(
       'active' => 0,
       'module' => 'number',
-      'settings' => array(),
+      'settings' => array(
+        'label_help_description' => '##',
+      ),
       'type' => 'number',
       'weight' => 19,
     ),
@@ -893,7 +895,9 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     'widget' => array(
       'active' => 0,
       'module' => 'number',
-      'settings' => array(),
+      'settings' => array(
+        'label_help_description' => '####',
+      ),
       'type' => 'number',
       'weight' => 20,
     ),
@@ -942,7 +946,9 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     'widget' => array(
       'active' => 0,
       'module' => 'number',
-      'settings' => array(),
+      'settings' => array(
+        'label_help_description' => '##',
+      ),
       'type' => 'number',
       'weight' => 15,
     ),
@@ -991,7 +997,9 @@ function ecleds_implementing_mechanism_feature_field_default_field_instances() {
     'widget' => array(
       'active' => 0,
       'module' => 'number',
-      'settings' => array(),
+      'settings' => array(
+        'label_help_description' => '####',
+      ),
       'type' => 'number',
       'weight' => 16,
     ),
