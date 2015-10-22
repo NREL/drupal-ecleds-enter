@@ -74,9 +74,6 @@ if (isset($_SERVER['WWW_NREL']) || PHP_SAPI === 'cli') {
 // Set the maintenance theme.
 $conf['maintenance_theme'] = 'ecleds';
 
-?>
-
-<?php
 /**
  * Load local development override configuration, if available.
  *
