@@ -1,21 +1,6 @@
 #Ignore configuration files that may contain sensitive information.
 sites/*/settings.local.php
 
-#Ignore text files
-*.txt
-
-#Ignore xmlrpc.php (there is no XML-RPC functionality required on this site)
-xmlrpc.php
- 
-#Ignore IIS web.config
-web.config
-
-#Ignored install.php 
-install.php
-
-#Ignore non-core files
-codekit-config.json
-
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
@@ -26,4 +11,3 @@ sites/*/modules/contrib/devel
 sites/*/modules/contrib/devel_themer
 sites/*/modules/contrib/masquerade
 sites/*/modules/contrib/schema
-sites/*/modules/contrib/styleguide
