@@ -45,6 +45,7 @@ if (isset($_SERVER['WWW_NREL']) || PHP_SAPI === 'cli') {
     if (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on') {
       $base_url = 'https://';
       ini_set('session.cookie_secure', 1);
+      ini_set('session.cookie_httponly', 1);
     }
     else {
       $base_url = 'http://';
