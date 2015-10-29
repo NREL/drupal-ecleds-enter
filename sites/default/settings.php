@@ -54,6 +54,13 @@ if (isset($_SERVER['WWW_NREL']) || PHP_SAPI === 'cli') {
     $conf['reroute_email_enable_message'] = 0;
 
     switch($_SERVER['WWW_NREL']) {
+      case 'INT':
+        $base_url .= 'ecleds-enter-int.nrel.gov';
+        $conf['reroute_email_enable'] = 1;
+        $conf['environment_indicator_overwritten_name'] = 'Int';
+        $conf['environment_indicator_overwritten_color'] = '#3254ed';
+        break;
+
       case 'TEST':
         $base_url .= 'ecleds-enter-test.nrel.gov';
         $conf['reroute_email_enable'] = 1;
@@ -66,6 +73,13 @@ if (isset($_SERVER['WWW_NREL']) || PHP_SAPI === 'cli') {
         $conf['reroute_email_enable'] = 0;
         $conf['environment_indicator_overwritten_name'] = 'Production';
         $conf['environment_indicator_overwritten_color'] = '#0b3d60';
+        break;
+
+      case 'STAGE':
+        $base_url .= 'ecleds-enter-stage.nrel.gov';
+        $conf['reroute_email_enable'] = 1;
+        $conf['environment_indicator_overwritten_name'] = 'Stage';
+        $conf['environment_indicator_overwritten_color'] = '#3254ed';
         break;
     }
   }
