@@ -2,7 +2,7 @@
 
 /**
  * @file
- * settings.php for ecleds
+ * settings.php for enter.ecleds
  *
  * Programmatically generate settings.php from script.
  * https://github.nrel.gov/dhaley/drupal_scripts.
@@ -47,7 +47,7 @@ if (isset($_SERVER['WWW_NREL']) || PHP_SAPI === 'cli') {
     $conf['reroute_email_enable_message'] = 0;
     switch ($_SERVER['WWW_NREL']) {
       case 'INT':
-        $base_url .= 'ecleds-int.nrel.gov';
+        $base_url .= 'enter.ecleds-int.nrel.gov';
         $conf['reroute_email_enable'] = 1;
         $conf['error_level'] = '2';
         $conf['environment_indicator_overwritten_name'] = 'int';
@@ -55,7 +55,7 @@ if (isset($_SERVER['WWW_NREL']) || PHP_SAPI === 'cli') {
         break;
 
       case 'TEST':
-        $base_url .= 'ecleds-test.nrel.gov';
+        $base_url .= 'enter.ecleds-test.nrel.gov';
         $conf['error_level'] = '0';
         $conf['preprocess_css'] = '1';
         $conf['preprocess_js'] = '1';
@@ -67,7 +67,7 @@ if (isset($_SERVER['WWW_NREL']) || PHP_SAPI === 'cli') {
         break;
 
       case 'STAGE':
-        $base_url .= 'ecleds-stage.nrel.gov';
+        $base_url .= 'enter.ecleds-stage.nrel.gov';
         $conf['error_level'] = '0';
         $conf['preprocess_css'] = '1';
         $conf['preprocess_js'] = '1';
@@ -79,7 +79,7 @@ if (isset($_SERVER['WWW_NREL']) || PHP_SAPI === 'cli') {
         break;
 
       case 'POC':
-        $base_url .= 'ecleds-poc.nrel.gov';
+        $base_url .= 'enter.ecleds-poc.nrel.gov';
         $conf['error_level'] = '0';
         $conf['preprocess_css'] = '1';
         $conf['preprocess_js'] = '1';
@@ -91,7 +91,7 @@ if (isset($_SERVER['WWW_NREL']) || PHP_SAPI === 'cli') {
         break;
 
       case 'PROD':
-        $base_url .= 'ec-leds.org';
+        $base_url .= 'enter.ec-leds.org';
         $conf['reroute_email_enable'] = 0;
         $conf['error_level'] = '0';
         $conf['preprocess_css'] = '1';
