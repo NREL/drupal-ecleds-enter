@@ -348,6 +348,11 @@ body.adminimal-theme #media-browser-page #fixed-branding {
   padding: 8px 10px;
 }
 
+.view-nrel-ecleds-country-list.view-display-id-page .views-row:hover,
+.view-operating-units.view-display-id-page .views-row:hover {
+    background: #ffffbf none repeat scroll 0 0;
+}
+
 .view-dashboard-report.view-id-dashboard_report h3,
 .view-nrel-ecleds-country-list.view-display-id-page h3,
 .view-operating-units.view-display-id-page h3 {
@@ -415,6 +420,24 @@ body.adminimal-theme #media-browser-page #fixed-branding {
 .view-indicator-report .feed-icon a:hover {
   text-decoration: none;
   background-color: #0a6700;
+}
+
+.view-milestone-report #edit-field-nrel-ecleds-milestone-ben-value {
+  width: 240px;
+}
+
+.view-milestone-report #edit-field-nrel-ecleds-milestone-type-value {
+  width: 260px;
+}
+
+.view-milestone-report #edit-field-nrel-ecleds-milestone-cat-target-id-wrapper {
+  clear: left;
+}
+
+.view-milestone-report #edit-field-nrel-ecleds-milestone-cat-target-id-wrapper,
+.view-milestone-report #edit-field-target-fiscal-year-value-wrapper,
+.view-milestone-report #edit-field-status-value-wrapper {
+  margin-top: 1em;
 }
 
 /* At client request hide the "show row weights" on draggable tables */
@@ -495,4 +518,9 @@ ul.primary li.active {
   position: absolute;
   right: 0px;
   top: -80px;
+}
+
+.page-operating-units fieldset,
+.page-countries fieldset {
+  border-top: 1px solid #ddd;
 }

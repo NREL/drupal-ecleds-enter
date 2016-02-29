@@ -48,7 +48,7 @@ function ecleds_milestone_entity_feature_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Completion Date',
-    'weight' => '15',
+    'weight' => '14',
     'children' => array(
       0 => 'field_completion_year',
       1 => 'field_completion_month',
@@ -103,7 +103,7 @@ function ecleds_milestone_entity_feature_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Expected Completion Date',
-    'weight' => '16',
+    'weight' => '15',
     'children' => array(
       0 => 'field_field_exp_compl_year',
       1 => 'field_expected_completion_month',

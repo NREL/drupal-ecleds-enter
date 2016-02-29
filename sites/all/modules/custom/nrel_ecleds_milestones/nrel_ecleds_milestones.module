@@ -48,6 +48,45 @@ function nrel_ecleds_milestones_form_views_exposed_form_alter(&$form, &$form_sta
     $form['field_milestone_operating_unit_target_id']['#options'] =
       _field_nrel_ecleds_milestone_operating_unit_options();
   }
+  if (isset($form['field_nrel_ecleds_milestone_ben_value'])) {
+    $attributes = !empty($form['field_nrel_ecleds_milestone_ben_value']['#attributes']) ? $form['field_nrel_ecleds_milestone_ben_value']['#attributes'] : array();
+    $form['field_nrel_ecleds_milestone_ben_value']['#attributes'] = array(
+      'data-placeholder' => t('Select one or more Benchmarks'),
+    ) + $attributes;
+  }
+  if (isset($form['field_nrel_ecleds_milestone_type_value'])) {
+    $attributes = !empty($form['field_nrel_ecleds_milestone_type_value']['#attributes']) ? $form['field_nrel_ecleds_milestone_type_value']['#attributes'] : array();
+    $form['field_nrel_ecleds_milestone_type_value']['#attributes'] = array(
+      'data-placeholder' => t('Select one or more Milestone Types'),
+    ) + $attributes;
+  }
+  if (isset($form['field_status_value'])) {
+    $attributes = !empty($form['field_status_value']['#attributes']) ? $form['field_status_value']['#attributes'] : array();
+    $form['field_status_value']['#attributes'] = array(
+      'data-placeholder' => t('Select one or more Statuses'),
+    ) + $attributes;
+  }
+}
+
+/**
+ * Implements hook_init().
+ */
+function nrel_ecleds_milestones_form_alter(&$form, &$form_state, $form_id) {
+  if ('nrel_ecleds_milestone_node_form' == $form_id) {
+    // Milestones must be added from within the context of an OU. Look for an
+    // empty default value on the OU entity ref field - the entity ref
+    // pre-populate module will have done some pre-processing of the form. If
+    // it's empty, then either there is no OU specified via the URL, or the
+    // specified OU is invalid (entity ref prepopulate could find an allowed
+    // entity ref to the specified nid). The action for this case is
+    // configurable in the milestone OU field, but we are going to override this
+    // action and completely disable access to the form.
+    $lang = $form['field_milestone_operating_unit']['#language'];
+    if (empty($form['field_milestone_operating_unit'][$lang][0]['target_id']['#default_value'])) {
+      drupal_set_message(t('You can not add a Milestone without specifying an Operating Unit. Please go to the Milestone tab of an Operating Unit and click the "Add Milestone" button.'), 'error');
+      $form['#access'] = FALSE;
+    } 
+  }
 }
 
 /**

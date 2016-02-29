@@ -175,11 +175,11 @@ function nrel_ecleds_operating_unit_menu_local_tasks_alter(&$data, $router_item,
     is_string($router_item['page_arguments'][0]) &&
     in_array($router_item['page_arguments'][0], array_keys($operating_unit_fields))) {
     $params = drupal_get_query_parameters();
-    //$wrapper = entity_metadata_wrapper('node', $router_item['page_arguments'][0]);
     $operating_unit_nid = $params[$operating_unit_fields[$router_item['page_arguments'][0]]];
     if (!empty($operating_unit_nid)) {
+      $node = node_load($params[$operating_unit_fields[$router_item['page_arguments'][0]]]);
       $operating_unit_url = drupal_get_path_alias('node/' . $operating_unit_nid);
-      //nrel_ecleds_breadcrumb($wrapper->{$operating_unit_field}, $operating_unit_url);
+      nrel_ecleds_breadcrumb_node($node, $operating_unit_url);
       _nrel_ecleds_operating_unit_tabs($data, $operating_unit_nid, $operating_unit_url);
     }
   }
