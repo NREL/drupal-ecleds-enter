@@ -1,24 +1,18 @@
 <?php
 
+/**
+ * @file
+ * settings.php for enter.ecleds
+ *
+ * Programmatically generate settings.php from script.
+ * https://github.nrel.gov/dhaley/drupal_scripts.
+ *
+ * Database settings should be put in settings.local.php.  Settings.local.php
+ * should never be checked into git because it contains passwords.
+ */
+
 $update_free_access = FALSE;
-
-ini_set('arg_separator.output',     '&amp;');
-ini_set('magic_quotes_runtime',     0);
-ini_set('magic_quotes_sybase',      0);
-ini_set('session.cache_expire',     200000);
-ini_set('session.cache_limiter',    'none');
-ini_set('session.cookie_lifetime',  172800);
-ini_set('session.gc_maxlifetime',   200000);
-ini_set('session.save_handler',     'user');
-ini_set('session.use_cookies',      1);
-ini_set('session.use_only_cookies', 1);
-ini_set('session.use_trans_sid',    0);
-ini_set('url_rewriter.tags',        '');
-
-$drupal_hash_salt = 'GvklU4cft21_AlPXdwV5kxeDOwHG_gEGaSHijyTCd_8';
-$conf['image_allow_insecure_derivatives'] = TRUE;
-
-$conf['environment_indicator_overwrite'] = TRUE;
+$drupal_hash_salt = 'Rn_oW6Q42NFoPQ52gq9NZwDYry7Bn_tWqUv3B0Gu96f';
 
 // Set up environment specific variables for www_nrel.
 // If www_nrel env isset or php executed through cli (drush).
@@ -37,10 +31,8 @@ if (isset($_SERVER['WWW_NREL']) || PHP_SAPI === 'cli') {
     // If forwarded from the WAF.
     if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
       $_SERVER['HTTPS'] = 'On';
-      $conf = array(
-        'reverse_proxy' => TRUE,
-        'reverse_proxy_addresses' => array('192.174.58.16', '192.174.58.17'),
-      );
+      $conf['reverse_proxy'] = TRUE;
+      $conf['reverse_proxy_addresses'] = array('192.174.58.16', '192.174.58.17');
     }
     if (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on') {
       $base_url = 'https://';
@@ -51,43 +43,69 @@ if (isset($_SERVER['WWW_NREL']) || PHP_SAPI === 'cli') {
       $base_url = 'http://';
     }
 
-    $conf['reroute_email_address'] = "DrupalAdmin@nrel.gov";
+    $conf['reroute_email_address'] = 'DrupalAdmin@nrel.gov';
     $conf['reroute_email_enable_message'] = 0;
-
-    switch($_SERVER['WWW_NREL']) {
+    switch ($_SERVER['WWW_NREL']) {
       case 'INT':
-        $base_url .= 'ecleds-enter-int.nrel.gov';
+        $base_url .= 'enter.ecleds-int.nrel.gov';
         $conf['reroute_email_enable'] = 1;
-        $conf['environment_indicator_overwritten_name'] = 'Int';
+        $conf['error_level'] = '2';
+        $conf['environment_indicator_overwritten_name'] = 'int';
         $conf['environment_indicator_overwritten_color'] = '#3254ed';
         break;
 
       case 'TEST':
-        $base_url .= 'ecleds-enter-test.nrel.gov';
-        $conf['reroute_email_enable'] = 1;
-        $conf['environment_indicator_overwritten_name'] = 'Test';
+        $base_url .= 'enter.ecleds-test.nrel.gov';
+        $conf['error_level'] = '0';
+        $conf['preprocess_css'] = '1';
+        $conf['preprocess_js'] = '1';
+        $conf['cache'] = '1';
+        $conf['page_compression'] = '1';
+        $conf['block_cache'] = '1';
+        $conf['environment_indicator_overwritten_name'] = 'test';
+        $conf['environment_indicator_overwritten_color'] = '#3254ed';
+        break;
+
+      case 'STAGE':
+        $base_url .= 'enter.ecleds-stage.nrel.gov';
+        $conf['error_level'] = '0';
+        $conf['preprocess_css'] = '1';
+        $conf['preprocess_js'] = '1';
+        $conf['cache'] = '1';
+        $conf['page_compression'] = '1';
+        $conf['block_cache'] = '1';
+        $conf['environment_indicator_overwritten_name'] = 'stage';
+        $conf['environment_indicator_overwritten_color'] = '#3254ed';
+        break;
+
+      case 'POC':
+        $base_url .= 'enter.ecleds-poc.nrel.gov';
+        $conf['error_level'] = '0';
+        $conf['preprocess_css'] = '1';
+        $conf['preprocess_js'] = '1';
+        $conf['cache'] = '1';
+        $conf['page_compression'] = '1';
+        $conf['block_cache'] = '1';
+        $conf['environment_indicator_overwritten_name'] = 'poc';
         $conf['environment_indicator_overwritten_color'] = '#3254ed';
         break;
 
       case 'PROD':
         $base_url .= 'enter.ec-leds.org';
         $conf['reroute_email_enable'] = 0;
-        $conf['environment_indicator_overwritten_name'] = 'Production';
+        $conf['error_level'] = '0';
+        $conf['preprocess_css'] = '1';
+        $conf['preprocess_js'] = '1';
+        $conf['cache'] = '1';
+        $conf['page_compression'] = '1';
+        $conf['block_cache'] = '1';
+        $conf['environment_indicator_overwritten_name'] = 'poc';
         $conf['environment_indicator_overwritten_color'] = '#0b3d60';
         break;
 
-      case 'STAGE':
-        $base_url .= 'ecleds-enter-stage.nrel.gov';
-        $conf['reroute_email_enable'] = 1;
-        $conf['environment_indicator_overwritten_name'] = 'Stage';
-        $conf['environment_indicator_overwritten_color'] = '#3254ed';
-        break;
     }
   }
 }
-
-// Set the maintenance theme.
-$conf['maintenance_theme'] = 'ecleds';
 
 /**
  * Load local development override configuration, if available.
@@ -100,5 +118,5 @@ $conf['maintenance_theme'] = 'ecleds';
  * Keep this code block at the end of this file to take full effect.
  */
 if (file_exists(__DIR__ . '/settings.local.php')) {
- include __DIR__ . '/settings.local.php';
+  include __DIR__ . '/settings.local.php';
 }

@@ -1997,101 +1997,101 @@ function ecleds_views_feature_views_default_views() {
     'field_fy14_results_explanation' => 'field_fy14_results_explanation',
     'field_fy15_results_explanation' => 'field_fy15_results_explanation',
   );
-  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['default'] = 'field_activity_operating_unit';
   $handler->display->display_options['style_options']['info'] = array(
     'field_activity_operating_unit' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'title' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_impl_mech_award_number' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_gcc_standard_indicator' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_fy14_baseline' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_fy14_target' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_fy14_results' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_fy15_results' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_fy15_target' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_fy16_target' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_fy17_target' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_fy18_target' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_fy14_results_explanation' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_fy15_results_explanation' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
@@ -2269,8 +2269,8 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
-  $handler->display->display_options['style_options']['provide_file'] = 0;
-  $handler->display->display_options['style_options']['parent_sort'] = 0;
+  $handler->display->display_options['style_options']['provide_file'] = 1;
+  $handler->display->display_options['style_options']['parent_sort'] = 1;
   $handler->display->display_options['style_options']['quote'] = 1;
   $handler->display->display_options['style_options']['trim'] = 0;
   $handler->display->display_options['style_options']['replace_newlines'] = 0;
@@ -2628,88 +2628,96 @@ function ecleds_views_feature_views_default_views() {
     'field_nrel_ecleds_milestone_ben' => 'field_nrel_ecleds_milestone_ben',
     'field_status' => 'field_status',
     'field_milestone_type_notes' => 'field_milestone_type_notes',
+    'field_milestone_cleared' => 'field_milestone_cleared',
   );
-  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['default'] = 'title';
   $handler->display->display_options['style_options']['info'] = array(
     'title' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_target_fiscal_year' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_milestone_operating_unit' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_ecleds_milestone_country' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_completion_month' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_completion_year' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_milestone_description' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_nrel_ecleds_milestone_cat' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_nrel_ecleds_milestone_type' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_nrel_ecleds_milestone_ben' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_status' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_milestone_type_notes' => array(
-      'sortable' => 0,
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_milestone_cleared' => array(
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
@@ -2808,11 +2816,6 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_milestone_cleared']['table'] = 'field_data_field_milestone_cleared';
   $handler->display->display_options['fields']['field_milestone_cleared']['field'] = 'field_milestone_cleared';
   $handler->display->display_options['fields']['field_milestone_cleared']['element_label_colon'] = FALSE;
-  /* Sort criterion: Content: Title */
-  $handler->display->display_options['sorts']['title']['id'] = 'title';
-  $handler->display->display_options['sorts']['title']['table'] = 'node';
-  $handler->display->display_options['sorts']['title']['field'] = 'title';
-  $handler->display->display_options['sorts']['title']['order'] = 'DESC';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -2835,7 +2838,7 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['filters']['field_milestone_operating_unit_target_id']['group'] = 1;
   $handler->display->display_options['filters']['field_milestone_operating_unit_target_id']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_milestone_operating_unit_target_id']['expose']['operator_id'] = 'field_milestone_operating_unit_target_id_op';
-  $handler->display->display_options['filters']['field_milestone_operating_unit_target_id']['expose']['label'] = 'Operating Unit';
+  $handler->display->display_options['filters']['field_milestone_operating_unit_target_id']['expose']['label'] = 'Operating Units';
   $handler->display->display_options['filters']['field_milestone_operating_unit_target_id']['expose']['operator'] = 'field_milestone_operating_unit_target_id_op';
   $handler->display->display_options['filters']['field_milestone_operating_unit_target_id']['expose']['identifier'] = 'field_milestone_operating_unit_target_id';
   $handler->display->display_options['filters']['field_milestone_operating_unit_target_id']['expose']['multiple'] = TRUE;
@@ -2854,13 +2857,17 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['filters']['field_nrel_ecleds_milestone_ben_value']['group'] = 1;
   $handler->display->display_options['filters']['field_nrel_ecleds_milestone_ben_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_nrel_ecleds_milestone_ben_value']['expose']['operator_id'] = 'field_nrel_ecleds_milestone_ben_value_op';
-  $handler->display->display_options['filters']['field_nrel_ecleds_milestone_ben_value']['expose']['label'] = 'Benchmark';
+  $handler->display->display_options['filters']['field_nrel_ecleds_milestone_ben_value']['expose']['label'] = 'Benchmarks';
   $handler->display->display_options['filters']['field_nrel_ecleds_milestone_ben_value']['expose']['operator'] = 'field_nrel_ecleds_milestone_ben_value_op';
   $handler->display->display_options['filters']['field_nrel_ecleds_milestone_ben_value']['expose']['identifier'] = 'field_nrel_ecleds_milestone_ben_value';
+  $handler->display->display_options['filters']['field_nrel_ecleds_milestone_ben_value']['expose']['multiple'] = TRUE;
   $handler->display->display_options['filters']['field_nrel_ecleds_milestone_ben_value']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
+    10 => 0,
+    11 => 0,
+    12 => 0,
   );
   /* Filter criterion: Content: Type (field_nrel_ecleds_milestone_type) */
   $handler->display->display_options['filters']['field_nrel_ecleds_milestone_type_value']['id'] = 'field_nrel_ecleds_milestone_type_value';
@@ -2869,14 +2876,17 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['filters']['field_nrel_ecleds_milestone_type_value']['group'] = 1;
   $handler->display->display_options['filters']['field_nrel_ecleds_milestone_type_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_nrel_ecleds_milestone_type_value']['expose']['operator_id'] = 'field_nrel_ecleds_milestone_type_value_op';
-  $handler->display->display_options['filters']['field_nrel_ecleds_milestone_type_value']['expose']['label'] = 'Milestone Type';
+  $handler->display->display_options['filters']['field_nrel_ecleds_milestone_type_value']['expose']['label'] = 'Milestone Types';
   $handler->display->display_options['filters']['field_nrel_ecleds_milestone_type_value']['expose']['operator'] = 'field_nrel_ecleds_milestone_type_value_op';
   $handler->display->display_options['filters']['field_nrel_ecleds_milestone_type_value']['expose']['identifier'] = 'field_nrel_ecleds_milestone_type_value';
+  $handler->display->display_options['filters']['field_nrel_ecleds_milestone_type_value']['expose']['multiple'] = TRUE;
   $handler->display->display_options['filters']['field_nrel_ecleds_milestone_type_value']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
-    4 => 0,
+    10 => 0,
+    11 => 0,
+    12 => 0,
   );
   /* Filter criterion: Content: Milestone Category (field_nrel_ecleds_milestone_cat) */
   $handler->display->display_options['filters']['field_nrel_ecleds_milestone_cat_target_id']['id'] = 'field_nrel_ecleds_milestone_cat_target_id';
@@ -2951,11 +2961,14 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['filters']['field_status_value']['expose']['label'] = 'Milestone Status';
   $handler->display->display_options['filters']['field_status_value']['expose']['operator'] = 'field_status_value_op';
   $handler->display->display_options['filters']['field_status_value']['expose']['identifier'] = 'field_status_value';
+  $handler->display->display_options['filters']['field_status_value']['expose']['multiple'] = TRUE;
   $handler->display->display_options['filters']['field_status_value']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
-    4 => 0,
+    10 => 0,
+    11 => 0,
+    12 => 0,
   );
 
   /* Display: Page */
@@ -2972,14 +2985,15 @@ function ecleds_views_feature_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
-  $handler->display->display_options['style_options']['provide_file'] = 0;
-  $handler->display->display_options['style_options']['parent_sort'] = 0;
+  $handler->display->display_options['style_options']['provide_file'] = 1;
+  $handler->display->display_options['style_options']['parent_sort'] = 1;
   $handler->display->display_options['style_options']['quote'] = 1;
   $handler->display->display_options['style_options']['trim'] = 0;
   $handler->display->display_options['style_options']['replace_newlines'] = 0;
   $handler->display->display_options['style_options']['header'] = 1;
   $handler->display->display_options['style_options']['keep_html'] = 0;
   $handler->display->display_options['style_options']['encoding'] = 'windows-1252';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
   $handler->display->display_options['path'] = 'reports/milestone/milestone_export.csv';
   $handler->display->display_options['displays'] = array(
     'page' => 'page',
