@@ -1,0 +1,4 @@
+name = Factory
+description = Syntactic Sugar for defining cotent types and fields in code.
+core = 7.x
+package = Aten

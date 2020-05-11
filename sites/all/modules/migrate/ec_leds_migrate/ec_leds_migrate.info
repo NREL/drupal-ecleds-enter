@@ -1,0 +1,19 @@
+name = EC LEDS migrate
+description = "Auto-generated normalized migration via normi.module"
+package = Migration
+core = 7.x
+
+dependencies[] = migrate
+
+files[] = node_country.inc
+files[] = node_environmental_and_economical.inc
+files[] = node_nrel_ecleds_indicator.inc
+files[] = node_ecleds_implementing_mechanism.inc
+files[] = node_indicator.inc
+files[] = taxonomy_indicator_category.inc
+files[] = node_nrel_ecleds_milestone.inc
+files[] = taxonomy_nrel_ecleds_milestone_category.inc
+files[] = node_operating_unit.inc
+files[] = node_nrel_ecleds_gcc_results.inc
+files[] = taxonomy_ecleds_bureau_taxonomy.inc
+files[] = field_collection_ecleds_im_funding_pillar.inc

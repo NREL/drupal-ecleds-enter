@@ -1,0 +1,88 @@
+<?php
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * @param $form
+ * @param $form_state
+ * @param $form_id
+ */
+function nrel_ecleds_milestones_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
+  /*
+   * Convert field_nrel_ecleds_milestone_cat_target_id exposed filter to a select element
+   */
+
+  if (isset($form['field_nrel_ecleds_milestone_cat_target_id'])) {
+    if (isset($form['field_nrel_ecleds_milestone_cat_target_id']['#size'])) {
+      unset($form['field_nrel_ecleds_milestone_cat_target_id']['#size']);
+    }
+    $form['field_nrel_ecleds_milestone_cat_target_id']['#type'] = 'select';
+    $form['field_nrel_ecleds_milestone_cat_target_id']['#options'] =
+      array('' => '- Any -') +
+      _field_nrel_ecleds_milestone_cat_target_id_options();
+  }
+  /*
+   * Convert field_target_fiscal_year_value exposed filter to a select element
+   */
+  if (isset($form['field_target_fiscal_year_value'])) {
+    if (isset($form['field_target_fiscal_year_value']['#size'])) {
+      unset($form['field_target_fiscal_year_value']['#size']);
+    }
+    $form['field_target_fiscal_year_value']['#type'] = 'select';
+    $form['field_target_fiscal_year_value']['#options'] =
+      array('' => '- Any -') +
+      _field_target_fiscal_year_value_options();
+  }
+  /*
+   * Convert field_milestone_operating_unit_target_id exposed filter to a select element
+   */
+  if (isset($form['field_milestone_operating_unit_target_id'])) {
+    if (isset($form['field_milestone_operating_unit_target_id']['#size'])) {
+      unset($form['field_milestone_operating_unit_target_id']['#size']);
+    }
+    $form['field_milestone_operating_unit_target_id']['#type'] = 'select';
+    $form['field_milestone_operating_unit_target_id']['#options'] =
+      array('' => '- Any -') +
+      _field_nrel_ecleds_milestone_operating_unit_options();
+  }
+}
+
+/**
+ * Queries taxonomy term data to obtain appropriate references and returns as
+ * array for select options.
+ *
+ * @return array Dropdown options
+ */
+function _field_nrel_ecleds_milestone_cat_target_id_options() {
+  $vid = taxonomy_vocabulary_machine_name_load('nrel_ecleds_milestone_category')->vid;
+  $result = db_query('SELECT t.tid, t.name FROM {taxonomy_term_data} t WHERE t.vid = :vid', array(':vid' => $vid));
+  $options = $result->fetchAllKeyed();
+
+  return $options;
+}
+
+/**
+ * Queries distinct field_target_fiscal_year_value values and returns as
+ * array for select options.
+ *
+ * @return array Dropdown options
+ */
+function _field_target_fiscal_year_value_options() {
+  $result = db_query('SELECT DISTINCT f.field_target_fiscal_year_value FROM {field_data_field_target_fiscal_year} f ORDER BY f.field_target_fiscal_year_value ASC');
+  $options = $result->fetchAllKeyed(0,0);
+
+  return $options;
+}
+
+/**
+ * Queries content data to obtain appropriate references and returns as
+ * array for select options.
+ *
+ * @return array Dropdown options
+ */
+function _field_nrel_ecleds_milestone_operating_unit_options() {
+  $result = db_query('SELECT n.nid, n.title FROM {node} n WHERE type = \'operating_unit\'');
+  $options = $result->fetchAllKeyed();
+
+  return $options;
+}

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ECLEDS Contexts feature.
+ */
+
+include_once 'ecleds_contexts_feature.features.inc';

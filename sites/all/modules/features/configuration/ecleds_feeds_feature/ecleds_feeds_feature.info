@@ -1,0 +1,10 @@
+name = ECLEDS Feeds
+core = 7.x
+package = ECLEDS
+version = 7.x-1.0
+project = ecleds_feeds_feature
+dependencies[] = ctools
+dependencies[] = feeds
+features[ctools][] = feeds:feeds_importer_default:1
+features[features_api][] = api:2
+features[feeds_importer][] = milestones

@@ -1,0 +1,660 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ *
+ * @return array
+ */
+function nrel_ecleds_operating_unit_menu() {
+
+  $items = array();
+
+  $items['node/%node/operating-unit/milestones'] = array(
+    'title' => 'Milestones',
+    'access callback' => '_nrel_ecleds_operating_unit_is_operating_unit',
+    'access arguments' => array(1),
+    'page callback' => 'nrel_ecleds_operating_unit_milestones',
+    'page arguments' => array(1),
+    'weight' => -9,
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  $items['node/%node/operating-unit/implementing-mechanisms'] = array(
+    'title' => 'Implementing Mechanisms',
+    'access callback' => '_nrel_ecleds_operating_unit_is_operating_unit',
+    'access arguments' => array(1),
+    'page callback' => 'nrel_ecleds_operating_unit_implementing_mechanisms',
+    'page arguments' => array(1),
+    'weight' => -8,
+    'type' => MENU_LOCAL_TASK,
+  );
+
+//  $items['node/%node/operating-unit/activities'] = array(
+//    'title' => 'Activities',
+//    'access callback' => '_nrel_ecleds_operating_unit_is_operating_unit',
+//    'access arguments' => array(1),
+//    'page callback' => 'nrel_ecleds_operating_unit_activities',
+//    'page arguments' => array(1),
+//    'weight' => -7,
+//    'type' => MENU_LOCAL_TASK,
+//  );
+
+  $items['node/%node/operating-unit/ppr'] = array(
+    'title' => 'PPR',
+    'access callback' => '_nrel_ecleds_operating_unit_is_operating_unit',
+    'access arguments' => array(1),
+    'page callback' => 'nrel_ecleds_operating_unit_ppr',
+    'page arguments' => array(1),
+    'weight' => -6,
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  return $items;
+
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ *
+ * @param $data
+ * @param $router_item
+ * @param $root_path
+ */
+function nrel_ecleds_operating_unit_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+
+  global $user;
+  $tabs = &$data['tabs'][0]['output'];
+
+  // Haystack arrays for hiding tabs
+  $extra_tabs = array(
+    'nrel_ecleds_operating_unit_milestones',
+    'nrel_ecleds_operating_unit_implementing_mechanisms',
+//    'nrel_ecleds_operating_unit_activities',
+    'nrel_ecleds_operating_unit_ppr'
+  );
+  $node_tabs = array(
+    'node/%/edit',
+    'node/%/display',
+    'node/%/revisions',
+  );
+
+  if (!is_null($tabs)) {
+    foreach ($tabs as $key => $tab) {
+
+      // Hide PPR tab for Mission users.
+      if ($tab['#link']['page_callback'] == 'nrel_ecleds_operating_unit_ppr' &&
+        in_array('mission', $user->roles)
+      ) {
+        unset($tabs[$key]);
+      }
+
+      // On operating unit pages...
+      if (isset($router_item['page_arguments'][0]->type) &&
+        $router_item['page_arguments'][0]->type == 'operating_unit'
+      ) {
+
+        // Instead of "View", this alters tab to read "Operating Unit".
+        if ($tab['#link']['path'] == 'node/%/view') {
+          $tabs[$key]['#link']['title'] = 'Overview';
+        }
+
+        // Hide the node tabs on the extra pages
+        if (in_array($router_item['page_callback'], $extra_tabs) &&
+          in_array($tab['#link']['path'], $node_tabs)
+        ) {
+          unset($tabs[$key]);
+        }
+
+        // Hide the node tabs on the node view page
+        if ($root_path == 'node/%' &&
+          in_array($tab['#link']['path'], $node_tabs)
+        ) {
+          unset($tabs[$key]);
+        }
+
+        // Hide the extra tabs on node pages
+//      if (in_array($root_path, $node_tabs) &&
+//        in_array($tab['#link']['page_callback'], $extra_tabs)
+//      ) {
+//        unset($tabs[$key]);
+//      }
+      }
+    }
+  }
+
+
+  // Content type => operating unit field
+  $operating_unit_fields = array(
+    'nrel_ecleds_milestone' => 'field_milestone_operating_unit',
+    'ecleds_implementing_mechanism' => 'field_activity_operating_unit',
+//    'activity' => 'field_activity_operating_unit',
+    'ppr' => 'field_ppr_operating_unit',
+  );
+
+  /*
+   * Add related tabs to all operating unit sections
+   */
+  if (isset($router_item['page_arguments'][0]->type) &&
+    in_array($router_item['page_arguments'][0]->type, array_keys($operating_unit_fields))
+  ) {
+    $operating_unit_field = $operating_unit_fields[$router_item['page_arguments'][0]->type];
+    $wrapper = entity_metadata_wrapper('node', $router_item['page_arguments'][0]);
+    $operating_unit_nid = $wrapper->{$operating_unit_field}->getIdentifier();
+    if (!empty($operating_unit_nid)) {
+      $operating_unit_url = drupal_get_path_alias('node/' . $operating_unit_nid);
+      nrel_ecleds_breadcrumb($wrapper->{$operating_unit_field}, $operating_unit_url);
+      _nrel_ecleds_operating_unit_tabs($data, $operating_unit_nid, $operating_unit_url);
+    }
+  }
+
+  if (strpos($root_path, 'node/add') === 0 &&
+    is_string($router_item['page_arguments'][0]) &&
+    in_array($router_item['page_arguments'][0], array_keys($operating_unit_fields))) {
+    $params = drupal_get_query_parameters();
+    //$wrapper = entity_metadata_wrapper('node', $router_item['page_arguments'][0]);
+    $operating_unit_nid = $params[$operating_unit_fields[$router_item['page_arguments'][0]]];
+    if (!empty($operating_unit_nid)) {
+      $operating_unit_url = drupal_get_path_alias('node/' . $operating_unit_nid);
+      //nrel_ecleds_breadcrumb($wrapper->{$operating_unit_field}, $operating_unit_url);
+      _nrel_ecleds_operating_unit_tabs($data, $operating_unit_nid, $operating_unit_url);
+    }
+  }
+
+  /*
+   * Add tabs to related field collection pages
+   */
+  $other_pages = array(
+    'field_im_funding_pillar',
+    'field_collection_item_form',
+    'field_collection_item_delete_confirm',
+    'field_impl_mech_gcc_indicator',
+    'field_apg_milestone',
+    'field_activity_indicator',
+    'field_ppr_key_issue'
+  );
+
+  $params = drupal_get_query_parameters();
+  $destination_array = !empty($params['destination']) ? explode('/', $params['destination']) : array();
+  if (in_array($router_item['page_arguments'][0], $other_pages) &&
+    !empty($destination_array) &&
+    $destination_array[2] == 'operating-unit'
+  ) {
+//    $wrapper = entity_metadata_wrapper('node', $router_item['page_arguments'][0]);
+    $operating_unit_nid = $destination_array[1];
+    if (!empty($operating_unit_nid)) {
+      $operating_unit_url = drupal_get_path_alias('node/' . $operating_unit_nid);
+      nrel_ecleds_breadcrumb($wrapper->{$operating_unit_field}, $operating_unit_url);
+      _nrel_ecleds_operating_unit_tabs($data, $operating_unit_nid, $operating_unit_url);
+    }
+  }
+}
+
+function _nrel_ecleds_operating_unit_tabs(&$data, $operating_unit_nid, $operating_unit_url) {
+  global $user;
+
+  if (!is_array($data['tabs'][0]['output'])) {
+    $data['tabs'][0]['output'] = array();
+  }
+
+  $operating_unit_tab = array(
+    '#theme' => 'menu_local_task',
+    '#link' => array(
+      'title' => t('Operating Unit'),
+      'href' => $operating_unit_url,
+      'localized_options' => array(
+        'attributes' => array(
+          'title' => t('Operating Unit'),
+        ),
+      ),
+    ),
+  );
+
+  $milestones_tab = array(
+    '#theme' => 'menu_local_task',
+    '#link' => array(
+      'title' => t('Milestones'),
+      'href' => "node/$operating_unit_nid/operating-unit/milestones",
+      'localized_options' => array(
+        'attributes' => array(
+          'title' => t('Milestones'),
+        ),
+      ),
+    ),
+  );
+
+  $implementing_mechanisms_tab = array(
+    '#theme' => 'menu_local_task',
+    '#link' => array(
+      'title' => t('Implementing Mechanisms'),
+      'href' => "node/$operating_unit_nid/operating-unit/implementing-mechanisms",
+      'localized_options' => array(
+        'attributes' => array(
+          'title' => t('Implementing Mechanisms'),
+        ),
+      ),
+    ),
+  );
+
+//  $activities_tab = array(
+//    '#theme' => 'menu_local_task',
+//    '#link' => array(
+//      'title' => t('Activities'),
+//      'href' => "node/$operating_unit_nid/operating-unit/activities",
+//      'localized_options' => array(
+//        'attributes' => array(
+//          'title' => t('Activities'),
+//        ),
+//      ),
+//    ),
+//  );
+
+  if (!in_array('mission', $user->roles)) {
+    $ppr_tab = array(
+      '#theme' => 'menu_local_task',
+      '#link' => array(
+        'title' => t('PPR'),
+        'href' => "node/$operating_unit_nid/operating-unit/ppr",
+        'localized_options' => array(
+          'attributes' => array(
+            'title' => t('PPR'),
+          ),
+        ),
+      ),
+    );
+
+    array_unshift($data['tabs'][0]['output'], $ppr_tab);
+  }
+//  array_unshift($data['tabs'][0]['output'], $activities_tab);
+  array_unshift($data['tabs'][0]['output'], $implementing_mechanisms_tab);
+  array_unshift($data['tabs'][0]['output'], $milestones_tab);
+  array_unshift($data['tabs'][0]['output'], $operating_unit_tab);
+  $data['tabs'][0]['count'] += 5;
+}
+
+/**
+ * Implements hook_node_view().
+ *
+ * @param $node
+ * @param $view_mode
+ * @param $langcode
+ */
+function nrel_ecleds_operating_unit_node_view($node, $view_mode, $langcode) {
+  /*
+   * If (any of these bundles) && view_mode == full...
+   */
+  $node_types = array(
+    'operating_unit',
+    //'nrel_ecleds_milestone',
+    //'ecleds_implementing_mechanism',
+    //'activity',
+    //'ppr',
+  );
+  if (in_array($node->type, $node_types) && $view_mode == 'full') {
+    // Add an edit button to the bottom right of rendered node.
+    $query = drupal_get_destination();
+    $query['toggle'] = 'node-' . $node->nid;
+    $node->content['edit'] = array(
+      '#weight' => -1,
+      '#type' => 'link',
+      '#title' => t('Edit'),
+      '#href' => 'node/' . $node->nid . '/edit',
+      '#options' => array(
+        'attributes' => array(
+          'class' => array('button', 'button-edit', 'button-test'),
+        ),
+        'query' => $query,
+      ),
+    );
+    
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * @param $form
+ * @param $form_state
+ * @param $form_id
+ */
+function nrel_ecleds_operating_unit_form_activity_node_form_alter(&$form, &$form_state, $form_id) {
+  $form['actions']['submit_add_another'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save and Add New Activity'),
+    '#weight' => 6,
+    '#submit' => array('_nrel_ecleds_add_another_activity_submit'),
+  );
+}
+
+/**
+ * Custom submit callback for Save and Add New Activity submit button
+ *
+ * @param $form
+ * @param $form_state
+ */
+function _nrel_ecleds_add_another_activity_submit(&$form, &$form_state) {
+  $params = drupal_get_query_parameters();
+  $options = array(
+    'query' => $params,
+  );
+  $_GET['destination'] = trim(url('node/add/activity', $options), '/');
+  node_form_submit($form, $form_state);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * @param $form
+ * @param $form_state
+ * @param $form_id
+ */
+function nrel_ecleds_operating_unit_form_ecleds_implementing_mechanism_node_form_alter(&$form, &$form_state, $form_id) {
+  $form['actions']['submit_add_another'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save and Add New Implementing Mechanism'),
+    '#weight' => 6,
+    '#submit' => array('_nrel_ecleds_add_another_ecleds_implementing_mechanism_submit'),
+  );
+  $form['field_im_funding_pillar']['und']['add_more']['#value'] = 'Add another Funding Pillar';
+  $form['field_impl_mech_gcc_indicator'][LANGUAGE_NONE]['add_more']['#value'] = 'Add another GCC Standard Indicator';
+  $form['field_apg_milestone'][LANGUAGE_NONE]['add_more']['#value'] = 'Add another Milestone';
+  $form['field_activities_ent_ref'][LANGUAGE_NONE]['actions']['ief_add']['#value'] = 'Add new Activity';
+  $form['field_activities_ent_ref'][LANGUAGE_NONE]['form']['actions']['ief_add_save']['#value'] = 'Save Activity';
+  $form['field_activities_ent_ref'][LANGUAGE_NONE]['form']['#title'] = 'Add new Activity';
+}
+
+/**
+ * Custom submit callback for Save and Add New Implementing Mechanism submit button
+ *
+ * @param $form
+ * @param $form_state
+ */
+function _nrel_ecleds_add_another_ecleds_implementing_mechanism_submit(&$form, &$form_state) {
+  $params = drupal_get_query_parameters();
+  $options = array(
+    'query' => $params,
+  );
+  $_GET['destination'] = trim(url('node/add/ecleds-implementing-mechanism', $options), '/');
+  node_form_submit($form, $form_state);
+}
+
+/**
+ * Shows Milestones that belong to this Operating Unit.
+ *
+ * @param $node
+ * @return string
+ */
+function nrel_ecleds_operating_unit_milestones($node) {
+
+  drupal_set_title($node->title);
+
+  $options = array(
+    'attributes' => array(
+      'class' => array('button', 'button-add'),
+    ),
+    'query' => drupal_get_destination() +
+      array('field_milestone_operating_unit' => $node->nid)
+  );
+  $create_link = l('Add Milestone', 'node/add/nrel-ecleds-milestone', $options);
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'nrel_ecleds_milestone')
+    ->fieldCondition('field_milestone_operating_unit', 'target_id', $node->nid, '=')
+    ->fieldOrderBy('field_target_fiscal_year', 'value', 'DESC');
+  $result = $query->execute();
+  $nodes = !empty($result['node']) ? node_load_multiple(array_keys($result['node'])) : array();
+
+  // Group nodes by Year.
+  $grouped = array();
+
+  foreach ($nodes as $node) {
+    $wrap = entity_metadata_wrapper('node', $node);
+    $year = $wrap->field_target_fiscal_year->value();
+    $completion_date = sprintf("%'.02d", $wrap->field_completion_month->value()) . '/' . $wrap->field_completion_year->value();
+
+    // group by fiscal year and completion date.
+    $grouped[$year][$completion_date][] = $node;
+  }
+
+  // Render nodes with Year header.
+  $rendered = '';
+  $ordered_nodes = array();
+  // Sort on year desc.
+  krsort($grouped);
+  foreach($grouped as $year => $node_groups) {
+    // Sort on completion date asc.
+    ksort($node_groups);
+    foreach ($node_groups as $node_group) {
+      foreach ($node_group as $node) {
+        $ordered_nodes[] = $node;
+      }
+    }
+    $node_views = !empty($ordered_nodes) ? node_view_multiple($ordered_nodes, 'full') : array();
+    $rendered .= '<h1 class="milestone-group-title">' . $year . '</h1>';
+    $rendered .= drupal_render($node_views);
+  }
+
+  return $rendered . $create_link;
+}
+
+/**
+ * Shows Implementing Mechanisms that belong to this Operating Unit.
+ *
+ * @param $node
+ * @return string
+ */
+function nrel_ecleds_operating_unit_implementing_mechanisms($node) {
+
+  drupal_set_title($node->title);
+
+  $setting = array(
+    'nrel_ecleds_operating_unit' => array(
+      'toggle' => 'node-' . $node->nid,
+    ),
+  );
+  //drupal_add_js($setting, 'setting');
+  //drupal_add_js('jQuery("#node-3210 h2").addClass("toggle-open");',
+    //array('type' => 'inline', 'group' => JS_THEME, 'weight' => 999)
+  //);
+  $options = array(
+    'attributes' => array(
+      'class' => array('button', 'button-add'),
+    ),
+    'query' => drupal_get_destination() +
+      array('field_activity_operating_unit' => $node->nid)
+  );
+  $create_link = l('Add Implementing Mechanism', 'node/add/ecleds-implementing-mechanism', $options);
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'ecleds_implementing_mechanism')
+    ->fieldCondition('field_activity_operating_unit', 'target_id', $node->nid, '=');
+  $result = $query->execute();
+
+  $nodes = array();
+  $nids = array_keys($result['node']);
+  foreach ($nids as $nid) {
+    $nodes[] = node_load($nid);
+  }
+
+  // sort on im number. some mnodes don't have im numbers, so sort those by
+  // title and list them after the nodes with im numbers.create 2 array - one
+  // containing all the nodes with im numbers and one containing all the nodes
+  // without im numbers. Sort the nodes with im numbers on the number, sort the
+  // nodes without numbers on their titles and then concatenate the arrays.
+  $nodes_without_im = $nodes_with_im = array();
+  foreach ($nodes as $node) {
+    if (empty($node->field_im_number['und'][0]['value'])) {
+      $nodes_without_im[] = $node;
+    } else {
+      $nodes_with_im[] = $node;
+    }
+  }
+  usort($nodes_with_im, "_nrel_ecleds_operating_unit_im_number_cmp");
+  usort($nodes_without_im, "_nrel_ecleds_operating_unit_title_cmp");
+  $nodes = array_merge($nodes_with_im, $nodes_without_im);
+  foreach ($nodes as $node) {
+    $rendered_nodes .= drupal_render(node_view($node));
+  }
+
+  return $rendered_nodes . $create_link;
+}
+
+function _nrel_ecleds_operating_unit_im_number_cmp($a, $b) {
+  $cmpa = (!empty($a->field_im_number['und'][0]['value'])) ? $a->field_im_number['und'][0]['value'] : 9999999999;
+  $cmpb = (!empty($b->field_im_number['und'][0]['value'])) ? $b->field_im_number['und'][0]['value'] : 9999999999;
+  return $cmpa - $cmpb;
+}
+
+/*
+ * Do a string comparison of the node_title field on 2 objects.
+ *
+ * @param $a object
+ *   The first object having a field 'node_title'.
+ * @param $b object
+ *   The first object having a field 'node_title'.
+ * @return int
+ *   Returns < 0 if $a->node_title is less than $b->node_title; > 0 if
+ *   $a->node_title is greater than $b->node_title, and 0 if they are equal.
+ */
+function _nrel_ecleds_operating_unit_title_cmp($a, $b) {
+  $cmpa = (!empty($a->title)) ? $a->title : '';
+  $cmpb = (!empty($b->title)) ? $b->title : '';
+  return strcmp($cmpa, $cmpb);
+}
+/**
+ * Shows Activities that belong to this Operating Unit.
+ *
+ * @param $node
+ * @return string
+ */
+function nrel_ecleds_operating_unit_activities($node) {
+
+  drupal_set_title($node->title);
+
+  $options = array(
+    'attributes' => array(
+      'class' => array('button', 'button-add'),
+    ),
+    'query' => drupal_get_destination() +
+      array('field_activity_operating_unit' => $node->nid)
+  );
+  $create_link = l('Add Activity', 'node/add/activity', $options);
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'activity')
+    ->fieldCondition('field_activity_operating_unit', 'target_id', $node->nid, '=');
+  $result = $query->execute();
+  $nodes = !empty($result['node']) ? node_load_multiple(array_keys($result['node'])) : array();
+  $node_views = !empty($nodes) ? node_view_multiple($nodes, 'full') : array();
+  $rendered_nodes = drupal_render($node_views);
+
+  return $rendered_nodes . $create_link;
+}
+
+/**
+ * Shows PPR that belong to this Operating Unit.
+ *
+ * @param $node
+ * @return string
+ */
+function nrel_ecleds_operating_unit_ppr($node) {
+
+  drupal_set_title($node->title);
+
+  $options = array(
+    'attributes' => array(
+      'class' => array('button', 'button-add'),
+    ),
+    'query' => drupal_get_destination() +
+      array('field_ppr_operating_unit' => $node->nid)
+  );
+  $create_link = l('Add PPR', 'node/add/ppr', $options);
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'ppr')
+    ->fieldCondition('field_ppr_operating_unit', 'target_id', $node->nid, '=');
+  $result = $query->execute();
+  $nodes = !empty($result['node']) ? node_load_multiple(array_keys($result['node'])) : array();
+  $node_views = !empty($nodes) ? node_view_multiple($nodes, 'full') : array();
+  $rendered_nodes = drupal_render($node_views);
+
+  return $rendered_nodes . $create_link;
+}
+
+function nrel_ecleds_operating_unit_preprocess_node(&$vars, $hook) {
+  $node_types = array(
+    'operating_unit',
+    'nrel_ecleds_milestone',
+    'ecleds_implementing_mechanism',
+    'activity',
+    'ppr',
+  );
+
+  // Add performance dates into IM accordion trigger area.
+  if ('ecleds_implementing_mechanism' == $vars['type']) {
+    $perf_start_date = $perf_end_date = '';
+    $perf_start_date_array = array();
+    if (!empty($vars['field_impl_mech_perf_start_month'][0]['value'])) {
+      $perf_start_date_array[] = $vars['field_impl_mech_perf_start_month'][0]['value'];
+    }
+    if (!empty($vars['field_impl_mech_perf_start_year'][0]['value'])) {
+      $perf_start_date_array[] = $vars['field_impl_mech_perf_start_year'][0]['value'];
+    }
+    $perf_end_date_array = array();
+    if (!empty($vars['field_impl_mech_perf_end_month'][0]['value'])) {
+      $perf_end_date_array[] = $vars['field_impl_mech_perf_end_month'][0]['value'];
+    }
+    if (!empty($vars['field_impl_mech_perf_end_year'][0]['value'])) {
+      $perf_end_date_array[] = $vars['field_impl_mech_perf_end_year'][0]['value'];
+    }
+    if (count($perf_start_date_array)) {
+      $perf_start_date = '<span class="title-start-date"><span class="label">' . t('Performance Start Date:&nbsp;') . '</span>' . implode('/', $perf_start_date_array) . '</span>';
+    }
+    if (count($perf_end_date_array)) {
+      $perf_end_date = '<span class="title-end-date"><span class="label">' . t('Performance End Date:&nbsp;') . '</span>' . implode('/', $perf_end_date_array). '</span>';
+    }
+    if (strlen($perf_start_date) || strlen($perf_end_date)) {
+      $vars['title_dates'] = '<div class="title-dates">' . $perf_start_date . $perf_end_date . '</div>';
+    }
+  } elseif ('nrel_ecleds_milestone' == $vars['type']) {
+
+
+  // Add completion date into milestones accordion trigger area.
+    $completion_date = '';
+    $completion_date_array = array();
+    if (!empty($vars['field_completion_month'][0]['value'])) {
+      $completion_date_array[] = $vars['field_completion_month'][0]['value'];
+    }
+    if (!empty($vars['field_completion_year'][0]['value'])) {
+      $completion_date_array[] = $vars['field_completion_year'][0]['value'];
+    }
+    if (count($completion_date_array)) {
+      $completion_date = '<span class="title-completion-date"><span class="label">' . t('Completion Date:&nbsp;') . '</span>' . implode('/', $completion_date_array) . '</span>';
+    }
+    if (strlen($completion_date)) {
+      $vars['title_dates'] = '<div class="title-dates">' . $completion_date . '</div>';
+    }
+  }
+
+  if (in_array($vars['type'], $node_types)) {
+    // Add an edit button to the bottom right of rendered node.
+    $query = drupal_get_destination();
+    $vars['edit_button'] = '<div class="edit-button">' . l(t('Edit'), 'node/' . $vars['nid'] . '/edit', array('attributes' => array('class' => array('button', 'button-edit')),'query' => $query)) . '</div>';
+  }
+}
+
+/**
+ * Confirms node is an operating_unit and user has access to content.
+ *
+ * @param $node
+ * @return bool
+ */
+function _nrel_ecleds_operating_unit_is_operating_unit($node) {
+  if (!user_access('access content')) {
+    return FALSE;
+  }
+  return $node->type == 'operating_unit' ? TRUE : FALSE;
+}

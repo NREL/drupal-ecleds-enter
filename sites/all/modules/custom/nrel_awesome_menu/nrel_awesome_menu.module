@@ -1,0 +1,70 @@
+<?php
+function nrel_awesome_menu_menu() {
+  $items['api/countries'] = array(
+    'title' => 'Countries as JSON',
+    'page callback' => 'nrel_awesome_menu_json_countries',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  $items['api/activities'] = array(
+    'title' => 'Countries as JSON',
+    'page callback' => 'nrel_awesome_menu_json_activities',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  $items['api/milestones'] = array(
+    'title' => 'Countries as JSON',
+    'page callback' => 'nrel_awesome_menu_json_milestones',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  $items['api/frameworks'] = array(
+    'title' => 'Countries as JSON',
+    'page callback' => 'nrel_awesome_menu_json_frameworks',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+drupal_add_css(libraries_get_path('jquery-ui-custom') . '/css/ui-lightness/jquery-ui-1.10.4.custom.min.css');
+
+drupal_add_js(drupal_get_path('module', 'nrel_awesome_menu') . '/js/nrel_awesome_menu.js', array(
+  'scope' => 'footer',
+  'group' => JS_THEME,
+  'every_page' => TRUE,
+  'weight' => 3,
+));
+
+drupal_add_js(libraries_get_path('jquery-ui-custom') . '/js/jquery-ui-1.10.4.custom.min.js', array(
+  'scope' => 'footer',
+  'group' => JS_THEME,
+  'every_page' => TRUE,
+  'weight' => 2,
+));
+
+function nrel_awesome_menu_json_countries() {
+  $nodes = node_load_multiple(array(), array('type' => 'country'));
+  drupal_json_output($nodes);
+  drupal_exit();
+}
+
+function nrel_awesome_menu_json_activities() {
+  $nodes = node_load_multiple(array(), array('type' => 'activity'));
+  drupal_json_output($nodes);
+  drupal_exit();
+}
+
+function nrel_awesome_menu_json_milestones() {
+  $terms = taxonomy_get_tree(1);
+  drupal_json_output($terms);
+  drupal_exit();
+}
+
+function nrel_awesome_menu_json_frameworks() {
+  $nodes = node_load_multiple(array(), array('type' => 'nrel_ecleds_ashleys_frarmework'));
+  $nodes += node_load_multiple(array(), array('type' => 'nrel_ecleds_gcc_results'));
+  drupal_json_output($nodes);
+  drupal_exit();
+}
+

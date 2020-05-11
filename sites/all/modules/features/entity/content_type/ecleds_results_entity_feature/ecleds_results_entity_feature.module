@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ECLEDS Results Entity feature.
+ */
+
+include_once 'ecleds_results_entity_feature.features.inc';

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ECLEDS Other USG LEDS-related programs Entity feature.
+ */
+
+include_once 'ecleds_other_usg_leds_related_programs_entity_feature.features.inc';

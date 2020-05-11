@@ -1,0 +1,19 @@
+<?php
+
+
+/**
+ * Include all the fields for the content type.
+ */
+
+include_once 'fields/nrel_leds_plans_institutions_type.leds_strategy_field_collection.inc';
+
+/**
+ * Implements hook_enable.
+ */
+function nrel_leds_plans_institutions_type_enable() {
+
+  // Create the content type.
+  factory_content_type('LEDS Plans, Institutions', 'leds_plans_institutions');
+  nrel_leds_plans_institutions_type_field_collection_leds_strategy();
+}
+

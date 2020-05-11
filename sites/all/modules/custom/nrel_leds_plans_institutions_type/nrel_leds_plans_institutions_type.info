@@ -1,0 +1,6 @@
+name = NREL LEDS Plans, Institutions Content Type
+description = NREL LEDS Plans, Institutions Content Type w/ fields
+core = 7.x
+package = Aten
+
+dependencies[] = factory

@@ -1,0 +1,78 @@
+<?php
+
+/**
+ * Include all the fields for the content type.
+ */
+include_once 'fields/nrel_eco_env_type.other.inc';
+include_once 'fields/nrel_eco_env_type.ipcc.inc';
+
+/**
+ * Implements hook_enable.
+ */
+function nrel_eco_env_type_enable() {
+
+  // Create the content type.
+  factory_create_content_type('Environmental and Economical', 'environmental_and_economical');
+
+	// Set field group settings.
+	$group_settings = array('format_type' => 'fieldset');
+	$format_settings = array('formatter' => 'collapsible');
+
+	// Create numbered fields in field groups.
+	$fields_created = nrel_eco_env_type_create_numbered_text_field(1990, 41, 'field_env_eco_ghg_emissions_', 'GHG Emissions ', 'environmental_and_economical');
+	factory_field_group('GHG Emissions', 'group_ghg_emissions', 'form', 'environmental_and_economical', $fields_created, $group_settings, $format_settings);
+	$fields_created = nrel_eco_env_type_create_numbered_text_field(1990, 41, 'field_env_eco_eco_growth_', 'Economic Growth ', 'environmental_and_economical');
+	factory_field_group('Economic Growth', 'group_economic_growth', 'form', 'environmental_and_economical', $fields_created, $group_settings, $format_settings);
+
+	// Create IPCC fields
+	nrel_eco_env_type_ipcc_energy();
+	nrel_eco_env_type_ipcc_ind();
+	nrel_eco_env_type_ipcc_ag();
+	nrel_eco_env_type_ipcc_waste();
+	nrel_eco_env_type_ipcc_land();
+	nrel_eco_env_type_ipcc_bunker();
+
+	$ipcc_fields = array(
+		'field_env_eco_ipcc_energy',
+		'field_env_eco_ipcc_ind',
+		'field_env_eco_ipcc_ag',
+		'field_env_eco_ipcc_waste',
+		'field_env_eco_ipcc_land',
+		'field_env_eco_ipcc_bunker',
+	);
+	factory_field_group('GHG Emissions by IPCC Sector', 'group_ipcc', 'form', 'environmental_and_economical', $ipcc_fields, $group_settings, $format_settings);
+
+	// Create singular fields.
+  nrel_eco_env_type_field_business_ease();
+  nrel_eco_env_type_field_growth_rate();
+  nrel_eco_env_type_field_energy_intensity();
+  nrel_eco_env_type_field_carbon_intensity();
+  nrel_eco_env_type_field_climatescope();
+  nrel_eco_env_type_field_ghg_rank();
+  nrel_eco_env_type_field_forested();
+
+}
+
+/**
+ * Creates multiple text fields following a number range.
+ */
+function nrel_eco_env_type_create_numbered_text_field($number, $times, $field_name_prefix, $label_prefix, $bundle, $entity_type = 'node') {
+
+  if (!$times) return array();
+
+  $field_name = $field_name_prefix . $number;
+  $label = $label_prefix . $number;
+
+  $new_field = factory_field_settings($field_name);
+  $new_instance = factory_field_instance($label, $field_name, $bundle, $entity_type);
+
+	factory_field($field_name, $new_field, $new_instance, $bundle, $entity_type);
+
+  $number += 1;
+  $times -= 1;
+
+  $fields_created = nrel_eco_env_type_create_numbered_text_field($number, $times, $field_name_prefix, $label_prefix, $bundle, $entity_type);
+  array_unshift($fields_created, $field_name);
+
+  return $fields_created;
+}

@@ -1,0 +1,266 @@
+.menu-name-main-menu li {
+    display: inline-block;
+}
+
+ul .ui-autocomplete {
+    position: absolute;
+}
+
+#branding {
+    overflow: visible;
+}
+
+#branding .tabs {
+    overflow: hidden;
+}
+
+#header div.block {
+    width: auto;
+}
+
+#header div.block a {
+    color: #fff;
+}
+
+#header div.block .ui-autocomplete a {
+    color: #000;
+}
+
+#edit-field-activity-country-und .form-item,
+#edit-field-opearting-unit-country-und .form-item {
+    display: inline-block;
+    width: 30%;
+}
+
+.field-name-field-activity-country .form-checkboxes {
+  overflow:hidden;
+  -webkit-column-count:4;
+  -moz-column-count:4;
+  -o-column-count:4;
+  column-count:4;
+}
+
+.field-name-field-activity-goal-outcome.field-widget-text-textarea {
+  clear: left;
+  padding-top: 20px;
+}
+
+#edit-field-result-indicator-year-und-0-field-result-indicator-und-form-entity-id {
+    width: 90%;
+}
+
+#field-impl-mech-gcc-indicator-values .field-type-number-integer {
+    float: left;
+    margin-right: 2em;
+    width: 150px;
+}
+
+#edit-field-completion-month,
+#edit-field-completion-year,
+#edit-field-field-exp-compl-year,
+#edit-field-expected-completion-month,
+#edit-field-impl-mech-perf-start-month,
+#edit-field-impl-mech-perf-start-year,
+#edit-field-impl-mech-perf-end-month,
+#edit-field-impl-mech-perf-end-year {
+    float: left;
+}
+
+.field-name-field-impl-mech-perf-start-month,
+.field-name-field-impl-mech-perf-start-year,
+.field-name-field-impl-mech-perf-end-month,
+.field-name-field-impl-mech-perf-end-year {
+    display: inline-block;
+}
+
+.node-type-ecleds-implementing-mechanism #edit-title,
+.page-node-add-ecleds-implementing-mechanism #edit-title,
+#edit_field_implementing_mechanism_und_chosen,
+*[id^='edit-field-proj-impl-mechanism-und-form-title'],
+*[id^='edit-field-proj-impl-mechanism-und-form-entity-id'] {
+    width: 98%;
+}
+
+.field_collection_item_operations li {
+    list-style-type: none;
+}
+
+#branding #block-menu-block-1,
+#fixed-branding #block-menu-block-1{
+    width: 350px;
+    text-indent: 1rem;
+}
+
+/**
+ * Branding.
+ */
+#fixed-branding {
+  overflow: hidden;
+  padding: 10px 20px 0 20px;/* LTR */
+  background-color: #333;
+  margin: 4.4em auto auto;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+
+#fixed-branding div.breadcrumb {
+  font-size: 14px;
+  padding-bottom: 5px;
+  color: #888888;
+}
+
+#fixed-branding div.block {
+  position: relative;
+  float: right;/* LTR */
+  width: 240px;
+  padding-left: 10px;/* LTR */
+  background: #333;
+}
+
+#fixed-branding div.block form label {
+  display: none;
+}
+
+#fixed-branding div.block form div.form-item {
+  float: left;/* LTR */
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#fixed-branding div.block form input.form-text {
+  width: 140px;
+  margin-right: 10px;/* LTR */
+}
+
+#fixed-branding div.block form input.form-submit {
+  text-align: center;
+  width: 80px;
+}
+
+#fixed-branding h1.page-title {
+  color: #FFFFFF;
+  float: left;
+  font-family: "Open Sans", "Segoe UI", "Helvetica", sans-serif;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 38px;
+  margin: 0;
+  padding: 0 0 12px;
+}
+
+body.adminimal-theme #media-browser-page #fixed-branding {
+  background: #ddd;
+  margin: 0;
+  padding: 0;
+}
+
+.top-fixed-area {
+  width: 1000%;
+  height: 60px;
+  margin: auto;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  /*background-color:#fff;*/
+}
+
+/* Overlay theming */
+.overlay #fixed-branding {
+  background-color: #fff;
+  padding-top: 15px;
+}
+
+.overlay #fixed-branding h1.page-title,.overlay #left,.overlay #footer {
+  display: none;
+}
+
+.overlay #fixed-branding div.breadcrumb {
+  float: left;/* LTR */
+  position: relative;
+  z-index: 10;
+}
+
+.filter-wrapper {
+  display: none;
+}
+
+.group-completion-date,
+.group-expected-completion-date {
+  width: 24em;
+}
+
+.field-name-field-impl-mech-perf-start-month,
+.field-name-field-impl-mech-perf-start-year,
+.field-name-field-impl-mech-perf-end-month,
+.field-name-field-impl-mech-perf-end-year, 
+.field-name-field-completion-month,
+.field-name-field-completion-year, 
+.field-name-field-expected-completion-month,
+.field-name-field-field-exp-compl-year {
+  float:left;
+}
+
+.field-name-field-impl-mech-perf-end-month,
+.field-name-field-expected-completion-month,
+.field-name-field-field-exp-compl-year.no-expected-completion-month {
+  margin-left: 40px;
+}
+
+.field-name-field-expected-completion-month.no-completion-date,
+.field-name-field-field-exp-compl-year.no-expected-completion-month.no-completion-date {
+  margin-left: 0px;
+}
+
+.node-ecleds-implementing-mechanism .field-collection-container,
+.field-name-field-im-funding-pillar {
+  clear: both;
+}
+
+.node-ecleds-implementing-mechanism h2 .title-dates,
+.node-nrel-ecleds-milestone h2 .title-dates {
+  font-size: 0.8em;
+  margin-top:3px;
+  margin-left: 30px;
+}
+
+.node-ecleds-implementing-mechanism h2 .title-dates .title-start-date {
+  margin-right: 40px;
+}
+
+.node-ecleds-implementing-mechanism h2 .title-dates .label,
+.node-nrel-ecleds-milestone h2 .title-dates .label {
+  font-weight: bold;
+}
+
+#environmental-and-economical-node-form .field {
+  margin-bottom: 1.5em;
+}
+
+.node-ecleds-implementing-mechanism,
+.node-ppr,
+.node-nrel-ecleds-milestone {
+  position: relative;
+}
+
+.node-ecleds-implementing-mechanism .edit-button,
+.node-ppr .edit-button,
+.node-nrel-ecleds-milestone  .edit-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.node-ecleds-implementing-mechanism .edit-button .button-edit,
+.node-ppr .edit-button .button-edit,
+.node-operating-unit a.button.button-edit,
+.node-nrel-ecleds-milestone .edit-button .button-edit {
+  background-color: #0074BD;
+  color: white;
+}
+
+.field-collection-view {
+  padding: 0em 0 0.3em 0;
+}

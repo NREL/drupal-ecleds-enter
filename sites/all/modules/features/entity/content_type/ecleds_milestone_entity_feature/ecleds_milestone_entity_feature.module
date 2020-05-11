@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ECLEDS Milestone Entity feature.
+ */
+
+include_once 'ecleds_milestone_entity_feature.features.inc';

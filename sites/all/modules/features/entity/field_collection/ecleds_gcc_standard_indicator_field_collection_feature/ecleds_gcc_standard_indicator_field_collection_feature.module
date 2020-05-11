@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ECLEDS GCC Standard Indicator Field Collection feature.
+ */
+
+include_once 'ecleds_gcc_standard_indicator_field_collection_feature.features.inc';

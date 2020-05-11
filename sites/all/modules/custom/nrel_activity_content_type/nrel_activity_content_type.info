@@ -1,0 +1,4 @@
+name = NREL Activity Content Type
+description = Custom edits to the Activity Content Type.
+core = 7.x
+package = Aten

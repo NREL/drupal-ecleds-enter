@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ECLEDS Area of Cooperation Entity feature.
+ */
+
+include_once 'ecleds_area_of_cooperation_entity_feature.features.inc';

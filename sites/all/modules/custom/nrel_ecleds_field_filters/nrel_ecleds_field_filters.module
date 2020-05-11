@@ -1,0 +1,130 @@
+<?php
+
+/**
+ * Implements hook_form_alter().
+ */
+function nrel_ecleds_field_filters_form_alter(&$form, $form_state, $form_id) {
+
+  if ($form_id !== 'activity_node_form' && $form_id !== 'ecleds_implementing_mechanism_node_form') {
+    return;
+  }
+
+  nrel_ecleds_field_filters_country_by_ou();
+  nrel_ecleds_field_filters_im_by_ou();
+  nrel_ecleds_field_filters_milestone_by_ou();
+
+  drupal_add_js(
+    drupal_get_path('module', 'nrel_ecleds_field_filters')
+      . '/js/nrel_ecleds_field_filters.js'
+  );
+
+}
+
+/**
+ * Settings info in Drupal.settings for filtering country by OU.
+ */
+function nrel_ecleds_field_filters_country_by_ou() {
+
+// Gather all OUs and their Countries.
+  $query = db_select('node', 'ou');
+  $query->leftJoin('field_data_field_opearting_unit_country', 'ouc',
+    'ouc.revision_id = ou.vid'
+  );
+  $query->leftJoin('node', 'c',
+    'ouc.field_opearting_unit_country_target_id = c.nid'
+  );
+  $query->condition('ou.type', 'operating_unit');
+  $query->fields('c', array('title'));
+  $query->fields('ou', array('title'));
+
+  $ou_and_milestones = iterator_to_array($query->execute());
+
+  $result = $query->execute();
+  $ou_to_country = array();
+
+  foreach ($result as $record) {
+
+    if ($record->ou_title != '') {
+      if (!isset($ou_to_country[$record->ou_title])) {
+        $ou_to_country[$record->ou_title] = array();
+      }
+      $ou_to_country[$record->ou_title][] = $record->title;
+    }
+
+  }
+
+  drupal_add_js(array('nrelEcledsFieldFiltersOUCountry' => $ou_to_country), 'setting');
+
+}
+
+/**
+ * Settings info in Drupal.settings for filtering IM by OU.
+ */
+function nrel_ecleds_field_filters_im_by_ou() {
+
+  // Gather all OUs and their IMs.
+  $query = db_select('node', 'n');
+  $query->leftJoin('field_data_field_activity_operating_unit', 'ouid',
+    'ouid.revision_id = n.vid'
+  );
+  $query->leftJoin('node', 'ou',
+    'ouid.field_activity_operating_unit_target_id = ou.nid'
+  );
+  $query->condition('n.type', 'ecleds_implementing_mechanism');
+  $query->fields('n', array('title'));
+  $query->fields('ou', array('title'));
+
+  $result = $query->execute();
+  $ou_to_im = array();
+
+  foreach ($result as $record) {
+
+    if ($record->ou_title != '') {
+      if (!isset($ou_to_im[$record->ou_title])) {
+        $ou_to_im[$record->ou_title] = array();
+      }
+      $ou_to_im[$record->ou_title][] = $record->title;
+    }
+
+  }
+
+  drupal_add_js(array('nrelEcledsFieldFiltersOUIM' => $ou_to_im), 'setting');
+
+}
+
+/**
+ * Settings info in Drupal.settings for filtering milestone by OU.
+ */
+function nrel_ecleds_field_filters_milestone_by_ou() {
+
+// Gather all OUs and their Milestones.
+  $query = db_select('node', 'n');
+  $query->leftJoin('field_data_field_milestone_operating_unit', 'ouid',
+    'ouid.revision_id = n.vid'
+  );
+  $query->leftJoin('node', 'ou',
+    'ouid.field_milestone_operating_unit_target_id = ou.nid'
+  );
+  $query->condition('n.type', 'nrel_ecleds_milestone');
+  $query->fields('n', array('title'));
+  $query->fields('ou', array('title'));
+
+  $ou_and_milestones = iterator_to_array($query->execute());
+
+  $result = $query->execute();
+  $ou_to_milestone = array();
+
+  foreach ($result as $record) {
+
+    if ($record->ou_title != '') {
+      if (!isset($ou_to_milestone[$record->ou_title])) {
+        $ou_to_milestone[$record->ou_title] = array();
+      }
+      $ou_to_milestone[$record->ou_title][] = $record->title;
+    }
+
+  }
+
+  drupal_add_js(array('nrelEcledsFieldFiltersOUMilestone' => $ou_to_milestone), 'setting');
+
+}

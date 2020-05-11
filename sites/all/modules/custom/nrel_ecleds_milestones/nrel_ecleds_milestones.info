@@ -1,0 +1,5 @@
+name = NREL ECLEDS Milestones
+description = Custom functionality for milestones.
+core = 7.x
+package = Aten
+

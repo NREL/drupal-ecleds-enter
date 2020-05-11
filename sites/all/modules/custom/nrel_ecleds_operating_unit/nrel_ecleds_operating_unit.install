@@ -1,0 +1,23 @@
+<?php
+/**
+ * @file
+ * User: tommy
+ * Date: 5/14/15
+ * Time: 11:24 AM
+ */
+
+function nrel_ecleds_operating_unit_update_7001() {
+  $query = new EntityFieldQuery();
+  $results = $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'activity')
+    ->execute();
+
+  foreach ($results['node'] as $activity_nid => $metadata) {
+    $activity_wrapper = entity_metadata_wrapper('node', $activity_nid);
+    if ($implementing_mechanism = $activity_wrapper->field_implementing_mechanism->value()) {
+      $implementing_mechanism_wrapper = entity_metadata_wrapper('node', $implementing_mechanism->nid);
+      $implementing_mechanism_wrapper->field_activities_ent_ref[] = $activity_wrapper->value();
+      $implementing_mechanism_wrapper->save();
+    }
+  }
+}

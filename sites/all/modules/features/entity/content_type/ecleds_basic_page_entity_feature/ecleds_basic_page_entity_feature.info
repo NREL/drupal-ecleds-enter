@@ -1,0 +1,14 @@
+name = ECLEDS Basic Page Entity
+core = 7.x
+package = ECLEDS
+version = 7.x-1.0
+project = ecleds_basic_page_entity_feature
+dependencies[] = ecleds_strongarm
+dependencies[] = features
+dependencies[] = text
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[field_base][] = comment_body
+features[field_instance][] = node-page-body
+features[node][] = page
+features_exclude[dependencies][ecleds_area_of_cooperation_entity_feature] = ecleds_area_of_cooperation_entity_feature

@@ -1,0 +1,6 @@
+name = NREL ECLEDS Operating Unit
+description = Custom functionality to update items by Operating Unit.
+core = 7.x
+package = Aten
+
+dependencies[] = node

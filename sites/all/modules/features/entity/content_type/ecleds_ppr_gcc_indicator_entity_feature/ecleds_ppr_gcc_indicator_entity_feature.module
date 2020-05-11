@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ECLEDS PPR GCC Indicator Entity feature.
+ */
+
+include_once 'ecleds_ppr_gcc_indicator_entity_feature.features.inc';

@@ -1,0 +1,103 @@
+<?php
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * @param $form
+ * @param $form_state
+ * @param $form_id
+ */
+function nrel_ecleds_indicators_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
+  /*
+   * Convert Operating Unit exposed filter to a select element.
+   */
+  if ($form['#action'] == '/reports/indicator') {
+    if (isset($form['field_activity_operating_unit_target_id'])) {
+      if (isset($form['field_activity_operating_unit_target_id']['#size'])) {
+        unset($form['field_activity_operating_unit_target_id']['#size']);
+      }
+      $form['field_activity_operating_unit_target_id']['#type'] = 'select';
+      $form['field_activity_operating_unit_target_id']['#options'] =
+        array('' => '- Any -') +
+        operating_unit_options();
+    }
+    /*
+     * Convert Implementing Mechanism exposed filter to a select element.
+     */
+    if (isset($form['nid'])) {
+      if (isset($form['nid']['#size'])) {
+        unset($form['nid']['#size']);
+      }
+      $form['nid']['#type'] = 'select';
+      $form['nid']['#options'] =
+        array('' => '- Any -') +
+        implementing_mechanism_options();
+    }
+    /*
+     * Convert Indicator exposed filter to a select element.
+     */
+    if (isset($form['nid_1'])) {
+      if (isset($form['nid_1']['#size'])) {
+        unset($form['nid_1']['#size']);
+      }
+      $form['nid_1']['#type'] = 'select';
+      $form['nid_1']['#options'] =
+        array('' => '- Any -') +
+        indicator_options();
+    }
+  }
+}
+
+/**
+ * Queries node data to obtain appropriate references and returns as
+ * array for Operating Unit select options.
+ *
+ * @return array Dropdown options
+ */
+function operating_unit_options() {
+  $result = db_query('SELECT n.nid, n.title FROM {node} n WHERE n.type = :type', array(':type' => 'operating_unit'));
+  $options = $result->fetchAllKeyed();
+
+  return $options;
+}
+
+/**
+ * Queries node data to obtain appropriate references and returns as
+ * array for Implementing Mechanism select options.
+ *
+ * @return array Dropdown options
+ */
+function implementing_mechanism_options() {
+  $result = db_query('SELECT n.nid, n.title FROM {node} n WHERE n.type = :type', array(':type' => 'ecleds_implementing_mechanism'));
+  $options = $result->fetchAllKeyed();
+
+  return $options;
+}
+
+/**
+ * Queries node data to obtain appropriate references and returns as
+ * array for Indicator select options.
+ * @return array Dropdown options
+ */
+function indicator_options() {
+
+  $query = new EntityFieldQuery();
+  $result = $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'indicator')
+    ->fieldCondition('field_indicator_type', 'value', 'gcc', '=')
+    ->propertyOrderBy('title')
+    ->execute();
+
+  $indicators = array();
+  if (isset($result['node'])) {
+    $indicator_nids = array_keys($result['node']);
+    $indicators = entity_load('node', $indicator_nids);
+  }
+
+  $options = array();
+  foreach ($indicators as $indicator_nid => $indicator) {
+    $options[$indicator_nid] = $indicator->title;
+  }
+
+  return $options;
+}
